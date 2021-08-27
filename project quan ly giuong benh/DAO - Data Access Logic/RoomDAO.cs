@@ -85,5 +85,20 @@ namespace project_quan_ly_giuong_benh.DAO___Data_Access_Logic
             Room room = new Room(data.Rows[0]);
             return room;
         }
+
+        public void InsertRoom(string name, int idTang, int max, int status)
+        {
+            DataProvider.Instance.ExecuteNonQuery("EXEC dbo.USP_InsertRoom @ten , @idTang , @gioiHan , @trangThai", new object[] { name, idTang, max, status });
+        }
+
+        public void UpdateRoomInfo(int id, string name, int idTang, int max, int status)
+        {
+            DataProvider.Instance.ExecuteNonQuery("EXEC dbo.USP_UpdateRoomInfo @id , @ten , @idTang , @gioiHan, @trangThai ", new object[] { id, name, idTang, max, status });
+        }
+
+        public void DeleteRoom(int id)
+        {
+            DataProvider.Instance.ExecuteNonQuery("DELETE FROM dbo.Phong WHERE id = " + id);
+        }
     }
 }

@@ -38,5 +38,16 @@ namespace project_quan_ly_giuong_benh.DAO___Data_Access_Logic
 
             return floorList;
         }
+
+        public Floor GetFloorById(int id)
+        {
+            DataTable data = DataProvider.Instance.ExecuteQuery("SELECT * FROM dbo.Tang WHERE id = " + id);
+            Floor floor = null;
+            foreach (DataRow item in data.Rows)
+            {
+                floor = new Floor(item);
+            }
+            return floor;
+        }
     }
 }

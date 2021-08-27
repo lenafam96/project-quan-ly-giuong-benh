@@ -44,13 +44,13 @@ namespace project_quan_ly_giuong_benh
             this.btnTatCa = new System.Windows.Forms.Button();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.chkThuong = new System.Windows.Forms.CheckBox();
-            this.txbTenPhong = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.maxMember = new System.Windows.Forms.NumericUpDown();
             this.chkCapCuu = new System.Windows.Forms.CheckBox();
             this.chkSuaChua = new System.Windows.Forms.CheckBox();
             this.label1 = new System.Windows.Forms.Label();
+            this.txbTenPhong = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.cboTang = new System.Windows.Forms.ComboBox();
             this.panel2.SuspendLayout();
@@ -78,6 +78,8 @@ namespace project_quan_ly_giuong_benh
             this.dtgvRoom.Name = "dtgvRoom";
             this.dtgvRoom.Size = new System.Drawing.Size(480, 339);
             this.dtgvRoom.TabIndex = 0;
+            this.dtgvRoom.ColumnHeaderMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dtgvRoom_ColumnHeaderMouseClick);
+            this.dtgvRoom.RowHeaderMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dtgvRoom_RowHeaderMouseClick);
             // 
             // panel1
             // 
@@ -97,6 +99,7 @@ namespace project_quan_ly_giuong_benh
             this.btnDelRoom.TabIndex = 0;
             this.btnDelRoom.Text = "Xoá phòng";
             this.btnDelRoom.UseVisualStyleBackColor = true;
+            this.btnDelRoom.Click += new System.EventHandler(this.btnDelRoom_Click);
             // 
             // btnEditRoom
             // 
@@ -106,6 +109,7 @@ namespace project_quan_ly_giuong_benh
             this.btnEditRoom.TabIndex = 0;
             this.btnEditRoom.Text = "Sửa phòng";
             this.btnEditRoom.UseVisualStyleBackColor = true;
+            this.btnEditRoom.Click += new System.EventHandler(this.btnEditRoom_Click);
             // 
             // btnAddRoom
             // 
@@ -148,7 +152,7 @@ namespace project_quan_ly_giuong_benh
             this.button1.TabIndex = 0;
             this.button1.Text = "Phòng đang sửa";
             this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.btnPhongCapCuu_Click);
+            this.button1.Click += new System.EventHandler(this.btnDangSua_Click);
             // 
             // btnPhongCapCuu
             // 
@@ -229,17 +233,6 @@ namespace project_quan_ly_giuong_benh
             this.chkThuong.UseVisualStyleBackColor = true;
             this.chkThuong.CheckedChanged += new System.EventHandler(this.chkThuong_CheckedChanged);
             // 
-            // txbTenPhong
-            // 
-            this.txbTenPhong.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.txbTenPhong.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txbTenPhong.Location = new System.Drawing.Point(131, 3);
-            this.txbTenPhong.Name = "txbTenPhong";
-            this.txbTenPhong.Size = new System.Drawing.Size(130, 29);
-            this.txbTenPhong.TabIndex = 4;
-            // 
             // label2
             // 
             this.label2.AutoSize = true;
@@ -318,6 +311,17 @@ namespace project_quan_ly_giuong_benh
             this.label1.TabIndex = 1;
             this.label1.Text = "Tên phòng:";
             // 
+            // txbTenPhong
+            // 
+            this.txbTenPhong.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.txbTenPhong.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txbTenPhong.Location = new System.Drawing.Point(131, 3);
+            this.txbTenPhong.Name = "txbTenPhong";
+            this.txbTenPhong.Size = new System.Drawing.Size(130, 29);
+            this.txbTenPhong.TabIndex = 4;
+            // 
             // label4
             // 
             this.label4.AutoSize = true;
@@ -336,6 +340,7 @@ namespace project_quan_ly_giuong_benh
             this.cboTang.Name = "cboTang";
             this.cboTang.Size = new System.Drawing.Size(130, 30);
             this.cboTang.TabIndex = 15;
+            this.cboTang.SelectedIndexChanged += new System.EventHandler(this.cboTang_SelectedIndexChanged);
             // 
             // fQuanLyPhong
             // 

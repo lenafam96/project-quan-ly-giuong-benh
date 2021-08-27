@@ -40,8 +40,6 @@ namespace project_quan_ly_giuong_benh
         {
             flpRoom.Controls.Clear();
             List<Room> roomList = RoomDAO.Instance.GetListRoomByIdFloor(id);
-            cboPhong.DataSource = roomList;
-            cboPhong.DisplayMember = "Name";
             foreach (Room item in roomList)
             {
                 Button btn = new Button() { Width = RoomDAO.RoomWidth, Height = RoomDAO.RoomHeight };
@@ -95,7 +93,6 @@ namespace project_quan_ly_giuong_benh
         {
             Floor floor = (sender as Button).Tag as Floor;
             LoadRoom(floor.ID);
-            cboTang.Text = floor.Name;
         }
 
         void btnRoom_Click(object sender, EventArgs e)
@@ -109,7 +106,6 @@ namespace project_quan_ly_giuong_benh
             else
                 RoomDAO.Instance.UpdateStatusRoom(0, roomID);
             LoadRoom(room.IDTang);
-            cboPhong.Text = room.Name;
         }
 
         private void đăngXuấtToolStripMenuItem_Click(object sender, EventArgs e)
