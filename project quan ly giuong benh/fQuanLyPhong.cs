@@ -14,67 +14,50 @@ namespace project_quan_ly_giuong_benh
 {
     public partial class fQuanLyPhong : Form
     {
-        bool sortAscending = false;
+        BindingSource listRoom = new BindingSource();
         public fQuanLyPhong()
         {
             InitializeComponent();
+            Load1();
+            
+        }
+
+        void Load1()
+        {
+            dtgvRoom.DataSource = listRoom;
             LoadRoomList();
+            LoadcboTang();
+            AddRoomBinding();
+        }
+
+        void LoadcboTang()
+        {
             List<Floor> floorList = FloorDAO.Instance.LoadFloorList();
             cboTang.DataSource = floorList;
             cboTang.DisplayMember = "Name";
         }
-
-        List<Room> GetSelectedRoom()
-        {
-            var count = dtgvRoom.SelectedRows.Count;
-            List<Room> listRoom = new List<Room>();
-            List<int> listIndex = new List<int>();
-            for (int i = 0; i < count; i++)
-            {
-                int index = (int)dtgvRoom[0, dtgvRoom.SelectedRows[i].Index].Value;
-                listIndex.Add(index);
-            }
-            if(listIndex.Count > 0)
-                foreach (int index in listIndex)
-                {
-                    Room room = RoomDAO.Instance.GetRoomById(index);
-                    listRoom.Add(room);
-                }
-            return listRoom;
-        }
-
         void LoadRoomList()
         {
-            List<Room> listRoom = RoomDAO.Instance.GetRoomList();
-            dtgvRoom.DataSource = listRoom;
-            foreach(DataGridViewColumn item in dtgvRoom.Columns)
-            {
-                item.SortMode = DataGridViewColumnSortMode.Automatic;
-            }
-            dtgvRoom.Tag = listRoom;
+            List<Room> list = RoomDAO.Instance.GetRoomList();
+            if (list.Count <= 0)
+                list.Add(new Room(0, "NaN", 1, 0, 0, "NaN"));
+            listRoom.DataSource = list;
             RoomDisplayFormat();
         }
 
         void LoadRoomByStatus(int status)
         {
-            List<Room> listRoom = RoomDAO.Instance.GetRoomListByStatus(status);
-            dtgvRoom.DataSource = listRoom;
+            List<Room> list = RoomDAO.Instance.GetRoomListByStatus(status);
+            if (list.Count <= 0)
+                list.Add(new Room(0, "NaN", 1, 0, 0, "NaN"));
+            listRoom.DataSource = list;
             RoomDisplayFormat();
         }
 
-        void LoadRoomFormEdit()
+        void AddRoomBinding()
         {
-            List<Room> listRoom = GetSelectedRoom();
-            if (listRoom.Count == 1)
-            {
-                Room room = listRoom[0];
-                txbTenPhong.Text = room.Name;
-                Floor floor = FloorDAO.Instance.GetFloorById(room.IDTang);
-                cboTang.Text = floor.Name;
-                chkThuong.Checked = chkCapCuu.Checked == chkSuaChua.Checked ? true : false;
-                chkCapCuu.Checked = room.Status == "Cấp cứu" ? true : false;
-                chkSuaChua.Checked = room.Status == "Hỏng" ? true : false;
-            }
+            txbTenPhong.DataBindings.Add(new Binding("Text", dtgvRoom.DataSource, "Name", true, DataSourceUpdateMode.Never));
+            maxMember.DataBindings.Add(new Binding("Value", dtgvRoom.DataSource, "Maximum", true, DataSourceUpdateMode.Never));
         }
 
         void RoomDisplayFormat()
@@ -138,35 +121,24 @@ namespace project_quan_ly_giuong_benh
 
         private void btnAddRoom_Click(object sender, EventArgs e)
         {
-            List<Room> listRoom = GetSelectedRoom();
-            if(listRoom.Count > 0)
-            {
-                MessageBox.Show("Kiểm tra lại thông tin!", "Chú ý", MessageBoxButtons.OK, MessageBoxIcon.Question);
-                txbTenPhong.Clear();
-                cboTang.Text = "";
-                chkThuong.Checked = true;
-                chkThuong.Checked = false;
-                txbTenPhong.Focus();
-                LoadRoomList();
-            }
-            else
-            {
-                string ten = txbTenPhong.Text;
-                int status = 0;
-                int max = (int)maxMember.Value;
-                if (chkCapCuu.Checked) status = 3;
-                else if (chkSuaChua.Checked) status = 4;
-                Floor floor = cboTang.Tag as Floor;
-                if (ten != "")
-                    RoomDAO.Instance.InsertRoom(ten, floor.ID, max, status);
+            string ten = txbTenPhong.Text;
+            int status = 0;
+            int max = (int)maxMember.Value;
+            if (chkCapCuu.Checked) status = 3;
+            else if (chkSuaChua.Checked) status = 4;
+            Floor floor = cboTang.Tag as Floor;
+            if (ten != "")
+                if(RoomDAO.Instance.InsertRoom(ten, floor.ID, max, status))
+                    MessageBox.Show("Tạo phòng thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 else
+                    MessageBox.Show("Tạo phòng thất bại!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+            else
                 {
-                    MessageBox.Show("Bạn chưa nhập tên phòng!!!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                    txbTenPhong.Focus();
-                }
-                LoadRoomList();
-                txbTenPhong.Clear();
-            }    
+                MessageBox.Show("Bạn chưa nhập tên phòng!!!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                txbTenPhong.Focus();
+            }
+            LoadRoomList();
         }
 
         private void cboTang_SelectedIndexChanged(object sender, EventArgs e)
@@ -181,87 +153,70 @@ namespace project_quan_ly_giuong_benh
 
         private void btnEditRoom_Click(object sender, EventArgs e)
         {
-            List<Room> listRoom = GetSelectedRoom();
-            if(listRoom.Count == 1)
-            {
-                //Load date cũ
-                Room room = listRoom[0];
-                txbTenPhong.Text = room.Name;
-                Floor floor = FloorDAO.Instance.GetFloorById(room.IDTang);
-                cboTang.Text = floor.Name;
-                chkThuong.Checked = room.Status == "Trống" || room.Status == "Đầy" || room.Status == "Sắp khỏi hết" ? true : false;
-                chkCapCuu.Checked = room.Status == "Cấp cứu" ? true : false;
-                chkSuaChua.Checked = room.Status == "Hỏng" ? true : false;
 
-                //Update thông tin mới
-                Floor floorNew = cboTang.Tag as Floor;
-                int status = 0;
-                if (room.Status == "Sắp khỏi hết")
-                    status = 2;
-                if (chkCapCuu.Checked == true)
-                    status = 3;
-                if (chkSuaChua.Checked == true)
-                    status = 4;
-                //push to database
-                if (txbTenPhong.Text != "")
-                    //RoomDAO.Instance.UpdateRoomInfo(room.ID, txbTenPhong.Text, floorNew.ID, (int)maxMember.Value, status);
-                    MessageBox.Show(status.ToString());
+            //Load date cũ
+            int id = (int)dtgvRoom.SelectedCells[0].OwningRow.Cells["ID"].Value;
+            int member = (int)dtgvRoom.SelectedCells[0].OwningRow.Cells["Member"].Value;
+            string statusText = dtgvRoom.SelectedCells[0].OwningRow.Cells["Status"].Value.ToString();
+            //Update thông tin mới
+            Floor floorNew = cboTang.Tag as Floor;
+            int status = 0;
+            if (statusText == "Sắp khỏi hết")
+                status = 2;
+            if (chkCapCuu.Checked == true)
+                status = 3;
+            if (chkSuaChua.Checked == true)
+                status = 4;
+            //push to database
+            if (txbTenPhong.Text != "")
+                if (status == 4 && member > 0)
+                    MessageBox.Show("Chưa chuyển hết bệnh nhân đi!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 else
+                    if (RoomDAO.Instance.UpdateRoomInfo(id, txbTenPhong.Text, floorNew.ID, (int)maxMember.Value, status))
+                            MessageBox.Show("Cập nhật thông tin thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    else
+                        MessageBox.Show("Cập nhật thông tin thất bại!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            else
                 {
                     MessageBox.Show("Bạn chưa nhập tên phòng!!!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     txbTenPhong.Focus();
                 }
-                LoadRoomList();
-                txbTenPhong.Clear();
-                cboTang.Text = "";
-            }
+            LoadRoomList();
         }
 
-        private void dtgvRoom_RowHeaderMouseClick(object sender, DataGridViewCellMouseEventArgs e)
-        {
-            LoadRoomFormEdit();
-        }
 
         private void btnDelRoom_Click(object sender, EventArgs e)
         {
-            List<Room> listRoom = GetSelectedRoom();
-            if(listRoom.Count>0)
-                if (MessageBox.Show("Xác nhận xoá phòng?", "Thông báo", MessageBoxButtons.OKCancel, MessageBoxIcon.Question) == System.Windows.Forms.DialogResult.OK)
-                    foreach (Room item in listRoom)
+            List<Room> listRoom = new List<Room>();
+            foreach(DataGridViewCell item in dtgvRoom.SelectedCells)
+            {
+                listRoom.Add(RoomDAO.Instance.GetRoomById((int)item.OwningRow.Cells[0].Value));
+            }
+            if (MessageBox.Show("Xác nhận xoá phòng?", "Thông báo", MessageBoxButtons.OKCancel, MessageBoxIcon.Question) == System.Windows.Forms.DialogResult.OK)
+                foreach (Room item in listRoom)
+                {
+                    if (item.Member != 0)
+                        MessageBox.Show("Phòng " + item.Name + " đang có người, không thể xoá!!!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    else
                     {
-                        if (item.Member != 0)
-                            MessageBox.Show("Phòng đang có người, không thể xoá!!!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                        else
-                        {
-                            RoomDAO.Instance.DeleteRoom(item.ID);
-                        }
-                        LoadRoomList();
+                        RoomDAO.Instance.DeleteRoom(item.ID);
                     }
+                    LoadRoomList();
+                }
         }
 
-        private void dtgvRoom_ColumnHeaderMouseClick(object sender, DataGridViewCellMouseEventArgs e)
+        private void txbTenPhong_TextChanged(object sender, EventArgs e)
         {
-            int index = e.ColumnIndex;
-            List<Room> listRoom = dtgvRoom.Tag as List<Room>;
-            List<Room> newList = new List<Room>();
-            switch (index)
-            {
-                case 1:
-                    newList = listRoom.OrderBy(x => x.Name).ToList();
-                    break;
-                case 2:
-                    newList = listRoom.OrderBy(x => x.Member).ToList();
-                    break;
-                case 3:
-                    newList = listRoom.OrderBy(x => x.Maximum).ToList();
-                    break;
-                case 4:
-                    newList = listRoom.OrderBy(x => x.Status).ToList();
-                    break;
-            }
-                
-
-            dtgvRoom.DataSource = newList;
+            int id = (int)dtgvRoom.SelectedCells[0].OwningRow.Cells["IDTang"].Value;
+            Floor floor = FloorDAO.Instance.GetFloorById(id);
+            cboTang.Text = floor.Name;
+            string status = dtgvRoom.SelectedCells[0].OwningRow.Cells["Status"].Value.ToString();
+            if (status == "Cấp cứu")
+                chkCapCuu.Checked = true;
+            else if (status == "Hỏng")
+                chkSuaChua.Checked = true;
+            else
+                chkThuong.Checked = true;
         }
     }
 }

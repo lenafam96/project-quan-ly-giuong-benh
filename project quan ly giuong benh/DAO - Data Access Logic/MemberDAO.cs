@@ -87,5 +87,19 @@ namespace project_quan_ly_giuong_benh.DAO___Data_Access_Logic
             return member;
         }
 
+        public List<Member> SreachMemberByName(string name, int status)
+        {
+            string query = "EXEC dbo.USP_SreachMemberByName @name , @trangthai ";
+
+            DataTable data = DataProvider.Instance.ExecuteQuery(query, new object[] { name, status});
+
+            List<Member> listMember = new List<Member>();
+            foreach (DataRow item in data.Rows)
+            {
+                Member member = new Member(item);
+                listMember.Add(member);
+            }
+            return listMember;
+        }
     }
 }

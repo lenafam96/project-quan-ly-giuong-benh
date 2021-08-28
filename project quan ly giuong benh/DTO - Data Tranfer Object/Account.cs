@@ -9,20 +9,20 @@ namespace project_quan_ly_giuong_benh.DTO___Data_Tranfer_Object
 {
     public class Account
     {
-        public Account(string userName, string displayName, string password, string type)
+        public Account(string userName, string displayName, string type, string password = null)
         {
             this.UserName = userName;
             this.DisplayName = displayName;
-            this.Password = password;
             this.Type = type;
+            this.Password = password;
         }
 
         public Account(DataRow row)
         {
             this.UserName = row["tenDangNhap"].ToString();
             this.DisplayName = row["tenHienThi"].ToString();
-            this.Password = row["matKhau"].ToString();
             this.Type = (int)row["Type"]==1?"Admin":"User";
+            //this.Password = row["matKhau"].ToString();
         }
 
         private string userName;

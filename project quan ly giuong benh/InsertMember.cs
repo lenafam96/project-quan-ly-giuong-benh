@@ -14,10 +14,13 @@ namespace project_quan_ly_giuong_benh
 {
     public partial class InsertMember : Form
     {
-        int idRoom;
+        private int idRoom;
+
+        public int IdRoom { get => idRoom; set => idRoom = value; }
+
         public InsertMember(int id)
         {
-            this.idRoom = id;
+            this.IdRoom = id;
             InitializeComponent();
         }
 
@@ -37,7 +40,7 @@ namespace project_quan_ly_giuong_benh
             {
                 int gt = chkNam.Checked ? 0 : 1;
                 int pl = chkF1.Checked ? 1 : 0;
-                MemberDAO.Instance.InsertMember(this.idRoom, txbHoTen.Text, gt, ns, txbSdt.Text, txbDiaChi.Text, txbCccd.Text, txbNoiChuyen.Text, dtpNgayNhapVien.Value, dtpNgayXetNghiem.Value, txbTenNguoiThan.Text, txbMqh.Text, txbSdtNguoiThan.Text, pl);
+                MemberDAO.Instance.InsertMember(this.IdRoom, txbHoTen.Text, gt, ns, txbSdt.Text, txbDiaChi.Text, txbCccd.Text, txbNoiChuyen.Text, dtpNgayNhapVien.Value, dtpNgayXetNghiem.Value, txbTenNguoiThan.Text, txbMqh.Text, txbSdtNguoiThan.Text, pl);
                 this.Close();
                 
             }

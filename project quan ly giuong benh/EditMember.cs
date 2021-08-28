@@ -14,26 +14,29 @@ namespace project_quan_ly_giuong_benh
 {
     public partial class EditMember : Form
     {
-        Member member;
+        private Member member;
+
+        public Member Member { get => member; set => member = value; }
+
         public EditMember(Member member)
         {
-            this.member = member;
+            this.Member = member;
             InitializeComponent();
-            txbHoTen.Text = this.member.HT;
-            chkNam.Checked = this.member.GT == "Nam" ? true : false;
-            chkNu.Checked = this.member.GT == "Nữ" ? true : false;
-            txbNamSinh.Text = this.member.NS.ToString();
-            txbSdt.Text = this.member.Sdt;
-            txbDiaChi.Text = this.member.DC;
-            txbCccd.Text = this.member.Cccd;
-            txbNoiChuyen.Text = this.member.NC;
-            dtpNgayNhapVien.Value = (DateTime)this.member.NNV;
-            dtpNgayXetNghiem.Value = (DateTime)this.member.NXN;
-            txbTenNguoiThan.Text = this.member.HtNT;
-            txbMqh.Text = this.member.Mqh;
-            txbSdtNguoiThan.Text = this.member.SdtNT;
-            chkF0.Checked = this.member.PL == "f0" ? true : false;
-            chkF0.Checked = this.member.PL == "f1" ? true : false;
+            txbHoTen.Text = this.Member.HT;
+            chkNam.Checked = this.Member.GT == "Nam" ? true : false;
+            chkNu.Checked = this.Member.GT == "Nữ" ? true : false;
+            txbNamSinh.Text = this.Member.NS.ToString();
+            txbSdt.Text = this.Member.Sdt;
+            txbDiaChi.Text = this.Member.DC;
+            txbCccd.Text = this.Member.Cccd;
+            txbNoiChuyen.Text = this.Member.NC;
+            dtpNgayNhapVien.Value = (DateTime)this.Member.NNV;
+            dtpNgayXetNghiem.Value = (DateTime)this.Member.NXN;
+            txbTenNguoiThan.Text = this.Member.HtNT;
+            txbMqh.Text = this.Member.Mqh;
+            txbSdtNguoiThan.Text = this.Member.SdtNT;
+            chkF0.Checked = this.Member.PL == "f0" ? true : false;
+            chkF0.Checked = this.Member.PL == "f1" ? true : false;
 
         }
 
@@ -53,7 +56,7 @@ namespace project_quan_ly_giuong_benh
             {
                 int gt = chkNam.Checked ? 0 : 1;
                 int pl = chkF1.Checked ? 1 : 0;
-                MemberDAO.Instance.EditMember(this.member.ID, int.Parse(this.member.Phong), txbHoTen.Text, gt, ns, txbSdt.Text, txbDiaChi.Text, txbCccd.Text, txbNoiChuyen.Text, dtpNgayNhapVien.Value, dtpNgayXetNghiem.Value, txbTenNguoiThan.Text, txbMqh.Text, txbSdtNguoiThan.Text, pl);
+                MemberDAO.Instance.EditMember(this.Member.ID, int.Parse(this.Member.Phong), txbHoTen.Text, gt, ns, txbSdt.Text, txbDiaChi.Text, txbCccd.Text, txbNoiChuyen.Text, dtpNgayNhapVien.Value, dtpNgayXetNghiem.Value, txbTenNguoiThan.Text, txbMqh.Text, txbSdtNguoiThan.Text, pl);
                 this.Close();
 
             }

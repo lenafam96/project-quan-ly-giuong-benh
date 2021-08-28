@@ -14,9 +14,18 @@ namespace project_quan_ly_giuong_benh
 {
     public partial class fFloorManager : Form
     {
-        public fFloorManager()
+        private Account loginAccount;
+
+        public Account LoginAccount 
+        { 
+            get => loginAccount; 
+            set { loginAccount = value; ChangeAccount(LoginAccount.Type); } 
+        }
+
+        public fFloorManager(Account account)
         {
             InitializeComponent();
+            this.LoginAccount = account;
             LoadFloor();
             LoadRoom(1);
         }
@@ -84,6 +93,12 @@ namespace project_quan_ly_giuong_benh
             RoomDAO.Instance.UpdateCountMember(count, id);
         }
 
+        void ChangeAccount(string type)
+        {
+            adminToolStripMenuItem.Enabled = type == "Admin";
+            mnsThongTinTK.Text += " (" + LoginAccount.DisplayName + ")";
+        }
+
         #endregion
 
 
@@ -113,10 +128,16 @@ namespace project_quan_ly_giuong_benh
             this.Close();
         }
 
-        private void thôngTinCáNhânToolStripMenuItem_Click(object sender, EventArgs e)
+        private void mnsThongTinCN_Click(object sender, EventArgs e)
         {
-            fAccountProfile f = new fAccountProfile();
+            fAccountProfile f = new fAccountProfile(LoginAccount);
+            f.UpdateDisplayName += f_updateDisplayName;
             f.ShowDialog();
+        }
+
+        void f_updateDisplayName(object sender, AccountEvent e)
+        {
+            mnsThongTinTK.Text = "Thông tin tài khoản (" + e.DisplayName + ")";
         }
 
         private void btnAdd_Click(object sender, EventArgs e)
@@ -271,5 +292,7 @@ namespace project_quan_ly_giuong_benh
             f.ShowDialog();
         }
         #endregion
+
+        
     }
 }

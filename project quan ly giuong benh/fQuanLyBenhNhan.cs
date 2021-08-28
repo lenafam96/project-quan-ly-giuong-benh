@@ -21,21 +21,20 @@ namespace project_quan_ly_giuong_benh
             LoadMemberListDangDieuTri(0);
         }
 
-        List<Member> GetSelectedMember()
+        HashSet<Member> GetSelectedMember()
         {
-            var count = dtgvMember.SelectedRows.Count;
-            List<Member> listMember = new List<Member>();
-            List<int> listIndex = new List<int>();
-            for (int i = 0; i < count; i++)
+            HashSet<Member> listMember = new HashSet<Member>();
+            foreach(DataGridViewCell item in dtgvMember.SelectedCells)
             {
-                int index = (int)dtgvMember[0, dtgvMember.SelectedRows[i].Index].Value;
-                listIndex.Add(index);
+                listMember.Add(MemberDAO.Instance.GetMemberById((int)item.OwningRow.Cells["ID"].Value));
             }
-            foreach (int index in listIndex)
-            {
-                Member member = MemberDAO.Instance.GetMemberById(index);
-                listMember.Add(member);
-            }
+            return listMember;
+        }
+
+        List<Member> SreachMemberByName(string name, int status)
+        {
+            List<Member> listMember = MemberDAO.Instance.SreachMemberByName(name, status);
+
             return listMember;
         }
 
@@ -80,7 +79,7 @@ namespace project_quan_ly_giuong_benh
             dtgvMember.Columns[14].HeaderText = "Phân loại";
             dtgvMember.Columns[14].Width = 40;
             dtgvMember.Columns[15].Visible = false;
-
+            dtgvMember.Tag = status;
         }
 
         private void btnDangDieuTri_Click(object sender, EventArgs e)
@@ -91,41 +90,40 @@ namespace project_quan_ly_giuong_benh
         private void btnXuatVien_Click(object sender, EventArgs e)
         {
             LoadMemberListDangDieuTri(1);
-
         }
 
         private void btnChuyenTuyen_Click(object sender, EventArgs e)
         {
             LoadMemberListDangDieuTri(2);
-
         }
 
         private void btnEditPerson_Click(object sender, EventArgs e)
         {
-            List<Member> listMember = GetSelectedMember();
+            HashSet<Member> listMember = GetSelectedMember();
             if (listMember.Count == 1)
             {
-                EditMember f = new EditMember(listMember[0]);
-                f.ShowDialog();
+                foreach(Member item in listMember)
+                {
+                    EditMember f = new EditMember(item);
+                    f.ShowDialog();
+                    break;
+                }
             }
         }
 
         private void btnFindPerson_Click(object sender, EventArgs e)
         {
-            string name = txbFindMember.Text;
-
+            dtgvMember.DataSource = SreachMemberByName(txbFindMember.Text,(int)dtgvMember.Tag);
         }
 
         private void btnDelPerson_Click(object sender, EventArgs e)
         {
-            List<Member> listMember = GetSelectedMember();
+            HashSet<Member> listMember = GetSelectedMember();
             if (listMember.Count > 0)
-            {
-                foreach(Member item in listMember)
-                {
-                    MemberDAO.Instance.UpdateStatus(item.ID, -1);
-                }
-            }
+                if(MessageBox.Show("Xác nhận xoá những bệnh nhân này?", "Thông báo", MessageBoxButtons.OKCancel, MessageBoxIcon.Question) == System.Windows.Forms.DialogResult.OK)
+                    foreach (Member item in listMember)
+                        MemberDAO.Instance.UpdateStatus(item.ID, -1);
+            LoadMemberListDangDieuTri((int)dtgvMember.Tag);
         }
     }
 }

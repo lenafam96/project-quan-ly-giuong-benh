@@ -33,16 +33,16 @@ namespace project_quan_ly_giuong_benh
             this.txbUserName = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.txbDisplayName = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.panel3 = new System.Windows.Forms.Panel();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.txbPassword = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.panel4 = new System.Windows.Forms.Panel();
-            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.txbNewPassword = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.panel5 = new System.Windows.Forms.Panel();
-            this.textBox4 = new System.Windows.Forms.TextBox();
+            this.txbNewPassword2 = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.btnExit = new System.Windows.Forms.Button();
             this.btnUpdate = new System.Windows.Forms.Button();
@@ -60,15 +60,16 @@ namespace project_quan_ly_giuong_benh
             this.panel1.Location = new System.Drawing.Point(12, 12);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(397, 43);
-            this.panel1.TabIndex = 0;
+            this.panel1.TabIndex = 6;
             // 
             // txbUserName
             // 
             this.txbUserName.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txbUserName.Location = new System.Drawing.Point(166, 8);
+            this.txbUserName.Location = new System.Drawing.Point(169, 8);
             this.txbUserName.Name = "txbUserName";
+            this.txbUserName.ReadOnly = true;
             this.txbUserName.Size = new System.Drawing.Size(228, 29);
-            this.txbUserName.TabIndex = 3;
+            this.txbUserName.TabIndex = 6;
             // 
             // label1
             // 
@@ -82,20 +83,20 @@ namespace project_quan_ly_giuong_benh
             // 
             // panel2
             // 
-            this.panel2.Controls.Add(this.textBox1);
+            this.panel2.Controls.Add(this.txbDisplayName);
             this.panel2.Controls.Add(this.label2);
             this.panel2.Location = new System.Drawing.Point(12, 55);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(397, 43);
             this.panel2.TabIndex = 0;
             // 
-            // textBox1
+            // txbDisplayName
             // 
-            this.textBox1.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox1.Location = new System.Drawing.Point(166, 8);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(228, 29);
-            this.textBox1.TabIndex = 3;
+            this.txbDisplayName.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txbDisplayName.Location = new System.Drawing.Point(169, 8);
+            this.txbDisplayName.Name = "txbDisplayName";
+            this.txbDisplayName.Size = new System.Drawing.Size(228, 29);
+            this.txbDisplayName.TabIndex = 0;
             // 
             // label2
             // 
@@ -106,24 +107,24 @@ namespace project_quan_ly_giuong_benh
             this.label2.Size = new System.Drawing.Size(126, 22);
             this.label2.TabIndex = 2;
             this.label2.Text = "Tên hiển thị:";
-            this.label2.Click += new System.EventHandler(this.label2_Click);
             // 
             // panel3
             // 
-            this.panel3.Controls.Add(this.textBox2);
+            this.panel3.Controls.Add(this.txbPassword);
             this.panel3.Controls.Add(this.label3);
             this.panel3.Location = new System.Drawing.Point(12, 98);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(397, 43);
-            this.panel3.TabIndex = 0;
+            this.panel3.TabIndex = 1;
             // 
-            // textBox2
+            // txbPassword
             // 
-            this.textBox2.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox2.Location = new System.Drawing.Point(166, 8);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(228, 29);
-            this.textBox2.TabIndex = 3;
+            this.txbPassword.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txbPassword.Location = new System.Drawing.Point(169, 8);
+            this.txbPassword.Name = "txbPassword";
+            this.txbPassword.Size = new System.Drawing.Size(228, 29);
+            this.txbPassword.TabIndex = 0;
+            this.txbPassword.UseSystemPasswordChar = true;
             // 
             // label3
             // 
@@ -134,24 +135,24 @@ namespace project_quan_ly_giuong_benh
             this.label3.Size = new System.Drawing.Size(102, 22);
             this.label3.TabIndex = 2;
             this.label3.Text = "Mật khẩu:";
-            this.label3.Click += new System.EventHandler(this.label2_Click);
             // 
             // panel4
             // 
-            this.panel4.Controls.Add(this.textBox3);
+            this.panel4.Controls.Add(this.txbNewPassword);
             this.panel4.Controls.Add(this.label4);
             this.panel4.Location = new System.Drawing.Point(12, 141);
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(397, 43);
-            this.panel4.TabIndex = 0;
+            this.panel4.TabIndex = 2;
             // 
-            // textBox3
+            // txbNewPassword
             // 
-            this.textBox3.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox3.Location = new System.Drawing.Point(166, 8);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(228, 29);
-            this.textBox3.TabIndex = 3;
+            this.txbNewPassword.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txbNewPassword.Location = new System.Drawing.Point(169, 8);
+            this.txbNewPassword.Name = "txbNewPassword";
+            this.txbNewPassword.Size = new System.Drawing.Size(228, 29);
+            this.txbNewPassword.TabIndex = 0;
+            this.txbNewPassword.UseSystemPasswordChar = true;
             // 
             // label4
             // 
@@ -162,24 +163,24 @@ namespace project_quan_ly_giuong_benh
             this.label4.Size = new System.Drawing.Size(143, 22);
             this.label4.TabIndex = 2;
             this.label4.Text = "Mật khẩu mới:";
-            this.label4.Click += new System.EventHandler(this.label2_Click);
             // 
             // panel5
             // 
-            this.panel5.Controls.Add(this.textBox4);
+            this.panel5.Controls.Add(this.txbNewPassword2);
             this.panel5.Controls.Add(this.label5);
             this.panel5.Location = new System.Drawing.Point(12, 184);
             this.panel5.Name = "panel5";
             this.panel5.Size = new System.Drawing.Size(397, 43);
-            this.panel5.TabIndex = 0;
+            this.panel5.TabIndex = 3;
             // 
-            // textBox4
+            // txbNewPassword2
             // 
-            this.textBox4.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox4.Location = new System.Drawing.Point(166, 8);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(228, 29);
-            this.textBox4.TabIndex = 3;
+            this.txbNewPassword2.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txbNewPassword2.Location = new System.Drawing.Point(169, 8);
+            this.txbNewPassword2.Name = "txbNewPassword2";
+            this.txbNewPassword2.Size = new System.Drawing.Size(228, 29);
+            this.txbNewPassword2.TabIndex = 0;
+            this.txbNewPassword2.UseSystemPasswordChar = true;
             // 
             // label5
             // 
@@ -190,7 +191,6 @@ namespace project_quan_ly_giuong_benh
             this.label5.Size = new System.Drawing.Size(91, 22);
             this.label5.TabIndex = 2;
             this.label5.Text = "Nhập lại:";
-            this.label5.Click += new System.EventHandler(this.label2_Click);
             // 
             // btnExit
             // 
@@ -199,7 +199,7 @@ namespace project_quan_ly_giuong_benh
             this.btnExit.Location = new System.Drawing.Point(217, 242);
             this.btnExit.Name = "btnExit";
             this.btnExit.Size = new System.Drawing.Size(109, 35);
-            this.btnExit.TabIndex = 6;
+            this.btnExit.TabIndex = 5;
             this.btnExit.Text = "&Thoát";
             this.btnExit.UseVisualStyleBackColor = true;
             this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
@@ -210,9 +210,10 @@ namespace project_quan_ly_giuong_benh
             this.btnUpdate.Location = new System.Drawing.Point(92, 242);
             this.btnUpdate.Name = "btnUpdate";
             this.btnUpdate.Size = new System.Drawing.Size(109, 35);
-            this.btnUpdate.TabIndex = 5;
+            this.btnUpdate.TabIndex = 4;
             this.btnUpdate.Text = "&Cập Nhật";
             this.btnUpdate.UseVisualStyleBackColor = true;
+            this.btnUpdate.Click += new System.EventHandler(this.btnUpdate_Click);
             // 
             // fAccountProfile
             // 
@@ -255,18 +256,18 @@ namespace project_quan_ly_giuong_benh
         private System.Windows.Forms.TextBox txbUserName;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox txbDisplayName;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Panel panel3;
-        private System.Windows.Forms.TextBox textBox2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Panel panel4;
-        private System.Windows.Forms.TextBox textBox3;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Panel panel5;
-        private System.Windows.Forms.TextBox textBox4;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Button btnExit;
         private System.Windows.Forms.Button btnUpdate;
+        private System.Windows.Forms.TextBox txbPassword;
+        private System.Windows.Forms.TextBox txbNewPassword;
+        private System.Windows.Forms.TextBox txbNewPassword2;
     }
 }

@@ -37,7 +37,7 @@ namespace project_quan_ly_giuong_benh
             this.btnAddRoom = new System.Windows.Forms.Button();
             this.panel3 = new System.Windows.Forms.Panel();
             this.btnPhongSapKhoi = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
+            this.btnPhongDangSua = new System.Windows.Forms.Button();
             this.btnPhongCapCuu = new System.Windows.Forms.Button();
             this.btnPhongDay = new System.Windows.Forms.Button();
             this.btnPhongTrong = new System.Windows.Forms.Button();
@@ -53,12 +53,17 @@ namespace project_quan_ly_giuong_benh
             this.txbTenPhong = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.cboTang = new System.Windows.Forms.ComboBox();
+            this.panel4 = new System.Windows.Forms.Panel();
+            this.button1 = new System.Windows.Forms.Button();
+            this.button2 = new System.Windows.Forms.Button();
+            this.button3 = new System.Windows.Forms.Button();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dtgvRoom)).BeginInit();
             this.panel1.SuspendLayout();
             this.panel3.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.maxMember)).BeginInit();
+            this.panel4.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel2
@@ -77,9 +82,7 @@ namespace project_quan_ly_giuong_benh
             this.dtgvRoom.Location = new System.Drawing.Point(0, 0);
             this.dtgvRoom.Name = "dtgvRoom";
             this.dtgvRoom.Size = new System.Drawing.Size(480, 339);
-            this.dtgvRoom.TabIndex = 0;
-            this.dtgvRoom.ColumnHeaderMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dtgvRoom_ColumnHeaderMouseClick);
-            this.dtgvRoom.RowHeaderMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dtgvRoom_RowHeaderMouseClick);
+            this.dtgvRoom.TabIndex = 15;
             // 
             // panel1
             // 
@@ -96,7 +99,7 @@ namespace project_quan_ly_giuong_benh
             this.btnDelRoom.Location = new System.Drawing.Point(182, 3);
             this.btnDelRoom.Name = "btnDelRoom";
             this.btnDelRoom.Size = new System.Drawing.Size(82, 36);
-            this.btnDelRoom.TabIndex = 0;
+            this.btnDelRoom.TabIndex = 14;
             this.btnDelRoom.Text = "Xoá phòng";
             this.btnDelRoom.UseVisualStyleBackColor = true;
             this.btnDelRoom.Click += new System.EventHandler(this.btnDelRoom_Click);
@@ -106,7 +109,7 @@ namespace project_quan_ly_giuong_benh
             this.btnEditRoom.Location = new System.Drawing.Point(91, 3);
             this.btnEditRoom.Name = "btnEditRoom";
             this.btnEditRoom.Size = new System.Drawing.Size(82, 36);
-            this.btnEditRoom.TabIndex = 0;
+            this.btnEditRoom.TabIndex = 13;
             this.btnEditRoom.Text = "Sửa phòng";
             this.btnEditRoom.UseVisualStyleBackColor = true;
             this.btnEditRoom.Click += new System.EventHandler(this.btnEditRoom_Click);
@@ -116,7 +119,7 @@ namespace project_quan_ly_giuong_benh
             this.btnAddRoom.Location = new System.Drawing.Point(0, 3);
             this.btnAddRoom.Name = "btnAddRoom";
             this.btnAddRoom.Size = new System.Drawing.Size(82, 36);
-            this.btnAddRoom.TabIndex = 0;
+            this.btnAddRoom.TabIndex = 12;
             this.btnAddRoom.Text = "Thêm phòng";
             this.btnAddRoom.UseVisualStyleBackColor = true;
             this.btnAddRoom.Click += new System.EventHandler(this.btnAddRoom_Click);
@@ -124,7 +127,7 @@ namespace project_quan_ly_giuong_benh
             // panel3
             // 
             this.panel3.Controls.Add(this.btnPhongSapKhoi);
-            this.panel3.Controls.Add(this.button1);
+            this.panel3.Controls.Add(this.btnPhongDangSua);
             this.panel3.Controls.Add(this.btnPhongCapCuu);
             this.panel3.Controls.Add(this.btnPhongDay);
             this.panel3.Controls.Add(this.btnPhongTrong);
@@ -132,34 +135,34 @@ namespace project_quan_ly_giuong_benh
             this.panel3.Location = new System.Drawing.Point(12, 12);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(480, 42);
-            this.panel3.TabIndex = 2;
+            this.panel3.TabIndex = 0;
             // 
             // btnPhongSapKhoi
             // 
             this.btnPhongSapKhoi.Location = new System.Drawing.Point(162, 3);
             this.btnPhongSapKhoi.Name = "btnPhongSapKhoi";
             this.btnPhongSapKhoi.Size = new System.Drawing.Size(75, 36);
-            this.btnPhongSapKhoi.TabIndex = 0;
+            this.btnPhongSapKhoi.TabIndex = 2;
             this.btnPhongSapKhoi.Text = "Phòng sắp khỏi hết";
             this.btnPhongSapKhoi.UseVisualStyleBackColor = true;
             this.btnPhongSapKhoi.Click += new System.EventHandler(this.btnPhongSapKhoi_Click);
             // 
-            // button1
+            // btnPhongDangSua
             // 
-            this.button1.Location = new System.Drawing.Point(405, 3);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 36);
-            this.button1.TabIndex = 0;
-            this.button1.Text = "Phòng đang sửa";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.btnDangSua_Click);
+            this.btnPhongDangSua.Location = new System.Drawing.Point(405, 3);
+            this.btnPhongDangSua.Name = "btnPhongDangSua";
+            this.btnPhongDangSua.Size = new System.Drawing.Size(75, 36);
+            this.btnPhongDangSua.TabIndex = 5;
+            this.btnPhongDangSua.Text = "Phòng đang sửa";
+            this.btnPhongDangSua.UseVisualStyleBackColor = true;
+            this.btnPhongDangSua.Click += new System.EventHandler(this.btnDangSua_Click);
             // 
             // btnPhongCapCuu
             // 
             this.btnPhongCapCuu.Location = new System.Drawing.Point(324, 3);
             this.btnPhongCapCuu.Name = "btnPhongCapCuu";
             this.btnPhongCapCuu.Size = new System.Drawing.Size(75, 36);
-            this.btnPhongCapCuu.TabIndex = 0;
+            this.btnPhongCapCuu.TabIndex = 4;
             this.btnPhongCapCuu.Text = "Phòng cấp cưu";
             this.btnPhongCapCuu.UseVisualStyleBackColor = true;
             this.btnPhongCapCuu.Click += new System.EventHandler(this.btnPhongCapCuu_Click);
@@ -169,7 +172,7 @@ namespace project_quan_ly_giuong_benh
             this.btnPhongDay.Location = new System.Drawing.Point(243, 3);
             this.btnPhongDay.Name = "btnPhongDay";
             this.btnPhongDay.Size = new System.Drawing.Size(75, 36);
-            this.btnPhongDay.TabIndex = 0;
+            this.btnPhongDay.TabIndex = 3;
             this.btnPhongDay.Text = "Phòng đầy";
             this.btnPhongDay.UseVisualStyleBackColor = true;
             this.btnPhongDay.Click += new System.EventHandler(this.btnPhongDay_Click);
@@ -179,7 +182,7 @@ namespace project_quan_ly_giuong_benh
             this.btnPhongTrong.Location = new System.Drawing.Point(81, 3);
             this.btnPhongTrong.Name = "btnPhongTrong";
             this.btnPhongTrong.Size = new System.Drawing.Size(75, 36);
-            this.btnPhongTrong.TabIndex = 0;
+            this.btnPhongTrong.TabIndex = 1;
             this.btnPhongTrong.Text = "Phòng trống";
             this.btnPhongTrong.UseVisualStyleBackColor = true;
             this.btnPhongTrong.Click += new System.EventHandler(this.btnPhongTrong_Click);
@@ -219,7 +222,7 @@ namespace project_quan_ly_giuong_benh
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 14.28571F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 14.28571F));
             this.tableLayoutPanel1.Size = new System.Drawing.Size(264, 231);
-            this.tableLayoutPanel1.TabIndex = 4;
+            this.tableLayoutPanel1.TabIndex = 1;
             // 
             // chkThuong
             // 
@@ -228,7 +231,7 @@ namespace project_quan_ly_giuong_benh
             this.chkThuong.Location = new System.Drawing.Point(131, 135);
             this.chkThuong.Name = "chkThuong";
             this.chkThuong.Size = new System.Drawing.Size(97, 26);
-            this.chkThuong.TabIndex = 14;
+            this.chkThuong.TabIndex = 9;
             this.chkThuong.Text = "Thường";
             this.chkThuong.UseVisualStyleBackColor = true;
             this.chkThuong.CheckedChanged += new System.EventHandler(this.chkThuong_CheckedChanged);
@@ -269,7 +272,7 @@ namespace project_quan_ly_giuong_benh
             0});
             this.maxMember.Name = "maxMember";
             this.maxMember.Size = new System.Drawing.Size(130, 31);
-            this.maxMember.TabIndex = 5;
+            this.maxMember.TabIndex = 8;
             this.maxMember.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.maxMember.Value = new decimal(new int[] {
             10,
@@ -284,7 +287,7 @@ namespace project_quan_ly_giuong_benh
             this.chkCapCuu.Location = new System.Drawing.Point(131, 167);
             this.chkCapCuu.Name = "chkCapCuu";
             this.chkCapCuu.Size = new System.Drawing.Size(102, 26);
-            this.chkCapCuu.TabIndex = 14;
+            this.chkCapCuu.TabIndex = 10;
             this.chkCapCuu.Text = "Cấp cứu";
             this.chkCapCuu.UseVisualStyleBackColor = true;
             this.chkCapCuu.CheckedChanged += new System.EventHandler(this.chkCapCuu_CheckedChanged);
@@ -296,7 +299,7 @@ namespace project_quan_ly_giuong_benh
             this.chkSuaChua.Location = new System.Drawing.Point(131, 199);
             this.chkSuaChua.Name = "chkSuaChua";
             this.chkSuaChua.Size = new System.Drawing.Size(113, 26);
-            this.chkSuaChua.TabIndex = 14;
+            this.chkSuaChua.TabIndex = 11;
             this.chkSuaChua.Text = "Sửa chữa";
             this.chkSuaChua.UseVisualStyleBackColor = true;
             this.chkSuaChua.CheckedChanged += new System.EventHandler(this.chkSuaChua_CheckedChanged);
@@ -320,7 +323,8 @@ namespace project_quan_ly_giuong_benh
             this.txbTenPhong.Location = new System.Drawing.Point(131, 3);
             this.txbTenPhong.Name = "txbTenPhong";
             this.txbTenPhong.Size = new System.Drawing.Size(130, 29);
-            this.txbTenPhong.TabIndex = 4;
+            this.txbTenPhong.TabIndex = 6;
+            this.txbTenPhong.TextChanged += new System.EventHandler(this.txbTenPhong_TextChanged);
             // 
             // label4
             // 
@@ -339,8 +343,48 @@ namespace project_quan_ly_giuong_benh
             this.cboTang.Location = new System.Drawing.Point(131, 47);
             this.cboTang.Name = "cboTang";
             this.cboTang.Size = new System.Drawing.Size(130, 30);
-            this.cboTang.TabIndex = 15;
+            this.cboTang.TabIndex = 7;
             this.cboTang.SelectedIndexChanged += new System.EventHandler(this.cboTang_SelectedIndexChanged);
+            // 
+            // panel4
+            // 
+            this.panel4.Controls.Add(this.button1);
+            this.panel4.Controls.Add(this.button2);
+            this.panel4.Controls.Add(this.button3);
+            this.panel4.Location = new System.Drawing.Point(508, 297);
+            this.panel4.Name = "panel4";
+            this.panel4.Size = new System.Drawing.Size(264, 42);
+            this.panel4.TabIndex = 2;
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(182, 3);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(82, 36);
+            this.button1.TabIndex = 14;
+            this.button1.Text = "Xoá phòng";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.btnDelRoom_Click);
+            // 
+            // button2
+            // 
+            this.button2.Location = new System.Drawing.Point(91, 3);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(82, 36);
+            this.button2.TabIndex = 13;
+            this.button2.Text = "Sửa phòng";
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.btnEditRoom_Click);
+            // 
+            // button3
+            // 
+            this.button3.Location = new System.Drawing.Point(0, 3);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(82, 36);
+            this.button3.TabIndex = 12;
+            this.button3.Text = "Thêm phòng";
+            this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.btnAddRoom_Click);
             // 
             // fQuanLyPhong
             // 
@@ -350,6 +394,7 @@ namespace project_quan_ly_giuong_benh
             this.Controls.Add(this.tableLayoutPanel1);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel3);
+            this.Controls.Add(this.panel4);
             this.Controls.Add(this.panel1);
             this.MaximizeBox = false;
             this.MaximumSize = new System.Drawing.Size(1000, 450);
@@ -365,6 +410,7 @@ namespace project_quan_ly_giuong_benh
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.maxMember)).EndInit();
+            this.panel4.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -391,9 +437,13 @@ namespace project_quan_ly_giuong_benh
         private System.Windows.Forms.NumericUpDown maxMember;
         private System.Windows.Forms.CheckBox chkThuong;
         private System.Windows.Forms.CheckBox chkCapCuu;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnPhongDangSua;
         private System.Windows.Forms.CheckBox chkSuaChua;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.ComboBox cboTang;
+        private System.Windows.Forms.Panel panel4;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button button3;
     }
 }

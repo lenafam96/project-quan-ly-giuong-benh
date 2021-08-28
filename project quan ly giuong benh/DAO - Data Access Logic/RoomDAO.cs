@@ -86,19 +86,22 @@ namespace project_quan_ly_giuong_benh.DAO___Data_Access_Logic
             return room;
         }
 
-        public void InsertRoom(string name, int idTang, int max, int status)
+        public bool InsertRoom(string name, int idTang, int max, int status)
         {
-            DataProvider.Instance.ExecuteNonQuery("EXEC dbo.USP_InsertRoom @ten , @idTang , @gioiHan , @trangThai", new object[] { name, idTang, max, status });
+            int result = DataProvider.Instance.ExecuteNonQuery("EXEC dbo.USP_InsertRoom @ten , @idTang , @gioiHan , @trangThai", new object[] { name, idTang, max, status });
+            return result > 0;
         }
 
-        public void UpdateRoomInfo(int id, string name, int idTang, int max, int status)
+        public bool UpdateRoomInfo(int id, string name, int idTang, int max, int status)
         {
-            DataProvider.Instance.ExecuteNonQuery("EXEC dbo.USP_UpdateRoomInfo @id , @ten , @idTang , @gioiHan, @trangThai ", new object[] { id, name, idTang, max, status });
+            int result =  DataProvider.Instance.ExecuteNonQuery("EXEC dbo.USP_UpdateRoomInfo @id , @ten , @idTang , @gioiHan , @trangThai ", new object[] { id, name, idTang, max, status });
+            return result > 0;
         }
 
-        public void DeleteRoom(int id)
+        public bool DeleteRoom(int id)
         {
-            DataProvider.Instance.ExecuteNonQuery("DELETE FROM dbo.Phong WHERE id = " + id);
+            int result = DataProvider.Instance.ExecuteNonQuery("DELETE FROM dbo.Phong WHERE id = " + id);
+            return result > 0;
         }
     }
 }

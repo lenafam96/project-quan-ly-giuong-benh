@@ -1,4 +1,5 @@
 ﻿using project_quan_ly_giuong_benh.DAO___Data_Access_Logic;
+using project_quan_ly_giuong_benh.DTO___Data_Tranfer_Object;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -33,14 +34,18 @@ namespace project_quan_ly_giuong_benh
 
         private void btnLogin_Click(object sender, EventArgs e)
         {
-            string userName = "admin";// txbUserName.Text;
-            string passWord = "1";// txbPassWord.Text;
+            string userName = txbUserName.Text;
+            string passWord = txbPassWord.Text;
             if (Login(userName,passWord))
             {
-                fFloorManager f = new fFloorManager();
+                Account account = AccountDAO.Instance.GetAccountByUserName(userName);
+                fFloorManager f = new fFloorManager(account);
                 this.Hide();
                 f.ShowDialog();
                 this.Show();
+                txbUserName.Clear();
+                txbPassWord.Clear();
+                txbUserName.Focus();
             }
             else
             {

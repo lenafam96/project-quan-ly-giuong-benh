@@ -29,7 +29,7 @@ namespace project_quan_ly_giuong_benh
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel3 = new System.Windows.Forms.Panel();
             this.txbFindMember = new System.Windows.Forms.TextBox();
             this.btnFindPerson = new System.Windows.Forms.Button();
@@ -56,14 +56,14 @@ namespace project_quan_ly_giuong_benh
             this.panel3.Controls.Add(this.btnDangDieuTri);
             this.panel3.Location = new System.Drawing.Point(12, 12);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(1452, 42);
+            this.panel3.Size = new System.Drawing.Size(1512, 42);
             this.panel3.TabIndex = 3;
             // 
             // txbFindMember
             // 
             this.txbFindMember.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.txbFindMember.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txbFindMember.Location = new System.Drawing.Point(1086, 7);
+            this.txbFindMember.Location = new System.Drawing.Point(1146, 7);
             this.txbFindMember.Name = "txbFindMember";
             this.txbFindMember.Size = new System.Drawing.Size(263, 26);
             this.txbFindMember.TabIndex = 1;
@@ -71,7 +71,7 @@ namespace project_quan_ly_giuong_benh
             // btnFindPerson
             // 
             this.btnFindPerson.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnFindPerson.Location = new System.Drawing.Point(1355, 3);
+            this.btnFindPerson.Location = new System.Drawing.Point(1415, 3);
             this.btnFindPerson.Name = "btnFindPerson";
             this.btnFindPerson.Size = new System.Drawing.Size(97, 36);
             this.btnFindPerson.TabIndex = 0;
@@ -131,34 +131,32 @@ namespace project_quan_ly_giuong_benh
             // 
             // dtgvMember
             // 
-            this.dtgvMember.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dtgvMember.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            this.dtgvMember.Anchor = System.Windows.Forms.AnchorStyles.None;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dtgvMember.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dtgvMember.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dtgvMember.Location = new System.Drawing.Point(12, 60);
+            this.dtgvMember.Location = new System.Drawing.Point(42, 60);
             this.dtgvMember.Name = "dtgvMember";
-            this.dtgvMember.Size = new System.Drawing.Size(1452, 603);
+            this.dtgvMember.Size = new System.Drawing.Size(1482, 603);
             this.dtgvMember.TabIndex = 4;
             // 
             // fQuanLyBenhNhan
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1474, 673);
+            this.ClientSize = new System.Drawing.Size(1534, 673);
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.dtgvMember);
             this.MaximizeBox = false;
-            this.MaximumSize = new System.Drawing.Size(1490, 712);
+            this.MaximumSize = new System.Drawing.Size(1550, 712);
             this.MinimizeBox = false;
-            this.MinimumSize = new System.Drawing.Size(1490, 712);
+            this.MinimumSize = new System.Drawing.Size(1550, 712);
             this.Name = "fQuanLyBenhNhan";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Quản lý bệnh nhân";

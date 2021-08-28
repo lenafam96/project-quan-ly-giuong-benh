@@ -43,5 +43,54 @@ namespace project_quan_ly_giuong_benh.DAO___Data_Access_Logic
             }
             return listAccount;
         }
+
+        public Account GetAccountByUserName(string userName)
+        {
+            DataTable data = DataProvider.Instance.ExecuteQuery("SELECT * FROM Account WHERE tenDangNhap = '" + userName + "' ");
+            foreach(DataRow item in data.Rows)
+            {
+                Account account = new Account(item);
+                return account;
+            }
+            return null;
+        }
+
+        public bool UpdateAccountInfo(string userName, string displayName, string passWord, string newPassWord, int type)
+        {
+            int count = DataProvider.Instance.ExecuteNonQuery("EXEC dbo.USP_UpdateAccoutInfo @userName , @displayName , @passWord , @newPassWord ", new object[] { userName, displayName, passWord, newPassWord, type });
+            return count > 0;
+        }
+
+        public bool CreateNewAccount(string userName, string displayName, int type)
+        {
+            int count = DataProvider.Instance.ExecuteNonQuery("EXEC dbo.USP_InsertNewAccount @userName , @displayName , @type ", new object[] { userName, displayName, type });
+            return count > 0;
+        }
+
+        public bool EditAccountInfo(string userName, string displayName, int type)
+        {
+            int count = DataProvider.Instance.ExecuteNonQuery("UPDATE dbo.Account SET tenHienThi = N'" + displayName + "', Type = " + type + " WHERE tenDangNhap = N'" + userName + "' ");
+            return count > 0;
+        }
+
+        public List<Account> SreachAccoutByName(string name)
+        {
+            string query = "EXEC dbo.USP_SreachUserByName @name ";
+
+            DataTable data = DataProvider.Instance.ExecuteQuery(query, new object[] { name, name });
+
+            List<Account> listAccount = new List<Account>();
+            foreach (DataRow item in data.Rows)
+            {
+                Account account = new Account(item);
+                listAccount.Add(account);
+            }
+            return listAccount;
+        }
+        public bool DeleteAccountByUserName(string userName)
+        {
+            int count = DataProvider.Instance.ExecuteNonQuery("DELETE FROM dbo.Account WHERE tenDangNhap = '" + userName + "' ");
+            return count > 0;
+        }
     }
 }
