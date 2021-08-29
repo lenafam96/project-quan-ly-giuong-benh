@@ -61,6 +61,12 @@
     <Compile Include="EditMember.Designer.cs">
       <DependentUpon>EditMember.cs</DependentUpon>
     </Compile>
+    <Compile Include="fMapBlock.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="fMapBlock.Designer.cs">
+      <DependentUpon>fMapBlock.cs</DependentUpon>
+    </Compile>
     <Compile Include="fQuanLyTaiKhoan.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -110,6 +116,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="fAccountProfile.resx">
       <DependentUpon>fAccountProfile.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="fMapBlock.resx">
+      <DependentUpon>fMapBlock.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="fQuanLyBenhNhan.resx">
       <DependentUpon>fQuanLyBenhNhan.cs</DependentUpon>

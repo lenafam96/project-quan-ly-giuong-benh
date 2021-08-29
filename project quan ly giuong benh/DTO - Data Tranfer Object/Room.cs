@@ -43,6 +43,9 @@ namespace project_quan_ly_giuong_benh.DTO___Data_Tranfer_Object
                 case 4:
                     this.Status = "Hỏng";
                     break;
+                case 5:
+                    this.Status = "Bận";
+                    break;
             }
         }
 

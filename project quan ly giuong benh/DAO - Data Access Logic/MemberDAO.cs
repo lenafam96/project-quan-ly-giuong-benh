@@ -80,6 +80,23 @@ namespace project_quan_ly_giuong_benh.DAO___Data_Access_Logic
             return listMember;
         }
 
+        public List<Member> GetMemberList(int status, string name, string sort)
+        {
+            if (name == "p.ten")
+                name = "CAST(p.ten AS INT)";
+            string query = "SELECT * FROM dbo.BenhNhan AS b, dbo.Phong AS p WHERE b.idPhong = p.id AND b.trangThai = " + status + " ORDER BY " + name + " " + sort;
+
+            DataTable data = DataProvider.Instance.ExecuteQuery(query);
+
+            List<Member> listMember = new List<Member>();
+            foreach (DataRow item in data.Rows)
+            {
+                Member member = new Member(item);
+                listMember.Add(member);
+            }
+            return listMember;
+        }
+
         public Member GetMemberById(int id)
         {
             DataTable data = DataProvider.Instance.ExecuteQuery("SELECT *, idPhong as [ten] FROM dbo.BenhNhan WHERE id = " + id);

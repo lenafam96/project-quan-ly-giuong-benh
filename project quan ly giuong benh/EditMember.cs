@@ -83,5 +83,6 @@ namespace project_quan_ly_giuong_benh
         {
             chkF0.Checked = chkF1.Checked ? false : true;
         }
+
     }
 }

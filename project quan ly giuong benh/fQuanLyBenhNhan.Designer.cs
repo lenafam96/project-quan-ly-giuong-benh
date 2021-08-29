@@ -141,10 +141,11 @@ namespace project_quan_ly_giuong_benh
             dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.dtgvMember.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dtgvMember.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dtgvMember.Location = new System.Drawing.Point(42, 60);
+            this.dtgvMember.Location = new System.Drawing.Point(15, 58);
             this.dtgvMember.Name = "dtgvMember";
             this.dtgvMember.Size = new System.Drawing.Size(1482, 603);
             this.dtgvMember.TabIndex = 4;
+            this.dtgvMember.ColumnHeaderMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dtgvMember_ColumnHeaderMouseClick);
             // 
             // fQuanLyBenhNhan
             // 

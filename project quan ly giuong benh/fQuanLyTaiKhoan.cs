@@ -110,6 +110,15 @@ namespace project_quan_ly_giuong_benh
             LoadAccountList();
         }
 
+        private void btnResetPass_Click(object sender, EventArgs e)
+        {
+            if (MessageBox.Show("Xác nhận đặt lại mật khẩu mặc định?", "Thông báo", MessageBoxButtons.OKCancel, MessageBoxIcon.Question) == System.Windows.Forms.DialogResult.OK)
+                if (AccountDAO.Instance.ResetPassWord(txbTenDangNhap.Text))
+                    MessageBox.Show("Cập nhật thông tin thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                else
+                    MessageBox.Show("Cập nhật thông tin thất bại!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+        }
+
         private void btnDelAccount_Click(object sender, EventArgs e)
         {
             List<string> list = new List<string>();

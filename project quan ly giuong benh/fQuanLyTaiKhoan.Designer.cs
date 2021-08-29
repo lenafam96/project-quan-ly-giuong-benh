@@ -32,6 +32,7 @@ namespace project_quan_ly_giuong_benh
             this.panel4 = new System.Windows.Forms.Panel();
             this.txbFindAccount = new System.Windows.Forms.TextBox();
             this.btnFindAccount = new System.Windows.Forms.Button();
+            this.btnResetPass = new System.Windows.Forms.Button();
             this.btnDelAccount = new System.Windows.Forms.Button();
             this.btnEditAccount = new System.Windows.Forms.Button();
             this.btnAddAccount = new System.Windows.Forms.Button();
@@ -52,6 +53,7 @@ namespace project_quan_ly_giuong_benh
             // 
             this.panel4.Controls.Add(this.txbFindAccount);
             this.panel4.Controls.Add(this.btnFindAccount);
+            this.panel4.Controls.Add(this.btnResetPass);
             this.panel4.Controls.Add(this.btnDelAccount);
             this.panel4.Controls.Add(this.btnEditAccount);
             this.panel4.Controls.Add(this.btnAddAccount);
@@ -78,9 +80,19 @@ namespace project_quan_ly_giuong_benh
             this.btnFindAccount.UseVisualStyleBackColor = true;
             this.btnFindAccount.Click += new System.EventHandler(this.btnFindAccount_Click);
             // 
+            // btnResetPass
+            // 
+            this.btnResetPass.Location = new System.Drawing.Point(209, 3);
+            this.btnResetPass.Name = "btnResetPass";
+            this.btnResetPass.Size = new System.Drawing.Size(97, 36);
+            this.btnResetPass.TabIndex = 0;
+            this.btnResetPass.Text = "Đặt lại mật khẩu";
+            this.btnResetPass.UseVisualStyleBackColor = true;
+            this.btnResetPass.Click += new System.EventHandler(this.btnResetPass_Click);
+            // 
             // btnDelAccount
             // 
-            this.btnDelAccount.Location = new System.Drawing.Point(209, 3);
+            this.btnDelAccount.Location = new System.Drawing.Point(312, 3);
             this.btnDelAccount.Name = "btnDelAccount";
             this.btnDelAccount.Size = new System.Drawing.Size(97, 36);
             this.btnDelAccount.TabIndex = 0;
@@ -239,5 +251,6 @@ namespace project_quan_ly_giuong_benh
         private System.Windows.Forms.TextBox txbTenDangNhap;
         private System.Windows.Forms.ComboBox cboLoaiTK;
         private System.Windows.Forms.TextBox txbTenHienThi;
+        private System.Windows.Forms.Button btnResetPass;
     }
 }
