@@ -29,6 +29,7 @@ namespace project_quan_ly_giuong_benh
             LoadFloor();
             LoadRoom(1);
             showMember(1);
+            btnChangeRoom.Enabled = false;
         }
         #region Methods
         void LoadFloor()
@@ -235,18 +236,33 @@ namespace project_quan_ly_giuong_benh
                         listMember.Add(member);
                         count++;
                     }
-                    Room room = lsvChiaPhong.Tag as Room;
+                    Room room = cboTang.Tag as Room;
                     Room roomDich = cboPhong.Tag as Room;
-                    if (roomDich.Member + count > roomDich.Maximum )
+                    if (roomDich.Member + count > roomDich.Maximum)
                         MessageBox.Show("Phòng " + roomDich.Name + " không đủ giường trống!", "Lỗi" , MessageBoxButtons.OK, MessageBoxIcon.Error);
                     else
                     {
-                        foreach(Member member in listMember)
-                        {
-                            MemberDAO.Instance.ChangeRoom(member.ID, roomDich.ID);
-                            room.Member--;
-                            roomDich.Member++;
-                        }
+                        if (roomDich.Status == "Bận" || roomDich.Status == "Sắp khỏi hết")
+                            if (MessageBox.Show("Phòng " + roomDich.Name + " là phòng " + roomDich.Status + ". Bạn có chắc muốn chuyển thêm người vào phòng này không?!", "Cảnh báo", MessageBoxButtons.OKCancel, MessageBoxIcon.Exclamation) == System.Windows.Forms.DialogResult.OK)
+                            {
+                                foreach (Member member in listMember)
+                                {
+                                    MemberDAO.Instance.ChangeRoom(member.ID, roomDich.ID);
+                                    room.Member--;
+                                    roomDich.Member++;
+                                }
+                            }
+                            else
+                                ;
+                        else
+                            foreach (Member member in listMember)
+                            {
+                                MemberDAO.Instance.ChangeRoom(member.ID, roomDich.ID);
+                                room.Member--;
+                                roomDich.Member++;
+                            }
+
+
                     }
                     showMember(room.ID);
                     LoadRoom(room.IDTang);
