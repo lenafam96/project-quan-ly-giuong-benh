@@ -57,10 +57,13 @@ namespace project_quan_ly_giuong_benh
             // 
             // dtgvMap
             // 
+            this.dtgvMap.AllowUserToAddRows = false;
+            this.dtgvMap.AllowUserToDeleteRows = false;
             this.dtgvMap.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dtgvMap.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dtgvMap.Location = new System.Drawing.Point(0, 3);
             this.dtgvMap.Name = "dtgvMap";
+            this.dtgvMap.ReadOnly = true;
             dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
             dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -69,7 +72,7 @@ namespace project_quan_ly_giuong_benh
             dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.dtgvMap.RowHeadersDefaultCellStyle = dataGridViewCellStyle1;
-            this.dtgvMap.Size = new System.Drawing.Size(876, 441);
+            this.dtgvMap.Size = new System.Drawing.Size(876, 435);
             this.dtgvMap.TabIndex = 0;
             // 
             // lblTitle
@@ -94,6 +97,7 @@ namespace project_quan_ly_giuong_benh
             // 
             // dtgvChuThich
             // 
+            this.dtgvChuThich.AllowUserToAddRows = false;
             this.dtgvChuThich.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Control;
@@ -111,9 +115,9 @@ namespace project_quan_ly_giuong_benh
             this.Column4,
             this.Column5,
             this.Column6});
-            this.dtgvChuThich.Location = new System.Drawing.Point(48, 575);
+            this.dtgvChuThich.Location = new System.Drawing.Point(48, 560);
             this.dtgvChuThich.Name = "dtgvChuThich";
-            this.dtgvChuThich.Size = new System.Drawing.Size(472, 109);
+            this.dtgvChuThich.Size = new System.Drawing.Size(472, 55);
             this.dtgvChuThich.TabIndex = 6;
             // 
             // Column1

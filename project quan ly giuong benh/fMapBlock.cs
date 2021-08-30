@@ -45,7 +45,7 @@ namespace project_quan_ly_giuong_benh
                     dtgvMap.Columns.Add("Column" + i.ToString(), "." + i.ToString());
             }
             dtgvMap.Columns.Add("Sum", "Tổng");
-            dtgvMap.Rows.Add(13);
+            dtgvMap.Rows.Add(14);
             dtgvMap.RowHeadersWidth = 80;
             for (int i = 0; i < 13; i++)
             {
