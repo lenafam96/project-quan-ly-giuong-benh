@@ -69,7 +69,7 @@ namespace project_quan_ly_giuong_benh.DTO___Data_Tranfer_Object
                 this.NNV = (DateTime?)ngayNhapVienTemp;
             var ngayXuatVienTemp = row["ngayXuatVien"];
             if (ngayXuatVienTemp.ToString() != "")
-                this.NNV = (DateTime?)ngayXuatVienTemp;
+                this.NXV = (DateTime?)ngayXuatVienTemp;
             if (this.NXV != null)
                 this.Sndt = this.NXV.Value.Subtract(this.nNV.Value).Days;
             else

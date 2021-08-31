@@ -55,7 +55,6 @@ namespace project_quan_ly_giuong_benh
             dtgvMap.Rows[13].HeaderCell.Value = "TỔNG";
             dtgvMap.Columns[15].DefaultCellStyle.Font = new Font("Arial", 10, FontStyle.Bold);
             dtgvMap.Columns[15].DefaultCellStyle.ForeColor = Color.Red;
-
         }
 
         Color checkStatus(string status)

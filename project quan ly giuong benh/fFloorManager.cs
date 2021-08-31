@@ -30,6 +30,9 @@ namespace project_quan_ly_giuong_benh
             LoadRoom(1);
             showMember(1);
             btnChangeRoom.Enabled = false;
+            Room room = RoomDAO.Instance.GetRoomById(1);
+            cboTang.Tag = room;
+            lsvChiaPhong.Tag = room;
         }
         #region Methods
         void LoadFloor()
@@ -82,6 +85,8 @@ namespace project_quan_ly_giuong_benh
                 }
                 else
                 {
+                    if (item.Status != "Cấp cứu" && item.Status != "Hỏng" && item.Status != "Bận")
+                        item.Status = item.Member == item.Maximum ? "Đầy" : "Trống";
                     RoomDAO.Instance.UpdateStatusRoom(ConverStatusToInt(item.Status), item.ID);
                 }
                 if (item.Status == "Hỏng")
@@ -106,7 +111,6 @@ namespace project_quan_ly_giuong_benh
                 if (item.Status == "Bận")
                     btn.BackColor = Color.Crimson;
                 flpRoom.Controls.Add(btn);
-                cboTang.Tag = roomList[0];
             }
             
         }
@@ -139,8 +143,19 @@ namespace project_quan_ly_giuong_benh
                 lsvItem.SubItems.Add(item.NS.ToString());
                 lsvItem.SubItems.Add(item.Sdt.ToString());
                 lsvItem.SubItems.Add(item.NNV.Value.ToString("dd/MM/yyyy"));
-                lsvItem.SubItems.Add(item.NXN.Value.ToString("dd/MM/yyyy"));
-                lsvItem.SubItems.Add((item.NXN.Value.AddDays(7).ToString("dd/MM/yyyy")));
+                if (item.NXN != null)
+                {
+                    lsvItem.SubItems.Add(item.NXN.Value.ToString("dd/MM/yyyy"));
+                    if(item.Slxn<2)
+                        lsvItem.SubItems.Add((item.NXN.Value.AddDays(7).ToString("dd/MM/yyyy")));
+                    else
+                        lsvItem.SubItems.Add((item.NXN.Value.AddDays(2).ToString("dd/MM/yyyy")));
+                }
+                else
+                {
+                    lsvItem.SubItems.Add("Chưa xét nghiệm");
+                    lsvItem.SubItems.Add("Chưa xét nghiệm");
+                }
                 lsvItem.Tag = item;
                 lsvChiaPhong.Items.Add(lsvItem);
 
@@ -209,7 +224,7 @@ namespace project_quan_ly_giuong_benh
                     if (MessageBox.Show("Xác nhận thêm người vào phòng " + room.Status + " không?", "Cảnh báo", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == System.Windows.Forms.DialogResult.No)
                         return;
                 }
-                InsertMember f = new InsertMember(room.ID);
+                InsertMember f = new InsertMember(room);
                 f.ShowDialog();
                 LoadRoom(room.IDTang);
                 showMember(room.ID);
@@ -303,21 +318,14 @@ namespace project_quan_ly_giuong_benh
 
         private void btnXuatVien_Click(object sender, EventArgs e)
         {
-            if (lsvChiaPhong.SelectedIndices.Count > 0)
+            if (lsvChiaPhong.SelectedIndices.Count == 1)
             {
                 if (MessageBox.Show("Xác nhận bệnh nhân xuất viện?", "Thông báo", MessageBoxButtons.OKCancel, MessageBoxIcon.Question) == System.Windows.Forms.DialogResult.OK)
                 {
-                    List<Member> listMember = new List<Member>();
-                    int count = 0;
-                    foreach (int item in lsvChiaPhong.SelectedIndices)
-                    {
-                        Member member = lsvChiaPhong.Items[item].Tag as Member;
-                        listMember.Add(member);
-                        count++;
-                    }
+                    Member member = lsvChiaPhong.Items[lsvChiaPhong.SelectedIndices[0]].Tag as Member;
+                    fXuatVien f = new fXuatVien(member);
+                    f.ShowDialog();
                     Room room = lsvChiaPhong.Tag as Room;
-                    foreach (Member member in listMember)
-                        MemberDAO.Instance.UpdateStatus(member.ID, 1);
                     showMember(room.ID);
                     LoadRoom(room.IDTang);
                 }
@@ -366,7 +374,7 @@ namespace project_quan_ly_giuong_benh
         {
             fQuanLyPhong f = new fQuanLyPhong();
             f.ShowDialog();
-            Room room = cboTang.Tag as Room;
+            Room room = lsvChiaPhong.Tag as Room;
             LoadRoom(room.IDTang);
             showMember(room.ID);
         }
@@ -375,7 +383,7 @@ namespace project_quan_ly_giuong_benh
         {
             fQuanLyBenhNhan f = new fQuanLyBenhNhan();
             f.ShowDialog();
-            Room room = cboTang.Tag as Room;
+            Room room = lsvChiaPhong.Tag as Room;
             LoadRoom(room.IDTang);
             showMember(room.ID);
         }

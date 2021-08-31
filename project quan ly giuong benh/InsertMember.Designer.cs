@@ -52,7 +52,6 @@ namespace project_quan_ly_giuong_benh
             this.chkNu = new System.Windows.Forms.CheckBox();
             this.txbNamSinh = new System.Windows.Forms.TextBox();
             this.dtpNgayNhapVien = new System.Windows.Forms.DateTimePicker();
-            this.dtpNgayXetNghiem = new System.Windows.Forms.DateTimePicker();
             this.txbMqh = new System.Windows.Forms.TextBox();
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
             this.chkF0 = new System.Windows.Forms.CheckBox();
@@ -70,11 +69,16 @@ namespace project_quan_ly_giuong_benh
             this.label17 = new System.Windows.Forms.Label();
             this.txbNoiChuyen = new System.Windows.Forms.TextBox();
             this.cboKhoa = new System.Windows.Forms.ComboBox();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.dtpNgayXetNghiem = new System.Windows.Forms.DateTimePicker();
+            this.cboXN = new System.Windows.Forms.ComboBox();
             this.btnNhap = new System.Windows.Forms.Button();
             this.btnReset = new System.Windows.Forms.Button();
+            this.lbTenPhong = new System.Windows.Forms.Label();
             this.tableLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
             this.tableLayoutPanel3.SuspendLayout();
+            this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // tableLayoutPanel1
@@ -102,7 +106,6 @@ namespace project_quan_ly_giuong_benh
             this.tableLayoutPanel1.Controls.Add(this.tableLayoutPanel2, 1, 1);
             this.tableLayoutPanel1.Controls.Add(this.txbNamSinh, 1, 3);
             this.tableLayoutPanel1.Controls.Add(this.dtpNgayNhapVien, 1, 12);
-            this.tableLayoutPanel1.Controls.Add(this.dtpNgayXetNghiem, 1, 13);
             this.tableLayoutPanel1.Controls.Add(this.txbMqh, 1, 15);
             this.tableLayoutPanel1.Controls.Add(this.tableLayoutPanel3, 1, 17);
             this.tableLayoutPanel1.Controls.Add(this.txbDanToc, 1, 2);
@@ -118,6 +121,7 @@ namespace project_quan_ly_giuong_benh
             this.tableLayoutPanel1.Controls.Add(this.label17, 0, 11);
             this.tableLayoutPanel1.Controls.Add(this.txbNoiChuyen, 1, 10);
             this.tableLayoutPanel1.Controls.Add(this.cboKhoa, 1, 11);
+            this.tableLayoutPanel1.Controls.Add(this.panel1, 1, 13);
             this.tableLayoutPanel1.Location = new System.Drawing.Point(12, 12);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.Padding = new System.Windows.Forms.Padding(10);
@@ -306,7 +310,7 @@ namespace project_quan_ly_giuong_benh
             this.txbTenNguoiThan.Location = new System.Drawing.Point(186, 489);
             this.txbTenNguoiThan.Name = "txbTenNguoiThan";
             this.txbTenNguoiThan.Size = new System.Drawing.Size(406, 29);
-            this.txbTenNguoiThan.TabIndex = 15;
+            this.txbTenNguoiThan.TabIndex = 17;
             // 
             // txbSdtNguoiThan
             // 
@@ -317,7 +321,7 @@ namespace project_quan_ly_giuong_benh
             this.txbSdtNguoiThan.Location = new System.Drawing.Point(186, 557);
             this.txbSdtNguoiThan.Name = "txbSdtNguoiThan";
             this.txbSdtNguoiThan.Size = new System.Drawing.Size(406, 29);
-            this.txbSdtNguoiThan.TabIndex = 17;
+            this.txbSdtNguoiThan.TabIndex = 19;
             // 
             // tableLayoutPanel2
             // 
@@ -380,16 +384,6 @@ namespace project_quan_ly_giuong_benh
             this.dtpNgayNhapVien.Size = new System.Drawing.Size(109, 20);
             this.dtpNgayNhapVien.TabIndex = 13;
             // 
-            // dtpNgayXetNghiem
-            // 
-            this.dtpNgayXetNghiem.CalendarFont = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dtpNgayXetNghiem.CustomFormat = "dd-MM-yyyy";
-            this.dtpNgayXetNghiem.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dtpNgayXetNghiem.Location = new System.Drawing.Point(186, 455);
-            this.dtpNgayXetNghiem.Name = "dtpNgayXetNghiem";
-            this.dtpNgayXetNghiem.Size = new System.Drawing.Size(109, 20);
-            this.dtpNgayXetNghiem.TabIndex = 14;
-            // 
             // txbMqh
             // 
             this.txbMqh.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
@@ -399,7 +393,7 @@ namespace project_quan_ly_giuong_benh
             this.txbMqh.Location = new System.Drawing.Point(186, 523);
             this.txbMqh.Name = "txbMqh";
             this.txbMqh.Size = new System.Drawing.Size(406, 29);
-            this.txbMqh.TabIndex = 16;
+            this.txbMqh.TabIndex = 18;
             // 
             // tableLayoutPanel3
             // 
@@ -414,7 +408,7 @@ namespace project_quan_ly_giuong_benh
             this.tableLayoutPanel3.RowCount = 1;
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel3.Size = new System.Drawing.Size(204, 29);
-            this.tableLayoutPanel3.TabIndex = 18;
+            this.tableLayoutPanel3.TabIndex = 20;
             // 
             // chkF0
             // 
@@ -423,7 +417,7 @@ namespace project_quan_ly_giuong_benh
             this.chkF0.Location = new System.Drawing.Point(13, 3);
             this.chkF0.Name = "chkF0";
             this.chkF0.Size = new System.Drawing.Size(52, 23);
-            this.chkF0.TabIndex = 18;
+            this.chkF0.TabIndex = 20;
             this.chkF0.Text = "F0";
             this.chkF0.UseVisualStyleBackColor = true;
             this.chkF0.CheckedChanged += new System.EventHandler(this.chkF0_CheckedChanged);
@@ -435,7 +429,7 @@ namespace project_quan_ly_giuong_benh
             this.chkF1.Location = new System.Drawing.Point(110, 3);
             this.chkF1.Name = "chkF1";
             this.chkF1.Size = new System.Drawing.Size(52, 23);
-            this.chkF1.TabIndex = 19;
+            this.chkF1.TabIndex = 21;
             this.chkF1.Text = "F1";
             this.chkF1.UseVisualStyleBackColor = true;
             this.chkF1.CheckedChanged += new System.EventHandler(this.chkF1_CheckedChanged);
@@ -581,13 +575,47 @@ namespace project_quan_ly_giuong_benh
             this.cboKhoa.TabIndex = 12;
             this.cboKhoa.Text = "E";
             // 
+            // panel1
+            // 
+            this.panel1.Controls.Add(this.dtpNgayXetNghiem);
+            this.panel1.Controls.Add(this.cboXN);
+            this.panel1.Location = new System.Drawing.Point(186, 455);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(406, 28);
+            this.panel1.TabIndex = 15;
+            // 
+            // dtpNgayXetNghiem
+            // 
+            this.dtpNgayXetNghiem.CalendarFont = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dtpNgayXetNghiem.CustomFormat = "dd-MM-yyyy";
+            this.dtpNgayXetNghiem.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dtpNgayXetNghiem.Location = new System.Drawing.Point(0, 4);
+            this.dtpNgayXetNghiem.Name = "dtpNgayXetNghiem";
+            this.dtpNgayXetNghiem.Size = new System.Drawing.Size(109, 20);
+            this.dtpNgayXetNghiem.TabIndex = 16;
+            this.dtpNgayXetNghiem.Value = new System.DateTime(2021, 8, 31, 21, 49, 52, 0);
+            // 
+            // cboXN
+            // 
+            this.cboXN.Font = new System.Drawing.Font("Arial", 14.25F);
+            this.cboXN.FormattingEnabled = true;
+            this.cboXN.Items.AddRange(new object[] {
+            "Chưa xét nghiệm",
+            "Đã xét nghiệm"});
+            this.cboXN.Location = new System.Drawing.Point(235, 0);
+            this.cboXN.Name = "cboXN";
+            this.cboXN.Size = new System.Drawing.Size(171, 30);
+            this.cboXN.TabIndex = 15;
+            this.cboXN.Text = "Chưa xét nghiệm";
+            this.cboXN.SelectedIndexChanged += new System.EventHandler(this.cboXN_SelectedIndexChanged);
+            // 
             // btnNhap
             // 
             this.btnNhap.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnNhap.Location = new System.Drawing.Point(356, 651);
             this.btnNhap.Name = "btnNhap";
             this.btnNhap.Size = new System.Drawing.Size(123, 38);
-            this.btnNhap.TabIndex = 20;
+            this.btnNhap.TabIndex = 22;
             this.btnNhap.Text = "&Nhập";
             this.btnNhap.UseVisualStyleBackColor = true;
             this.btnNhap.Click += new System.EventHandler(this.btnNhap_Click);
@@ -598,10 +626,20 @@ namespace project_quan_ly_giuong_benh
             this.btnReset.Location = new System.Drawing.Point(494, 651);
             this.btnReset.Name = "btnReset";
             this.btnReset.Size = new System.Drawing.Size(123, 38);
-            this.btnReset.TabIndex = 21;
+            this.btnReset.TabIndex = 23;
             this.btnReset.Text = "Đặt lại";
             this.btnReset.UseVisualStyleBackColor = true;
             this.btnReset.Click += new System.EventHandler(this.btnReset_Click);
+            // 
+            // lbTenPhong
+            // 
+            this.lbTenPhong.AutoSize = true;
+            this.lbTenPhong.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbTenPhong.Location = new System.Drawing.Point(12, 662);
+            this.lbTenPhong.Name = "lbTenPhong";
+            this.lbTenPhong.Size = new System.Drawing.Size(59, 18);
+            this.lbTenPhong.TabIndex = 24;
+            this.lbTenPhong.Text = "Phòng: ";
             // 
             // InsertMember
             // 
@@ -609,6 +647,7 @@ namespace project_quan_ly_giuong_benh
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(629, 696);
+            this.Controls.Add(this.lbTenPhong);
             this.Controls.Add(this.btnReset);
             this.Controls.Add(this.btnNhap);
             this.Controls.Add(this.tableLayoutPanel1);
@@ -625,7 +664,9 @@ namespace project_quan_ly_giuong_benh
             this.tableLayoutPanel2.PerformLayout();
             this.tableLayoutPanel3.ResumeLayout(false);
             this.tableLayoutPanel3.PerformLayout();
+            this.panel1.ResumeLayout(false);
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -655,7 +696,6 @@ namespace project_quan_ly_giuong_benh
         private System.Windows.Forms.CheckBox chkNu;
         private System.Windows.Forms.TextBox txbNamSinh;
         private System.Windows.Forms.DateTimePicker dtpNgayNhapVien;
-        private System.Windows.Forms.DateTimePicker dtpNgayXetNghiem;
         private System.Windows.Forms.TextBox txbMqh;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel3;
         private System.Windows.Forms.CheckBox chkF0;
@@ -674,5 +714,9 @@ namespace project_quan_ly_giuong_benh
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.Label label17;
         private System.Windows.Forms.ComboBox cboKhoa;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.DateTimePicker dtpNgayXetNghiem;
+        private System.Windows.Forms.ComboBox cboXN;
+        private System.Windows.Forms.Label lbTenPhong;
     }
 }
