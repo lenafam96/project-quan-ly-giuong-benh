@@ -136,7 +136,7 @@ namespace project_quan_ly_giuong_benh
             this.dtgvChuThich.Location = new System.Drawing.Point(48, 560);
             this.dtgvChuThich.Name = "dtgvChuThich";
             this.dtgvChuThich.ReadOnly = true;
-            this.dtgvChuThich.Size = new System.Drawing.Size(472, 55);
+            this.dtgvChuThich.Size = new System.Drawing.Size(472, 44);
             this.dtgvChuThich.TabIndex = 6;
             // 
             // Column1

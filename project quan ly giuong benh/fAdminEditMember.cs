@@ -29,7 +29,7 @@ namespace project_quan_ly_giuong_benh
             txbPhuongXa.Text = this.Member.PX;
             txbQuanHuyen.Text = this.Member.QH;
             txbTiTh.Text = this.Member.TiTh;
-            cboKhoa.Text = this.Member.Khoa;
+            cboKhoa.SelectedItem = this.Member.Khoa;
             txbCccd.Text = this.Member.Cccd;
             txbNoiChuyen.Text = this.Member.NC;
             dtpNgayNhapVien.Value = (DateTime)this.Member.NNV;
@@ -42,10 +42,12 @@ namespace project_quan_ly_giuong_benh
             chkF0.Checked = this.Member.PL == "f1" ? true : false;
             txbMaBN.Text = this.Member.MaBN == null ? "" : this.Member.MaBN;
             txbSoLT.Text = this.Member.SoLT == null ? "" : this.Member.SoLT;
-            cboKTXN.Text = this.Member.Ktxn;
-            cboKq.Text = this.Member.Kq;
+            cboKTXN.SelectedItem = this.Member.Ktxn;
+            cboKq.SelectedItem = this.Member.Kq;
             txbCTValue.Text = this.Member.CtValue == 0 ? "" : this.Member.CtValue.ToString();
             nUDslxn.Value = this.Member.Slxn;
+            dtpNgayNhapVien.MaxDate = dtpNgayXetNghiem.MaxDate = dtpNgayXuatVien.MaxDate = DateTime.Now;
+
         }
 
         public Member Member { get => member; set => member = value; }

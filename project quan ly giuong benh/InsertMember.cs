@@ -24,6 +24,7 @@ namespace project_quan_ly_giuong_benh
             InitializeComponent();
             dtpNgayXetNghiem.Enabled = cboXN.Text == "Đã xét nghiệm" ? true : false;
             lbTenPhong.Text += this.Room.Name;
+            dtpNgayNhapVien.MaxDate = dtpNgayXetNghiem.MaxDate = DateTime.Now;
         }
 
         private void btnNhap_Click(object sender, EventArgs e)
@@ -84,9 +85,9 @@ namespace project_quan_ly_giuong_benh
                 int gt = chkNam.Checked ? 0 : 1;
                 int pl = chkF1.Checked ? 1 : 0;
                 if(cboXN.Text == "Đã xét nghiệm")
-                    MemberDAO.Instance.InsertMember(this.Room.ID, txbHoTen.Text.Trim(' ', ',', '-'), ns, gt, dantoc, txbDiaChi.Text,px,qh,tp, txbSdt.Text.Trim(' ', ',', '-'), txbCccd.Text.Trim(' ', ',', '-'), txbNoiChuyen.Text.Trim(' ', ',', '-'), khoa, dtpNgayNhapVien.Value, dtpNgayXetNghiem.Value, txbTenNguoiThan.Text.Trim(' ', ',', '-'), txbMqh.Text.Trim(' ', ',', '-'), txbSdtNguoiThan.Text.Trim(' ', ',', '-'), pl);
+                    MemberDAO.Instance.InsertMember(this.Room.ID, txbMaBN.Text.Trim(' ', ',', '-'), txbHoTen.Text.Trim(' ', ',', '-'), ns, gt, dantoc, txbDiaChi.Text,px,qh,tp, txbSdt.Text.Trim(' ', ',', '-'), txbCccd.Text.Trim(' ', ',', '-'), txbNoiChuyen.Text.Trim(' ', ',', '-'), khoa, dtpNgayNhapVien.Value, dtpNgayXetNghiem.Value, txbTenNguoiThan.Text.Trim(' ', ',', '-'), txbMqh.Text.Trim(' ', ',', '-'), txbSdtNguoiThan.Text.Trim(' ', ',', '-'), pl);
                 else
-                    MemberDAO.Instance.InsertMemberChuaXetNghiem(this.Room.ID, txbHoTen.Text.Trim(' ', ',', '-'), ns, gt, dantoc, txbDiaChi.Text, px, qh, tp, txbSdt.Text.Trim(' ', ',', '-'), txbCccd.Text.Trim(' ', ',', '-'), txbNoiChuyen.Text.Trim(' ', ',', '-'), khoa, dtpNgayNhapVien.Value, txbTenNguoiThan.Text.Trim(' ', ',', '-'), txbMqh.Text.Trim(' ', ',', '-'), txbSdtNguoiThan.Text.Trim(' ', ',', '-'), pl);
+                    MemberDAO.Instance.InsertMemberChuaXetNghiem(this.Room.ID, txbMaBN.Text.Trim(' ', ',', '-'), txbHoTen.Text.Trim(' ', ',', '-'), ns, gt, dantoc, txbDiaChi.Text, px, qh, tp, txbSdt.Text.Trim(' ', ',', '-'), txbCccd.Text.Trim(' ', ',', '-'), txbNoiChuyen.Text.Trim(' ', ',', '-'), khoa, dtpNgayNhapVien.Value, txbTenNguoiThan.Text.Trim(' ', ',', '-'), txbMqh.Text.Trim(' ', ',', '-'), txbSdtNguoiThan.Text.Trim(' ', ',', '-'), pl);
                 this.Close();
                 
             }

@@ -38,11 +38,6 @@ namespace project_quan_ly_giuong_benh
 
             return listMember;
         }
-        Color ColorHex2Name(string hex)
-        {
-            System.Drawing.Color col = System.Drawing.ColorTranslator.FromHtml(hex);
-            return col;
-        }
 
         void FormatColumnDangDieuTri()
         {
@@ -260,13 +255,13 @@ namespace project_quan_ly_giuong_benh
         }
         void SetColorCell(Microsoft.Office.Interop.Excel.Worksheet worksheet)
         {
-            worksheet.Cells[5, 3].Interior.Color = System.Drawing.ColorTranslator.ToOle(ColorHex2Name("#FFFF00"));
-            worksheet.Cells[5, 4].Interior.Color = System.Drawing.ColorTranslator.ToOle(ColorHex2Name("#FFFF00"));
-            worksheet.Cells[5, 6].Interior.Color = System.Drawing.ColorTranslator.ToOle(ColorHex2Name("#9BC2E6"));
-            worksheet.Cells[5, 7].Interior.Color = System.Drawing.ColorTranslator.ToOle(ColorHex2Name("#9BC2E6"));
-            worksheet.Cells[5, 8].Interior.Color = System.Drawing.ColorTranslator.ToOle(ColorHex2Name("#9BC2E6"));
-            worksheet.Cells[5, 17].Interior.Color = System.Drawing.ColorTranslator.ToOle(ColorHex2Name("#FFE699"));
-            worksheet.Cells[5, 19].Interior.Color = System.Drawing.ColorTranslator.ToOle(ColorHex2Name("#C6EFCE"));
+            worksheet.Cells[5, 3].Interior.Color = System.Drawing.ColorTranslator.ToOle(ColorTranslator.FromHtml("#FFFF00"));
+            worksheet.Cells[5, 4].Interior.Color = System.Drawing.ColorTranslator.ToOle(ColorTranslator.FromHtml("#FFFF00"));
+            worksheet.Cells[5, 6].Interior.Color = System.Drawing.ColorTranslator.ToOle(ColorTranslator.FromHtml("#9BC2E6"));
+            worksheet.Cells[5, 7].Interior.Color = System.Drawing.ColorTranslator.ToOle(ColorTranslator.FromHtml("#9BC2E6"));
+            worksheet.Cells[5, 8].Interior.Color = System.Drawing.ColorTranslator.ToOle(ColorTranslator.FromHtml("#9BC2E6"));
+            worksheet.Cells[5, 17].Interior.Color = System.Drawing.ColorTranslator.ToOle(ColorTranslator.FromHtml("#FFE699"));
+            worksheet.Cells[5, 19].Interior.Color = System.Drawing.ColorTranslator.ToOle(ColorTranslator.FromHtml("#C6EFCE"));
         }
         void SetRowsHeight(Microsoft.Office.Interop.Excel.Worksheet worksheet)
         {
@@ -345,17 +340,17 @@ namespace project_quan_ly_giuong_benh
             int count = dataGridView1.ColumnCount;
             int index = 0;
             worksheet.Cells[5, 1] = "STT";
-            worksheet.Cells[5, 1].Interior.Color = System.Drawing.ColorTranslator.ToOle(ColorHex2Name("#F6B26B"));
+            worksheet.Cells[5, 1].Interior.Color = System.Drawing.ColorTranslator.ToOle(ColorTranslator.FromHtml("#F6B26B"));
             worksheet.Cells[5, 1].Borders.LineStyle = Excel.XlLineStyle.xlContinuous;
             worksheet.Cells[5, 1].Borders.Weight = 2d;
             worksheet.Cells[5, 1].Font.FontStyle = "Bold";
             worksheet.Cells[5, 1].Font.Size = 12;
             worksheet.Cells[5, 1].Font.Name = "Times New Roman";
             worksheet.Cells[5, 20] = "GHI CHÚ";
-            worksheet.Cells[5, 20].Interior.Color = System.Drawing.ColorTranslator.ToOle(ColorHex2Name("#F6B26B"));
+            worksheet.Cells[5, 20].Interior.Color = System.Drawing.ColorTranslator.ToOle(ColorTranslator.FromHtml("#F6B26B"));
             worksheet.Cells[5, 20].Borders.LineStyle = Excel.XlLineStyle.xlContinuous;
             worksheet.Cells[5, 20].Borders.Weight = 2d;
-            worksheet.Cells[6, 20].Interior.Color = System.Drawing.ColorTranslator.ToOle(ColorHex2Name("#F6B26B"));
+            worksheet.Cells[6, 20].Interior.Color = System.Drawing.ColorTranslator.ToOle(ColorTranslator.FromHtml("#F6B26B"));
             worksheet.Cells[6, 20].Borders.LineStyle = Excel.XlLineStyle.xlContinuous;
             worksheet.Cells[6, 20].Borders.Weight = 2d;
             worksheet.Cells[5, 20].Font.FontStyle = "Bold";
@@ -371,10 +366,10 @@ namespace project_quan_ly_giuong_benh
                     continue;
                 }
                 worksheet.Cells[5, i + 1] = dataGridView1.Columns[index].HeaderText;
-                worksheet.Cells[5, i + 1].Interior.Color = System.Drawing.ColorTranslator.ToOle(ColorHex2Name("#F6B26B"));
+                worksheet.Cells[5, i + 1].Interior.Color = System.Drawing.ColorTranslator.ToOle(ColorTranslator.FromHtml("#F6B26B"));
                 worksheet.Cells[5, i + 1].Borders.LineStyle = Excel.XlLineStyle.xlContinuous;
                 worksheet.Cells[5, i + 1].Borders.Weight = 2d;
-                worksheet.Cells[6, i + 1].Interior.Color = System.Drawing.ColorTranslator.ToOle(ColorHex2Name("#F6B26B"));
+                worksheet.Cells[6, i + 1].Interior.Color = System.Drawing.ColorTranslator.ToOle(ColorTranslator.FromHtml("#F6B26B"));
                 worksheet.Cells[6, i + 1].Borders.LineStyle = Excel.XlLineStyle.xlContinuous;
                 worksheet.Cells[6, i + 1].Borders.Weight = 2d;
                 worksheet.Cells[5, i + 1].Font.FontStyle = "Bold";

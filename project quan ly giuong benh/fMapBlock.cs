@@ -68,19 +68,17 @@ namespace project_quan_ly_giuong_benh
 
         Color checkStatus(string status)
         {
-            if (status == "Trống")
-                return Color.Azure;
             if (status == "Đầy")
-                return Color.OrangeRed;
+                return ColorTranslator.FromHtml("#FF0000");
             if (status == "Cấp cứu")
-                return Color.Plum;
+                return ColorTranslator.FromHtml("#A9D08E");
             if (status == "Hỏng")
-                return Color.Yellow;
+                return ColorTranslator.FromHtml("#FFFF00");
             if (status == "Sắp khỏi hết")
-                return Color.DodgerBlue;
+                return ColorTranslator.FromHtml("#CC66FF");
             if (status == "Bận")
-                return Color.Crimson;
-            return Color.White;
+                return ColorTranslator.FromHtml("#00B0F0");
+            return ColorTranslator.FromHtml("#FFFFFF");
         }
         void CustomCell()
         {
@@ -110,12 +108,12 @@ namespace project_quan_ly_giuong_benh
         void LoadChuThich()
         {
             dtgvChuThich.Rows.Add(1);
-            dtgvChuThich.Rows[0].Cells[0].Style.BackColor = Color.Azure;
-            dtgvChuThich.Rows[0].Cells[1].Style.BackColor = Color.DodgerBlue;
-            dtgvChuThich.Rows[0].Cells[2].Style.BackColor = Color.OrangeRed;
-            dtgvChuThich.Rows[0].Cells[3].Style.BackColor = Color.Plum;
-            dtgvChuThich.Rows[0].Cells[4].Style.BackColor = Color.Yellow;
-            dtgvChuThich.Rows[0].Cells[5].Style.BackColor = Color.Crimson;
+            dtgvChuThich.Rows[0].Cells[0].Style.BackColor = ColorTranslator.FromHtml("#FF0000");
+            dtgvChuThich.Rows[0].Cells[1].Style.BackColor = ColorTranslator.FromHtml("#CC66FF");
+            dtgvChuThich.Rows[0].Cells[2].Style.BackColor = ColorTranslator.FromHtml("#FF0000");
+            dtgvChuThich.Rows[0].Cells[3].Style.BackColor = ColorTranslator.FromHtml("#A9D08E");
+            dtgvChuThich.Rows[0].Cells[4].Style.BackColor = ColorTranslator.FromHtml("#FFFF00");
+            dtgvChuThich.Rows[0].Cells[5].Style.BackColor = ColorTranslator.FromHtml("#00B0F0");
         }
     }
 }

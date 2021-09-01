@@ -244,6 +244,7 @@ namespace project_quan_ly_giuong_benh
             // 
             // cboKq
             // 
+            this.cboKq.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboKq.Font = new System.Drawing.Font("Arial", 14.25F);
             this.cboKq.FormattingEnabled = true;
             this.cboKq.Items.AddRange(new object[] {
@@ -253,10 +254,10 @@ namespace project_quan_ly_giuong_benh
             this.cboKq.Name = "cboKq";
             this.cboKq.Size = new System.Drawing.Size(249, 30);
             this.cboKq.TabIndex = 19;
-            this.cboKq.Text = "Âm tính";
             // 
             // cboKTXN
             // 
+            this.cboKTXN.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboKTXN.Font = new System.Drawing.Font("Arial", 14.25F);
             this.cboKTXN.FormattingEnabled = true;
             this.cboKTXN.Items.AddRange(new object[] {
@@ -266,7 +267,6 @@ namespace project_quan_ly_giuong_benh
             this.cboKTXN.Name = "cboKTXN";
             this.cboKTXN.Size = new System.Drawing.Size(249, 30);
             this.cboKTXN.TabIndex = 18;
-            this.cboKTXN.Text = "PCR";
             // 
             // btnXacNhan
             // 

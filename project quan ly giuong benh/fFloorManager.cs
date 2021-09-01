@@ -99,17 +99,17 @@ namespace project_quan_ly_giuong_benh
                 btn.Click += btnRoom_Click;
                 btn.Tag = item;
                 if (item.Status == "Trống")
-                    btn.BackColor = Color.Azure;
+                    btn.BackColor = ColorTranslator.FromHtml("#FFFFFF");
                 if(item.Status == "Đầy")
-                    btn.BackColor = Color.OrangeRed;
+                    btn.BackColor = ColorTranslator.FromHtml("#FF0000");
                 if (item.Status == "Cấp cứu")
-                    btn.BackColor = Color.Plum;
+                    btn.BackColor = ColorTranslator.FromHtml("#A9D08E");
                 if (item.Status == "Hỏng")
-                    btn.BackColor = Color.Yellow;
+                    btn.BackColor = ColorTranslator.FromHtml("#FFFF00");
                 if (item.Status == "Sắp khỏi hết")
-                    btn.BackColor = Color.DodgerBlue;
+                    btn.BackColor = ColorTranslator.FromHtml("#CC66FF");
                 if (item.Status == "Bận")
-                    btn.BackColor = Color.Crimson;
+                    btn.BackColor = ColorTranslator.FromHtml("#00B0F0");
                 flpRoom.Controls.Add(btn);
             }
             

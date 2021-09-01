@@ -193,6 +193,7 @@ namespace project_quan_ly_giuong_benh
             // 
             // cboLoaiTK
             // 
+            this.cboLoaiTK.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboLoaiTK.Font = new System.Drawing.Font("Arial", 14.25F);
             this.cboLoaiTK.FormattingEnabled = true;
             this.cboLoaiTK.Location = new System.Drawing.Point(150, 85);

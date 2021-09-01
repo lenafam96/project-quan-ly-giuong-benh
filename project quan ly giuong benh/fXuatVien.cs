@@ -36,6 +36,7 @@ namespace project_quan_ly_giuong_benh
                 check = double.TryParse(txbCTValue.Text, out ctValue);
                 check = ctValue < 30 ? true : false;
             }
+            check = this.Member.Slxn == 2 && cboKTXN.Text != "PCR" ? true : false;
             if (check)
                 MessageBox.Show("Bạn chưa nhập đủ thông tin!!!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             else

@@ -282,6 +282,7 @@ namespace project_quan_ly_giuong_benh
             0,
             0});
             this.maxMember.Name = "maxMember";
+            this.maxMember.ReadOnly = true;
             this.maxMember.Size = new System.Drawing.Size(130, 31);
             this.maxMember.TabIndex = 9;
             this.maxMember.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
@@ -349,6 +350,7 @@ namespace project_quan_ly_giuong_benh
             // 
             // cboTang
             // 
+            this.cboTang.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboTang.Font = new System.Drawing.Font("Arial", 14.25F);
             this.cboTang.FormattingEnabled = true;
             this.cboTang.Location = new System.Drawing.Point(131, 43);
