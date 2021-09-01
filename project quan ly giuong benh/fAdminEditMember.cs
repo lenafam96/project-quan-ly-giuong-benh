@@ -70,7 +70,7 @@ namespace project_quan_ly_giuong_benh
                 check = double.TryParse(txbCTValue.Text, out ctValue);
                 check = ctValue < 30 ? true : false;
             }
-            string dantoc = txbDanToc.Text == null || txbDanToc.Text == "null" ? "Kinh" : txbDanToc.Text;
+            string dantoc = txbDanToc.Text == null || txbDanToc.Text == "" ? "Kinh" : txbDanToc.Text;
             string tp = txbTiTh.Text == null || txbTiTh.Text == "null" || txbTiTh.Text == "" ? "Hồ Chí Minh" : txbTiTh.Text;
             string khoa = cboKhoa.Text == null ? "E" : cboKhoa.Text;
             px = px.Trim(' ', ',', '-');

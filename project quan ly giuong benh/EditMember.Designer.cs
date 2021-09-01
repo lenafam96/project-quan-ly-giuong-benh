@@ -31,6 +31,9 @@ namespace project_quan_ly_giuong_benh
         {
             this.btnXacNhan = new System.Windows.Forms.Button();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.dtpNgayXetNghiem = new System.Windows.Forms.DateTimePicker();
+            this.cboXN = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
@@ -70,14 +73,11 @@ namespace project_quan_ly_giuong_benh
             this.label17 = new System.Windows.Forms.Label();
             this.txbNoiChuyen = new System.Windows.Forms.TextBox();
             this.cboKhoa = new System.Windows.Forms.ComboBox();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.dtpNgayXetNghiem = new System.Windows.Forms.DateTimePicker();
-            this.cboXN = new System.Windows.Forms.ComboBox();
             this.lbTenPhong = new System.Windows.Forms.Label();
             this.tableLayoutPanel1.SuspendLayout();
+            this.panel1.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
             this.tableLayoutPanel3.SuspendLayout();
-            this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // btnXacNhan
@@ -157,6 +157,40 @@ namespace project_quan_ly_giuong_benh
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tableLayoutPanel1.Size = new System.Drawing.Size(605, 633);
             this.tableLayoutPanel1.TabIndex = 17;
+            // 
+            // panel1
+            // 
+            this.panel1.Controls.Add(this.dtpNgayXetNghiem);
+            this.panel1.Controls.Add(this.cboXN);
+            this.panel1.Location = new System.Drawing.Point(186, 455);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(406, 28);
+            this.panel1.TabIndex = 21;
+            // 
+            // dtpNgayXetNghiem
+            // 
+            this.dtpNgayXetNghiem.CalendarFont = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dtpNgayXetNghiem.CustomFormat = "dd-MM-yyyy";
+            this.dtpNgayXetNghiem.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dtpNgayXetNghiem.Location = new System.Drawing.Point(0, 4);
+            this.dtpNgayXetNghiem.Name = "dtpNgayXetNghiem";
+            this.dtpNgayXetNghiem.Size = new System.Drawing.Size(109, 20);
+            this.dtpNgayXetNghiem.TabIndex = 16;
+            this.dtpNgayXetNghiem.Value = new System.DateTime(2021, 8, 31, 21, 49, 52, 0);
+            // 
+            // cboXN
+            // 
+            this.cboXN.Font = new System.Drawing.Font("Arial", 14.25F);
+            this.cboXN.FormattingEnabled = true;
+            this.cboXN.Items.AddRange(new object[] {
+            "Chưa xét nghiệm",
+            "Đã xét nghiệm"});
+            this.cboXN.Location = new System.Drawing.Point(235, 0);
+            this.cboXN.Name = "cboXN";
+            this.cboXN.Size = new System.Drawing.Size(171, 30);
+            this.cboXN.TabIndex = 15;
+            this.cboXN.Text = "Chưa xét nghiệm";
+            this.cboXN.SelectedIndexChanged += new System.EventHandler(this.cboXN_SelectedIndexChanged);
             // 
             // label1
             // 
@@ -582,40 +616,6 @@ namespace project_quan_ly_giuong_benh
             this.cboKhoa.TabIndex = 12;
             this.cboKhoa.Text = "E";
             // 
-            // panel1
-            // 
-            this.panel1.Controls.Add(this.dtpNgayXetNghiem);
-            this.panel1.Controls.Add(this.cboXN);
-            this.panel1.Location = new System.Drawing.Point(186, 455);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(406, 28);
-            this.panel1.TabIndex = 21;
-            // 
-            // dtpNgayXetNghiem
-            // 
-            this.dtpNgayXetNghiem.CalendarFont = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dtpNgayXetNghiem.CustomFormat = "dd-MM-yyyy";
-            this.dtpNgayXetNghiem.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dtpNgayXetNghiem.Location = new System.Drawing.Point(0, 4);
-            this.dtpNgayXetNghiem.Name = "dtpNgayXetNghiem";
-            this.dtpNgayXetNghiem.Size = new System.Drawing.Size(109, 20);
-            this.dtpNgayXetNghiem.TabIndex = 16;
-            this.dtpNgayXetNghiem.Value = new System.DateTime(2021, 8, 31, 21, 49, 52, 0);
-            // 
-            // cboXN
-            // 
-            this.cboXN.Font = new System.Drawing.Font("Arial", 14.25F);
-            this.cboXN.FormattingEnabled = true;
-            this.cboXN.Items.AddRange(new object[] {
-            "Chưa xét nghiệm",
-            "Đã xét nghiệm"});
-            this.cboXN.Location = new System.Drawing.Point(235, 0);
-            this.cboXN.Name = "cboXN";
-            this.cboXN.Size = new System.Drawing.Size(171, 30);
-            this.cboXN.TabIndex = 15;
-            this.cboXN.Text = "Chưa xét nghiệm";
-            this.cboXN.SelectedIndexChanged += new System.EventHandler(this.cboXN_SelectedIndexChanged);
-            // 
             // lbTenPhong
             // 
             this.lbTenPhong.AutoSize = true;
@@ -644,11 +644,11 @@ namespace project_quan_ly_giuong_benh
             this.Text = "Chỉnh sửa thông tin bệnh nhân";
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();
+            this.panel1.ResumeLayout(false);
             this.tableLayoutPanel2.ResumeLayout(false);
             this.tableLayoutPanel2.PerformLayout();
             this.tableLayoutPanel3.ResumeLayout(false);
             this.tableLayoutPanel3.PerformLayout();
-            this.panel1.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 

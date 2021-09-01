@@ -320,15 +320,20 @@ namespace project_quan_ly_giuong_benh
         {
             if (lsvChiaPhong.SelectedIndices.Count == 1)
             {
-                if (MessageBox.Show("Xác nhận bệnh nhân xuất viện?", "Thông báo", MessageBoxButtons.OKCancel, MessageBoxIcon.Question) == System.Windows.Forms.DialogResult.OK)
+                Member member = lsvChiaPhong.Items[lsvChiaPhong.SelectedIndices[0]].Tag as Member;
+                if (member.Slxn > 1)
                 {
-                    Member member = lsvChiaPhong.Items[lsvChiaPhong.SelectedIndices[0]].Tag as Member;
-                    fXuatVien f = new fXuatVien(member);
-                    f.ShowDialog();
-                    Room room = lsvChiaPhong.Tag as Room;
-                    showMember(room.ID);
-                    LoadRoom(room.IDTang);
+                    if (MessageBox.Show("Xác nhận bệnh nhân xuất viện?", "Thông báo", MessageBoxButtons.OKCancel, MessageBoxIcon.Question) == System.Windows.Forms.DialogResult.OK)
+                    {
+                        fXuatVien f = new fXuatVien(member);
+                        f.ShowDialog();
+                        Room room = lsvChiaPhong.Tag as Room;
+                        showMember(room.ID);
+                        LoadRoom(room.IDTang);
+                    }
                 }
+                else
+                    MessageBox.Show("Bệnh nhân chưa đủ số lần xét nghiệm chưa thể xuất viện!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
 

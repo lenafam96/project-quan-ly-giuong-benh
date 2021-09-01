@@ -24,10 +24,19 @@ namespace project_quan_ly_giuong_benh
             LoadDataGridView();
             CustomCell();
             LoadChuThich();
+            DisableSortColumn();
         }
 
         public List<Floor> ListFloor { get => listFloor; set => listFloor = value; }
         public List<Room> ListRoom { get => listRoom; set => listRoom = value; }
+
+        void DisableSortColumn()
+        {
+            foreach(DataGridViewColumn item in dtgvMap.Columns)
+                item.SortMode = DataGridViewColumnSortMode.NotSortable;
+            foreach(DataGridViewColumn item in dtgvChuThich.Columns)
+                item.SortMode = DataGridViewColumnSortMode.NotSortable;
+        }
 
         void LoadFloorList()
         {

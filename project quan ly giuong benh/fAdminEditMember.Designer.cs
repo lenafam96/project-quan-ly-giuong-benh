@@ -774,6 +774,11 @@ namespace project_quan_ly_giuong_benh
             // 
             this.nUDslxn.Font = new System.Drawing.Font("Arial", 14.25F);
             this.nUDslxn.Location = new System.Drawing.Point(174, 235);
+            this.nUDslxn.Maximum = new decimal(new int[] {
+            1000,
+            0,
+            0,
+            0});
             this.nUDslxn.Name = "nUDslxn";
             this.nUDslxn.Size = new System.Drawing.Size(109, 29);
             this.nUDslxn.TabIndex = 27;

@@ -38,6 +38,7 @@ namespace project_quan_ly_giuong_benh.DAO___Data_Access_Logic
         {
             DateTime date = DateTime.Now;
             DateTime date1 = date.AddDays(-7);
+            DateTime date2 = date.AddDays(-2);
             if(member.NXN != null)
             {
                 if (date1 >= member.NXN.Value && member.Slxn == 1)
@@ -46,7 +47,7 @@ namespace project_quan_ly_giuong_benh.DAO___Data_Access_Logic
                     member.Slxn++;
                     UpdateNgayXetNghiem(member.ID, 7, member.Slxn);
                 }
-                if (date1 >= member.NXN.Value && member.Slxn > 1)
+                if (date2 >= member.NXN.Value && member.Slxn > 1)
                 {
                     member.NXN = member.NXN.Value.AddDays(2);
                     member.Slxn++;

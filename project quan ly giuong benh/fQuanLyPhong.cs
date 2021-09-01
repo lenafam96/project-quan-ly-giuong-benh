@@ -264,9 +264,9 @@ namespace project_quan_ly_giuong_benh
 
         private void dtgvRoom_ColumnHeaderMouseClick(object sender, DataGridViewCellMouseEventArgs e)
         {
-            string sort = (bool)dtgvRoom.Columns[0].Tag?"ASC": "DESC";
-            string columnName = dtgvRoom.Columns[e.ColumnIndex].Tag!=null?dtgvRoom.Columns[e.ColumnIndex].Tag.ToString():"2";
-            int status = dtgvRoom.Columns[5].Tag!=null? (int)dtgvRoom.Columns[5].Tag:-1;
+            string sort = (bool)dtgvRoom.Columns[0].Tag ? "ASC" : "DESC";
+            string columnName = dtgvRoom.Columns[e.ColumnIndex].Tag != null ? dtgvRoom.Columns[e.ColumnIndex].Tag.ToString() : "2";
+            int status = dtgvRoom.Columns[5].Tag != null ? (int)dtgvRoom.Columns[5].Tag : -1;
             listRoom.DataSource = status == -1 ? RoomDAO.Instance.GetRoomList(columnName, sort) : listRoom.DataSource = RoomDAO.Instance.GetRoomListByStatus(status, columnName, sort);
             dtgvRoom.Columns[0].Tag = !(bool)dtgvRoom.Columns[0].Tag;
         }
