@@ -23,47 +23,92 @@ namespace project_quan_ly_giuong_benh.DAO___Data_Access_Logic
         public List<Member> GetIdMemberByIdRoom(int id)
         {
             List<Member> listMember = new List<Member>();
-            DateTime date = DateTime.Now;
-            DateTime date1 = date.AddDays(-7);
-            string query = "SELECT *, idPhong AS ten FROM dbo.BenhNhan WHERE trangThai = 0 AND idPhong = " + id;
+            string query = "SELECT *, p.ten AS ten FROM dbo.BenhNhan, dbo.Phong AS p WHERE dbo.BenhNhan.idphong = p.id AND dbo.BenhNhan.trangThai = 0 AND idPhong = " + id;
             DataTable data = DataProvider.Instance.ExecuteQuery(query);
             foreach (DataRow item in data.Rows)
             {
                 Member member = new Member(item);
-                while(date1 >= member.NXN.Value )
-                {
-                    member.NXN = member.NXN.Value.AddDays(7);
-                    UpdateNgayXetNghiem(member.ID);
-                }
+                member = AutoUpdateNgayXetNghiem(member);
                 listMember.Add(member);
             }
             return listMember;
         }
 
-        public void InsertMember(int id, string ht, int gt, int ns, string sdt, string dc, string cccd, string nc, DateTime nnv, DateTime nxn, string tennt, string mqh, string sdtnt, int pl)
+        private Member AutoUpdateNgayXetNghiem(Member member)
         {
-            DataProvider.Instance.ExecuteNonQuery("EXEC USP_InsertBenhNhan @idPhong , @hoTen , @gioiTinh , @namSinh , @sdt , @diaChi , @cccd , @noiChuyen , @ngayNhapVien , @ngayXetNghiem , @tenNguoiThan , @mqh , @sdtNguoiThan , @phanLoai ", new object[] { id, ht, gt, ns, sdt, dc, cccd, nc, nnv, nxn, tennt, mqh, sdtnt, pl});
+            DateTime date = DateTime.Now;
+            DateTime date1 = date.AddDays(-7);
+            DateTime date2 = date.AddDays(-2);
+            if(member.NXN != null)
+            {
+                if (date1 >= member.NXN.Value && member.Slxn == 1)
+                {
+                    member.NXN = member.NXN.Value.AddDays(7);
+                    member.Slxn++;
+                    UpdateNgayXetNghiem(member.ID, 7, member.Slxn);
+                }
+                if (date2 >= member.NXN.Value && member.Slxn > 1)
+                {
+                    member.NXN = member.NXN.Value.AddDays(2);
+                    member.Slxn++;
+                    UpdateNgayXetNghiem(member.ID, 2, member.Slxn);
+                }
+            }
+            return member;
         }
 
-        public void UpdateNgayXetNghiem(int id)
+        public bool InsertMember(int idPhong, string hoTen, int namSinh, int gioiTinh, string danToc, string diaChi, string phuongXa, string quanHuyen, string tinhThanh, string sdt, string cccd, string noiChuyen, string khoa, DateTime ngayNhapVien, DateTime ngayXetNghiem, string tenNguoiThan, string mqh, string sdtNguoiThan, int phanLoai)
         {
-            DataProvider.Instance.ExecuteNonQuery("EXEC dbo.USP_UpdateNgayXetNghiem " + id);
+            int count = DataProvider.Instance.ExecuteNonQuery("EXEC dbo.USP_InsertBenhNhan @idPhong , @hoTen , @namSinh , @gioiTinh , @danToc , @diaChi , @phuongXa , @quanHuyen , @tinhThanh , @sdt , @cccd , @noiChuyen , @khoa , @ngayNhapVien , @ngayXetNghiem , @tenNguoiThan , @mqh , @sdtNguoiThan , @phanLoai , @slxn ", new object[] { idPhong , hoTen , namSinh , gioiTinh , danToc , diaChi , phuongXa ,
+quanHuyen , tinhThanh , sdt , cccd , noiChuyen , khoa , ngayNhapVien , ngayXetNghiem , tenNguoiThan , mqh , sdtNguoiThan , phanLoai, 1});
+            return count > 0;
         }
 
-        public void ChangeRoom(int id, int idPhong)
+
+        public bool InsertMemberChuaXetNghiem(int idPhong, string hoTen, int namSinh, int gioiTinh, string danToc, string diaChi, string phuongXa, string quanHuyen, string tinhThanh, string sdt, string cccd, string noiChuyen, string khoa, DateTime ngayNhapVien, string tenNguoiThan, string mqh, string sdtNguoiThan, int phanLoai)
         {
-            DataProvider.Instance.ExecuteNonQuery("EXEC dbo.USP_ChangeRoom @id , @idPhong", new object[] { id, idPhong });
+            int count = DataProvider.Instance.ExecuteNonQuery("EXEC dbo.USP_InsertBenhNhanChuaXetNghiem @idPhong , @hoTen , @namSinh , @gioiTinh , @danToc , @diaChi , @phuongXa , @quanHuyen , @tinhThanh , @sdt , @cccd , @noiChuyen , @khoa , @ngayNhapVien , @tenNguoiThan , @mqh , @sdtNguoiThan , @phanLoai , @slxn ", new object[] { idPhong , hoTen , namSinh , gioiTinh , danToc , diaChi , phuongXa ,
+quanHuyen , tinhThanh , sdt , cccd , noiChuyen , khoa , ngayNhapVien , tenNguoiThan , mqh , sdtNguoiThan , phanLoai, 0});
+            return count > 0;
         }
 
-        public void UpdateStatus(int id, int status)
+        public bool UpdateNgayXetNghiem(int id, int day, int slxn)
         {
-            DataProvider.Instance.ExecuteNonQuery("EXEC dbo.USP_UpdateStatusMember @id , @trangThai", new object[] { id, status });
+            int count = DataProvider.Instance.ExecuteNonQuery("EXEC dbo.USP_UpdateNgayXetNghiem @id , @day , @slxn " ,new object[] { id, day , slxn});
+            return count > 0;
+        }
+
+        public bool ChangeRoom(int id, int idPhong)
+        {
+            int count = DataProvider.Instance.ExecuteNonQuery("EXEC dbo.USP_ChangeRoom @id , @idPhong", new object[] { id, idPhong });
+            return count > 0;
+        }
+
+        public bool UpdateStatus(int id, int status)
+        {
+            int count = DataProvider.Instance.ExecuteNonQuery("EXEC dbo.USP_UpdateStatusMember @id , @trangThai", new object[] { id, status });
+            return count > 0;
         }
         
-        public void EditMember(int id, int idPhong, string ht, int gt, int ns, string sdt, string dc, string cccd, string nc, DateTime nnv, DateTime nxn, string tennt, string mqh, string sdtnt, int pl)
+        public bool EditMember(int id, string maBenhNhan, string soLuuTru, string hoTen, int namSinh, int gioiTinh, string danToc, string diaChi, string phuongXa, string quanHuyen, string tinhThanh, string sdt, string cccd, string noiChuyen, string khoa, DateTime ngayNhapVien, DateTime ngayXuatVien, DateTime ngayXetNghiem, string kyThuatXN, string ketQua, double ctValue, string tenNguoiThan, string mqh, string sdtNguoiThan, int phanLoai, int trangThai, int slxn)
         {
-            DataProvider.Instance.ExecuteNonQuery("EXEC dbo.USP_EditBenhNhan @id , @idPhong , @hoTen , @gioiTinh , @namSinh , @sdt , @diaChi , @cccd , @noiChuyen , @ngayNhapVien , @ngayXetNghiem , @tenNguoiThan , @mqh , @sdtNguoiThan , @phanLoai ", new object[] { id, idPhong, ht, gt, ns, sdt, dc, cccd, nc, nnv, nxn, tennt, mqh, sdtnt, pl });
+            int count = DataProvider.Instance.ExecuteNonQuery("EXEC dbo.USP_EditBenhNhan @id , @maBenhNhan , @soLuuTru , @hoTen , @namSinh , @gioiTinh , @danToc , @diaChi , @phuongXa , @quanHuyen , @tinhThanh , @sdt , @cccd , @noiChuyen , @khoa , @ngayNhapVien , @ngayXuatVien , @ngayXetNghiem , @kyThuatXN , @ketQua , @ctValue , @tenNguoiThan , @mqh , @sdtNguoiThan , @phanLoai , @trangThai , @slxn ", new object[] { id, maBenhNhan, soLuuTru, hoTen, namSinh, gioiTinh, danToc, diaChi, phuongXa, quanHuyen, tinhThanh, sdt, cccd, noiChuyen, khoa, ngayNhapVien, ngayXuatVien, ngayXetNghiem, kyThuatXN, ketQua, ctValue, tenNguoiThan, mqh, sdtNguoiThan, phanLoai, trangThai, slxn });
+            return count > 0;
         }
+
+        public bool EditMemberBasic(int id, string hoTen, int namSinh, int gioiTinh, string danToc, string diaChi, string phuongXa, string quanHuyen, string tinhThanh, string sdt, string cccd, string noiChuyen, string khoa, DateTime ngayNhapVien, DateTime ngayXetNghiem, string tenNguoiThan, string mqh, string sdtNguoiThan, int phanLoai, int trangThai, int slxn)
+        {
+            int count = DataProvider.Instance.ExecuteNonQuery("EXEC dbo.USP_EditBenhNhanBasic @id , @hoTen , @namSinh , @gioiTinh , @danToc , @diaChi , @phuongXa , @quanHuyen , @tinhThanh , @sdt , @cccd , @noiChuyen , @khoa , @ngayNhapVien , @ngayXetNghiem , @tenNguoiThan , @mqh , @sdtNguoiThan , @phanLoai , @trangThai , @slxn ", new object[] { id, hoTen, namSinh, gioiTinh, danToc, diaChi, phuongXa, quanHuyen, tinhThanh, sdt, cccd, noiChuyen, khoa, ngayNhapVien, ngayXetNghiem, tenNguoiThan, mqh, sdtNguoiThan, phanLoai, trangThai , slxn});
+            return count > 0;
+        }
+
+
+        public bool EditMemberBasicChuaXetNghiem(int id, string hoTen, int namSinh, int gioiTinh, string danToc, string diaChi, string phuongXa, string quanHuyen, string tinhThanh, string sdt, string cccd, string noiChuyen, string khoa, DateTime ngayNhapVien, string tenNguoiThan, string mqh, string sdtNguoiThan, int phanLoai, int trangThai)
+        {
+            int count = DataProvider.Instance.ExecuteNonQuery("EXEC dbo.USP_EditBenhNhanBasicChuaXetNghiem @id , @hoTen , @namSinh , @gioiTinh , @danToc , @diaChi , @phuongXa , @quanHuyen , @tinhThanh , @sdt , @cccd , @noiChuyen , @khoa , @ngayNhapVien , @tenNguoiThan , @mqh , @sdtNguoiThan , @phanLoai , @trangThai ", new object[] { id, hoTen, namSinh, gioiTinh, danToc, diaChi, phuongXa, quanHuyen, tinhThanh, sdt, cccd, noiChuyen, khoa, ngayNhapVien, tenNguoiThan, mqh, sdtNguoiThan, phanLoai, trangThai });
+            return count > 0;
+        }
+
 
         public List<Member> GetMemberList(int status)
         {
@@ -75,6 +120,25 @@ namespace project_quan_ly_giuong_benh.DAO___Data_Access_Logic
             foreach (DataRow item in data.Rows)
             {
                 Member member = new Member(item);
+                if(status == 0) member = AutoUpdateNgayXetNghiem(member);
+                listMember.Add(member);
+            }
+            return listMember;
+        }
+
+        public List<Member> GetMemberList(int status, string name, string sort)
+        {
+            if (name == "p.ten")
+                name = "CAST(p.ten AS INT)";
+            string query = "SELECT * FROM dbo.BenhNhan AS b, dbo.Phong AS p WHERE b.idPhong = p.id AND b.trangThai = " + status + " ORDER BY " + name + " " + sort;
+
+            DataTable data = DataProvider.Instance.ExecuteQuery(query);
+
+            List<Member> listMember = new List<Member>();
+            foreach (DataRow item in data.Rows)
+            {
+                Member member = new Member(item);
+                if (status == 0) member = AutoUpdateNgayXetNghiem(member);
                 listMember.Add(member);
             }
             return listMember;
@@ -87,5 +151,25 @@ namespace project_quan_ly_giuong_benh.DAO___Data_Access_Logic
             return member;
         }
 
+        public List<Member> SreachMemberByName(string name, int status)
+        {
+            string query = "EXEC dbo.USP_SreachMemberByName @name , @trangthai ";
+
+            DataTable data = DataProvider.Instance.ExecuteQuery(query, new object[] { name, status});
+
+            List<Member> listMember = new List<Member>();
+            foreach (DataRow item in data.Rows)
+            {
+                Member member = new Member(item);
+                listMember.Add(member);
+            }
+            return listMember;
+        }
+
+        public bool UpdateXuatVien(int id, string maBN, string soLT, DateTime ngayXV, DateTime ngayXN, string kyThuatXN, string kq, double ctValue)
+        {
+            int count = DataProvider.Instance.ExecuteNonQuery("EXEC dbo.USP_UpdateXuatVien @id , @maBN , @soLT , @ngayXV , @ngayXN , @kyThuatXN , @kq , @ctValue ", new object[] { id, maBN, soLT, ngayXV, ngayXN, kyThuatXN, kq, ctValue });
+            return count > 0;
+        }
     }
 }

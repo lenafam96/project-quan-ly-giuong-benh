@@ -14,11 +14,25 @@ namespace project_quan_ly_giuong_benh
 {
     public partial class fFloorManager : Form
     {
-        public fFloorManager()
+        private Account loginAccount;
+
+        public Account LoginAccount 
+        { 
+            get => loginAccount; 
+            set { loginAccount = value; ChangeAccount(LoginAccount.Type); } 
+        }
+
+        public fFloorManager(Account account)
         {
             InitializeComponent();
+            this.LoginAccount = account;
             LoadFloor();
             LoadRoom(1);
+            showMember(1);
+            btnChangeRoom.Enabled = false;
+            Room room = RoomDAO.Instance.GetRoomById(1);
+            cboTang.Tag = room;
+            lsvChiaPhong.Tag = room;
         }
         #region Methods
         void LoadFloor()
@@ -36,27 +50,80 @@ namespace project_quan_ly_giuong_benh
             }
         }
 
+        int ConverStatusToInt(string status)
+        {
+            switch (status)
+            {
+                case "Đầy":
+                    return 1;
+                case "Sắp khỏi hết":
+                    return 2;
+                case "Cấp cứu":
+                    return 3;
+                case "Hỏng":
+                    return 4;
+                case "Bận":
+                    return 5;
+                default:
+                    return 0;
+            }
+            
+        }
+
         void LoadRoom(int id)
         {
             flpRoom.Controls.Clear();
             List<Room> roomList = RoomDAO.Instance.GetListRoomByIdFloor(id);
-            cboPhong.DataSource = roomList;
-            cboPhong.DisplayMember = "Name";
             foreach (Room item in roomList)
             {
                 Button btn = new Button() { Width = RoomDAO.RoomWidth, Height = RoomDAO.RoomHeight };
                 btn.Font = new Font(btn.Font.FontFamily, 14);
-                btn.Text = item.Name + Environment.NewLine + Environment.NewLine + item.Member + "/" + item.Maximum;
+                if (CheckPhongSapKhoi(item.ID) && item.Member>0 && item.Status!= "Cấp cứu" && item.Status != "Hỏng" && item.Status != "Bận")
+                {
+                    RoomDAO.Instance.UpdateStatusRoom(2, item.ID);
+                    item.Status = "Sắp khỏi hết";
+                }
+                else
+                {
+                    if (item.Status != "Cấp cứu" && item.Status != "Hỏng" && item.Status != "Bận")
+                        item.Status = item.Member == item.Maximum ? "Đầy" : "Trống";
+                    RoomDAO.Instance.UpdateStatusRoom(ConverStatusToInt(item.Status), item.ID);
+                }
+                if (item.Status == "Hỏng")
+                {
+                    btn.Text = item.Name + Environment.NewLine + Environment.NewLine + item.Status;
+                    btn.Enabled = false;
+                }
+                else
+                    btn.Text = item.Name + Environment.NewLine + Environment.NewLine + item.Member + "/" + item.Maximum;
                 btn.Click += btnRoom_Click;
                 btn.Tag = item;
                 if (item.Status == "Trống")
-                    btn.BackColor = Color.LawnGreen;
-                else
-                    btn.BackColor = Color.Red;
+                    btn.BackColor = Color.Azure;
+                if(item.Status == "Đầy")
+                    btn.BackColor = Color.OrangeRed;
+                if (item.Status == "Cấp cứu")
+                    btn.BackColor = Color.Plum;
+                if (item.Status == "Hỏng")
+                    btn.BackColor = Color.Yellow;
+                if (item.Status == "Sắp khỏi hết")
+                    btn.BackColor = Color.DodgerBlue;
+                if (item.Status == "Bận")
+                    btn.BackColor = Color.Crimson;
                 flpRoom.Controls.Add(btn);
             }
+            
         }
 
+        bool CheckPhongSapKhoi(int id)
+        {
+            List<Member> listMember = MemberDAO.Instance.GetIdMemberByIdRoom(id);
+            DateTime date = DateTime.Now;
+            foreach(Member item in listMember)
+                if (DateTime.Compare(date.AddDays(-7), (DateTime)item.NNV)<0)
+                    return false;
+            return true;
+        }
 
         void LoadRoomComboBox(int id)
         {
@@ -67,8 +134,8 @@ namespace project_quan_ly_giuong_benh
 
         void showMember(int id)
         {
-            lsvChiaPhong.Items.Clear();
             int count = 0;
+            lsvChiaPhong.Items.Clear();
             List<Member> listMember = MemberDAO.Instance.GetIdMemberByIdRoom(id);
             foreach(Member item in listMember)
             {
@@ -76,14 +143,31 @@ namespace project_quan_ly_giuong_benh
                 lsvItem.SubItems.Add(item.NS.ToString());
                 lsvItem.SubItems.Add(item.Sdt.ToString());
                 lsvItem.SubItems.Add(item.NNV.Value.ToString("dd/MM/yyyy"));
-                lsvItem.SubItems.Add(item.NXN.Value.ToString("dd/MM/yyyy"));
-                lsvItem.SubItems.Add((item.NXN.Value.AddDays(7).ToString("dd/MM/yyyy")));
+                if (item.NXN != null)
+                {
+                    lsvItem.SubItems.Add(item.NXN.Value.ToString("dd/MM/yyyy"));
+                    if(item.Slxn<2)
+                        lsvItem.SubItems.Add((item.NXN.Value.AddDays(7).ToString("dd/MM/yyyy")));
+                    else
+                        lsvItem.SubItems.Add((item.NXN.Value.AddDays(2).ToString("dd/MM/yyyy")));
+                }
+                else
+                {
+                    lsvItem.SubItems.Add("Chưa xét nghiệm");
+                    lsvItem.SubItems.Add("Chưa xét nghiệm");
+                }
                 lsvItem.Tag = item;
                 lsvChiaPhong.Items.Add(lsvItem);
-                
+
                 count++;
             }
             RoomDAO.Instance.UpdateCountMember(count, id);
+        }
+
+        void ChangeAccount(string type)
+        {
+            adminToolStripMenuItem.Enabled = type == "Admin";
+            mnsThongTinTK.Text += " (" + LoginAccount.DisplayName + ")";
         }
 
         #endregion
@@ -95,7 +179,6 @@ namespace project_quan_ly_giuong_benh
         {
             Floor floor = (sender as Button).Tag as Floor;
             LoadRoom(floor.ID);
-            cboTang.Text = floor.Name;
         }
 
         void btnRoom_Click(object sender, EventArgs e)
@@ -104,12 +187,14 @@ namespace project_quan_ly_giuong_benh
             lsvChiaPhong.Tag = (sender as Button).Tag;
             showMember(roomID);
             Room room = lsvChiaPhong.Tag as Room;
-            if (room.Member == room.Maximum)
-                RoomDAO.Instance.UpdateStatusRoom(1, roomID);
-            else
-                RoomDAO.Instance.UpdateStatusRoom(0, roomID);
+            btnAdd.Enabled = room.Member < room.Maximum;
             LoadRoom(room.IDTang);
-            cboPhong.Text = room.Name;
+            cboTang.Tag = room;
+            Room roomNew = cboPhong.Tag as Room;
+            if (roomNew != null)
+            {
+                btnChangeRoom.Enabled = room.ID != roomNew.ID;
+            }
         }
 
         private void đăngXuấtToolStripMenuItem_Click(object sender, EventArgs e)
@@ -117,10 +202,16 @@ namespace project_quan_ly_giuong_benh
             this.Close();
         }
 
-        private void thôngTinCáNhânToolStripMenuItem_Click(object sender, EventArgs e)
+        private void mnsThongTinCN_Click(object sender, EventArgs e)
         {
-            fAccountProfile f = new fAccountProfile();
+            fAccountProfile f = new fAccountProfile(LoginAccount);
+            f.UpdateDisplayName += f_updateDisplayName;
             f.ShowDialog();
+        }
+
+        void f_updateDisplayName(object sender, AccountEvent e)
+        {
+            mnsThongTinTK.Text = "Thông tin tài khoản (" + e.DisplayName + ")";
         }
 
         private void btnAdd_Click(object sender, EventArgs e)
@@ -128,18 +219,23 @@ namespace project_quan_ly_giuong_benh
             Room room = lsvChiaPhong.Tag as Room;
             if (room != null)
             {
-                if (room.Member <= room.Maximum)
+                if(room.Status == "Bận" || room.Status == "Sắp khỏi hết")
                 {
-                    InsertMember f = new InsertMember(room.ID);
-                    f.ShowDialog();
-                    LoadRoom(room.IDTang);
-                    showMember(room.ID);
+                    if (MessageBox.Show("Xác nhận thêm người vào phòng " + room.Status + " không?", "Cảnh báo", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == System.Windows.Forms.DialogResult.No)
+                        return;
                 }
-                else
-                    MessageBox.Show("Phòng đã đầy người!!!","Thông báo");
+                InsertMember f = new InsertMember(room);
+                f.ShowDialog();
+                LoadRoom(room.IDTang);
+                showMember(room.ID);
             }
         }
 
+        private void btnMap_click(object sender, EventArgs e)
+        {
+            fMapBlock f = new fMapBlock();
+            f.ShowDialog();
+        }
 
         private void btnChangeRoom_Click(object sender, EventArgs e)
         {
@@ -155,14 +251,33 @@ namespace project_quan_ly_giuong_benh
                         listMember.Add(member);
                         count++;
                     }
-                    Room room = lsvChiaPhong.Tag as Room;
+                    Room room = cboTang.Tag as Room;
                     Room roomDich = cboPhong.Tag as Room;
-                    if (roomDich.Member + count > roomDich.Maximum )
+                    if (roomDich.Member + count > roomDich.Maximum)
                         MessageBox.Show("Phòng " + roomDich.Name + " không đủ giường trống!", "Lỗi" , MessageBoxButtons.OK, MessageBoxIcon.Error);
                     else
                     {
-                        foreach(Member member in listMember)
-                            MemberDAO.Instance.ChangeRoom(member.ID, roomDich.ID);
+                        if (roomDich.Status == "Bận" || roomDich.Status == "Sắp khỏi hết")
+                            if (MessageBox.Show("Phòng " + roomDich.Name + " là phòng " + roomDich.Status + ". Bạn có chắc muốn chuyển thêm người vào phòng này không?!", "Cảnh báo", MessageBoxButtons.OKCancel, MessageBoxIcon.Exclamation) == System.Windows.Forms.DialogResult.OK)
+                            {
+                                foreach (Member member in listMember)
+                                {
+                                    MemberDAO.Instance.ChangeRoom(member.ID, roomDich.ID);
+                                    room.Member--;
+                                    roomDich.Member++;
+                                }
+                            }
+                            else
+                                ;
+                        else
+                            foreach (Member member in listMember)
+                            {
+                                MemberDAO.Instance.ChangeRoom(member.ID, roomDich.ID);
+                                room.Member--;
+                                roomDich.Member++;
+                            }
+
+
                     }
                     showMember(room.ID);
                     LoadRoom(room.IDTang);
@@ -191,30 +306,34 @@ namespace project_quan_ly_giuong_benh
             if (cb.SelectedItem == null)
                 return ;
             Room room = cb.SelectedItem as Room;
+            room = RoomDAO.Instance.GetRoomById(room.ID);
             cboPhong.Tag = room;
+            Room roomOlder = cboTang.Tag as Room;
+            if (roomOlder != null)
+            {
+                btnChangeRoom.Enabled = room.ID != roomOlder.ID;
+            }
         }
 
 
         private void btnXuatVien_Click(object sender, EventArgs e)
         {
-            if (lsvChiaPhong.SelectedIndices.Count > 0)
+            if (lsvChiaPhong.SelectedIndices.Count == 1)
             {
-                if (MessageBox.Show("Xác nhận bệnh nhân xuất viện?", "Thông báo", MessageBoxButtons.OKCancel, MessageBoxIcon.Question) == System.Windows.Forms.DialogResult.OK)
+                Member member = lsvChiaPhong.Items[lsvChiaPhong.SelectedIndices[0]].Tag as Member;
+                if (member.Slxn > 1)
                 {
-                    List<Member> listMember = new List<Member>();
-                    int count = 0;
-                    foreach (int item in lsvChiaPhong.SelectedIndices)
+                    if (MessageBox.Show("Xác nhận bệnh nhân xuất viện?", "Thông báo", MessageBoxButtons.OKCancel, MessageBoxIcon.Question) == System.Windows.Forms.DialogResult.OK)
                     {
-                        Member member = lsvChiaPhong.Items[item].Tag as Member;
-                        listMember.Add(member);
-                        count++;
+                        fXuatVien f = new fXuatVien(member);
+                        f.ShowDialog();
+                        Room room = lsvChiaPhong.Tag as Room;
+                        showMember(room.ID);
+                        LoadRoom(room.IDTang);
                     }
-                    Room room = lsvChiaPhong.Tag as Room;
-                    foreach (Member member in listMember)
-                        MemberDAO.Instance.UpdateStatus(member.ID, 1);
-                    showMember(room.ID);
-                    LoadRoom(room.IDTang);
                 }
+                else
+                    MessageBox.Show("Bệnh nhân chưa đủ số lần xét nghiệm chưa thể xuất viện!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
 
@@ -260,13 +379,18 @@ namespace project_quan_ly_giuong_benh
         {
             fQuanLyPhong f = new fQuanLyPhong();
             f.ShowDialog();
-
+            Room room = lsvChiaPhong.Tag as Room;
+            LoadRoom(room.IDTang);
+            showMember(room.ID);
         }
 
         private void quảnLýBệnhNhânToolStripMenuItem_Click(object sender, EventArgs e)
         {
             fQuanLyBenhNhan f = new fQuanLyBenhNhan();
             f.ShowDialog();
+            Room room = lsvChiaPhong.Tag as Room;
+            LoadRoom(room.IDTang);
+            showMember(room.ID);
         }
 
         private void quảnLýTàiKhoảnToolStripMenuItem_Click(object sender, EventArgs e)
@@ -275,5 +399,7 @@ namespace project_quan_ly_giuong_benh
             f.ShowDialog();
         }
         #endregion
+
+        
     }
 }

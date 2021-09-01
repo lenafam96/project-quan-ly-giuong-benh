@@ -35,8 +35,8 @@ namespace project_quan_ly_giuong_benh
             this.quảnLýPhòngToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.quảnLýBệnhNhânToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.quảnLýTàiKhoảnToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.thôngTinTàiKhoảnToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.thôngTinCáNhânToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.mnsThongTinTK = new System.Windows.Forms.ToolStripMenuItem();
+            this.mnsThongTinCN = new System.Windows.Forms.ToolStripMenuItem();
             this.đăngXuấtToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.trợGiúpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
@@ -50,6 +50,7 @@ namespace project_quan_ly_giuong_benh
             this.cboPhong = new System.Windows.Forms.ComboBox();
             this.cboTang = new System.Windows.Forms.ComboBox();
             this.btnStatistic = new System.Windows.Forms.Button();
+            this.btnMap = new System.Windows.Forms.Button();
             this.btnChangeRoom = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
             this.lsvChiaPhong = new System.Windows.Forms.ListView();
@@ -121,21 +122,21 @@ namespace project_quan_ly_giuong_benh
             this.quảnLýTàiKhoảnToolStripMenuItem.Text = "Quản lý tài khoản";
             this.quảnLýTàiKhoảnToolStripMenuItem.Click += new System.EventHandler(this.quảnLýTàiKhoảnToolStripMenuItem_Click);
             // 
-            // thôngTinTàiKhoảnToolStripMenuItem
+            // mnsThongTinTK
             // 
-            this.thôngTinTàiKhoảnToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.thôngTinCáNhânToolStripMenuItem,
+            this.mnsThongTinTK.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.mnsThongTinCN,
             this.đăngXuấtToolStripMenuItem});
-            this.thôngTinTàiKhoảnToolStripMenuItem.Name = "thôngTinTàiKhoảnToolStripMenuItem";
-            this.thôngTinTàiKhoảnToolStripMenuItem.Size = new System.Drawing.Size(122, 20);
-            this.thôngTinTàiKhoảnToolStripMenuItem.Text = "Thông tin tài khoản";
+            this.mnsThongTinTK.Name = "mnsThongTinTK";
+            this.mnsThongTinTK.Size = new System.Drawing.Size(122, 20);
+            this.mnsThongTinTK.Text = "Thông tin tài khoản";
             // 
-            // thôngTinCáNhânToolStripMenuItem
+            // mnsThongTinCN
             // 
-            this.thôngTinCáNhânToolStripMenuItem.Name = "thôngTinCáNhânToolStripMenuItem";
-            this.thôngTinCáNhânToolStripMenuItem.Size = new System.Drawing.Size(170, 22);
-            this.thôngTinCáNhânToolStripMenuItem.Text = "Thông tin cá nhân";
-            this.thôngTinCáNhânToolStripMenuItem.Click += new System.EventHandler(this.thôngTinCáNhânToolStripMenuItem_Click);
+            this.mnsThongTinCN.Name = "mnsThongTinCN";
+            this.mnsThongTinCN.Size = new System.Drawing.Size(170, 22);
+            this.mnsThongTinCN.Text = "Thông tin cá nhân";
+            this.mnsThongTinCN.Click += new System.EventHandler(this.mnsThongTinCN_Click);
             // 
             // đăngXuấtToolStripMenuItem
             // 
@@ -154,7 +155,7 @@ namespace project_quan_ly_giuong_benh
             // 
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.adminToolStripMenuItem,
-            this.thôngTinTàiKhoảnToolStripMenuItem,
+            this.mnsThongTinTK,
             this.trợGiúpToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
@@ -243,6 +244,7 @@ namespace project_quan_ly_giuong_benh
             this.panel3.Controls.Add(this.cboPhong);
             this.panel3.Controls.Add(this.cboTang);
             this.panel3.Controls.Add(this.btnStatistic);
+            this.panel3.Controls.Add(this.btnMap);
             this.panel3.Controls.Add(this.btnChangeRoom);
             this.panel3.Location = new System.Drawing.Point(0, 469);
             this.panel3.Name = "panel3";
@@ -256,7 +258,7 @@ namespace project_quan_ly_giuong_benh
             this.cboPhong.FormattingEnabled = true;
             this.cboPhong.Location = new System.Drawing.Point(3, 41);
             this.cboPhong.Name = "cboPhong";
-            this.cboPhong.Size = new System.Drawing.Size(180, 28);
+            this.cboPhong.Size = new System.Drawing.Size(94, 28);
             this.cboPhong.TabIndex = 2;
             this.cboPhong.SelectedIndexChanged += new System.EventHandler(this.cboPhong_SelectedIndexChanged);
             // 
@@ -267,7 +269,7 @@ namespace project_quan_ly_giuong_benh
             this.cboTang.FormattingEnabled = true;
             this.cboTang.Location = new System.Drawing.Point(3, 7);
             this.cboTang.Name = "cboTang";
-            this.cboTang.Size = new System.Drawing.Size(180, 28);
+            this.cboTang.Size = new System.Drawing.Size(94, 28);
             this.cboTang.TabIndex = 2;
             this.cboTang.SelectedIndexChanged += new System.EventHandler(this.cboTang_SelectedIndexChanged);
             // 
@@ -275,22 +277,35 @@ namespace project_quan_ly_giuong_benh
             // 
             this.btnStatistic.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btnStatistic.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnStatistic.Location = new System.Drawing.Point(327, 7);
+            this.btnStatistic.Location = new System.Drawing.Point(339, 8);
             this.btnStatistic.Margin = new System.Windows.Forms.Padding(1);
             this.btnStatistic.Name = "btnStatistic";
-            this.btnStatistic.Size = new System.Drawing.Size(121, 62);
+            this.btnStatistic.Size = new System.Drawing.Size(110, 63);
             this.btnStatistic.TabIndex = 1;
             this.btnStatistic.Text = "Thống kê";
             this.btnStatistic.UseVisualStyleBackColor = true;
+            // 
+            // btnMap
+            // 
+            this.btnMap.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnMap.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnMap.Location = new System.Drawing.Point(220, 8);
+            this.btnMap.Margin = new System.Windows.Forms.Padding(1);
+            this.btnMap.Name = "btnMap";
+            this.btnMap.Size = new System.Drawing.Size(110, 63);
+            this.btnMap.TabIndex = 0;
+            this.btnMap.Text = "Sơ đồ\r\ntoà nhà";
+            this.btnMap.UseVisualStyleBackColor = true;
+            this.btnMap.Click += new System.EventHandler(this.btnMap_click);
             // 
             // btnChangeRoom
             // 
             this.btnChangeRoom.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btnChangeRoom.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnChangeRoom.Location = new System.Drawing.Point(208, 7);
+            this.btnChangeRoom.Location = new System.Drawing.Point(101, 7);
             this.btnChangeRoom.Margin = new System.Windows.Forms.Padding(1);
             this.btnChangeRoom.Name = "btnChangeRoom";
-            this.btnChangeRoom.Size = new System.Drawing.Size(117, 62);
+            this.btnChangeRoom.Size = new System.Drawing.Size(110, 63);
             this.btnChangeRoom.TabIndex = 0;
             this.btnChangeRoom.Text = "Chuyển phòng";
             this.btnChangeRoom.UseVisualStyleBackColor = true;
@@ -375,6 +390,7 @@ namespace project_quan_ly_giuong_benh
             this.Controls.Add(this.flpFloor);
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
+            this.MinimumSize = new System.Drawing.Size(1011, 617);
             this.Name = "fFloorManager";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Phần mềm quản lý giường bệnh";
@@ -396,8 +412,8 @@ namespace project_quan_ly_giuong_benh
         private System.Windows.Forms.ToolStripMenuItem quảnLýPhòngToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem quảnLýBệnhNhânToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem quảnLýTàiKhoảnToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem thôngTinTàiKhoảnToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem thôngTinCáNhânToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem mnsThongTinTK;
+        private System.Windows.Forms.ToolStripMenuItem mnsThongTinCN;
         private System.Windows.Forms.ToolStripMenuItem đăngXuấtToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem trợGiúpToolStripMenuItem;
         private System.Windows.Forms.MenuStrip menuStrip1;
@@ -420,5 +436,6 @@ namespace project_quan_ly_giuong_benh
         private System.Windows.Forms.ColumnHeader ngayNhapVien;
         private System.Windows.Forms.ColumnHeader ngayXetNghiemL1;
         private System.Windows.Forms.ColumnHeader ngayXetNghiemL2;
+        private System.Windows.Forms.Button btnMap;
     }
 }

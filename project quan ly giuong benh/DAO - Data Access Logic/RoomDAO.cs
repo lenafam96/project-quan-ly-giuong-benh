@@ -28,7 +28,7 @@ namespace project_quan_ly_giuong_benh.DAO___Data_Access_Logic
         {
             List<Room> listRoom = new List<Room>();
 
-            string query = "SELECT * FROM dbo.Phong WHERE idTang = " + id;
+            string query = "SELECT * FROM dbo.Phong WHERE idTang = " + id + " ORDER BY ten ";
 
             DataTable data = DataProvider.Instance.ExecuteQuery(query);
 
@@ -65,10 +65,40 @@ namespace project_quan_ly_giuong_benh.DAO___Data_Access_Logic
             return listRoom;
         }
 
+        public List<Room> GetRoomList(string name, string sort)
+        {
+            if (name == "ten")
+                name = "CAST(ten AS INT)";
+            string query = "SELECT * FROM Phong ORDER BY " + name + " " + sort;
+            DataTable data = DataProvider.Instance.ExecuteQuery(query);
+            List<Room> listRoom = new List<Room>();
+            foreach (DataRow item in data.Rows)
+            {
+                Room room = new Room(item);
+                listRoom.Add(room);
+            }
+            return listRoom;
+        }
+
         public List<Room> GetRoomListByStatus(int status)
         {
             string query = "SELECT * FROM Phong WHERE trangThai = " + status;
 
+            DataTable data = DataProvider.Instance.ExecuteQuery(query);
+            List<Room> listRoom = new List<Room>();
+            foreach (DataRow item in data.Rows)
+            {
+                Room room = new Room(item);
+                listRoom.Add(room);
+            }
+            return listRoom;
+        }
+
+        public List<Room> GetRoomListByStatus(int status, string name, string sort)
+        {
+            if (name == "ten")
+                name = "CAST(ten AS INT)";
+            string query = "SELECT * FROM Phong WHERE trangThai = " + status + " ORDER BY " + name + " " + sort;
             DataTable data = DataProvider.Instance.ExecuteQuery(query);
             List<Room> listRoom = new List<Room>();
             foreach (DataRow item in data.Rows)
@@ -84,6 +114,24 @@ namespace project_quan_ly_giuong_benh.DAO___Data_Access_Logic
             DataTable data = DataProvider.Instance.ExecuteQuery("SELECT * FROM dbo.Phong WHERE id = " + id);
             Room room = new Room(data.Rows[0]);
             return room;
+        }
+
+        public bool InsertRoom(string name, int idTang, int max, int status)
+        {
+            int result = DataProvider.Instance.ExecuteNonQuery("EXEC dbo.USP_InsertRoom @ten , @idTang , @gioiHan , @trangThai", new object[] { name, idTang, max, status });
+            return result > 0;
+        }
+
+        public bool UpdateRoomInfo(int id, string name, int idTang, int max, int status)
+        {
+            int result =  DataProvider.Instance.ExecuteNonQuery("EXEC dbo.USP_UpdateRoomInfo @id , @ten , @idTang , @gioiHan , @trangThai ", new object[] { id, name, idTang, max, status });
+            return result > 0;
+        }
+
+        public bool DeleteRoom(int id)
+        {
+            int result = DataProvider.Instance.ExecuteNonQuery("DELETE FROM dbo.Phong WHERE id = " + id);
+            return result > 0;
         }
     }
 }

@@ -32,16 +32,19 @@ namespace project_quan_ly_giuong_benh.DTO___Data_Tranfer_Object
                     this.Status = "Trống";
                     break;
                 case 1:
-                    this.Status = "Sắp khỏi hết";
+                    this.Status = "Đầy";
                     break;
                 case 2:
-                    this.Status = "Đầy";
+                    this.Status = "Sắp khỏi hết";
                     break;
                 case 3:
                     this.Status = "Cấp cứu";
                     break;
                 case 4:
-                    this.Status = "Đang sửa";
+                    this.Status = "Hỏng";
+                    break;
+                case 5:
+                    this.Status = "Bận";
                     break;
             }
         }

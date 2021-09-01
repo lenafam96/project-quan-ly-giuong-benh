@@ -96,6 +96,7 @@ namespace project_quan_ly_giuong_benh
             this.txbUserName.Name = "txbUserName";
             this.txbUserName.Size = new System.Drawing.Size(258, 29);
             this.txbUserName.TabIndex = 1;
+            this.txbUserName.Text = "admin";
             // 
             // label3
             // 
@@ -128,6 +129,7 @@ namespace project_quan_ly_giuong_benh
             this.txbPassWord.Name = "txbPassWord";
             this.txbPassWord.Size = new System.Drawing.Size(258, 29);
             this.txbPassWord.TabIndex = 2;
+            this.txbPassWord.Text = "1";
             this.txbPassWord.UseSystemPasswordChar = true;
             // 
             // label2
