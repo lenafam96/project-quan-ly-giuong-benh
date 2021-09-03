@@ -47,6 +47,7 @@ namespace project_quan_ly_giuong_benh
             this.cboKq = new System.Windows.Forms.ComboBox();
             this.cboKTXN = new System.Windows.Forms.ComboBox();
             this.btnXacNhan = new System.Windows.Forms.Button();
+            this.lbCanhBao = new System.Windows.Forms.Label();
             this.tableLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -279,22 +280,34 @@ namespace project_quan_ly_giuong_benh
             this.btnXacNhan.UseVisualStyleBackColor = true;
             this.btnXacNhan.Click += new System.EventHandler(this.btnXacNhan_Click);
             // 
+            // lbCanhBao
+            // 
+            this.lbCanhBao.AutoSize = true;
+            this.lbCanhBao.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbCanhBao.ForeColor = System.Drawing.Color.Red;
+            this.lbCanhBao.Location = new System.Drawing.Point(12, 301);
+            this.lbCanhBao.Name = "lbCanhBao";
+            this.lbCanhBao.Size = new System.Drawing.Size(0, 18);
+            this.lbCanhBao.TabIndex = 23;
+            // 
             // fXuatVien
             // 
             this.AcceptButton = this.btnXacNhan;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(484, 346);
+            this.Controls.Add(this.lbCanhBao);
             this.Controls.Add(this.tableLayoutPanel1);
             this.Controls.Add(this.btnXacNhan);
             this.MaximumSize = new System.Drawing.Size(500, 385);
-            this.MinimumSize = new System.Drawing.Size(426, 385);
+            this.MinimumSize = new System.Drawing.Size(500, 385);
             this.Name = "fXuatVien";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Cập nhật thông tin xuất viện";
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -317,5 +330,6 @@ namespace project_quan_ly_giuong_benh
         private System.Windows.Forms.TextBox txbMaBN;
         private System.Windows.Forms.ComboBox cboKq;
         private System.Windows.Forms.ComboBox cboKTXN;
+        private System.Windows.Forms.Label lbCanhBao;
     }
 }

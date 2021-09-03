@@ -12,10 +12,10 @@ using System.Windows.Forms;
 
 namespace project_quan_ly_giuong_benh
 {
-    public partial class fAdminEditMember : Form
+    public partial class fEditMemberXuatVien : Form
     {
         private Member member;
-        public fAdminEditMember(Member member)
+        public fEditMemberXuatVien(Member member)
         {
             InitializeComponent();
             this.Member = member;
@@ -115,7 +115,7 @@ namespace project_quan_ly_giuong_benh
             {
                 int gt = chkNam.Checked ? 0 : 1;
                 int pl = chkF1.Checked ? 1 : 0;
-                MemberDAO.Instance.EditMember(this.Member.ID, txbMaBN.Text.Trim(' ', ',', '-'), txbSoLT.Text.Trim(' ', ',', '-'), txbHoTen.Text.Trim(' ', ',', '-'), ns, gt, dantoc.Trim(' ', ',', '-'), txbDiaChi.Text, px, qh, tp, txbSdt.Text.Trim(' ', ',', '-'), txbCccd.Text.Trim(' ', ',', '-'), txbNoiChuyen.Text.Trim(' ', ',', '-'), khoa, dtpNgayNhapVien.Value, dtpNgayXuatVien.Value, dtpNgayXetNghiem.Value, cboKTXN.Text, kq, ctValue, txbTenNguoiThan.Text.Trim(' ', ',', '-'), txbMqh.Text.Trim(' ', ',', '-'), txbSdtNguoiThan.Text.Trim(' ', ',', '-'), pl, this.member.TT, (int)nUDslxn.Value);
+                MemberDAO.Instance.EditMemberXuatVien(this.Member.ID, txbMaBN.Text.Trim(' ', ',', '-'), txbSoLT.Text.Trim(' ', ',', '-'), txbHoTen.Text.Trim(' ', ',', '-'), ns, gt, dantoc.Trim(' ', ',', '-'), txbDiaChi.Text, px, qh, tp, txbSdt.Text.Trim(' ', ',', '-'), txbCccd.Text.Trim(' ', ',', '-'), txbNoiChuyen.Text.Trim(' ', ',', '-'), khoa, dtpNgayNhapVien.Value, dtpNgayXuatVien.Value, dtpNgayXetNghiem.Value, cboKTXN.Text, kq, ctValue, txbTenNguoiThan.Text.Trim(' ', ',', '-'), txbMqh.Text.Trim(' ', ',', '-'), txbSdtNguoiThan.Text.Trim(' ', ',', '-'), pl, this.member.TT, (int)nUDslxn.Value);
                 this.Close();
 
             }

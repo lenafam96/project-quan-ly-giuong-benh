@@ -10,7 +10,7 @@ namespace project_quan_ly_giuong_benh.DTO___Data_Tranfer_Object
 {
     public class Member
     {
-        public Member(int iD, string phong, string maBN, string soLT, string hT, int nS, string gT, string danToc, string dC, string pX, string qH, string tiTh, string sdt, string cccd, string nC, string khoa, DateTime? nNV, DateTime? nXV, int sndt, DateTime? nXN, string ktxn, string kq, double ctValue, string htNT, string mqh, string sdtNT, string pL, int tT, int slxn)
+        public Member(int iD, string phong, string maBN, string soLT, string hT, int nS, string gT, string danToc, string dC, string pX, string qH, string tiTh, string sdt, string cccd, string nC, string khoa, DateTime? nNV, DateTime? nXV, int sndt, DateTime? nXN, string ktxn, string kq, double ctValue, string htNT, string mqh, string sdtNT, string pL, int tT, int slxn, string noiDen)
         {
             this.ID = iD;
             this.Phong = phong;
@@ -41,6 +41,7 @@ namespace project_quan_ly_giuong_benh.DTO___Data_Tranfer_Object
             this.PL = pL;
             this.TT = tT;
             this.slxn = slxn;
+            this.NoiDen = noiDen;
         }
 
         public Member(DataRow row)
@@ -86,6 +87,8 @@ namespace project_quan_ly_giuong_benh.DTO___Data_Tranfer_Object
             this.PL = "f"+ (int)row["phanLoai"];
             this.TT = (int)row["trangThai"];
             this.slxn = (int)row["slxn"];
+            if (row["noiDen"] != null)
+                this.NoiDen = row["noiDen"].ToString();
         }
 
         private int iD;
@@ -117,6 +120,7 @@ namespace project_quan_ly_giuong_benh.DTO___Data_Tranfer_Object
         private string pL;
         private int tT;
         private int slxn;
+        private string noiDen;
 
         public int ID { get => iD; set => iD = value; }
         public string Phong { get => phong; set => phong = value; }
@@ -147,5 +151,6 @@ namespace project_quan_ly_giuong_benh.DTO___Data_Tranfer_Object
         public string PL { get => pL; set => pL = value; }
         public int TT { get => tT; set => tT = value; }
         public int Slxn { get => slxn; set => slxn = value; }
+        public string NoiDen { get => noiDen; set => noiDen = value; }
     }
 }

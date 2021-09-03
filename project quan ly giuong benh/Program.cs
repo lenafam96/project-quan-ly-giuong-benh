@@ -18,6 +18,7 @@ namespace project_quan_ly_giuong_benh
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new flogin());
             //Application.Run(new fQuanLyBenhNhan());
+            //Application.Run(new test());
 
         }
     }

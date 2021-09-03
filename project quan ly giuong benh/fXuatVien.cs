@@ -20,10 +20,21 @@ namespace project_quan_ly_giuong_benh
             InitializeComponent();
             this.Member = member;
             txbHoTen.Text = this.Member.HT;
+            txbMaBN.Text = this.Member.MaBN;
+            dtpNgayXetNghiem.MaxDate = DateTime.Now;
+            dtpNgayXuatVien.MaxDate = DateTime.Now;
             dtpNgayXetNghiem.Value = (DateTime)this.Member.NXN;
         }
 
         public Member Member { get => member; set => member = value; }
+
+        private void CheckNgayOLai()
+        {
+            if (this.Member.NXV != null && this.Member.NXV > DateTime.Now.AddDays(-3))
+                lbCanhBao.Text = "*Bệnh nhân đã ở lại viện thêm " + DateTime.Now.Subtract((DateTime)this.Member.NXV).Days + " ngày!";
+            else
+                lbCanhBao.Text = "";
+        }
 
         private void btnXacNhan_Click(object sender, EventArgs e)
         {

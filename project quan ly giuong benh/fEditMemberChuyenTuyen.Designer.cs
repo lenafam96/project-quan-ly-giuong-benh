@@ -1,7 +1,7 @@
 ﻿
 namespace project_quan_ly_giuong_benh
 {
-    partial class fAdminEditMember
+    partial class fEditMemberChuyenTuyen
     {
         /// <summary>
         /// Required designer variable.
@@ -29,6 +29,12 @@ namespace project_quan_ly_giuong_benh
         /// </summary>
         private void InitializeComponent()
         {
+            this.btnXacNhan = new System.Windows.Forms.Button();
+            this.tableLayoutPanel4 = new System.Windows.Forms.TableLayoutPanel();
+            this.dtpNgayXuatVien = new System.Windows.Forms.DateTimePicker();
+            this.txbNoiDen = new System.Windows.Forms.TextBox();
+            this.label25 = new System.Windows.Forms.Label();
+            this.label21 = new System.Windows.Forms.Label();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.label19 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
@@ -72,26 +78,81 @@ namespace project_quan_ly_giuong_benh
             this.txbNoiChuyen = new System.Windows.Forms.TextBox();
             this.cboKhoa = new System.Windows.Forms.ComboBox();
             this.txbMaBN = new System.Windows.Forms.TextBox();
-            this.tableLayoutPanel4 = new System.Windows.Forms.TableLayoutPanel();
-            this.txbSoLT = new System.Windows.Forms.TextBox();
-            this.label20 = new System.Windows.Forms.Label();
-            this.label21 = new System.Windows.Forms.Label();
-            this.label23 = new System.Windows.Forms.Label();
-            this.label24 = new System.Windows.Forms.Label();
-            this.label25 = new System.Windows.Forms.Label();
-            this.dtpNgayXuatVien = new System.Windows.Forms.DateTimePicker();
-            this.txbCTValue = new System.Windows.Forms.TextBox();
-            this.cboKq = new System.Windows.Forms.ComboBox();
-            this.cboKTXN = new System.Windows.Forms.ComboBox();
-            this.label18 = new System.Windows.Forms.Label();
-            this.nUDslxn = new System.Windows.Forms.NumericUpDown();
-            this.btnXacNhan = new System.Windows.Forms.Button();
+            this.tableLayoutPanel4.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
             this.tableLayoutPanel3.SuspendLayout();
-            this.tableLayoutPanel4.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.nUDslxn)).BeginInit();
             this.SuspendLayout();
+            // 
+            // btnXacNhan
+            // 
+            this.btnXacNhan.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnXacNhan.Location = new System.Drawing.Point(899, 83);
+            this.btnXacNhan.Name = "btnXacNhan";
+            this.btnXacNhan.Size = new System.Drawing.Size(123, 38);
+            this.btnXacNhan.TabIndex = 30;
+            this.btnXacNhan.Text = "&Xác Nhận";
+            this.btnXacNhan.UseVisualStyleBackColor = true;
+            this.btnXacNhan.Click += new System.EventHandler(this.btnXacNhan_Click);
+            // 
+            // tableLayoutPanel4
+            // 
+            this.tableLayoutPanel4.ColumnCount = 2;
+            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 44.69136F));
+            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 55.30864F));
+            this.tableLayoutPanel4.Controls.Add(this.dtpNgayXuatVien, 1, 0);
+            this.tableLayoutPanel4.Controls.Add(this.txbNoiDen, 1, 1);
+            this.tableLayoutPanel4.Controls.Add(this.label25, 0, 1);
+            this.tableLayoutPanel4.Controls.Add(this.label21, 0, 0);
+            this.tableLayoutPanel4.Location = new System.Drawing.Point(617, 11);
+            this.tableLayoutPanel4.Name = "tableLayoutPanel4";
+            this.tableLayoutPanel4.RowCount = 2;
+            this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 14.28571F));
+            this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 14.28571F));
+            this.tableLayoutPanel4.Size = new System.Drawing.Size(405, 65);
+            this.tableLayoutPanel4.TabIndex = 29;
+            // 
+            // dtpNgayXuatVien
+            // 
+            this.dtpNgayXuatVien.CalendarFont = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dtpNgayXuatVien.CustomFormat = "dd-MM-yyyy";
+            this.dtpNgayXuatVien.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dtpNgayXuatVien.Location = new System.Drawing.Point(184, 3);
+            this.dtpNgayXuatVien.MinDate = new System.DateTime(2020, 1, 1, 0, 0, 0, 0);
+            this.dtpNgayXuatVien.Name = "dtpNgayXuatVien";
+            this.dtpNgayXuatVien.Size = new System.Drawing.Size(109, 20);
+            this.dtpNgayXuatVien.TabIndex = 22;
+            // 
+            // txbNoiDen
+            // 
+            this.txbNoiDen.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.txbNoiDen.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txbNoiDen.Location = new System.Drawing.Point(184, 35);
+            this.txbNoiDen.Name = "txbNoiDen";
+            this.txbNoiDen.Size = new System.Drawing.Size(218, 29);
+            this.txbNoiDen.TabIndex = 26;
+            // 
+            // label25
+            // 
+            this.label25.AutoSize = true;
+            this.label25.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label25.Location = new System.Drawing.Point(3, 32);
+            this.label25.Name = "label25";
+            this.label25.Size = new System.Drawing.Size(81, 22);
+            this.label25.TabIndex = 0;
+            this.label25.Text = "Nơi đến:";
+            // 
+            // label21
+            // 
+            this.label21.AutoSize = true;
+            this.label21.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label21.Location = new System.Drawing.Point(3, 0);
+            this.label21.Name = "label21";
+            this.label21.Size = new System.Drawing.Size(173, 22);
+            this.label21.TabIndex = 0;
+            this.label21.Text = "Ngày chuyển tuyến:";
             // 
             // tableLayoutPanel1
             // 
@@ -136,30 +197,30 @@ namespace project_quan_ly_giuong_benh
             this.tableLayoutPanel1.Controls.Add(this.txbNoiChuyen, 1, 11);
             this.tableLayoutPanel1.Controls.Add(this.cboKhoa, 1, 12);
             this.tableLayoutPanel1.Controls.Add(this.txbMaBN, 1, 0);
-            this.tableLayoutPanel1.Location = new System.Drawing.Point(12, 12);
+            this.tableLayoutPanel1.Location = new System.Drawing.Point(12, 11);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 19;
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 5.263158F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 5.263158F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 5.263158F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 5.263158F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 5.263158F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 5.263158F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 5.263158F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 5.263158F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 5.263158F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 5.263158F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 5.263158F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 5.263158F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 5.263158F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 5.263158F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 5.263158F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 5.263158F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 5.263158F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 5.263158F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 5.263158F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 5.264543F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 5.264543F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 5.501447F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 5.264543F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 5.264543F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 5.264543F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 5.264543F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 5.264543F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 5.264543F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 5.264543F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 5.264543F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 5.264543F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 5.264543F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 5.264543F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 5.264543F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 5.264543F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 5.264543F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 5.264543F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 5.001316F));
             this.tableLayoutPanel1.Size = new System.Drawing.Size(605, 633);
-            this.tableLayoutPanel1.TabIndex = 18;
+            this.tableLayoutPanel1.TabIndex = 28;
             // 
             // label19
             // 
@@ -195,7 +256,7 @@ namespace project_quan_ly_giuong_benh
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(3, 165);
+            this.label4.Location = new System.Drawing.Point(3, 166);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(125, 22);
             this.label4.TabIndex = 0;
@@ -205,7 +266,7 @@ namespace project_quan_ly_giuong_benh
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(3, 198);
+            this.label5.Location = new System.Drawing.Point(3, 199);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(72, 22);
             this.label5.TabIndex = 0;
@@ -215,7 +276,7 @@ namespace project_quan_ly_giuong_benh
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(3, 330);
+            this.label6.Location = new System.Drawing.Point(3, 331);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(132, 22);
             this.label6.TabIndex = 0;
@@ -225,7 +286,7 @@ namespace project_quan_ly_giuong_benh
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(3, 429);
+            this.label7.Location = new System.Drawing.Point(3, 430);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(93, 22);
             this.label7.TabIndex = 0;
@@ -235,7 +296,7 @@ namespace project_quan_ly_giuong_benh
             // 
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.Location = new System.Drawing.Point(3, 462);
+            this.label8.Location = new System.Drawing.Point(3, 463);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(155, 22);
             this.label8.TabIndex = 0;
@@ -245,7 +306,7 @@ namespace project_quan_ly_giuong_benh
             // 
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.Location = new System.Drawing.Point(3, 495);
+            this.label9.Location = new System.Drawing.Point(3, 496);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(165, 22);
             this.label9.TabIndex = 0;
@@ -255,7 +316,7 @@ namespace project_quan_ly_giuong_benh
             // 
             this.label10.AutoSize = true;
             this.label10.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label10.Location = new System.Drawing.Point(3, 528);
+            this.label10.Location = new System.Drawing.Point(3, 529);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(117, 22);
             this.label10.TabIndex = 0;
@@ -265,7 +326,7 @@ namespace project_quan_ly_giuong_benh
             // 
             this.label11.AutoSize = true;
             this.label11.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label11.Location = new System.Drawing.Point(3, 561);
+            this.label11.Location = new System.Drawing.Point(3, 562);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(149, 22);
             this.label11.TabIndex = 0;
@@ -275,7 +336,7 @@ namespace project_quan_ly_giuong_benh
             // 
             this.label12.AutoSize = true;
             this.label12.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label12.Location = new System.Drawing.Point(3, 594);
+            this.label12.Location = new System.Drawing.Point(3, 595);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(100, 22);
             this.label12.TabIndex = 0;
@@ -298,7 +359,7 @@ namespace project_quan_ly_giuong_benh
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.txbSdt.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txbSdt.Location = new System.Drawing.Point(182, 168);
+            this.txbSdt.Location = new System.Drawing.Point(182, 169);
             this.txbSdt.Name = "txbSdt";
             this.txbSdt.Size = new System.Drawing.Size(420, 29);
             this.txbSdt.TabIndex = 6;
@@ -309,7 +370,7 @@ namespace project_quan_ly_giuong_benh
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.txbDiaChi.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txbDiaChi.Location = new System.Drawing.Point(182, 201);
+            this.txbDiaChi.Location = new System.Drawing.Point(182, 202);
             this.txbDiaChi.Name = "txbDiaChi";
             this.txbDiaChi.Size = new System.Drawing.Size(420, 29);
             this.txbDiaChi.TabIndex = 7;
@@ -320,7 +381,7 @@ namespace project_quan_ly_giuong_benh
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.txbCccd.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txbCccd.Location = new System.Drawing.Point(182, 333);
+            this.txbCccd.Location = new System.Drawing.Point(182, 334);
             this.txbCccd.Name = "txbCccd";
             this.txbCccd.Size = new System.Drawing.Size(420, 29);
             this.txbCccd.TabIndex = 11;
@@ -331,7 +392,7 @@ namespace project_quan_ly_giuong_benh
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.txbTenNguoiThan.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txbTenNguoiThan.Location = new System.Drawing.Point(182, 498);
+            this.txbTenNguoiThan.Location = new System.Drawing.Point(182, 499);
             this.txbTenNguoiThan.Name = "txbTenNguoiThan";
             this.txbTenNguoiThan.Size = new System.Drawing.Size(420, 29);
             this.txbTenNguoiThan.TabIndex = 16;
@@ -342,7 +403,7 @@ namespace project_quan_ly_giuong_benh
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.txbSdtNguoiThan.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txbSdtNguoiThan.Location = new System.Drawing.Point(182, 564);
+            this.txbSdtNguoiThan.Location = new System.Drawing.Point(182, 565);
             this.txbSdtNguoiThan.Name = "txbSdtNguoiThan";
             this.txbSdtNguoiThan.Size = new System.Drawing.Size(420, 29);
             this.txbSdtNguoiThan.TabIndex = 17;
@@ -359,7 +420,7 @@ namespace project_quan_ly_giuong_benh
             this.tableLayoutPanel2.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
             this.tableLayoutPanel2.RowCount = 1;
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(204, 27);
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(204, 28);
             this.tableLayoutPanel2.TabIndex = 2;
             // 
             // chkNam
@@ -368,11 +429,10 @@ namespace project_quan_ly_giuong_benh
             this.chkNam.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.chkNam.Location = new System.Drawing.Point(13, 3);
             this.chkNam.Name = "chkNam";
-            this.chkNam.Size = new System.Drawing.Size(68, 21);
+            this.chkNam.Size = new System.Drawing.Size(68, 22);
             this.chkNam.TabIndex = 2;
             this.chkNam.Text = "Nam";
             this.chkNam.UseVisualStyleBackColor = true;
-            this.chkNam.CheckedChanged += new System.EventHandler(this.chkNam_CheckedChanged);
             // 
             // chkNu
             // 
@@ -380,11 +440,10 @@ namespace project_quan_ly_giuong_benh
             this.chkNu.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.chkNu.Location = new System.Drawing.Point(110, 3);
             this.chkNu.Name = "chkNu";
-            this.chkNu.Size = new System.Drawing.Size(55, 21);
+            this.chkNu.Size = new System.Drawing.Size(55, 22);
             this.chkNu.TabIndex = 3;
             this.chkNu.Text = "Nữ";
             this.chkNu.UseVisualStyleBackColor = true;
-            this.chkNu.CheckedChanged += new System.EventHandler(this.chkNu_CheckedChanged);
             // 
             // txbNamSinh
             // 
@@ -392,7 +451,7 @@ namespace project_quan_ly_giuong_benh
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.txbNamSinh.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txbNamSinh.Location = new System.Drawing.Point(182, 135);
+            this.txbNamSinh.Location = new System.Drawing.Point(182, 136);
             this.txbNamSinh.Name = "txbNamSinh";
             this.txbNamSinh.Size = new System.Drawing.Size(420, 29);
             this.txbNamSinh.TabIndex = 5;
@@ -402,7 +461,7 @@ namespace project_quan_ly_giuong_benh
             this.dtpNgayNhapVien.CalendarFont = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dtpNgayNhapVien.CustomFormat = "dd-MM-yyyy";
             this.dtpNgayNhapVien.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dtpNgayNhapVien.Location = new System.Drawing.Point(182, 432);
+            this.dtpNgayNhapVien.Location = new System.Drawing.Point(182, 433);
             this.dtpNgayNhapVien.MinDate = new System.DateTime(2020, 1, 1, 0, 0, 0, 0);
             this.dtpNgayNhapVien.Name = "dtpNgayNhapVien";
             this.dtpNgayNhapVien.Size = new System.Drawing.Size(109, 20);
@@ -413,7 +472,7 @@ namespace project_quan_ly_giuong_benh
             this.dtpNgayXetNghiem.CalendarFont = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dtpNgayXetNghiem.CustomFormat = "dd-MM-yyyy";
             this.dtpNgayXetNghiem.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dtpNgayXetNghiem.Location = new System.Drawing.Point(182, 465);
+            this.dtpNgayXetNghiem.Location = new System.Drawing.Point(182, 466);
             this.dtpNgayXetNghiem.Name = "dtpNgayXetNghiem";
             this.dtpNgayXetNghiem.Size = new System.Drawing.Size(109, 20);
             this.dtpNgayXetNghiem.TabIndex = 15;
@@ -424,7 +483,7 @@ namespace project_quan_ly_giuong_benh
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.txbMqh.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txbMqh.Location = new System.Drawing.Point(182, 531);
+            this.txbMqh.Location = new System.Drawing.Point(182, 532);
             this.txbMqh.Name = "txbMqh";
             this.txbMqh.Size = new System.Drawing.Size(420, 29);
             this.txbMqh.TabIndex = 17;
@@ -436,7 +495,7 @@ namespace project_quan_ly_giuong_benh
             this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel3.Controls.Add(this.chkF0, 0, 0);
             this.tableLayoutPanel3.Controls.Add(this.chkF1, 1, 0);
-            this.tableLayoutPanel3.Location = new System.Drawing.Point(182, 597);
+            this.tableLayoutPanel3.Location = new System.Drawing.Point(182, 598);
             this.tableLayoutPanel3.Name = "tableLayoutPanel3";
             this.tableLayoutPanel3.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
             this.tableLayoutPanel3.RowCount = 1;
@@ -454,7 +513,6 @@ namespace project_quan_ly_giuong_benh
             this.chkF0.TabIndex = 18;
             this.chkF0.Text = "F0";
             this.chkF0.UseVisualStyleBackColor = true;
-            this.chkF0.CheckedChanged += new System.EventHandler(this.chkF0_CheckedChanged);
             // 
             // chkF1
             // 
@@ -466,7 +524,6 @@ namespace project_quan_ly_giuong_benh
             this.chkF1.TabIndex = 19;
             this.chkF1.Text = "F1";
             this.chkF1.UseVisualStyleBackColor = true;
-            this.chkF1.CheckedChanged += new System.EventHandler(this.chkF1_CheckedChanged);
             // 
             // txbDanToc
             // 
@@ -474,7 +531,7 @@ namespace project_quan_ly_giuong_benh
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.txbDanToc.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txbDanToc.Location = new System.Drawing.Point(182, 102);
+            this.txbDanToc.Location = new System.Drawing.Point(182, 103);
             this.txbDanToc.Name = "txbDanToc";
             this.txbDanToc.Size = new System.Drawing.Size(420, 29);
             this.txbDanToc.TabIndex = 4;
@@ -483,7 +540,7 @@ namespace project_quan_ly_giuong_benh
             // 
             this.label14.AutoSize = true;
             this.label14.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label14.Location = new System.Drawing.Point(3, 231);
+            this.label14.Location = new System.Drawing.Point(3, 232);
             this.label14.Name = "label14";
             this.label14.Size = new System.Drawing.Size(112, 22);
             this.label14.TabIndex = 0;
@@ -495,7 +552,7 @@ namespace project_quan_ly_giuong_benh
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.txbPhuongXa.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txbPhuongXa.Location = new System.Drawing.Point(182, 234);
+            this.txbPhuongXa.Location = new System.Drawing.Point(182, 235);
             this.txbPhuongXa.Name = "txbPhuongXa";
             this.txbPhuongXa.Size = new System.Drawing.Size(420, 29);
             this.txbPhuongXa.TabIndex = 8;
@@ -504,7 +561,7 @@ namespace project_quan_ly_giuong_benh
             // 
             this.label15.AutoSize = true;
             this.label15.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label15.Location = new System.Drawing.Point(3, 264);
+            this.label15.Location = new System.Drawing.Point(3, 265);
             this.label15.Name = "label15";
             this.label15.Size = new System.Drawing.Size(118, 22);
             this.label15.TabIndex = 0;
@@ -516,7 +573,7 @@ namespace project_quan_ly_giuong_benh
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.txbQuanHuyen.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txbQuanHuyen.Location = new System.Drawing.Point(182, 267);
+            this.txbQuanHuyen.Location = new System.Drawing.Point(182, 268);
             this.txbQuanHuyen.Name = "txbQuanHuyen";
             this.txbQuanHuyen.Size = new System.Drawing.Size(420, 29);
             this.txbQuanHuyen.TabIndex = 9;
@@ -525,7 +582,7 @@ namespace project_quan_ly_giuong_benh
             // 
             this.label16.AutoSize = true;
             this.label16.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label16.Location = new System.Drawing.Point(3, 297);
+            this.label16.Location = new System.Drawing.Point(3, 298);
             this.label16.Name = "label16";
             this.label16.Size = new System.Drawing.Size(145, 22);
             this.label16.TabIndex = 0;
@@ -537,7 +594,7 @@ namespace project_quan_ly_giuong_benh
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.txbTiTh.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txbTiTh.Location = new System.Drawing.Point(182, 300);
+            this.txbTiTh.Location = new System.Drawing.Point(182, 301);
             this.txbTiTh.Name = "txbTiTh";
             this.txbTiTh.Size = new System.Drawing.Size(420, 29);
             this.txbTiTh.TabIndex = 10;
@@ -546,7 +603,7 @@ namespace project_quan_ly_giuong_benh
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(3, 99);
+            this.label3.Location = new System.Drawing.Point(3, 100);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(80, 22);
             this.label3.TabIndex = 0;
@@ -556,7 +613,7 @@ namespace project_quan_ly_giuong_benh
             // 
             this.label13.AutoSize = true;
             this.label13.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label13.Location = new System.Drawing.Point(3, 132);
+            this.label13.Location = new System.Drawing.Point(3, 133);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(93, 22);
             this.label13.TabIndex = 0;
@@ -566,7 +623,7 @@ namespace project_quan_ly_giuong_benh
             // 
             this.btnNoiChuyen.AutoSize = true;
             this.btnNoiChuyen.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnNoiChuyen.Location = new System.Drawing.Point(3, 363);
+            this.btnNoiChuyen.Location = new System.Drawing.Point(3, 364);
             this.btnNoiChuyen.Name = "btnNoiChuyen";
             this.btnNoiChuyen.Size = new System.Drawing.Size(109, 22);
             this.btnNoiChuyen.TabIndex = 0;
@@ -576,7 +633,7 @@ namespace project_quan_ly_giuong_benh
             // 
             this.label17.AutoSize = true;
             this.label17.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label17.Location = new System.Drawing.Point(3, 396);
+            this.label17.Location = new System.Drawing.Point(3, 397);
             this.label17.Name = "label17";
             this.label17.Size = new System.Drawing.Size(64, 22);
             this.label17.TabIndex = 0;
@@ -588,7 +645,7 @@ namespace project_quan_ly_giuong_benh
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.txbNoiChuyen.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txbNoiChuyen.Location = new System.Drawing.Point(182, 366);
+            this.txbNoiChuyen.Location = new System.Drawing.Point(182, 367);
             this.txbNoiChuyen.Name = "txbNoiChuyen";
             this.txbNoiChuyen.Size = new System.Drawing.Size(420, 29);
             this.txbNoiChuyen.TabIndex = 12;
@@ -604,7 +661,7 @@ namespace project_quan_ly_giuong_benh
             "C",
             "D",
             "E"});
-            this.cboKhoa.Location = new System.Drawing.Point(182, 399);
+            this.cboKhoa.Location = new System.Drawing.Point(182, 400);
             this.cboKhoa.Name = "cboKhoa";
             this.cboKhoa.Size = new System.Drawing.Size(121, 30);
             this.cboKhoa.TabIndex = 13;
@@ -620,181 +677,7 @@ namespace project_quan_ly_giuong_benh
             this.txbMaBN.Size = new System.Drawing.Size(420, 29);
             this.txbMaBN.TabIndex = 0;
             // 
-            // tableLayoutPanel4
-            // 
-            this.tableLayoutPanel4.ColumnCount = 2;
-            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 42.04546F));
-            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 57.95454F));
-            this.tableLayoutPanel4.Controls.Add(this.txbSoLT, 1, 0);
-            this.tableLayoutPanel4.Controls.Add(this.label20, 0, 0);
-            this.tableLayoutPanel4.Controls.Add(this.label21, 0, 1);
-            this.tableLayoutPanel4.Controls.Add(this.label23, 0, 2);
-            this.tableLayoutPanel4.Controls.Add(this.label24, 0, 3);
-            this.tableLayoutPanel4.Controls.Add(this.label25, 0, 4);
-            this.tableLayoutPanel4.Controls.Add(this.dtpNgayXuatVien, 1, 1);
-            this.tableLayoutPanel4.Controls.Add(this.txbCTValue, 1, 4);
-            this.tableLayoutPanel4.Controls.Add(this.cboKq, 1, 3);
-            this.tableLayoutPanel4.Controls.Add(this.cboKTXN, 1, 2);
-            this.tableLayoutPanel4.Controls.Add(this.label18, 0, 5);
-            this.tableLayoutPanel4.Controls.Add(this.nUDslxn, 1, 5);
-            this.tableLayoutPanel4.Location = new System.Drawing.Point(617, 12);
-            this.tableLayoutPanel4.Name = "tableLayoutPanel4";
-            this.tableLayoutPanel4.RowCount = 6;
-            this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 14.28571F));
-            this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 14.28571F));
-            this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 14.28571F));
-            this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 14.28571F));
-            this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 14.28571F));
-            this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 14.28571F));
-            this.tableLayoutPanel4.Size = new System.Drawing.Size(405, 197);
-            this.tableLayoutPanel4.TabIndex = 20;
-            // 
-            // txbSoLT
-            // 
-            this.txbSoLT.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.txbSoLT.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txbSoLT.Location = new System.Drawing.Point(173, 3);
-            this.txbSoLT.Name = "txbSoLT";
-            this.txbSoLT.Size = new System.Drawing.Size(229, 29);
-            this.txbSoLT.TabIndex = 21;
-            // 
-            // label20
-            // 
-            this.label20.AutoSize = true;
-            this.label20.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label20.Location = new System.Drawing.Point(3, 0);
-            this.label20.Name = "label20";
-            this.label20.Size = new System.Drawing.Size(100, 22);
-            this.label20.TabIndex = 0;
-            this.label20.Text = "Số lưu trữ:";
-            // 
-            // label21
-            // 
-            this.label21.AutoSize = true;
-            this.label21.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label21.Location = new System.Drawing.Point(3, 32);
-            this.label21.Name = "label21";
-            this.label21.Size = new System.Drawing.Size(136, 22);
-            this.label21.TabIndex = 0;
-            this.label21.Text = "Ngày xuất viện:";
-            // 
-            // label23
-            // 
-            this.label23.AutoSize = true;
-            this.label23.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label23.Location = new System.Drawing.Point(3, 64);
-            this.label23.Name = "label23";
-            this.label23.Size = new System.Drawing.Size(112, 32);
-            this.label23.TabIndex = 0;
-            this.label23.Text = "Kỹ thuật xét nghiệm:";
-            // 
-            // label24
-            // 
-            this.label24.AutoSize = true;
-            this.label24.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label24.Location = new System.Drawing.Point(3, 96);
-            this.label24.Name = "label24";
-            this.label24.Size = new System.Drawing.Size(80, 22);
-            this.label24.TabIndex = 0;
-            this.label24.Text = "Kết quả:";
-            // 
-            // label25
-            // 
-            this.label25.AutoSize = true;
-            this.label25.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label25.Location = new System.Drawing.Point(3, 128);
-            this.label25.Name = "label25";
-            this.label25.Size = new System.Drawing.Size(147, 22);
-            this.label25.TabIndex = 0;
-            this.label25.Text = "CT Value >= 30:";
-            // 
-            // dtpNgayXuatVien
-            // 
-            this.dtpNgayXuatVien.CalendarFont = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dtpNgayXuatVien.CustomFormat = "dd-MM-yyyy";
-            this.dtpNgayXuatVien.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dtpNgayXuatVien.Location = new System.Drawing.Point(173, 35);
-            this.dtpNgayXuatVien.MinDate = new System.DateTime(2020, 1, 1, 0, 0, 0, 0);
-            this.dtpNgayXuatVien.Name = "dtpNgayXuatVien";
-            this.dtpNgayXuatVien.Size = new System.Drawing.Size(109, 20);
-            this.dtpNgayXuatVien.TabIndex = 22;
-            // 
-            // txbCTValue
-            // 
-            this.txbCTValue.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.txbCTValue.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txbCTValue.Location = new System.Drawing.Point(173, 131);
-            this.txbCTValue.Name = "txbCTValue";
-            this.txbCTValue.Size = new System.Drawing.Size(229, 29);
-            this.txbCTValue.TabIndex = 26;
-            // 
-            // cboKq
-            // 
-            this.cboKq.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cboKq.Font = new System.Drawing.Font("Arial", 14.25F);
-            this.cboKq.FormattingEnabled = true;
-            this.cboKq.Items.AddRange(new object[] {
-            "Âm tính",
-            "Dương tính"});
-            this.cboKq.Location = new System.Drawing.Point(173, 99);
-            this.cboKq.Name = "cboKq";
-            this.cboKq.Size = new System.Drawing.Size(218, 30);
-            this.cboKq.TabIndex = 25;
-            // 
-            // cboKTXN
-            // 
-            this.cboKTXN.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cboKTXN.Font = new System.Drawing.Font("Arial", 14.25F);
-            this.cboKTXN.FormattingEnabled = true;
-            this.cboKTXN.Items.AddRange(new object[] {
-            "PCR",
-            "Test nhanh"});
-            this.cboKTXN.Location = new System.Drawing.Point(173, 67);
-            this.cboKTXN.Name = "cboKTXN";
-            this.cboKTXN.Size = new System.Drawing.Size(218, 30);
-            this.cboKTXN.TabIndex = 24;
-            // 
-            // label18
-            // 
-            this.label18.AutoSize = true;
-            this.label18.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label18.Location = new System.Drawing.Point(3, 160);
-            this.label18.Name = "label18";
-            this.label18.Size = new System.Drawing.Size(99, 22);
-            this.label18.TabIndex = 0;
-            this.label18.Text = "Số lần XN:";
-            // 
-            // nUDslxn
-            // 
-            this.nUDslxn.Font = new System.Drawing.Font("Arial", 14.25F);
-            this.nUDslxn.Location = new System.Drawing.Point(173, 163);
-            this.nUDslxn.Maximum = new decimal(new int[] {
-            1000,
-            0,
-            0,
-            0});
-            this.nUDslxn.Name = "nUDslxn";
-            this.nUDslxn.ReadOnly = true;
-            this.nUDslxn.Size = new System.Drawing.Size(109, 29);
-            this.nUDslxn.TabIndex = 27;
-            this.nUDslxn.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            // 
-            // btnXacNhan
-            // 
-            this.btnXacNhan.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnXacNhan.Location = new System.Drawing.Point(899, 215);
-            this.btnXacNhan.Name = "btnXacNhan";
-            this.btnXacNhan.Size = new System.Drawing.Size(123, 38);
-            this.btnXacNhan.TabIndex = 27;
-            this.btnXacNhan.Text = "&Xác Nhận";
-            this.btnXacNhan.UseVisualStyleBackColor = true;
-            this.btnXacNhan.Click += new System.EventHandler(this.btnXacNhan_Click);
-            // 
-            // fAdminEditMember
+            // fEditMemberChuyenTuyen
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -802,24 +685,31 @@ namespace project_quan_ly_giuong_benh
             this.Controls.Add(this.btnXacNhan);
             this.Controls.Add(this.tableLayoutPanel4);
             this.Controls.Add(this.tableLayoutPanel1);
-            this.Name = "fAdminEditMember";
-            this.Text = "fAdminEditMember";
+            this.MaximumSize = new System.Drawing.Size(1050, 694);
+            this.MinimumSize = new System.Drawing.Size(1050, 694);
+            this.Name = "fEditMemberChuyenTuyen";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "fEditMemberChuyenTuyen";
+            this.tableLayoutPanel4.ResumeLayout(false);
+            this.tableLayoutPanel4.PerformLayout();
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();
             this.tableLayoutPanel2.ResumeLayout(false);
             this.tableLayoutPanel2.PerformLayout();
             this.tableLayoutPanel3.ResumeLayout(false);
             this.tableLayoutPanel3.PerformLayout();
-            this.tableLayoutPanel4.ResumeLayout(false);
-            this.tableLayoutPanel4.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.nUDslxn)).EndInit();
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
+        private System.Windows.Forms.Button btnXacNhan;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel4;
+        private System.Windows.Forms.DateTimePicker dtpNgayXuatVien;
+        private System.Windows.Forms.TextBox txbNoiDen;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
+        private System.Windows.Forms.Label label19;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label4;
@@ -860,21 +750,8 @@ namespace project_quan_ly_giuong_benh
         private System.Windows.Forms.Label label17;
         private System.Windows.Forms.TextBox txbNoiChuyen;
         private System.Windows.Forms.ComboBox cboKhoa;
-        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel4;
-        private System.Windows.Forms.Label label19;
-        private System.Windows.Forms.TextBox txbSoLT;
-        private System.Windows.Forms.Label label20;
         private System.Windows.Forms.TextBox txbMaBN;
         private System.Windows.Forms.Label label21;
-        private System.Windows.Forms.Label label23;
-        private System.Windows.Forms.Label label24;
         private System.Windows.Forms.Label label25;
-        private System.Windows.Forms.DateTimePicker dtpNgayXuatVien;
-        private System.Windows.Forms.TextBox txbCTValue;
-        private System.Windows.Forms.ComboBox cboKq;
-        private System.Windows.Forms.ComboBox cboKTXN;
-        private System.Windows.Forms.Button btnXacNhan;
-        private System.Windows.Forms.Label label18;
-        private System.Windows.Forms.NumericUpDown nUDslxn;
     }
 }

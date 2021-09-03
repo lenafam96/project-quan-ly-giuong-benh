@@ -20,7 +20,7 @@ namespace project_quan_ly_giuong_benh.DAO___Data_Access_Logic
 
         public static int FloorWidth = 75;
 
-        public static int FloorHeight = 35;
+        public static int FloorHeight = 34;
 
         private FloorDAO() { }
 
