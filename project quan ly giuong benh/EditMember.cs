@@ -135,7 +135,26 @@ namespace project_quan_ly_giuong_benh
         private void cboXN_SelectedIndexChanged(object sender, EventArgs e)
         {
             dtpNgayXetNghiem.Enabled = cboXN.Text == "Đã xét nghiệm" ? true : false;
+        }
 
+        private void chkNam_CheckedChanged(object sender, EventArgs e)
+        {
+            chkNu.Checked = chkNam.Checked ? false : true;
+        }
+
+        private void chkNu_CheckedChanged(object sender, EventArgs e)
+        {
+            chkNam.Checked = chkNu.Checked ? false : true;
+        }
+
+        private void chkF0_CheckedChanged(object sender, EventArgs e)
+        {
+            chkF1.Checked = chkF0.Checked ? false : true;
+        }
+
+        private void chkF1_CheckedChanged(object sender, EventArgs e)
+        {
+            chkF0.Checked = chkF1.Checked ? false : true;
         }
     }
 }
