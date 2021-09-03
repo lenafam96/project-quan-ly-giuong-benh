@@ -433,6 +433,7 @@ namespace project_quan_ly_giuong_benh
             this.chkNam.TabIndex = 2;
             this.chkNam.Text = "Nam";
             this.chkNam.UseVisualStyleBackColor = true;
+            this.chkNam.CheckedChanged += new System.EventHandler(this.chkNam_CheckedChanged);
             // 
             // chkNu
             // 
@@ -444,6 +445,7 @@ namespace project_quan_ly_giuong_benh
             this.chkNu.TabIndex = 3;
             this.chkNu.Text = "Nữ";
             this.chkNu.UseVisualStyleBackColor = true;
+            this.chkNu.CheckedChanged += new System.EventHandler(this.chkNu_CheckedChanged);
             // 
             // txbNamSinh
             // 
@@ -513,6 +515,7 @@ namespace project_quan_ly_giuong_benh
             this.chkF0.TabIndex = 18;
             this.chkF0.Text = "F0";
             this.chkF0.UseVisualStyleBackColor = true;
+            this.chkF0.CheckedChanged += new System.EventHandler(this.chkF0_CheckedChanged);
             // 
             // chkF1
             // 
@@ -524,6 +527,7 @@ namespace project_quan_ly_giuong_benh
             this.chkF1.TabIndex = 19;
             this.chkF1.Text = "F1";
             this.chkF1.UseVisualStyleBackColor = true;
+            this.chkF1.CheckedChanged += new System.EventHandler(this.chkF1_CheckedChanged);
             // 
             // txbDanToc
             // 
