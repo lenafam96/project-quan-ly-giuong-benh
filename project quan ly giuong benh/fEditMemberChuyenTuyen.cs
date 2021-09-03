@@ -40,10 +40,11 @@ namespace project_quan_ly_giuong_benh
             txbMqh.Text = this.Member.Mqh;
             txbSdtNguoiThan.Text = this.Member.SdtNT;
             chkF0.Checked = this.Member.PL == "f0" ? true : false;
-            chkF0.Checked = this.Member.PL == "f1" ? true : false;
+            chkF1.Checked = this.Member.PL == "f1" ? true : false;
             txbMaBN.Text = this.Member.MaBN == null ? "" : this.Member.MaBN;
             txbNoiDen.Text = this.Member.NoiDen == "" ? "" : this.Member.NoiDen;
             dtpNgayNhapVien.MaxDate = dtpNgayXetNghiem.MaxDate = dtpNgayXuatVien.MaxDate = DateTime.Now;
+
         }
 
         public Member Member { get => member; set => member = value; }

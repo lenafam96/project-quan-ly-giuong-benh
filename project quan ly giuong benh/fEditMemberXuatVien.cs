@@ -39,7 +39,7 @@ namespace project_quan_ly_giuong_benh
             txbMqh.Text = this.Member.Mqh;
             txbSdtNguoiThan.Text = this.Member.SdtNT;
             chkF0.Checked = this.Member.PL == "f0" ? true : false;
-            chkF0.Checked = this.Member.PL == "f1" ? true : false;
+            chkF1.Checked = this.Member.PL == "f1" ? true : false;
             txbMaBN.Text = this.Member.MaBN == null ? "" : this.Member.MaBN;
             txbSoLT.Text = this.Member.SoLT == null ? "" : this.Member.SoLT;
             cboKTXN.SelectedItem = this.Member.Ktxn;
