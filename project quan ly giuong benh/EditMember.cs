@@ -120,7 +120,7 @@ namespace project_quan_ly_giuong_benh
                     ngayXNnext = this.Member.Slxn > 1 ? this.Member.NXN.Value.AddDays(2) : this.Member.NXN.Value.AddDays(7);
                 }
                 if (cboXN.Text == "Đã xét nghiệm")
-                    if(this.Member.Slxn == 0 || dtpNgayXetNghiem.Value < ngayXNnext)
+                    if(this.Member.Slxn == 0 || (dtpNgayXetNghiem.Value < ngayXNnext && dtpNgayXetNghiem.Value > this.Member.NXN))
                         MemberDAO.Instance.EditMemberBasic(this.Member.ID, txbMaBN.Text.Trim(' ', ',', '-'), txbHoTen.Text.Trim(' ', ',', '-'), ns, gt, dantoc.Trim(' ', ',', '-'), txbDiaChi.Text, px, qh, tp, txbSdt.Text.Trim(' ', ',', '-'), txbCccd.Text.Trim(' ', ',', '-'), txbNoiChuyen.Text.Trim(' ', ',', '-'), khoa, dtpNgayNhapVien.Value, dtpNgayXetNghiem.Value, txbTenNguoiThan.Text.Trim(' ', ',', '-'), txbMqh.Text.Trim(' ', ',', '-'), txbSdtNguoiThan.Text.Trim(' ', ',', '-'), pl, this.member.TT,1);
                     else
                         MemberDAO.Instance.EditMemberBasic(this.Member.ID, txbMaBN.Text.Trim(' ', ',', '-'), txbHoTen.Text.Trim(' ', ',', '-'), ns, gt, dantoc.Trim(' ', ',', '-'), txbDiaChi.Text, px, qh, tp, txbSdt.Text.Trim(' ', ',', '-'), txbCccd.Text.Trim(' ', ',', '-'), txbNoiChuyen.Text.Trim(' ', ',', '-'), khoa, dtpNgayNhapVien.Value, dtpNgayXetNghiem.Value, txbTenNguoiThan.Text.Trim(' ', ',', '-'), txbMqh.Text.Trim(' ', ',', '-'), txbSdtNguoiThan.Text.Trim(' ', ',', '-'), pl, this.member.TT, 0);

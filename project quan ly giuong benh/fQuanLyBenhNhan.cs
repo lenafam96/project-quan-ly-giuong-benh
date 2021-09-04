@@ -5,8 +5,10 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.OleDb;
 using System.Data.SqlClient;
 using System.Drawing;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -37,9 +39,18 @@ namespace project_quan_ly_giuong_benh
             dtpStop.Value = dtpStart.Value.AddMonths(1).AddDays(-1);
             txbPage.Text = "1";
             LoadMemberListDangDieuTri();
+            LoadFloor();
         }
 
         #region Method
+
+        void LoadFloor()
+        {
+            List<Floor> floorList = FloorDAO.Instance.LoadFloorList();
+            cboTang.DataSource = floorList;
+            cboTang.DisplayMember = "Name";
+            
+        }
 
         private HashSet<Member> GetSelectedMember()
         {
@@ -73,12 +84,26 @@ namespace project_quan_ly_giuong_benh
             }
         }
 
-        private void EnableExportButton()
+        private void EnableEIButton()
         {
             if (this.Status == 1)
                 btnExport.Enabled = true;
             else
                 btnExport.Enabled = false;
+            if (this.Status == 4)
+            {
+                btnImport.Enabled = btnAdd.Enabled = true;
+                btnDelPerson.Enabled = btnEditPerson.Enabled = false;
+            }    
+            else
+            {
+                btnImport.Enabled = btnAdd.Enabled = false;
+                btnDelPerson.Enabled = btnEditPerson.Enabled = true;
+            }
+            if (this.Status == 4 || this.Status == 3 || this.Status == 0)
+                btnBack.Enabled = false;
+            else
+                btnBack.Enabled = true;
         }
 
         private int LastPage()
@@ -314,7 +339,10 @@ namespace project_quan_ly_giuong_benh
         {
             int page = 1;
             int pageRow = (int)nUDPageRows.Value;
-            lbTotalPage.Text = "/" + LastPage().ToString();
+            if (this.Status == 4)
+                lbTotalPage.Text = "/1";
+            else 
+                lbTotalPage.Text = "/" + LastPage().ToString();
             if (int.TryParse(txbPage.Text,out page))
             {
                 switch (this.Status)
@@ -334,7 +362,7 @@ namespace project_quan_ly_giuong_benh
                 }
             }
             FormatColumn();
-            EnableExportButton();
+            EnableEIButton();
         }
         private void SetWidthColumn(Microsoft.Office.Interop.Excel.Worksheet worksheet)
         {
@@ -570,8 +598,14 @@ namespace project_quan_ly_giuong_benh
             }
         }
 
+        void LoadRoomComboBox(int id)
+        {
+            List<Room> roomList = RoomDAO.Instance.GetListRoomByIdFloor(id);
+            cboPhong.DataSource = roomList;
+            cboPhong.DisplayMember = "Name";
+        }
 
-#endregion
+        #endregion
 
 
         #region Event
@@ -722,8 +756,100 @@ namespace project_quan_ly_giuong_benh
 
         private void btnImport_Click(object sender, EventArgs e)
         {
+            if (openFileDialog1.ShowDialog() == DialogResult.OK)
+            {
+                try
+                {
+                    using (OleDbConnection myConnect = new OleDbConnection(string.Format(@"Provider=Microsoft.ACE.OLEDB.12.0;Data Source={0};Extended Properties=Excel 8.0;", openFileDialog1.FileName)))
+                    {
+                        DataTable data = new DataTable();
+                        OleDbDataAdapter cmd = new OleDbDataAdapter("SELECT * from [Sheet1$]", myConnect);
+                        cmd.Fill(data);
+                        dtgvInput.DataSource = data;
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                }
+                
+            }
+        }
 
+
+        private void cboTang_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            ComboBox cb = sender as ComboBox;
+
+            if (cb.SelectedItem == null)
+                return;
+            Floor floor = cb.SelectedItem as Floor;
+
+            LoadRoomComboBox(floor.ID);
+        }
+
+        private void cboPhong_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            ComboBox cb = sender as ComboBox;
+            if (cb.SelectedItem == null)
+                return;
+            Room room = cb.SelectedItem as Room;
+            if (room != null && this.Status==4)
+            {
+                btnAdd.Enabled = room.Member < room.Maximum;
+            }
+        }
+
+        private void btnAdd_Click(object sender, EventArgs e)
+        {
+            if (dtgvInput.SelectedRows.Count > 0)
+            {
+                string[] name = openFileDialog1.FileName.Split('\\');
+                string[] name1 = name[3].Split('(');
+                Room room = cboPhong.SelectedItem as Room;
+                int count = dtgvInput.SelectedRows.Count;
+                if ((room.Member + count)<=room.Maximum)
+                {
+                    foreach (DataGridViewRow item in dtgvInput.SelectedRows)
+                    {
+                        int idPhong = room.ID;
+                        string maBN = "";
+                        string ht = item.Cells[1].Value.ToString();
+                        int gt = item.Cells[2].Value.ToString().ToUpper() == "Nam".ToUpper() ? 0 : 1;
+                        int ns = int.Parse(item.Cells[3].Value.ToString());
+                        string dc = item.Cells[4].Value.ToString();
+                        string tiTh = item.Cells[5].Value.ToString();
+                        string qHuyen = item.Cells[6].Value.ToString();
+                        string phuongXa = item.Cells[7].Value.ToString();
+                        string sdt = item.Cells[8].Value.ToString();
+                        string cccd = item.Cells[9].Value.ToString();
+                        string tenNT = item.Cells[10].Value.ToString();
+                        string mqh = item.Cells[11].Value.ToString();
+                        string sdtNT = item.Cells[12].Value.ToString();
+                        string noiChuyen = name1[0];
+                        DateTime nnv = DateTime.Now;
+                        DateTime nxn;
+                        CultureInfo culture = CultureInfo.CreateSpecificCulture("vi-VN");
+                        DateTimeStyles styles = DateTimeStyles.None;
+                        string ngayXN = item.Cells[14].Value.ToString() + "/" + DateTime.Now.Year.ToString();
+                        if (!DateTime.TryParse(ngayXN, culture, styles, out nxn))
+                        {
+                            MemberDAO.Instance.InsertMemberChuaXetNghiem(idPhong, maBN, ht, ns, gt, "Kinh", dc, phuongXa, qHuyen, tiTh, sdt, cccd, noiChuyen.Trim(' ', ',', '-'), "E", nnv, tenNT, mqh, sdtNT, 0);
+                        }
+                        else
+                        {
+                            MemberDAO.Instance.InsertMember(idPhong, maBN, ht, ns, gt, "Kinh", dc, phuongXa, qHuyen, tiTh, sdt, cccd, noiChuyen.Trim(' ', ',', '-'), "E", nnv, nxn, tenNT, mqh, sdtNT, 0);
+
+                        }
+                        dtgvInput.Rows.RemoveAt(item.Index);
+                    }
+                    MessageBox.Show("Thêm thành công " + count + " người vào phòng " + room.Name + " !", "Thông báo", MessageBoxButtons.OK);
+                }
+                else
+                    MessageBox.Show("Phòng " + room.Name + " không còn đủ chỗ trống!", "Thông báo", MessageBoxButtons.OK,MessageBoxIcon.Warning);
+            }
         }
         #endregion
+
     }
 }

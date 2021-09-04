@@ -36,12 +36,18 @@ namespace project_quan_ly_giuong_benh
             this.dtgvXuatVien = new ADGV.AdvancedDataGridView();
             this.tpDaChuyenTuyen = new System.Windows.Forms.TabPage();
             this.dtgvChuyenTuyen = new ADGV.AdvancedDataGridView();
+            this.tpDanhSachBack = new System.Windows.Forms.TabPage();
+            this.dtgvBack = new ADGV.AdvancedDataGridView();
+            this.tpNhapBenhNhanTuFile = new System.Windows.Forms.TabPage();
+            this.dtgvInput = new ADGV.AdvancedDataGridView();
             this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
             this.panel3 = new System.Windows.Forms.Panel();
             this.dtpStop = new System.Windows.Forms.DateTimePicker();
             this.dtpStart = new System.Windows.Forms.DateTimePicker();
             this.txbFindMember = new System.Windows.Forms.TextBox();
             this.btnFindPerson = new System.Windows.Forms.Button();
+            this.btnImport = new System.Windows.Forms.Button();
+            this.btnExport = new System.Windows.Forms.Button();
             this.btnDelPerson = new System.Windows.Forms.Button();
             this.btnBack = new System.Windows.Forms.Button();
             this.btnEditPerson = new System.Windows.Forms.Button();
@@ -54,10 +60,10 @@ namespace project_quan_ly_giuong_benh
             this.btnNext = new System.Windows.Forms.Button();
             this.lbTotalPage = new System.Windows.Forms.Label();
             this.nUDPageRows = new System.Windows.Forms.NumericUpDown();
-            this.tpDanhSachBack = new System.Windows.Forms.TabPage();
-            this.dtgvBack = new ADGV.AdvancedDataGridView();
-            this.btnExport = new System.Windows.Forms.Button();
-            this.btnImport = new System.Windows.Forms.Button();
+            this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
+            this.cboPhong = new System.Windows.Forms.ComboBox();
+            this.cboTang = new System.Windows.Forms.ComboBox();
+            this.btnAdd = new System.Windows.Forms.Button();
             this.TabControl.SuspendLayout();
             this.tpDangDieuTri.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dtgvMember)).BeginInit();
@@ -65,10 +71,12 @@ namespace project_quan_ly_giuong_benh
             ((System.ComponentModel.ISupportInitialize)(this.dtgvXuatVien)).BeginInit();
             this.tpDaChuyenTuyen.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dtgvChuyenTuyen)).BeginInit();
-            this.panel3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.nUDPageRows)).BeginInit();
             this.tpDanhSachBack.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dtgvBack)).BeginInit();
+            this.tpNhapBenhNhanTuFile.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dtgvInput)).BeginInit();
+            this.panel3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.nUDPageRows)).BeginInit();
             this.SuspendLayout();
             // 
             // TabControl
@@ -77,6 +85,7 @@ namespace project_quan_ly_giuong_benh
             this.TabControl.Controls.Add(this.tpDaXuatVien);
             this.TabControl.Controls.Add(this.tpDaChuyenTuyen);
             this.TabControl.Controls.Add(this.tpDanhSachBack);
+            this.TabControl.Controls.Add(this.tpNhapBenhNhanTuFile);
             this.TabControl.Location = new System.Drawing.Point(1, 45);
             this.TabControl.Name = "TabControl";
             this.TabControl.SelectedIndex = 0;
@@ -105,6 +114,7 @@ namespace project_quan_ly_giuong_benh
             this.dtgvMember.Location = new System.Drawing.Point(0, 0);
             this.dtgvMember.Name = "dtgvMember";
             this.dtgvMember.ReadOnly = true;
+            this.dtgvMember.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect;
             this.dtgvMember.Size = new System.Drawing.Size(1507, 565);
             this.dtgvMember.TabIndex = 23;
             this.dtgvMember.TimeFilter = false;
@@ -163,6 +173,56 @@ namespace project_quan_ly_giuong_benh
             this.dtgvChuyenTuyen.SortStringChanged += new System.EventHandler(this.dtgvChuyenTuyen_SortStringChanged);
             this.dtgvChuyenTuyen.FilterStringChanged += new System.EventHandler(this.dtgvChuyenTuyen_FilterStringChanged);
             // 
+            // tpDanhSachBack
+            // 
+            this.tpDanhSachBack.Controls.Add(this.dtgvBack);
+            this.tpDanhSachBack.Location = new System.Drawing.Point(4, 22);
+            this.tpDanhSachBack.Name = "tpDanhSachBack";
+            this.tpDanhSachBack.Padding = new System.Windows.Forms.Padding(3);
+            this.tpDanhSachBack.Size = new System.Drawing.Size(1509, 565);
+            this.tpDanhSachBack.TabIndex = 3;
+            this.tpDanhSachBack.Text = "Bệnh nhân quay lại viện";
+            this.tpDanhSachBack.UseVisualStyleBackColor = true;
+            // 
+            // dtgvBack
+            // 
+            this.dtgvBack.AllowUserToAddRows = false;
+            this.dtgvBack.AllowUserToDeleteRows = false;
+            this.dtgvBack.AutoGenerateContextFilters = true;
+            this.dtgvBack.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dtgvBack.DateWithTime = false;
+            this.dtgvBack.Location = new System.Drawing.Point(0, 0);
+            this.dtgvBack.Name = "dtgvBack";
+            this.dtgvBack.ReadOnly = true;
+            this.dtgvBack.Size = new System.Drawing.Size(1507, 565);
+            this.dtgvBack.TabIndex = 24;
+            this.dtgvBack.TimeFilter = false;
+            // 
+            // tpNhapBenhNhanTuFile
+            // 
+            this.tpNhapBenhNhanTuFile.Controls.Add(this.dtgvInput);
+            this.tpNhapBenhNhanTuFile.Location = new System.Drawing.Point(4, 22);
+            this.tpNhapBenhNhanTuFile.Name = "tpNhapBenhNhanTuFile";
+            this.tpNhapBenhNhanTuFile.Padding = new System.Windows.Forms.Padding(3);
+            this.tpNhapBenhNhanTuFile.Size = new System.Drawing.Size(1509, 565);
+            this.tpNhapBenhNhanTuFile.TabIndex = 4;
+            this.tpNhapBenhNhanTuFile.Text = "Bệnh nhân nhập viện";
+            this.tpNhapBenhNhanTuFile.UseVisualStyleBackColor = true;
+            // 
+            // dtgvInput
+            // 
+            this.dtgvInput.AllowUserToAddRows = false;
+            this.dtgvInput.AllowUserToDeleteRows = false;
+            this.dtgvInput.AutoGenerateContextFilters = true;
+            this.dtgvInput.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dtgvInput.DateWithTime = false;
+            this.dtgvInput.Location = new System.Drawing.Point(0, 0);
+            this.dtgvInput.Name = "dtgvInput";
+            this.dtgvInput.ReadOnly = true;
+            this.dtgvInput.Size = new System.Drawing.Size(1507, 565);
+            this.dtgvInput.TabIndex = 24;
+            this.dtgvInput.TimeFilter = false;
+            // 
             // saveFileDialog1
             // 
             this.saveFileDialog1.Filter = "Excel 2007|*.xlsx|Excel 2003|*.xls";
@@ -171,6 +231,9 @@ namespace project_quan_ly_giuong_benh
             // 
             this.panel3.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.panel3.Controls.Add(this.cboPhong);
+            this.panel3.Controls.Add(this.cboTang);
+            this.panel3.Controls.Add(this.btnAdd);
             this.panel3.Controls.Add(this.dtpStop);
             this.panel3.Controls.Add(this.dtpStart);
             this.panel3.Controls.Add(this.txbFindMember);
@@ -223,9 +286,29 @@ namespace project_quan_ly_giuong_benh
             this.btnFindPerson.UseVisualStyleBackColor = true;
             this.btnFindPerson.Click += new System.EventHandler(this.btnFindPerson_Click);
             // 
+            // btnImport
+            // 
+            this.btnImport.Location = new System.Drawing.Point(999, 2);
+            this.btnImport.Name = "btnImport";
+            this.btnImport.Size = new System.Drawing.Size(56, 36);
+            this.btnImport.TabIndex = 0;
+            this.btnImport.Text = "Nhập Excel";
+            this.btnImport.UseVisualStyleBackColor = true;
+            this.btnImport.Click += new System.EventHandler(this.btnImport_Click);
+            // 
+            // btnExport
+            // 
+            this.btnExport.Location = new System.Drawing.Point(1060, 3);
+            this.btnExport.Name = "btnExport";
+            this.btnExport.Size = new System.Drawing.Size(56, 36);
+            this.btnExport.TabIndex = 0;
+            this.btnExport.Text = "Xuất Excel";
+            this.btnExport.UseVisualStyleBackColor = true;
+            this.btnExport.Click += new System.EventHandler(this.btnExport_Click);
+            // 
             // btnDelPerson
             // 
-            this.btnDelPerson.Location = new System.Drawing.Point(753, 3);
+            this.btnDelPerson.Location = new System.Drawing.Point(686, 3);
             this.btnDelPerson.Name = "btnDelPerson";
             this.btnDelPerson.Size = new System.Drawing.Size(97, 36);
             this.btnDelPerson.TabIndex = 0;
@@ -235,7 +318,7 @@ namespace project_quan_ly_giuong_benh
             // 
             // btnBack
             // 
-            this.btnBack.Location = new System.Drawing.Point(650, 3);
+            this.btnBack.Location = new System.Drawing.Point(583, 3);
             this.btnBack.Name = "btnBack";
             this.btnBack.Size = new System.Drawing.Size(97, 36);
             this.btnBack.TabIndex = 0;
@@ -245,7 +328,7 @@ namespace project_quan_ly_giuong_benh
             // 
             // btnEditPerson
             // 
-            this.btnEditPerson.Location = new System.Drawing.Point(547, 3);
+            this.btnEditPerson.Location = new System.Drawing.Point(480, 3);
             this.btnEditPerson.Name = "btnEditPerson";
             this.btnEditPerson.Size = new System.Drawing.Size(97, 36);
             this.btnEditPerson.TabIndex = 0;
@@ -366,50 +449,47 @@ namespace project_quan_ly_giuong_benh
             0});
             this.nUDPageRows.ValueChanged += new System.EventHandler(this.nUDPageRows_ValueChanged);
             // 
-            // tpDanhSachBack
+            // openFileDialog1
             // 
-            this.tpDanhSachBack.Controls.Add(this.dtgvBack);
-            this.tpDanhSachBack.Location = new System.Drawing.Point(4, 22);
-            this.tpDanhSachBack.Name = "tpDanhSachBack";
-            this.tpDanhSachBack.Padding = new System.Windows.Forms.Padding(3);
-            this.tpDanhSachBack.Size = new System.Drawing.Size(1509, 565);
-            this.tpDanhSachBack.TabIndex = 3;
-            this.tpDanhSachBack.Text = "Bệnh nhân quay lại viện";
-            this.tpDanhSachBack.UseVisualStyleBackColor = true;
+            this.openFileDialog1.FileName = "openFileDialog1";
+            this.openFileDialog1.Filter = "Excel Document| *.xls;*.xlsx";
             // 
-            // dtgvBack
+            // cboPhong
             // 
-            this.dtgvBack.AllowUserToAddRows = false;
-            this.dtgvBack.AllowUserToDeleteRows = false;
-            this.dtgvBack.AutoGenerateContextFilters = true;
-            this.dtgvBack.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dtgvBack.DateWithTime = false;
-            this.dtgvBack.Location = new System.Drawing.Point(0, 0);
-            this.dtgvBack.Name = "dtgvBack";
-            this.dtgvBack.ReadOnly = true;
-            this.dtgvBack.Size = new System.Drawing.Size(1507, 565);
-            this.dtgvBack.TabIndex = 24;
-            this.dtgvBack.TimeFilter = false;
+            this.cboPhong.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.cboPhong.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cboPhong.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cboPhong.FormattingEnabled = true;
+            this.cboPhong.Location = new System.Drawing.Point(840, 21);
+            this.cboPhong.Name = "cboPhong";
+            this.cboPhong.Size = new System.Drawing.Size(94, 21);
+            this.cboPhong.TabIndex = 5;
+            this.cboPhong.SelectedIndexChanged += new System.EventHandler(this.cboPhong_SelectedIndexChanged);
             // 
-            // btnExport
+            // cboTang
             // 
-            this.btnExport.Location = new System.Drawing.Point(1060, 3);
-            this.btnExport.Name = "btnExport";
-            this.btnExport.Size = new System.Drawing.Size(56, 36);
-            this.btnExport.TabIndex = 0;
-            this.btnExport.Text = "Xuất Excel";
-            this.btnExport.UseVisualStyleBackColor = true;
-            this.btnExport.Click += new System.EventHandler(this.btnExport_Click);
+            this.cboTang.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.cboTang.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cboTang.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cboTang.FormattingEnabled = true;
+            this.cboTang.Location = new System.Drawing.Point(840, 0);
+            this.cboTang.Name = "cboTang";
+            this.cboTang.Size = new System.Drawing.Size(94, 21);
+            this.cboTang.TabIndex = 4;
+            this.cboTang.SelectedIndexChanged += new System.EventHandler(this.cboTang_SelectedIndexChanged);
             // 
-            // btnImport
+            // btnAdd
             // 
-            this.btnImport.Location = new System.Drawing.Point(998, 3);
-            this.btnImport.Name = "btnImport";
-            this.btnImport.Size = new System.Drawing.Size(56, 36);
-            this.btnImport.TabIndex = 0;
-            this.btnImport.Text = "Nhập Excel";
-            this.btnImport.UseVisualStyleBackColor = true;
-            this.btnImport.Click += new System.EventHandler(this.btnImport_Click);
+            this.btnAdd.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnAdd.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
+            this.btnAdd.Location = new System.Drawing.Point(938, 2);
+            this.btnAdd.Margin = new System.Windows.Forms.Padding(1);
+            this.btnAdd.Name = "btnAdd";
+            this.btnAdd.Size = new System.Drawing.Size(56, 36);
+            this.btnAdd.TabIndex = 3;
+            this.btnAdd.Text = "Thêm BN";
+            this.btnAdd.UseVisualStyleBackColor = true;
+            this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
             // 
             // fQuanLyBenhNhan
             // 
@@ -440,11 +520,13 @@ namespace project_quan_ly_giuong_benh
             ((System.ComponentModel.ISupportInitialize)(this.dtgvXuatVien)).EndInit();
             this.tpDaChuyenTuyen.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dtgvChuyenTuyen)).EndInit();
+            this.tpDanhSachBack.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dtgvBack)).EndInit();
+            this.tpNhapBenhNhanTuFile.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dtgvInput)).EndInit();
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nUDPageRows)).EndInit();
-            this.tpDanhSachBack.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dtgvBack)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -481,5 +563,11 @@ namespace project_quan_ly_giuong_benh
         private ADGV.AdvancedDataGridView dtgvBack;
         private System.Windows.Forms.Button btnImport;
         private System.Windows.Forms.Button btnExport;
+        private System.Windows.Forms.TabPage tpNhapBenhNhanTuFile;
+        private ADGV.AdvancedDataGridView dtgvInput;
+        private System.Windows.Forms.OpenFileDialog openFileDialog1;
+        private System.Windows.Forms.ComboBox cboPhong;
+        private System.Windows.Forms.ComboBox cboTang;
+        private System.Windows.Forms.Button btnAdd;
     }
 }
