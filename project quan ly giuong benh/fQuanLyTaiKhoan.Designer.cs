@@ -29,6 +29,7 @@ namespace project_quan_ly_giuong_benh
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(fQuanLyTaiKhoan));
             this.panel4 = new System.Windows.Forms.Panel();
             this.txbFindAccount = new System.Windows.Forms.TextBox();
             this.btnFindAccount = new System.Windows.Forms.Button();
@@ -220,6 +221,7 @@ namespace project_quan_ly_giuong_benh
             this.Controls.Add(this.tableLayoutPanel2);
             this.Controls.Add(this.panel4);
             this.Controls.Add(this.dtgvUser);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.MaximumSize = new System.Drawing.Size(800, 450);
             this.MinimizeBox = false;

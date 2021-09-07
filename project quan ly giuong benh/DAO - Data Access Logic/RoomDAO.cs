@@ -112,7 +112,11 @@ namespace project_quan_ly_giuong_benh.DAO___Data_Access_Logic
         public Room GetRoomById(int id)
         {
             DataTable data = DataProvider.Instance.ExecuteQuery("SELECT * FROM dbo.Phong WHERE id = " + id);
-            Room room = new Room(data.Rows[0]);
+            Room room;
+            if (data.Rows.Count > 0)
+                room = new Room(data.Rows[0]);
+            else
+                room = new Room(0, "NaN", 0, 0, 0, "NaN");
             return room;
         }
 

@@ -1,0 +1,754 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<DOCUMENT Type="Advanced Installer" CreateVersion="18.3" version="18.3" Modules="enterprise" RootPath="." Language="en" Id="{43E35353-BF0E-408F-9758-0D05350479F7}">
+  <COMPONENT cid="caphyon.advinst.msicomp.MsiPropsComponent">
+    <ROW Property="AI_BITMAP_DISPLAY_MODE" Value="0"/>
+    <ROW Property="AI_CURRENT_YEAR" Value="2021" ValueLocId="-"/>
+    <ROW Property="AI_FINDEXE_TITLE" Value="Select the installation package for [|ProductName]" ValueLocId="AI.Property.FindExeTitle"/>
+    <ROW Property="AI_PREDEF_LCONDS_PROPS" Value="AI_DETECTED_DOTNET_VERSION;AI_DETECTED_INTERNET_CONNECTION"/>
+    <ROW Property="AI_REQUIRED_DOTNET_DISPLAY" MultiBuildValue="DefaultBuild:4.0" ValueLocId="-"/>
+    <ROW Property="AI_REQUIRED_DOTNET_VERSION" MultiBuildValue="DefaultBuild:4.0.1" ValueLocId="-"/>
+    <ROW Property="AI_ThemeStyle" Value="aero" MultiBuildValue="DefaultBuild:classic" MsiKey="AI_ThemeStyle"/>
+    <ROW Property="ALLUSERS" Value="1"/>
+    <ROW Property="ARPCOMMENTS" Value="This installer database contains the logic and data required to install [|ProductName]." ValueLocId="*"/>
+    <ROW Property="ARPNOREPAIR" MultiBuildValue="DefaultBuild:1"/>
+    <ROW Property="ARPPRODUCTICON" Value="logo2.exe" Type="8"/>
+    <ROW Property="Manufacturer" Value="HXN"/>
+    <ROW Property="ProductCode" Value="1033:{1B5C25B2-7354-4B4C-86E6-89531E7A91AC} " Type="16"/>
+    <ROW Property="ProductLanguage" Value="1033"/>
+    <ROW Property="ProductName" Value="Patient management"/>
+    <ROW Property="ProductVersion" Value="1.0.0" Type="32"/>
+    <ROW Property="SecureCustomProperties" Value="OLDPRODUCTS;AI_NEWERPRODUCTFOUND;AI_SETUPEXEPATH;SETUPEXEDIR"/>
+    <ROW Property="UpgradeCode" Value="{9E549904-F42E-4528-971E-F3DED613AE7A}"/>
+    <ROW Property="WindowsType9X" MultiBuildValue="DefaultBuild:Windows 9x/ME" ValueLocId="-"/>
+    <ROW Property="WindowsType9XDisplay" MultiBuildValue="DefaultBuild:Windows 9x/ME" ValueLocId="-"/>
+    <ROW Property="WindowsTypeNT" MultiBuildValue="DefaultBuild:Windows Vista x86, Windows Server 2008 x86" ValueLocId="-"/>
+    <ROW Property="WindowsTypeNT40" MultiBuildValue="DefaultBuild:Windows NT 4.0" ValueLocId="-"/>
+    <ROW Property="WindowsTypeNT40Display" MultiBuildValue="DefaultBuild:Windows NT 4.0" ValueLocId="-"/>
+    <ROW Property="WindowsTypeNT50" MultiBuildValue="DefaultBuild:Windows 2000" ValueLocId="-"/>
+    <ROW Property="WindowsTypeNT50Display" MultiBuildValue="DefaultBuild:Windows 2000" ValueLocId="-"/>
+    <ROW Property="WindowsTypeNT5X" MultiBuildValue="DefaultBuild:Windows XP/2003" ValueLocId="-"/>
+    <ROW Property="WindowsTypeNT5XDisplay" MultiBuildValue="DefaultBuild:Windows XP/2003" ValueLocId="-"/>
+    <ROW Property="WindowsTypeNT64" MultiBuildValue="DefaultBuild:Windows Vista x64, Windows Server 2008 x64" ValueLocId="-"/>
+    <ROW Property="WindowsTypeNT64Display" MultiBuildValue="DefaultBuild:Windows Vista x64, Windows Server 2008 x64" ValueLocId="-"/>
+    <ROW Property="WindowsTypeNTDisplay" MultiBuildValue="DefaultBuild:Windows Vista x86, Windows Server 2008 x86" ValueLocId="-"/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.MsiDirsComponent">
+    <ROW Directory="APPDIR" Directory_Parent="TARGETDIR" DefaultDir="APPDIR:." IsPseudoRoot="1"/>
+    <ROW Directory="Data_Dir" Directory_Parent="APPDIR" DefaultDir="Data"/>
+    <ROW Directory="SqlServerTypes_Dir" Directory_Parent="APPDIR" DefaultDir="SQLSER~1|SqlServerTypes"/>
+    <ROW Directory="TARGETDIR" DefaultDir="SourceDir"/>
+    <ROW Directory="de_Dir" Directory_Parent="APPDIR" DefaultDir="de"/>
+    <ROW Directory="es_Dir" Directory_Parent="APPDIR" DefaultDir="es"/>
+    <ROW Directory="fr_Dir" Directory_Parent="APPDIR" DefaultDir="fr"/>
+    <ROW Directory="it_Dir" Directory_Parent="APPDIR" DefaultDir="it"/>
+    <ROW Directory="ja_Dir" Directory_Parent="APPDIR" DefaultDir="ja"/>
+    <ROW Directory="ko_Dir" Directory_Parent="APPDIR" DefaultDir="ko"/>
+    <ROW Directory="pt_Dir" Directory_Parent="APPDIR" DefaultDir="pt"/>
+    <ROW Directory="ru_Dir" Directory_Parent="APPDIR" DefaultDir="ru"/>
+    <ROW Directory="x64_Dir" Directory_Parent="SqlServerTypes_Dir" DefaultDir="x64"/>
+    <ROW Directory="x86_Dir" Directory_Parent="SqlServerTypes_Dir" DefaultDir="x86"/>
+    <ROW Directory="zhCHS_Dir" Directory_Parent="APPDIR" DefaultDir="zh-CHS"/>
+    <ROW Directory="zhCHT_Dir" Directory_Parent="APPDIR" DefaultDir="zh-CHT"/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.MsiCompsComponent">
+    <ROW Component="AI_ExePath" ComponentId="{EE549A25-89F5-4A5C-8CC1-E812E2F2FEA3}" Directory_="APPDIR" Attributes="4" KeyPath="AI_ExePath"/>
+    <ROW Component="APPDIR" ComponentId="{58F90C99-2D27-4608-9635-C68BD51BDD3A}" Directory_="APPDIR" Attributes="0"/>
+    <ROW Component="AdvancedDataGridView.dll" ComponentId="{AEB6CE15-A85D-474C-8505-9AA6D48CA1E4}" Directory_="APPDIR" Attributes="0" KeyPath="AdvancedDataGridView.dll"/>
+    <ROW Component="AdvancedDataGridView.resources.dll" ComponentId="{AE5A71E5-48E8-4830-AB93-35443272EA49}" Directory_="fr_Dir" Attributes="0" KeyPath="AdvancedDataGridView.resources.dll"/>
+    <ROW Component="AdvancedDataGridView.resources.dll_1" ComponentId="{771342C0-720A-4C91-ABB7-797FB6BE1F5B}" Directory_="ru_Dir" Attributes="0" KeyPath="AdvancedDataGridView.resources.dll_1"/>
+    <ROW Component="Createdatabase.bat" ComponentId="{D6F73BCE-BE47-49F5-9DC5-D022AF88E38B}" Directory_="Data_Dir" Attributes="0" KeyPath="Createdatabase.bat" Type="0"/>
+    <ROW Component="EnvDTE.dll" ComponentId="{2678C154-F081-41A6-9EB4-2B631085EE27}" Directory_="APPDIR" Attributes="0" KeyPath="EnvDTE.dll"/>
+    <ROW Component="Microsoft.MSXML.dll" ComponentId="{347E95C9-B891-432F-840C-D515E0C3B461}" Directory_="APPDIR" Attributes="0" KeyPath="Microsoft.MSXML.dll"/>
+    <ROW Component="Microsoft.ReportViewer.Common.dll" ComponentId="{EC9DC892-EE55-4029-A7D3-6E05E0B1B394}" Directory_="APPDIR" Attributes="0" KeyPath="Microsoft.ReportViewer.Common.dll"/>
+    <ROW Component="Microsoft.ReportViewer.Common.resources.dll" ComponentId="{2275FD3D-9975-4E6B-B782-B45C9F2DE2AE}" Directory_="zhCHS_Dir" Attributes="0" KeyPath="Microsoft.ReportViewer.Common.resources.dll"/>
+    <ROW Component="Microsoft.ReportViewer.Common.resources.dll_1" ComponentId="{21A87292-4124-4F97-8480-81911CB09808}" Directory_="zhCHT_Dir" Attributes="0" KeyPath="Microsoft.ReportViewer.Common.resources.dll_1"/>
+    <ROW Component="Microsoft.ReportViewer.Common.resources.dll_2" ComponentId="{2F4505A3-21CB-4DDF-AB51-18DA6546298C}" Directory_="de_Dir" Attributes="0" KeyPath="Microsoft.ReportViewer.Common.resources.dll_2"/>
+    <ROW Component="Microsoft.ReportViewer.Common.resources.dll_3" ComponentId="{2F8D4F53-41B2-42D9-A7C3-9551AFDAC617}" Directory_="es_Dir" Attributes="0" KeyPath="Microsoft.ReportViewer.Common.resources.dll_3"/>
+    <ROW Component="Microsoft.ReportViewer.Common.resources.dll_4" ComponentId="{5DA6EE07-23CA-4969-BC03-C7288DB1113E}" Directory_="fr_Dir" Attributes="0" KeyPath="Microsoft.ReportViewer.Common.resources.dll_4"/>
+    <ROW Component="Microsoft.ReportViewer.Common.resources.dll_5" ComponentId="{F6C47DB8-CE23-41D7-AF7C-5023E6B7514D}" Directory_="it_Dir" Attributes="0" KeyPath="Microsoft.ReportViewer.Common.resources.dll_5"/>
+    <ROW Component="Microsoft.ReportViewer.Common.resources.dll_6" ComponentId="{EFF93088-22E7-4FB7-9609-853263817565}" Directory_="ja_Dir" Attributes="0" KeyPath="Microsoft.ReportViewer.Common.resources.dll_6"/>
+    <ROW Component="Microsoft.ReportViewer.Common.resources.dll_7" ComponentId="{D8DFD76F-D8CB-4A97-8622-69B77F36E00C}" Directory_="ko_Dir" Attributes="0" KeyPath="Microsoft.ReportViewer.Common.resources.dll_7"/>
+    <ROW Component="Microsoft.ReportViewer.Common.resources.dll_8" ComponentId="{AED5DB68-5257-4F96-8043-52D647E6AF6A}" Directory_="pt_Dir" Attributes="0" KeyPath="Microsoft.ReportViewer.Common.resources.dll_8"/>
+    <ROW Component="Microsoft.ReportViewer.Common.resources.dll_9" ComponentId="{7C8800C8-639A-409D-ABBB-FCF4729396C1}" Directory_="ru_Dir" Attributes="0" KeyPath="Microsoft.ReportViewer.Common.resources.dll_9"/>
+    <ROW Component="Microsoft.ReportViewer.DataVisualization.dll" ComponentId="{7F26EEA9-A242-4832-A252-1E81616D4533}" Directory_="APPDIR" Attributes="0" KeyPath="Microsoft.ReportViewer.DataVisualization.dll"/>
+    <ROW Component="Microsoft.ReportViewer.DataVisualization.resources.dll" ComponentId="{6B4CE008-83D4-48BC-A792-5D75A7828344}" Directory_="zhCHS_Dir" Attributes="0" KeyPath="Microsoft.ReportViewer.DataVisualization.resources.dll"/>
+    <ROW Component="Microsoft.ReportViewer.DataVisualization.resources.dll_1" ComponentId="{55C6E742-D78B-479A-B559-C975D0E6426C}" Directory_="zhCHT_Dir" Attributes="0" KeyPath="Microsoft.ReportViewer.DataVisualization.resources.dll_1"/>
+    <ROW Component="Microsoft.ReportViewer.DataVisualization.resources.dll_2" ComponentId="{2DF889D5-8C74-4911-87C5-BC5D43B4BE27}" Directory_="de_Dir" Attributes="0" KeyPath="Microsoft.ReportViewer.DataVisualization.resources.dll_2"/>
+    <ROW Component="Microsoft.ReportViewer.DataVisualization.resources.dll_3" ComponentId="{F8B01235-AB36-425C-B6BE-90084977D18A}" Directory_="es_Dir" Attributes="0" KeyPath="Microsoft.ReportViewer.DataVisualization.resources.dll_3"/>
+    <ROW Component="Microsoft.ReportViewer.DataVisualization.resources.dll_4" ComponentId="{AD85F16D-546E-4D04-BC91-CFF08D187ED3}" Directory_="fr_Dir" Attributes="0" KeyPath="Microsoft.ReportViewer.DataVisualization.resources.dll_4"/>
+    <ROW Component="Microsoft.ReportViewer.DataVisualization.resources.dll_5" ComponentId="{CE56F2E2-ADDC-47B6-B4B4-7A6C2B73D040}" Directory_="it_Dir" Attributes="0" KeyPath="Microsoft.ReportViewer.DataVisualization.resources.dll_5"/>
+    <ROW Component="Microsoft.ReportViewer.DataVisualization.resources.dll_6" ComponentId="{77DA4A55-78D9-49C4-96CF-F3DEEFCE4100}" Directory_="ja_Dir" Attributes="0" KeyPath="Microsoft.ReportViewer.DataVisualization.resources.dll_6"/>
+    <ROW Component="Microsoft.ReportViewer.DataVisualization.resources.dll_7" ComponentId="{CCA60618-5C7D-4DAD-811E-AFA9795AED89}" Directory_="ko_Dir" Attributes="0" KeyPath="Microsoft.ReportViewer.DataVisualization.resources.dll_7"/>
+    <ROW Component="Microsoft.ReportViewer.DataVisualization.resources.dll_8" ComponentId="{9375E393-21F3-44B1-BFD8-466C1037A157}" Directory_="pt_Dir" Attributes="0" KeyPath="Microsoft.ReportViewer.DataVisualization.resources.dll_8"/>
+    <ROW Component="Microsoft.ReportViewer.DataVisualization.resources.dll_9" ComponentId="{9178A5E3-ECCB-47FC-8865-0C21CEF68257}" Directory_="ru_Dir" Attributes="0" KeyPath="Microsoft.ReportViewer.DataVisualization.resources.dll_9"/>
+    <ROW Component="Microsoft.ReportViewer.Design.dll" ComponentId="{953BBF8C-A0A8-48F1-8B8F-E8FEB5C51AE0}" Directory_="APPDIR" Attributes="0" KeyPath="Microsoft.ReportViewer.Design.dll"/>
+    <ROW Component="Microsoft.ReportViewer.Design.resources.dll" ComponentId="{AE9F35DB-338C-4EB8-94BB-39C09AE97198}" Directory_="zhCHS_Dir" Attributes="0" KeyPath="Microsoft.ReportViewer.Design.resources.dll"/>
+    <ROW Component="Microsoft.ReportViewer.Design.resources.dll_1" ComponentId="{65195C5A-517A-40FF-9372-A088DCAB55DC}" Directory_="zhCHT_Dir" Attributes="0" KeyPath="Microsoft.ReportViewer.Design.resources.dll_1"/>
+    <ROW Component="Microsoft.ReportViewer.Design.resources.dll_2" ComponentId="{249BC1A3-1438-49E4-8C85-72A34E2BCE81}" Directory_="de_Dir" Attributes="0" KeyPath="Microsoft.ReportViewer.Design.resources.dll_2"/>
+    <ROW Component="Microsoft.ReportViewer.Design.resources.dll_3" ComponentId="{C78BC3A9-217E-4A2A-A039-F306F0A8ACCD}" Directory_="es_Dir" Attributes="0" KeyPath="Microsoft.ReportViewer.Design.resources.dll_3"/>
+    <ROW Component="Microsoft.ReportViewer.Design.resources.dll_4" ComponentId="{F30B4B90-A2F2-4189-ADEF-089853078FAC}" Directory_="fr_Dir" Attributes="0" KeyPath="Microsoft.ReportViewer.Design.resources.dll_4"/>
+    <ROW Component="Microsoft.ReportViewer.Design.resources.dll_5" ComponentId="{EE40B97F-01BE-42D3-A6BD-B87DA7BF1A8F}" Directory_="it_Dir" Attributes="0" KeyPath="Microsoft.ReportViewer.Design.resources.dll_5"/>
+    <ROW Component="Microsoft.ReportViewer.Design.resources.dll_6" ComponentId="{5C57AEAE-4A05-4EEB-B4B5-2623E5FED302}" Directory_="ja_Dir" Attributes="0" KeyPath="Microsoft.ReportViewer.Design.resources.dll_6"/>
+    <ROW Component="Microsoft.ReportViewer.Design.resources.dll_7" ComponentId="{CCF87816-C5B6-4122-8C82-862B3E38E302}" Directory_="ko_Dir" Attributes="0" KeyPath="Microsoft.ReportViewer.Design.resources.dll_7"/>
+    <ROW Component="Microsoft.ReportViewer.Design.resources.dll_8" ComponentId="{29231641-F2E3-4A05-9992-1812AB2F3C1C}" Directory_="pt_Dir" Attributes="0" KeyPath="Microsoft.ReportViewer.Design.resources.dll_8"/>
+    <ROW Component="Microsoft.ReportViewer.Design.resources.dll_9" ComponentId="{F5235A01-1C2C-41FF-B225-154145A408C7}" Directory_="ru_Dir" Attributes="0" KeyPath="Microsoft.ReportViewer.Design.resources.dll_9"/>
+    <ROW Component="Microsoft.ReportViewer.ProcessingObjectModel.dll" ComponentId="{D7DD0CAD-2A21-43A8-8FB3-C7D1F47970B9}" Directory_="APPDIR" Attributes="0" KeyPath="Microsoft.ReportViewer.ProcessingObjectModel.dll"/>
+    <ROW Component="Microsoft.ReportViewer.WinForms.dll" ComponentId="{51597CF2-1990-4F90-AD42-C85AAC9AC380}" Directory_="APPDIR" Attributes="0" KeyPath="Microsoft.ReportViewer.WinForms.dll"/>
+    <ROW Component="Microsoft.ReportViewer.WinForms.resources.dll" ComponentId="{13EE4E2E-9CE6-4834-96D9-50947B7B7A9B}" Directory_="zhCHS_Dir" Attributes="0" KeyPath="Microsoft.ReportViewer.WinForms.resources.dll"/>
+    <ROW Component="Microsoft.ReportViewer.WinForms.resources.dll_1" ComponentId="{4B70B945-5726-45B3-A984-A869F8349C5B}" Directory_="zhCHT_Dir" Attributes="0" KeyPath="Microsoft.ReportViewer.WinForms.resources.dll_1"/>
+    <ROW Component="Microsoft.ReportViewer.WinForms.resources.dll_2" ComponentId="{D1FCAE17-B116-436D-8878-744F7C939862}" Directory_="de_Dir" Attributes="0" KeyPath="Microsoft.ReportViewer.WinForms.resources.dll_2"/>
+    <ROW Component="Microsoft.ReportViewer.WinForms.resources.dll_3" ComponentId="{58D43F00-CC69-4DF9-91AD-DC94F498DAA0}" Directory_="es_Dir" Attributes="0" KeyPath="Microsoft.ReportViewer.WinForms.resources.dll_3"/>
+    <ROW Component="Microsoft.ReportViewer.WinForms.resources.dll_4" ComponentId="{28C5F9BB-7CF1-4A29-9079-4F774B46480A}" Directory_="fr_Dir" Attributes="0" KeyPath="Microsoft.ReportViewer.WinForms.resources.dll_4"/>
+    <ROW Component="Microsoft.ReportViewer.WinForms.resources.dll_5" ComponentId="{AC3EB411-36FD-43FB-947A-B9A64992F580}" Directory_="it_Dir" Attributes="0" KeyPath="Microsoft.ReportViewer.WinForms.resources.dll_5"/>
+    <ROW Component="Microsoft.ReportViewer.WinForms.resources.dll_6" ComponentId="{2349A092-E2A4-44A1-99B9-45E8D633972A}" Directory_="ja_Dir" Attributes="0" KeyPath="Microsoft.ReportViewer.WinForms.resources.dll_6"/>
+    <ROW Component="Microsoft.ReportViewer.WinForms.resources.dll_7" ComponentId="{690FB0AE-57AB-487F-9B87-F8384A138907}" Directory_="ko_Dir" Attributes="0" KeyPath="Microsoft.ReportViewer.WinForms.resources.dll_7"/>
+    <ROW Component="Microsoft.ReportViewer.WinForms.resources.dll_8" ComponentId="{F4E90D6C-CD00-4C37-AB36-5E06BB266E58}" Directory_="pt_Dir" Attributes="0" KeyPath="Microsoft.ReportViewer.WinForms.resources.dll_8"/>
+    <ROW Component="Microsoft.ReportViewer.WinForms.resources.dll_9" ComponentId="{BFCFE49E-F18F-4882-8B9A-DBE5F6206AA4}" Directory_="ru_Dir" Attributes="0" KeyPath="Microsoft.ReportViewer.WinForms.resources.dll_9"/>
+    <ROW Component="Microsoft.SqlServer.Types.dll" ComponentId="{88EC1324-37C3-470C-8061-FE339291C66D}" Directory_="APPDIR" Attributes="0" KeyPath="Microsoft.SqlServer.Types.dll"/>
+    <ROW Component="Microsoft.VisualStudio.OLE.Interop.dll" ComponentId="{86F45F43-1287-4762-AE9F-471E16720A2A}" Directory_="APPDIR" Attributes="0" KeyPath="Microsoft.VisualStudio.OLE.Interop.dll"/>
+    <ROW Component="Microsoft.VisualStudio.Shell.Interop.8.0.dll" ComponentId="{2F72261E-F15A-406B-BE01-C2EC1CBFC6F5}" Directory_="APPDIR" Attributes="0" KeyPath="Microsoft.VisualStudio.Shell.Interop.8.0.dll"/>
+    <ROW Component="Microsoft.VisualStudio.Shell.Interop.dll" ComponentId="{76F56817-297D-4C63-B6FC-2109C5895917}" Directory_="APPDIR" Attributes="0" KeyPath="Microsoft.VisualStudio.Shell.Interop.dll"/>
+    <ROW Component="Microsoft.VisualStudio.TextManager.Interop.8.0.dll" ComponentId="{25AB8F7D-C53C-47C0-9937-F5149CFBB420}" Directory_="APPDIR" Attributes="0" KeyPath="Microsoft.VisualStudio.TextManager.Interop.8.0.dll"/>
+    <ROW Component="Microsoft.VisualStudio.TextManager.Interop.dll" ComponentId="{4699AD5D-7B29-4DD2-A907-6A1CB5B67815}" Directory_="APPDIR" Attributes="0" KeyPath="Microsoft.VisualStudio.TextManager.Interop.dll"/>
+    <ROW Component="ProductInformation" ComponentId="{FC8BCAF5-41DF-4EE0-A40C-9C409A634390}" Directory_="APPDIR" Attributes="4" KeyPath="Version"/>
+    <ROW Component="SQLCMD.EXE" ComponentId="{D692CB1C-DCA6-4860-9169-B137C6AA0951}" Directory_="Data_Dir" Attributes="256" KeyPath="SQLCMD.EXE"/>
+    <ROW Component="SqlServerSpatial140.dll" ComponentId="{05265592-5E25-485C-A42B-B42A984DE7FF}" Directory_="x64_Dir" Attributes="256" KeyPath="SqlServerSpatial140.dll"/>
+    <ROW Component="SqlServerSpatial140.dll_1" ComponentId="{74113727-369F-478B-B01A-8E175F0BB0DD}" Directory_="x86_Dir" Attributes="0" KeyPath="SqlServerSpatial140.dll_1"/>
+    <ROW Component="batchparser.dll" ComponentId="{1784F64B-4E19-4115-A2AA-0FA034D7B78E}" Directory_="Data_Dir" Attributes="256" KeyPath="batchparser.dll"/>
+    <ROW Component="msvcr120.dll" ComponentId="{974F89AC-61B3-48A9-A8E0-6571967DDC73}" Directory_="x64_Dir" Attributes="256" KeyPath="msvcr120.dll"/>
+    <ROW Component="msvcr120.dll_1" ComponentId="{2520D724-D0BF-4B62-BF3A-6BC2BB11A92F}" Directory_="x86_Dir" Attributes="0" KeyPath="msvcr120.dll_1"/>
+    <ROW Component="projectquanlygiuongbenh.exe" ComponentId="{3E8C3B79-371C-4B4E-9853-081C004ED9E6}" Directory_="APPDIR" Attributes="0" KeyPath="projectquanlygiuongbenh.exe"/>
+    <ROW Component="stdole.dll" ComponentId="{F404D757-37BA-4FE1-B538-A92DEA09D46A}" Directory_="APPDIR" Attributes="0" KeyPath="stdole.dll"/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.MsiFeatsComponent">
+    <ROW Feature="MainFeature" Title="MainFeature" Description="Description" Display="1" Level="1" Directory_="APPDIR" Attributes="0"/>
+    <ATTRIBUTE name="CurrentFeature" value="MainFeature"/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.MsiFilesComponent">
+    <ROW File="Microsoft.ReportViewer.Common.resources.dll" Component_="Microsoft.ReportViewer.Common.resources.dll" FileName="MICROS~1.DLL|Microsoft.ReportViewer.Common.resources.dll" Attributes="0" SourcePath="project quan ly giuong benh\bin\Release\zh-CHS\Microsoft.ReportViewer.Common.resources.dll" SelfReg="false"/>
+    <ROW File="Microsoft.ReportViewer.DataVisualization.resources.dll" Component_="Microsoft.ReportViewer.DataVisualization.resources.dll" FileName="MICROS~2.DLL|Microsoft.ReportViewer.DataVisualization.resources.dll" Attributes="0" SourcePath="project quan ly giuong benh\bin\Release\zh-CHS\Microsoft.ReportViewer.DataVisualization.resources.dll" SelfReg="false"/>
+    <ROW File="Microsoft.ReportViewer.Design.resources.dll" Component_="Microsoft.ReportViewer.Design.resources.dll" FileName="MICROS~3.DLL|Microsoft.ReportViewer.Design.resources.dll" Attributes="0" SourcePath="project quan ly giuong benh\bin\Release\zh-CHS\Microsoft.ReportViewer.Design.resources.dll" SelfReg="false"/>
+    <ROW File="Microsoft.ReportViewer.WinForms.resources.dll" Component_="Microsoft.ReportViewer.WinForms.resources.dll" FileName="MICROS~4.DLL|Microsoft.ReportViewer.WinForms.resources.dll" Attributes="0" SourcePath="project quan ly giuong benh\bin\Release\zh-CHS\Microsoft.ReportViewer.WinForms.resources.dll" SelfReg="false"/>
+    <ROW File="Microsoft.ReportViewer.Common.resources.dll_1" Component_="Microsoft.ReportViewer.Common.resources.dll_1" FileName="MICROS~1.DLL|Microsoft.ReportViewer.Common.resources.dll" Attributes="0" SourcePath="project quan ly giuong benh\bin\Release\zh-CHT\Microsoft.ReportViewer.Common.resources.dll" SelfReg="false"/>
+    <ROW File="Microsoft.ReportViewer.DataVisualization.resources.dll_1" Component_="Microsoft.ReportViewer.DataVisualization.resources.dll_1" FileName="MICROS~2.DLL|Microsoft.ReportViewer.DataVisualization.resources.dll" Attributes="0" SourcePath="project quan ly giuong benh\bin\Release\zh-CHT\Microsoft.ReportViewer.DataVisualization.resources.dll" SelfReg="false"/>
+    <ROW File="Microsoft.ReportViewer.Design.resources.dll_1" Component_="Microsoft.ReportViewer.Design.resources.dll_1" FileName="MICROS~3.DLL|Microsoft.ReportViewer.Design.resources.dll" Attributes="0" SourcePath="project quan ly giuong benh\bin\Release\zh-CHT\Microsoft.ReportViewer.Design.resources.dll" SelfReg="false"/>
+    <ROW File="Microsoft.ReportViewer.WinForms.resources.dll_1" Component_="Microsoft.ReportViewer.WinForms.resources.dll_1" FileName="MICROS~4.DLL|Microsoft.ReportViewer.WinForms.resources.dll" Attributes="0" SourcePath="project quan ly giuong benh\bin\Release\zh-CHT\Microsoft.ReportViewer.WinForms.resources.dll" SelfReg="false"/>
+    <ROW File="AdvancedDataGridView.dll" Component_="AdvancedDataGridView.dll" FileName="ADVANC~1.DLL|AdvancedDataGridView.dll" Attributes="0" SourcePath="project quan ly giuong benh\bin\Release\AdvancedDataGridView.dll" SelfReg="false"/>
+    <ROW File="EnvDTE.dll" Component_="EnvDTE.dll" FileName="EnvDTE.dll" Attributes="0" SourcePath="project quan ly giuong benh\bin\Release\EnvDTE.dll" SelfReg="false"/>
+    <ROW File="Microsoft.MSXML.dll" Component_="Microsoft.MSXML.dll" FileName="MICROS~1.DLL|Microsoft.MSXML.dll" Attributes="0" SourcePath="project quan ly giuong benh\bin\Release\Microsoft.MSXML.dll" SelfReg="false"/>
+    <ROW File="Microsoft.ReportViewer.Common.dll" Component_="Microsoft.ReportViewer.Common.dll" FileName="MICROS~2.DLL|Microsoft.ReportViewer.Common.dll" Attributes="0" SourcePath="project quan ly giuong benh\bin\Release\Microsoft.ReportViewer.Common.dll" SelfReg="false"/>
+    <ROW File="Microsoft.ReportViewer.DataVisualization.dll" Component_="Microsoft.ReportViewer.DataVisualization.dll" FileName="MICROS~3.DLL|Microsoft.ReportViewer.DataVisualization.dll" Attributes="0" SourcePath="project quan ly giuong benh\bin\Release\Microsoft.ReportViewer.DataVisualization.dll" SelfReg="false"/>
+    <ROW File="Microsoft.ReportViewer.Design.dll" Component_="Microsoft.ReportViewer.Design.dll" FileName="MICROS~4.DLL|Microsoft.ReportViewer.Design.dll" Attributes="0" SourcePath="project quan ly giuong benh\bin\Release\Microsoft.ReportViewer.Design.dll" SelfReg="false"/>
+    <ROW File="Microsoft.ReportViewer.ProcessingObjectModel.dll" Component_="Microsoft.ReportViewer.ProcessingObjectModel.dll" FileName="MICROS~5.DLL|Microsoft.ReportViewer.ProcessingObjectModel.dll" Attributes="0" SourcePath="project quan ly giuong benh\bin\Release\Microsoft.ReportViewer.ProcessingObjectModel.dll" SelfReg="false"/>
+    <ROW File="Microsoft.ReportViewer.WinForms.dll" Component_="Microsoft.ReportViewer.WinForms.dll" FileName="MICROS~6.DLL|Microsoft.ReportViewer.WinForms.dll" Attributes="0" SourcePath="project quan ly giuong benh\bin\Release\Microsoft.ReportViewer.WinForms.dll" SelfReg="false"/>
+    <ROW File="Microsoft.SqlServer.Types.dll" Component_="Microsoft.SqlServer.Types.dll" FileName="MICROS~7.DLL|Microsoft.SqlServer.Types.dll" Attributes="0" SourcePath="project quan ly giuong benh\bin\Release\Microsoft.SqlServer.Types.dll" SelfReg="false"/>
+    <ROW File="Microsoft.VisualStudio.OLE.Interop.dll" Component_="Microsoft.VisualStudio.OLE.Interop.dll" FileName="MICROS~8.DLL|Microsoft.VisualStudio.OLE.Interop.dll" Attributes="0" SourcePath="project quan ly giuong benh\bin\Release\Microsoft.VisualStudio.OLE.Interop.dll" SelfReg="false"/>
+    <ROW File="Microsoft.VisualStudio.Shell.Interop.8.0.dll" Component_="Microsoft.VisualStudio.Shell.Interop.8.0.dll" FileName="MICROS~9.DLL|Microsoft.VisualStudio.Shell.Interop.8.0.dll" Attributes="0" SourcePath="project quan ly giuong benh\bin\Release\Microsoft.VisualStudio.Shell.Interop.8.0.dll" SelfReg="false"/>
+    <ROW File="Microsoft.VisualStudio.Shell.Interop.dll" Component_="Microsoft.VisualStudio.Shell.Interop.dll" FileName="MICRO~10.DLL|Microsoft.VisualStudio.Shell.Interop.dll" Attributes="0" SourcePath="project quan ly giuong benh\bin\Release\Microsoft.VisualStudio.Shell.Interop.dll" SelfReg="false"/>
+    <ROW File="Microsoft.VisualStudio.TextManager.Interop.8.0.dll" Component_="Microsoft.VisualStudio.TextManager.Interop.8.0.dll" FileName="MICRO~11.DLL|Microsoft.VisualStudio.TextManager.Interop.8.0.dll" Attributes="0" SourcePath="project quan ly giuong benh\bin\Release\Microsoft.VisualStudio.TextManager.Interop.8.0.dll" SelfReg="false"/>
+    <ROW File="Microsoft.VisualStudio.TextManager.Interop.dll" Component_="Microsoft.VisualStudio.TextManager.Interop.dll" FileName="MICRO~12.DLL|Microsoft.VisualStudio.TextManager.Interop.dll" Attributes="0" SourcePath="project quan ly giuong benh\bin\Release\Microsoft.VisualStudio.TextManager.Interop.dll" SelfReg="false"/>
+    <ROW File="projectquanlygiuongbenh.exe" Component_="projectquanlygiuongbenh.exe" FileName="PATIEN~1.EXE|Patient management.exe" Attributes="0" SourcePath="project quan ly giuong benh\bin\Release\project quan ly giuong benh.exe" SelfReg="false" DigSign="true"/>
+    <ROW File="projectquanlygiuongbenh.pdb" Component_="projectquanlygiuongbenh.exe" FileName="PATIEN~1.PDB|Patient management.pdb" Attributes="0" SourcePath="project quan ly giuong benh\bin\Release\project quan ly giuong benh.pdb" SelfReg="false"/>
+    <ROW File="stdole.dll" Component_="stdole.dll" FileName="stdole.dll" Attributes="0" SourcePath="project quan ly giuong benh\bin\Release\stdole.dll" SelfReg="false"/>
+    <ROW File="batchparser.dll" Component_="batchparser.dll" FileName="BATCHP~1.DLL|batchparser.dll" Attributes="2" SourcePath="project quan ly giuong benh\bin\Release\Data\batchparser.dll" SelfReg="false"/>
+    <ROW File="Createdatabase.bat" Component_="Createdatabase.bat" FileName="CREATE~1.BAT|Create database.bat" Attributes="0" SourcePath="project quan ly giuong benh\bin\Release\Data\Create database.bat" SelfReg="false"/>
+    <ROW File="data.sql" Component_="Createdatabase.bat" FileName="data.sql" Attributes="0" SourcePath="project quan ly giuong benh\bin\Release\Data\data.sql" SelfReg="false"/>
+    <ROW File="DropTable.sql" Component_="Createdatabase.bat" FileName="DROPTA~1.SQL|DropTable.sql" Attributes="0" SourcePath="project quan ly giuong benh\bin\Release\Data\DropTable.sql" SelfReg="false"/>
+    <ROW File="SQLCMD.EXE" Component_="SQLCMD.EXE" FileName="SQLCMD.EXE" Attributes="2" SourcePath="project quan ly giuong benh\bin\Release\Data\SQLCMD.EXE" SelfReg="false"/>
+    <ROW File="SQLCMD.rll" Component_="Createdatabase.bat" FileName="SQLCMD.rll" Attributes="2" SourcePath="project quan ly giuong benh\bin\Release\Data\SQLCMD.rll" SelfReg="false"/>
+    <ROW File="Microsoft.ReportViewer.Common.resources.dll_2" Component_="Microsoft.ReportViewer.Common.resources.dll_2" FileName="MICROS~1.DLL|Microsoft.ReportViewer.Common.resources.dll" Attributes="0" SourcePath="project quan ly giuong benh\bin\Release\de\Microsoft.ReportViewer.Common.resources.dll" SelfReg="false"/>
+    <ROW File="Microsoft.ReportViewer.DataVisualization.resources.dll_2" Component_="Microsoft.ReportViewer.DataVisualization.resources.dll_2" FileName="MICROS~2.DLL|Microsoft.ReportViewer.DataVisualization.resources.dll" Attributes="0" SourcePath="project quan ly giuong benh\bin\Release\de\Microsoft.ReportViewer.DataVisualization.resources.dll" SelfReg="false"/>
+    <ROW File="Microsoft.ReportViewer.Design.resources.dll_2" Component_="Microsoft.ReportViewer.Design.resources.dll_2" FileName="MICROS~3.DLL|Microsoft.ReportViewer.Design.resources.dll" Attributes="0" SourcePath="project quan ly giuong benh\bin\Release\de\Microsoft.ReportViewer.Design.resources.dll" SelfReg="false"/>
+    <ROW File="Microsoft.ReportViewer.WinForms.resources.dll_2" Component_="Microsoft.ReportViewer.WinForms.resources.dll_2" FileName="MICROS~4.DLL|Microsoft.ReportViewer.WinForms.resources.dll" Attributes="0" SourcePath="project quan ly giuong benh\bin\Release\de\Microsoft.ReportViewer.WinForms.resources.dll" SelfReg="false"/>
+    <ROW File="Microsoft.ReportViewer.Common.resources.dll_3" Component_="Microsoft.ReportViewer.Common.resources.dll_3" FileName="MICROS~1.DLL|Microsoft.ReportViewer.Common.resources.dll" Attributes="0" SourcePath="project quan ly giuong benh\bin\Release\es\Microsoft.ReportViewer.Common.resources.dll" SelfReg="false"/>
+    <ROW File="Microsoft.ReportViewer.DataVisualization.resources.dll_3" Component_="Microsoft.ReportViewer.DataVisualization.resources.dll_3" FileName="MICROS~2.DLL|Microsoft.ReportViewer.DataVisualization.resources.dll" Attributes="0" SourcePath="project quan ly giuong benh\bin\Release\es\Microsoft.ReportViewer.DataVisualization.resources.dll" SelfReg="false"/>
+    <ROW File="Microsoft.ReportViewer.Design.resources.dll_3" Component_="Microsoft.ReportViewer.Design.resources.dll_3" FileName="MICROS~3.DLL|Microsoft.ReportViewer.Design.resources.dll" Attributes="0" SourcePath="project quan ly giuong benh\bin\Release\es\Microsoft.ReportViewer.Design.resources.dll" SelfReg="false"/>
+    <ROW File="Microsoft.ReportViewer.WinForms.resources.dll_3" Component_="Microsoft.ReportViewer.WinForms.resources.dll_3" FileName="MICROS~4.DLL|Microsoft.ReportViewer.WinForms.resources.dll" Attributes="0" SourcePath="project quan ly giuong benh\bin\Release\es\Microsoft.ReportViewer.WinForms.resources.dll" SelfReg="false"/>
+    <ROW File="AdvancedDataGridView.resources.dll" Component_="AdvancedDataGridView.resources.dll" FileName="ADVANC~1.DLL|AdvancedDataGridView.resources.dll" Attributes="0" SourcePath="project quan ly giuong benh\bin\Release\fr\AdvancedDataGridView.resources.dll" SelfReg="false"/>
+    <ROW File="Microsoft.ReportViewer.Common.resources.dll_4" Component_="Microsoft.ReportViewer.Common.resources.dll_4" FileName="MICROS~1.DLL|Microsoft.ReportViewer.Common.resources.dll" Attributes="0" SourcePath="project quan ly giuong benh\bin\Release\fr\Microsoft.ReportViewer.Common.resources.dll" SelfReg="false"/>
+    <ROW File="Microsoft.ReportViewer.DataVisualization.resources.dll_4" Component_="Microsoft.ReportViewer.DataVisualization.resources.dll_4" FileName="MICROS~2.DLL|Microsoft.ReportViewer.DataVisualization.resources.dll" Attributes="0" SourcePath="project quan ly giuong benh\bin\Release\fr\Microsoft.ReportViewer.DataVisualization.resources.dll" SelfReg="false"/>
+    <ROW File="Microsoft.ReportViewer.Design.resources.dll_4" Component_="Microsoft.ReportViewer.Design.resources.dll_4" FileName="MICROS~3.DLL|Microsoft.ReportViewer.Design.resources.dll" Attributes="0" SourcePath="project quan ly giuong benh\bin\Release\fr\Microsoft.ReportViewer.Design.resources.dll" SelfReg="false"/>
+    <ROW File="Microsoft.ReportViewer.WinForms.resources.dll_4" Component_="Microsoft.ReportViewer.WinForms.resources.dll_4" FileName="MICROS~4.DLL|Microsoft.ReportViewer.WinForms.resources.dll" Attributes="0" SourcePath="project quan ly giuong benh\bin\Release\fr\Microsoft.ReportViewer.WinForms.resources.dll" SelfReg="false"/>
+    <ROW File="Microsoft.ReportViewer.Common.resources.dll_5" Component_="Microsoft.ReportViewer.Common.resources.dll_5" FileName="MICROS~1.DLL|Microsoft.ReportViewer.Common.resources.dll" Attributes="0" SourcePath="project quan ly giuong benh\bin\Release\it\Microsoft.ReportViewer.Common.resources.dll" SelfReg="false"/>
+    <ROW File="Microsoft.ReportViewer.DataVisualization.resources.dll_5" Component_="Microsoft.ReportViewer.DataVisualization.resources.dll_5" FileName="MICROS~2.DLL|Microsoft.ReportViewer.DataVisualization.resources.dll" Attributes="0" SourcePath="project quan ly giuong benh\bin\Release\it\Microsoft.ReportViewer.DataVisualization.resources.dll" SelfReg="false"/>
+    <ROW File="Microsoft.ReportViewer.Design.resources.dll_5" Component_="Microsoft.ReportViewer.Design.resources.dll_5" FileName="MICROS~3.DLL|Microsoft.ReportViewer.Design.resources.dll" Attributes="0" SourcePath="project quan ly giuong benh\bin\Release\it\Microsoft.ReportViewer.Design.resources.dll" SelfReg="false"/>
+    <ROW File="Microsoft.ReportViewer.WinForms.resources.dll_5" Component_="Microsoft.ReportViewer.WinForms.resources.dll_5" FileName="MICROS~4.DLL|Microsoft.ReportViewer.WinForms.resources.dll" Attributes="0" SourcePath="project quan ly giuong benh\bin\Release\it\Microsoft.ReportViewer.WinForms.resources.dll" SelfReg="false"/>
+    <ROW File="Microsoft.ReportViewer.Common.resources.dll_6" Component_="Microsoft.ReportViewer.Common.resources.dll_6" FileName="MICROS~1.DLL|Microsoft.ReportViewer.Common.resources.dll" Attributes="0" SourcePath="project quan ly giuong benh\bin\Release\ja\Microsoft.ReportViewer.Common.resources.dll" SelfReg="false"/>
+    <ROW File="Microsoft.ReportViewer.DataVisualization.resources.dll_6" Component_="Microsoft.ReportViewer.DataVisualization.resources.dll_6" FileName="MICROS~2.DLL|Microsoft.ReportViewer.DataVisualization.resources.dll" Attributes="0" SourcePath="project quan ly giuong benh\bin\Release\ja\Microsoft.ReportViewer.DataVisualization.resources.dll" SelfReg="false"/>
+    <ROW File="Microsoft.ReportViewer.Design.resources.dll_6" Component_="Microsoft.ReportViewer.Design.resources.dll_6" FileName="MICROS~3.DLL|Microsoft.ReportViewer.Design.resources.dll" Attributes="0" SourcePath="project quan ly giuong benh\bin\Release\ja\Microsoft.ReportViewer.Design.resources.dll" SelfReg="false"/>
+    <ROW File="Microsoft.ReportViewer.WinForms.resources.dll_6" Component_="Microsoft.ReportViewer.WinForms.resources.dll_6" FileName="MICROS~4.DLL|Microsoft.ReportViewer.WinForms.resources.dll" Attributes="0" SourcePath="project quan ly giuong benh\bin\Release\ja\Microsoft.ReportViewer.WinForms.resources.dll" SelfReg="false"/>
+    <ROW File="Microsoft.ReportViewer.Common.resources.dll_7" Component_="Microsoft.ReportViewer.Common.resources.dll_7" FileName="MICROS~1.DLL|Microsoft.ReportViewer.Common.resources.dll" Attributes="0" SourcePath="project quan ly giuong benh\bin\Release\ko\Microsoft.ReportViewer.Common.resources.dll" SelfReg="false"/>
+    <ROW File="Microsoft.ReportViewer.DataVisualization.resources.dll_7" Component_="Microsoft.ReportViewer.DataVisualization.resources.dll_7" FileName="MICROS~2.DLL|Microsoft.ReportViewer.DataVisualization.resources.dll" Attributes="0" SourcePath="project quan ly giuong benh\bin\Release\ko\Microsoft.ReportViewer.DataVisualization.resources.dll" SelfReg="false"/>
+    <ROW File="Microsoft.ReportViewer.Design.resources.dll_7" Component_="Microsoft.ReportViewer.Design.resources.dll_7" FileName="MICROS~3.DLL|Microsoft.ReportViewer.Design.resources.dll" Attributes="0" SourcePath="project quan ly giuong benh\bin\Release\ko\Microsoft.ReportViewer.Design.resources.dll" SelfReg="false"/>
+    <ROW File="Microsoft.ReportViewer.WinForms.resources.dll_7" Component_="Microsoft.ReportViewer.WinForms.resources.dll_7" FileName="MICROS~4.DLL|Microsoft.ReportViewer.WinForms.resources.dll" Attributes="0" SourcePath="project quan ly giuong benh\bin\Release\ko\Microsoft.ReportViewer.WinForms.resources.dll" SelfReg="false"/>
+    <ROW File="Microsoft.ReportViewer.Common.resources.dll_8" Component_="Microsoft.ReportViewer.Common.resources.dll_8" FileName="MICROS~1.DLL|Microsoft.ReportViewer.Common.resources.dll" Attributes="0" SourcePath="project quan ly giuong benh\bin\Release\pt\Microsoft.ReportViewer.Common.resources.dll" SelfReg="false"/>
+    <ROW File="Microsoft.ReportViewer.DataVisualization.resources.dll_8" Component_="Microsoft.ReportViewer.DataVisualization.resources.dll_8" FileName="MICROS~2.DLL|Microsoft.ReportViewer.DataVisualization.resources.dll" Attributes="0" SourcePath="project quan ly giuong benh\bin\Release\pt\Microsoft.ReportViewer.DataVisualization.resources.dll" SelfReg="false"/>
+    <ROW File="Microsoft.ReportViewer.Design.resources.dll_8" Component_="Microsoft.ReportViewer.Design.resources.dll_8" FileName="MICROS~3.DLL|Microsoft.ReportViewer.Design.resources.dll" Attributes="0" SourcePath="project quan ly giuong benh\bin\Release\pt\Microsoft.ReportViewer.Design.resources.dll" SelfReg="false"/>
+    <ROW File="Microsoft.ReportViewer.WinForms.resources.dll_8" Component_="Microsoft.ReportViewer.WinForms.resources.dll_8" FileName="MICROS~4.DLL|Microsoft.ReportViewer.WinForms.resources.dll" Attributes="0" SourcePath="project quan ly giuong benh\bin\Release\pt\Microsoft.ReportViewer.WinForms.resources.dll" SelfReg="false"/>
+    <ROW File="AdvancedDataGridView.resources.dll_1" Component_="AdvancedDataGridView.resources.dll_1" FileName="ADVANC~1.DLL|AdvancedDataGridView.resources.dll" Attributes="0" SourcePath="project quan ly giuong benh\bin\Release\ru\AdvancedDataGridView.resources.dll" SelfReg="false"/>
+    <ROW File="Microsoft.ReportViewer.Common.resources.dll_9" Component_="Microsoft.ReportViewer.Common.resources.dll_9" FileName="MICROS~1.DLL|Microsoft.ReportViewer.Common.resources.dll" Attributes="0" SourcePath="project quan ly giuong benh\bin\Release\ru\Microsoft.ReportViewer.Common.resources.dll" SelfReg="false"/>
+    <ROW File="Microsoft.ReportViewer.DataVisualization.resources.dll_9" Component_="Microsoft.ReportViewer.DataVisualization.resources.dll_9" FileName="MICROS~2.DLL|Microsoft.ReportViewer.DataVisualization.resources.dll" Attributes="0" SourcePath="project quan ly giuong benh\bin\Release\ru\Microsoft.ReportViewer.DataVisualization.resources.dll" SelfReg="false"/>
+    <ROW File="Microsoft.ReportViewer.Design.resources.dll_9" Component_="Microsoft.ReportViewer.Design.resources.dll_9" FileName="MICROS~3.DLL|Microsoft.ReportViewer.Design.resources.dll" Attributes="0" SourcePath="project quan ly giuong benh\bin\Release\ru\Microsoft.ReportViewer.Design.resources.dll" SelfReg="false"/>
+    <ROW File="Microsoft.ReportViewer.WinForms.resources.dll_9" Component_="Microsoft.ReportViewer.WinForms.resources.dll_9" FileName="MICROS~4.DLL|Microsoft.ReportViewer.WinForms.resources.dll" Attributes="0" SourcePath="project quan ly giuong benh\bin\Release\ru\Microsoft.ReportViewer.WinForms.resources.dll" SelfReg="false"/>
+    <ROW File="msvcr120.dll" Component_="msvcr120.dll" FileName="msvcr120.dll" Attributes="0" SourcePath="project quan ly giuong benh\bin\Release\SqlServerTypes\x64\msvcr120.dll" SelfReg="false"/>
+    <ROW File="SqlServerSpatial140.dll" Component_="SqlServerSpatial140.dll" FileName="SQLSER~1.DLL|SqlServerSpatial140.dll" Attributes="0" SourcePath="project quan ly giuong benh\bin\Release\SqlServerTypes\x64\SqlServerSpatial140.dll" SelfReg="false"/>
+    <ROW File="msvcr120.dll_1" Component_="msvcr120.dll_1" FileName="msvcr120.dll" Attributes="0" SourcePath="project quan ly giuong benh\bin\Release\SqlServerTypes\x86\msvcr120.dll" SelfReg="false"/>
+    <ROW File="SqlServerSpatial140.dll_1" Component_="SqlServerSpatial140.dll_1" FileName="SQLSER~1.DLL|SqlServerSpatial140.dll" Attributes="0" SourcePath="project quan ly giuong benh\bin\Release\SqlServerTypes\x86\SqlServerSpatial140.dll" SelfReg="false"/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.BootstrOptComponent">
+    <ROW BootstrOptKey="GlobalOptions" DownloadFolder="[AppDataFolder][|Manufacturer]\[|ProductName]\prerequisites" Options="2"/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.BootstrapperUISequenceComponent">
+    <ROW Action="AI_DetectSoftware" Sequence="151"/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.BuildComponent">
+    <ROW BuildKey="DefaultBuild" BuildName="DefaultBuild" BuildOrder="1" BuildType="0" PackageFolder=".." Languages="en" InstallationType="4" CabsLocation="1" PackageType="1" FilesInsideExe="true" ExtractionFolder="[AppDataFolder][|Manufacturer]\[|ProductName] [|ProductVersion]\install" ExtUI="true" UseLargeSchema="true"/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.DictionaryComponent">
+    <ROW Path="&lt;AI_DICTS&gt;ui.ail"/>
+    <ROW Path="&lt;AI_DICTS&gt;ui_en.ail"/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.FragmentComponent">
+    <ROW Fragment="CommonUI.aip" Path="&lt;AI_FRAGS&gt;CommonUI.aip"/>
+    <ROW Fragment="FolderDlg.aip" Path="&lt;AI_THEMES&gt;classic\fragments\FolderDlg.aip"/>
+    <ROW Fragment="MaintenanceTypeDlg.aip" Path="&lt;AI_THEMES&gt;classic\fragments\MaintenanceTypeDlg.aip"/>
+    <ROW Fragment="MaintenanceWelcomeDlg.aip" Path="&lt;AI_THEMES&gt;classic\fragments\MaintenanceWelcomeDlg.aip"/>
+    <ROW Fragment="PreparePrereqDlg.aip" Path="&lt;AI_THEMES&gt;classic\fragments\PreparePrereqDlg.aip"/>
+    <ROW Fragment="PrerequisitesDlg.aip" Path="&lt;AI_THEMES&gt;classic\fragments\PrerequisitesDlg.aip"/>
+    <ROW Fragment="ProgressPrereqDlg.aip" Path="&lt;AI_THEMES&gt;classic\fragments\ProgressPrereqDlg.aip"/>
+    <ROW Fragment="SequenceDialogs.aip" Path="&lt;AI_THEMES&gt;classic\fragments\SequenceDialogs.aip"/>
+    <ROW Fragment="Sequences.aip" Path="&lt;AI_FRAGS&gt;Sequences.aip"/>
+    <ROW Fragment="StaticUIStrings.aip" Path="&lt;AI_FRAGS&gt;StaticUIStrings.aip"/>
+    <ROW Fragment="UI.aip" Path="&lt;AI_THEMES&gt;classic\fragments\UI.aip"/>
+    <ROW Fragment="Validation.aip" Path="&lt;AI_FRAGS&gt;Validation.aip"/>
+    <ROW Fragment="VerifyRemoveDlg.aip" Path="&lt;AI_THEMES&gt;classic\fragments\VerifyRemoveDlg.aip"/>
+    <ROW Fragment="VerifyRepairDlg.aip" Path="&lt;AI_THEMES&gt;classic\fragments\VerifyRepairDlg.aip"/>
+    <ROW Fragment="WelcomeDlg.aip" Path="&lt;AI_THEMES&gt;classic\fragments\WelcomeDlg.aip"/>
+    <ROW Fragment="WelcomePrereqDlg.aip" Path="&lt;AI_THEMES&gt;classic\fragments\WelcomePrereqDlg.aip"/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.MsiActionTextComponent">
+    <ROW Action="AI_DeleteLzma" Description="Deleting files extracted from archive" DescriptionLocId="ActionText.Description.AI_DeleteLzma" TemplateLocId="-"/>
+    <ROW Action="AI_DeleteRLzma" Description="Deleting files extracted from archive" DescriptionLocId="ActionText.Description.AI_DeleteLzma" TemplateLocId="-"/>
+    <ROW Action="AI_ExtractFiles" Description="Extracting files from archive" DescriptionLocId="ActionText.Description.AI_ExtractLzma" TemplateLocId="-"/>
+    <ROW Action="AI_ExtractLzma" Description="Extracting files from archive" DescriptionLocId="ActionText.Description.AI_ExtractLzma" TemplateLocId="-"/>
+    <ROW Action="AI_XmlCommit" Description="Committing XML file configurations." DescriptionLocId="ActionText.Description.AI_XmlCommit" Template="Committing XML file configurations." TemplateLocId="ActionText.Template.AI_XmlCommit"/>
+    <ROW Action="AI_XmlConfig" Description="Executing XML file configurations" DescriptionLocId="ActionText.Description.AI_XmlConfig" Template="Configuring XML file: &quot;[1]&quot;" TemplateLocId="ActionText.Template.AI_XmlConfig"/>
+    <ROW Action="AI_XmlInstall" Description="Generating actions to configure XML files" DescriptionLocId="ActionText.Description.AI_XmlInstall"/>
+    <ROW Action="AI_XmlRemove" Description="Executing XML file configurations" DescriptionLocId="ActionText.Description.AI_XmlRemove" Template="Configuring XML file: &quot;[1]&quot;" TemplateLocId="ActionText.Template.AI_XmlRemove"/>
+    <ROW Action="AI_XmlRollback" Description="Rolling back XML file configurations." DescriptionLocId="ActionText.Description.AI_XmlRollback" Template="Rolling back XML file configurations." TemplateLocId="ActionText.Template.AI_XmlRollback"/>
+    <ROW Action="AI_XmlUninstall" Description="Generating actions to configure XML files" DescriptionLocId="ActionText.Description.AI_XmlUninstall"/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.MsiAppSearchComponent">
+    <ROW Property="AI_SETUPEXEPATH" Signature_="AI_EXE_PATH_LM" Builds="DefaultBuild"/>
+    <ROW Property="AI_SETUPEXEPATH" Signature_="AI_EXE_PATH_CU" Builds="DefaultBuild"/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.MsiBinaryComponent">
+    <ROW Name="Prereq.dll" SourcePath="&lt;AI_CUSTACTS&gt;Prereq.dll"/>
+    <ROW Name="SoftwareDetector.dll" SourcePath="&lt;AI_CUSTACTS&gt;SoftwareDetector.dll"/>
+    <ROW Name="aicustact.dll" SourcePath="&lt;AI_CUSTACTS&gt;aicustact.dll"/>
+    <ROW Name="lzmaextractor.dll" SourcePath="&lt;AI_CUSTACTS&gt;lzmaextractor.dll"/>
+    <ROW Name="viewer.exe" SourcePath="&lt;AI_CUSTACTS&gt;viewer.exe"/>
+    <ROW Name="xmlCfg.dll" SourcePath="&lt;AI_CUSTACTS&gt;xmlCfg.dll"/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.MsiControlEventComponent">
+    <ROW Dialog_="WelcomeDlg" Control_="Next" Event="NewDialog" Argument="FolderDlg" Condition="AI_INSTALL" Ordering="1"/>
+    <ROW Dialog_="FolderDlg" Control_="Next" Event="NewDialog" Argument="VerifyReadyDlg" Condition="AI_INSTALL" Ordering="201"/>
+    <ROW Dialog_="FolderDlg" Control_="Back" Event="NewDialog" Argument="WelcomeDlg" Condition="AI_INSTALL" Ordering="1"/>
+    <ROW Dialog_="MaintenanceWelcomeDlg" Control_="Next" Event="NewDialog" Argument="MaintenanceTypeDlg" Condition="AI_MAINT" Ordering="99"/>
+    <ROW Dialog_="VerifyReadyDlg" Control_="Install" Event="EndDialog" Argument="Return" Condition="AI_MAINT" Ordering="198"/>
+    <ROW Dialog_="VerifyReadyDlg" Control_="Back" Event="NewDialog" Argument="CustomizeDlg" Condition="AI_MAINT" Ordering="202"/>
+    <ROW Dialog_="VerifyReadyDlg" Control_="Install" Event="EndDialog" Argument="Return" Condition="AI_INSTALL" Ordering="197"/>
+    <ROW Dialog_="VerifyReadyDlg" Control_="Back" Event="NewDialog" Argument="FolderDlg" Condition="AI_INSTALL" Ordering="201"/>
+    <ROW Dialog_="CustomizeDlg" Control_="Next" Event="NewDialog" Argument="VerifyReadyDlg" Condition="AI_MAINT" Ordering="101"/>
+    <ROW Dialog_="CustomizeDlg" Control_="Back" Event="NewDialog" Argument="MaintenanceTypeDlg" Condition="AI_MAINT" Ordering="1"/>
+    <ROW Dialog_="MaintenanceTypeDlg" Control_="ChangeButton" Event="NewDialog" Argument="CustomizeDlg" Condition="AI_MAINT" Ordering="501"/>
+    <ROW Dialog_="MaintenanceTypeDlg" Control_="Back" Event="NewDialog" Argument="MaintenanceWelcomeDlg" Condition="AI_MAINT" Ordering="1"/>
+    <ROW Dialog_="MaintenanceTypeDlg" Control_="RemoveButton" Event="NewDialog" Argument="VerifyRemoveDlg" Condition="AI_MAINT AND InstallMode=&quot;Remove&quot;" Ordering="601"/>
+    <ROW Dialog_="VerifyRemoveDlg" Control_="Back" Event="NewDialog" Argument="MaintenanceTypeDlg" Condition="AI_MAINT AND InstallMode=&quot;Remove&quot;" Ordering="1"/>
+    <ROW Dialog_="MaintenanceTypeDlg" Control_="RepairButton" Event="NewDialog" Argument="VerifyRepairDlg" Condition="AI_MAINT AND InstallMode=&quot;Repair&quot;" Ordering="601"/>
+    <ROW Dialog_="VerifyRepairDlg" Control_="Back" Event="NewDialog" Argument="MaintenanceTypeDlg" Condition="AI_MAINT AND InstallMode=&quot;Repair&quot;" Ordering="1"/>
+    <ROW Dialog_="VerifyRepairDlg" Control_="Repair" Event="EndDialog" Argument="Return" Condition="AI_MAINT AND InstallMode=&quot;Repair&quot;" Ordering="399" Options="1"/>
+    <ROW Dialog_="VerifyRemoveDlg" Control_="Remove" Event="EndDialog" Argument="Return" Condition="AI_MAINT AND InstallMode=&quot;Remove&quot;" Ordering="299" Options="1"/>
+    <ROW Dialog_="PatchWelcomeDlg" Control_="Next" Event="NewDialog" Argument="VerifyReadyDlg" Condition="AI_PATCH" Ordering="201"/>
+    <ROW Dialog_="ResumeDlg" Control_="Install" Event="EndDialog" Argument="Return" Condition="AI_RESUME" Ordering="299"/>
+    <ROW Dialog_="WelcomePrereqDlg" Control_="Next" Event="NewDialog" Argument="PrerequisitesDlg" Condition="AI_BOOTSTRAPPER" Ordering="1"/>
+    <ROW Dialog_="PrerequisitesDlg" Control_="Next" Event="EndDialog" Argument="Return" Condition="AI_BOOTSTRAPPER" Ordering="1"/>
+    <ROW Dialog_="PrerequisitesDlg" Control_="Back" Event="NewDialog" Argument="WelcomePrereqDlg" Condition="AI_BOOTSTRAPPER" Ordering="1"/>
+    <ROW Dialog_="VerifyReadyDlg" Control_="Install" Event="EndDialog" Argument="Return" Condition="AI_PATCH" Ordering="199"/>
+    <ROW Dialog_="VerifyReadyDlg" Control_="Back" Event="NewDialog" Argument="PatchWelcomeDlg" Condition="AI_PATCH" Ordering="203"/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.MsiCreateFolderComponent">
+    <ROW Directory_="APPDIR" Component_="APPDIR" ManualDelete="true"/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.MsiCustActComponent">
+    <ROW Action="AI_AppSearchEx" Type="1" Source="Prereq.dll" Target="DoAppSearchEx"/>
+    <ROW Action="AI_BACKUP_AI_SETUPEXEPATH" Type="51" Source="AI_SETUPEXEPATH_ORIGINAL" Target="[AI_SETUPEXEPATH]"/>
+    <ROW Action="AI_DATA_SETTER" Type="51" Source="CustomActionData" Target="[AI_SETUPEXEPATH]"/>
+    <ROW Action="AI_DATA_SETTER_1" Type="51" Source="CustomActionData" Target="[~]"/>
+    <ROW Action="AI_DATA_SETTER_2" Type="51" Source="CustomActionData" Target="[~]"/>
+    <ROW Action="AI_DOWNGRADE" Type="19" Target="4010"/>
+    <ROW Action="AI_DeleteCadLzma" Type="51" Source="AI_DeleteLzma" Target="[AI_SETUPEXEPATH]"/>
+    <ROW Action="AI_DeleteLzma" Type="1025" Source="lzmaextractor.dll" Target="DeleteLZMAFiles"/>
+    <ROW Action="AI_DeleteRCadLzma" Type="51" Source="AI_DeleteRLzma" Target="[AI_SETUPEXEPATH]"/>
+    <ROW Action="AI_DeleteRLzma" Type="1281" Source="lzmaextractor.dll" Target="DeleteLZMAFiles"/>
+    <ROW Action="AI_DetectSoftware" Type="257" Source="SoftwareDetector.dll" Target="OnDetectSoftware"/>
+    <ROW Action="AI_DpiContentScale" Type="1" Source="aicustact.dll" Target="DpiContentScale"/>
+    <ROW Action="AI_EnableDebugLog" Type="321" Source="aicustact.dll" Target="EnableDebugLog"/>
+    <ROW Action="AI_ExtractCadLzma" Type="51" Source="AI_ExtractLzma" Target="[AI_SETUPEXEPATH]"/>
+    <ROW Action="AI_ExtractFiles" Type="1" Source="Prereq.dll" Target="ExtractSourceFiles" AdditionalSeq="AI_DATA_SETTER"/>
+    <ROW Action="AI_ExtractLzma" Type="1025" Source="lzmaextractor.dll" Target="ExtractLZMAFiles"/>
+    <ROW Action="AI_FindExeLzma" Type="1" Source="lzmaextractor.dll" Target="FindEXE"/>
+    <ROW Action="AI_InstallModeCheck" Type="1" Source="aicustact.dll" Target="UpdateInstallMode" WithoutSeq="true"/>
+    <ROW Action="AI_PREPARE_UPGRADE" Type="65" Source="aicustact.dll" Target="PrepareUpgrade"/>
+    <ROW Action="AI_RESTORE_AI_SETUPEXEPATH" Type="51" Source="AI_SETUPEXEPATH" Target="[AI_SETUPEXEPATH_ORIGINAL]"/>
+    <ROW Action="AI_RESTORE_LOCATION" Type="65" Source="aicustact.dll" Target="RestoreLocation"/>
+    <ROW Action="AI_ResolveKnownFolders" Type="1" Source="aicustact.dll" Target="AI_ResolveKnownFolders"/>
+    <ROW Action="AI_SHOW_LOG" Type="65" Source="aicustact.dll" Target="LaunchLogFile" WithoutSeq="true"/>
+    <ROW Action="AI_STORE_LOCATION" Type="51" Source="ARPINSTALLLOCATION" Target="[APPDIR]"/>
+    <ROW Action="AI_XmlCommit" Type="11777" Source="xmlCfg.dll" Target="OnXmlCommit" WithoutSeq="true"/>
+    <ROW Action="AI_XmlConfig" Type="11265" Source="xmlCfg.dll" Target="OnXmlConfig" WithoutSeq="true"/>
+    <ROW Action="AI_XmlInstall" Type="1" Source="xmlCfg.dll" Target="OnXmlInstall" AdditionalSeq="AI_DATA_SETTER_1"/>
+    <ROW Action="AI_XmlRemove" Type="11265" Source="xmlCfg.dll" Target="OnXmlRemove" WithoutSeq="true"/>
+    <ROW Action="AI_XmlRollback" Type="11521" Source="xmlCfg.dll" Target="OnXmlRollback" WithoutSeq="true"/>
+    <ROW Action="AI_XmlUninstall" Type="1" Source="xmlCfg.dll" Target="OnXmlUninstall" AdditionalSeq="AI_DATA_SETTER_2"/>
+    <ROW Action="LaunchFile" Type="2" Source="viewer.exe" Target="&quot;[#Createdatabase.bat]&quot;" Options="1"/>
+    <ROW Action="SET_APPDIR" Type="307" Source="APPDIR" Target="[ProgramFilesFolder][Manufacturer]\[ProductName]"/>
+    <ROW Action="SET_SHORTCUTDIR" Type="307" Source="SHORTCUTDIR" Target="[ProgramMenuFolder][ProductName]"/>
+    <ROW Action="SET_TARGETDIR_TO_APPDIR" Type="51" Source="TARGETDIR" Target="[APPDIR]"/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.MsiFeatCompsComponent">
+    <ROW Feature_="MainFeature" Component_="APPDIR"/>
+    <ROW Feature_="MainFeature" Component_="ProductInformation"/>
+    <ROW Feature_="MainFeature" Component_="AI_ExePath"/>
+    <ROW Feature_="MainFeature" Component_="Microsoft.ReportViewer.Common.resources.dll"/>
+    <ROW Feature_="MainFeature" Component_="Microsoft.ReportViewer.DataVisualization.resources.dll"/>
+    <ROW Feature_="MainFeature" Component_="Microsoft.ReportViewer.Design.resources.dll"/>
+    <ROW Feature_="MainFeature" Component_="Microsoft.ReportViewer.WinForms.resources.dll"/>
+    <ROW Feature_="MainFeature" Component_="Microsoft.ReportViewer.Common.resources.dll_1"/>
+    <ROW Feature_="MainFeature" Component_="Microsoft.ReportViewer.DataVisualization.resources.dll_1"/>
+    <ROW Feature_="MainFeature" Component_="Microsoft.ReportViewer.Design.resources.dll_1"/>
+    <ROW Feature_="MainFeature" Component_="Microsoft.ReportViewer.WinForms.resources.dll_1"/>
+    <ROW Feature_="MainFeature" Component_="AdvancedDataGridView.dll"/>
+    <ROW Feature_="MainFeature" Component_="EnvDTE.dll"/>
+    <ROW Feature_="MainFeature" Component_="Microsoft.MSXML.dll"/>
+    <ROW Feature_="MainFeature" Component_="Microsoft.ReportViewer.Common.dll"/>
+    <ROW Feature_="MainFeature" Component_="Microsoft.ReportViewer.DataVisualization.dll"/>
+    <ROW Feature_="MainFeature" Component_="Microsoft.ReportViewer.Design.dll"/>
+    <ROW Feature_="MainFeature" Component_="Microsoft.ReportViewer.ProcessingObjectModel.dll"/>
+    <ROW Feature_="MainFeature" Component_="Microsoft.ReportViewer.WinForms.dll"/>
+    <ROW Feature_="MainFeature" Component_="Microsoft.SqlServer.Types.dll"/>
+    <ROW Feature_="MainFeature" Component_="Microsoft.VisualStudio.OLE.Interop.dll"/>
+    <ROW Feature_="MainFeature" Component_="Microsoft.VisualStudio.Shell.Interop.8.0.dll"/>
+    <ROW Feature_="MainFeature" Component_="Microsoft.VisualStudio.Shell.Interop.dll"/>
+    <ROW Feature_="MainFeature" Component_="Microsoft.VisualStudio.TextManager.Interop.8.0.dll"/>
+    <ROW Feature_="MainFeature" Component_="Microsoft.VisualStudio.TextManager.Interop.dll"/>
+    <ROW Feature_="MainFeature" Component_="projectquanlygiuongbenh.exe"/>
+    <ROW Feature_="MainFeature" Component_="stdole.dll"/>
+    <ROW Feature_="MainFeature" Component_="batchparser.dll"/>
+    <ROW Feature_="MainFeature" Component_="Createdatabase.bat"/>
+    <ROW Feature_="MainFeature" Component_="SQLCMD.EXE"/>
+    <ROW Feature_="MainFeature" Component_="Microsoft.ReportViewer.Common.resources.dll_2"/>
+    <ROW Feature_="MainFeature" Component_="Microsoft.ReportViewer.DataVisualization.resources.dll_2"/>
+    <ROW Feature_="MainFeature" Component_="Microsoft.ReportViewer.Design.resources.dll_2"/>
+    <ROW Feature_="MainFeature" Component_="Microsoft.ReportViewer.WinForms.resources.dll_2"/>
+    <ROW Feature_="MainFeature" Component_="Microsoft.ReportViewer.Common.resources.dll_3"/>
+    <ROW Feature_="MainFeature" Component_="Microsoft.ReportViewer.DataVisualization.resources.dll_3"/>
+    <ROW Feature_="MainFeature" Component_="Microsoft.ReportViewer.Design.resources.dll_3"/>
+    <ROW Feature_="MainFeature" Component_="Microsoft.ReportViewer.WinForms.resources.dll_3"/>
+    <ROW Feature_="MainFeature" Component_="AdvancedDataGridView.resources.dll"/>
+    <ROW Feature_="MainFeature" Component_="Microsoft.ReportViewer.Common.resources.dll_4"/>
+    <ROW Feature_="MainFeature" Component_="Microsoft.ReportViewer.DataVisualization.resources.dll_4"/>
+    <ROW Feature_="MainFeature" Component_="Microsoft.ReportViewer.Design.resources.dll_4"/>
+    <ROW Feature_="MainFeature" Component_="Microsoft.ReportViewer.WinForms.resources.dll_4"/>
+    <ROW Feature_="MainFeature" Component_="Microsoft.ReportViewer.Common.resources.dll_5"/>
+    <ROW Feature_="MainFeature" Component_="Microsoft.ReportViewer.DataVisualization.resources.dll_5"/>
+    <ROW Feature_="MainFeature" Component_="Microsoft.ReportViewer.Design.resources.dll_5"/>
+    <ROW Feature_="MainFeature" Component_="Microsoft.ReportViewer.WinForms.resources.dll_5"/>
+    <ROW Feature_="MainFeature" Component_="Microsoft.ReportViewer.Common.resources.dll_6"/>
+    <ROW Feature_="MainFeature" Component_="Microsoft.ReportViewer.DataVisualization.resources.dll_6"/>
+    <ROW Feature_="MainFeature" Component_="Microsoft.ReportViewer.Design.resources.dll_6"/>
+    <ROW Feature_="MainFeature" Component_="Microsoft.ReportViewer.WinForms.resources.dll_6"/>
+    <ROW Feature_="MainFeature" Component_="Microsoft.ReportViewer.Common.resources.dll_7"/>
+    <ROW Feature_="MainFeature" Component_="Microsoft.ReportViewer.DataVisualization.resources.dll_7"/>
+    <ROW Feature_="MainFeature" Component_="Microsoft.ReportViewer.Design.resources.dll_7"/>
+    <ROW Feature_="MainFeature" Component_="Microsoft.ReportViewer.WinForms.resources.dll_7"/>
+    <ROW Feature_="MainFeature" Component_="Microsoft.ReportViewer.Common.resources.dll_8"/>
+    <ROW Feature_="MainFeature" Component_="Microsoft.ReportViewer.DataVisualization.resources.dll_8"/>
+    <ROW Feature_="MainFeature" Component_="Microsoft.ReportViewer.Design.resources.dll_8"/>
+    <ROW Feature_="MainFeature" Component_="Microsoft.ReportViewer.WinForms.resources.dll_8"/>
+    <ROW Feature_="MainFeature" Component_="AdvancedDataGridView.resources.dll_1"/>
+    <ROW Feature_="MainFeature" Component_="Microsoft.ReportViewer.Common.resources.dll_9"/>
+    <ROW Feature_="MainFeature" Component_="Microsoft.ReportViewer.DataVisualization.resources.dll_9"/>
+    <ROW Feature_="MainFeature" Component_="Microsoft.ReportViewer.Design.resources.dll_9"/>
+    <ROW Feature_="MainFeature" Component_="Microsoft.ReportViewer.WinForms.resources.dll_9"/>
+    <ROW Feature_="MainFeature" Component_="msvcr120.dll"/>
+    <ROW Feature_="MainFeature" Component_="SqlServerSpatial140.dll"/>
+    <ROW Feature_="MainFeature" Component_="msvcr120.dll_1"/>
+    <ROW Feature_="MainFeature" Component_="SqlServerSpatial140.dll_1"/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.MsiIconsComponent">
+    <ROW Name="Createdatabase.exe" SourcePath="..\add-database-512.ico" Index="0"/>
+    <ROW Name="logo2.exe" SourcePath="project quan ly giuong benh\icon\logo2.ico" Index="0"/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.MsiInstExSeqComponent">
+    <ROW Action="AI_DOWNGRADE" Condition="AI_NEWERPRODUCTFOUND AND (UILevel &lt;&gt; 5)" Sequence="210"/>
+    <ROW Action="AI_RESTORE_LOCATION" Condition="APPDIR=&quot;&quot;" Sequence="749"/>
+    <ROW Action="AI_STORE_LOCATION" Condition="(Not Installed) OR REINSTALL" Sequence="1501"/>
+    <ROW Action="AI_PREPARE_UPGRADE" Condition="AI_UPGRADE=&quot;No&quot; AND (Not Installed)" Sequence="1397"/>
+    <ROW Action="AI_ResolveKnownFolders" Sequence="52"/>
+    <ROW Action="AI_EnableDebugLog" Sequence="51"/>
+    <ROW Action="AI_BACKUP_AI_SETUPEXEPATH" Sequence="99" Builds="DefaultBuild"/>
+    <ROW Action="AI_RESTORE_AI_SETUPEXEPATH" Condition="AI_SETUPEXEPATH_ORIGINAL" Sequence="103" Builds="DefaultBuild"/>
+    <ROW Action="AI_DeleteCadLzma" Condition="SETUPEXEDIR=&quot;&quot; AND Installed AND (REMOVE&lt;&gt;&quot;ALL&quot;) AND (AI_INSTALL_MODE&lt;&gt;&quot;Remove&quot;) AND (NOT PATCH)" Sequence="199" Builds="DefaultBuild"/>
+    <ROW Action="AI_DeleteRCadLzma" Condition="SETUPEXEDIR=&quot;&quot; AND Installed AND (REMOVE&lt;&gt;&quot;ALL&quot;) AND (AI_INSTALL_MODE&lt;&gt;&quot;Remove&quot;) AND (NOT PATCH)" Sequence="198" Builds="DefaultBuild"/>
+    <ROW Action="AI_ExtractCadLzma" Condition="SETUPEXEDIR=&quot;&quot; AND Installed AND (REMOVE&lt;&gt;&quot;ALL&quot;) AND (AI_INSTALL_MODE&lt;&gt;&quot;Remove&quot;) AND (NOT PATCH)" Sequence="197" Builds="DefaultBuild"/>
+    <ROW Action="AI_FindExeLzma" Condition="SETUPEXEDIR=&quot;&quot; AND Installed AND (REMOVE&lt;&gt;&quot;ALL&quot;) AND (AI_INSTALL_MODE&lt;&gt;&quot;Remove&quot;) AND (NOT PATCH)" Sequence="196" Builds="DefaultBuild"/>
+    <ROW Action="AI_ExtractLzma" Condition="SETUPEXEDIR=&quot;&quot; AND Installed AND (REMOVE&lt;&gt;&quot;ALL&quot;) AND (AI_INSTALL_MODE&lt;&gt;&quot;Remove&quot;) AND (NOT PATCH)" Sequence="1549" Builds="DefaultBuild"/>
+    <ROW Action="AI_DeleteRLzma" Condition="SETUPEXEDIR=&quot;&quot; AND Installed AND (REMOVE&lt;&gt;&quot;ALL&quot;) AND (AI_INSTALL_MODE&lt;&gt;&quot;Remove&quot;) AND (NOT PATCH)" Sequence="1548" Builds="DefaultBuild"/>
+    <ROW Action="AI_DeleteLzma" Condition="SETUPEXEDIR=&quot;&quot; AND Installed AND (REMOVE&lt;&gt;&quot;ALL&quot;) AND (AI_INSTALL_MODE&lt;&gt;&quot;Remove&quot;) AND (NOT PATCH)" Sequence="6599" Builds="DefaultBuild"/>
+    <ROW Action="AI_ExtractFiles" Sequence="1399" Builds="DefaultBuild"/>
+    <ROW Action="AI_DATA_SETTER" Sequence="1398"/>
+    <ROW Action="AI_DetectSoftware" Sequence="102"/>
+    <ROW Action="AI_AppSearchEx" Sequence="101"/>
+    <ROW Action="AI_XmlInstall" Condition="(REMOVE &lt;&gt; &quot;ALL&quot;)" Sequence="5102"/>
+    <ROW Action="AI_DATA_SETTER_1" Condition="(REMOVE &lt;&gt; &quot;ALL&quot;)" Sequence="5101"/>
+    <ROW Action="AI_XmlUninstall" Condition="(REMOVE)" Sequence="3102"/>
+    <ROW Action="AI_DATA_SETTER_2" Condition="(REMOVE)" Sequence="3101"/>
+    <ROW Action="LaunchFile" Sequence="6601"/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.MsiInstallUISequenceComponent">
+    <ROW Action="AI_RESTORE_LOCATION" Condition="APPDIR=&quot;&quot;" Sequence="749"/>
+    <ROW Action="AI_ResolveKnownFolders" Sequence="53"/>
+    <ROW Action="AI_DpiContentScale" Sequence="52"/>
+    <ROW Action="AI_EnableDebugLog" Sequence="51"/>
+    <ROW Action="AI_BACKUP_AI_SETUPEXEPATH" Sequence="99"/>
+    <ROW Action="AI_RESTORE_AI_SETUPEXEPATH" Condition="AI_SETUPEXEPATH_ORIGINAL" Sequence="103"/>
+    <ROW Action="AI_DetectSoftware" Sequence="102"/>
+    <ROW Action="AI_AppSearchEx" Sequence="101"/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.MsiLaunchConditionsComponent">
+    <ROW Condition="( Version9X OR ( NOT VersionNT64 ) OR ( VersionNT64 AND ((VersionNT64 &lt;&gt; 600) OR (MsiNTProductType &lt;&gt; 1)) AND ((VersionNT64 &lt;&gt; 600) OR (MsiNTProductType = 1)) ) )" Description="[ProductName] cannot be installed on the following Windows versions: [WindowsTypeNT64Display]." DescriptionLocId="AI.LaunchCondition.NoSpecificNT64" IsPredefined="true" Builds="DefaultBuild"/>
+    <ROW Condition="( Version9X OR VersionNT64 OR ( VersionNT AND ((VersionNT &lt;&gt; 600) OR (MsiNTProductType &lt;&gt; 1)) AND ((VersionNT &lt;&gt; 600) OR (MsiNTProductType = 1)) ) )" Description="[ProductName] cannot be installed on the following Windows versions: [WindowsTypeNTDisplay]." DescriptionLocId="AI.LaunchCondition.NoSpecificNT" IsPredefined="true" Builds="DefaultBuild"/>
+    <ROW Condition="((VersionNT &lt;&gt; 501) AND (VersionNT &lt;&gt; 502))" Description="[ProductName] cannot be installed on [WindowsTypeNT5XDisplay]." DescriptionLocId="AI.LaunchCondition.NoNT5X" IsPredefined="true" Builds="DefaultBuild"/>
+    <ROW Condition="(VersionNT &lt;&gt; 400)" Description="[ProductName] cannot be installed on [WindowsTypeNT40Display]." DescriptionLocId="AI.LaunchCondition.NoNT40" IsPredefined="true" Builds="DefaultBuild"/>
+    <ROW Condition="(VersionNT &lt;&gt; 500)" Description="[ProductName] cannot be installed on [WindowsTypeNT50Display]." DescriptionLocId="AI.LaunchCondition.NoNT50" IsPredefined="true" Builds="DefaultBuild"/>
+    <ROW Condition="AI_DETECTED_DOTNET_VERSION &gt;= AI_REQUIRED_DOTNET_VERSION" Description="[ProductName] cannot be installed on systems with .NET Framework version lower than [AI_REQUIRED_DOTNET_DISPLAY]." DescriptionLocId="AI.LaunchCondition.DotNET" IsPredefined="true" Builds="DefaultBuild"/>
+    <ROW Condition="AI_DETECTED_INTERNET_CONNECTION" Description="[ProductName] requires an active Internet connection for installation. Please check your network configuration and proxy settings." DescriptionLocId="AI.LaunchCondition.Internet" IsPredefined="true" Builds="DefaultBuild"/>
+    <ROW Condition="SETUPEXEDIR OR (REMOVE=&quot;ALL&quot;)" Description="This package can only be run from a bootstrapper." DescriptionLocId="AI.LaunchCondition.RequireBootstrapper" IsPredefined="true" Builds="DefaultBuild"/>
+    <ROW Condition="VersionNT" Description="[ProductName] cannot be installed on [WindowsType9XDisplay]." DescriptionLocId="AI.LaunchCondition.No9X" IsPredefined="true" Builds="DefaultBuild"/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.MsiRegLocatorComponent">
+    <ROW Signature_="AI_EXE_PATH_CU" Root="1" Key="Software\Caphyon\Advanced Installer\LZMA\[ProductCode]\[ProductVersion]" Name="AI_ExePath" Type="2"/>
+    <ROW Signature_="AI_EXE_PATH_LM" Root="2" Key="Software\Caphyon\Advanced Installer\LZMA\[ProductCode]\[ProductVersion]" Name="AI_ExePath" Type="2"/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.MsiRegsComponent">
+    <ROW Registry="AI_ExePath" Root="-1" Key="Software\Caphyon\Advanced Installer\LZMA\[ProductCode]\[ProductVersion]" Name="AI_ExePath" Value="[AI_SETUPEXEPATH]" Component_="AI_ExePath"/>
+    <ROW Registry="Path" Root="-1" Key="Software\[Manufacturer]\[ProductName]" Name="Path" Value="[APPDIR]" Component_="ProductInformation"/>
+    <ROW Registry="Version" Root="-1" Key="Software\[Manufacturer]\[ProductName]" Name="Version" Value="[ProductVersion]" Component_="ProductInformation"/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.MsiShortsComponent">
+    <ROW Shortcut="Createdatabase" Directory_="APPDIR" Name="CREATE~1|Create database" Component_="Createdatabase.bat" Target="[#Createdatabase.bat]" Hotkey="0" Icon_="Createdatabase.exe" IconIndex="0" ShowCmd="1" WkDir="Data_Dir"/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.MsiThemeComponent">
+    <ATTRIBUTE name="UsedTheme" value="classic"/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.MsiUpgradeComponent">
+    <ROW UpgradeCode="[|UpgradeCode]" VersionMin="0.0.1" VersionMax="[|ProductVersion]" Attributes="257" ActionProperty="OLDPRODUCTS"/>
+    <ROW UpgradeCode="[|UpgradeCode]" VersionMin="[|ProductVersion]" Attributes="2" ActionProperty="AI_NEWERPRODUCTFOUND"/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.PreReqComponent">
+    <ROW PrereqKey="B8EEC2941DA417BBEA51B54B6A19917" DisplayName="SQL Server Express 2019" VersionMin="15.0" SetupFileUrl="..\SQLEXPR_x64_ENU.exe" Location="0" ExactSize="0" WinNTVersions="Windows 9x/ME/NT/2000/XP/Vista/Windows 7/Windows 8 x86/Windows 8.1 x86/Windows 10 x86" WinNT64Versions="Windows Vista x64, Windows Server 2008 x64, Windows 7 x64, Windows Server 2008 R2 x64, Windows 8 x64, Windows Server 2012 x64, Windows 8.1 x64, Windows Server 2012 R2 x64" Operator="1" ComLine="/UpdateEnabled=False" BasicUiComLine="/UpdateEnabled=False" NoUiComLine="/q /IACCEPTSQLSERVERLICENSETERMS /ACTION=Install /FEATURES=SQLEngine /INSTANCENAME=SQLEXPRESS /UpdateEnabled=False" Options="xy" TargetName="SQL Server Express 2019\SQLEXPR_x64_ENU.exe"/>
+    <ROW PrereqKey="C673FE9433B49AFAC9592AB26B8F8E4" DisplayName=".NET Framework 4.0" SetupFileUrl="..\dotNetFx40_Full_x86_x64.exe" Location="0" ExactSize="0" WinNTVersions="Windows 8 x86, Windows 8.1 x86, Windows 10 x86" WinNT64Versions="Windows 8 x64, Windows Server 2012 x64, Windows 8.1 x64, Windows Server 2012 R2 x64, Windows 10 x64, Windows Server x64" Operator="1" NoUiComLine="/q /norestart" Options="xy" TargetName=".NET Framework 4.0\dotNetFx40_Full_x86_x64.exe"/>
+    <ROW PrereqKey="RequiredApplication" DisplayName="AccessDatabaseEngine_X64" VersionMin="14.0.6119.5000" SetupFileUrl="..\AccessDatabaseEngine_X64.exe" Location="0" ExactSize="0" Operator="1" Options="yi" TargetName="AccessDatabaseEngine\AccessDatabaseEngine_X64.exe"/>
+    <ROW PrereqKey="RequiredApplication_1" DisplayName="AccessDatabaseEngine_X86" VersionMin="14.0.6119.5000" SetupFileUrl="..\AccessDatabaseEngine.exe" Location="0" ExactSize="0" Operator="1" Options="yi" TargetName="AccessDatabaseEngine\AccessDatabaseEngine.exe"/>
+    <ATTRIBUTE name="PrereqsOrder" value="C673FE9433B49AFAC9592AB26B8F8E4 B8EEC2941DA417BBEA51B54B6A19917 RequiredApplication RequiredApplication_1"/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.PreReqSearchComponent">
+    <ROW SearchKey="B8EEC2941DA417BBEA51B54B6A19917Vers" Prereq="B8EEC2941DA417BBEA51B54B6A19917" SearchType="2" SearchString="HKLM\SOFTWARE\Microsoft\Microsoft SQL Server\150\SQL2019\CurrentVersion\Version" VerMin="15.0.4013.40" Order="1" Property="PreReqSearch_B8EEC2941DA417BBEA51B5"/>
+    <ROW SearchKey="C673FE9433B49AFAC9592AB26B8F8E4Inst" Prereq="C673FE9433B49AFAC9592AB26B8F8E4" SearchType="9" SearchString="HKLM\SOFTWARE\Microsoft\NET Framework Setup\NDP\v4\Full\Install" RefContent="M1" Order="1" Property="PreReqSearch_C673FE9433B49AFAC9592A"/>
+    <ROW SearchKey="SystemFolderfile.dll" Prereq="RequiredApplication" SearchType="0" SearchString="[SystemFolder]file.dll" VerMin="1.0" Order="1" Property="PreReqSearch"/>
+    <ROW SearchKey="SystemFolderfile.dll_1" Prereq="RequiredApplication_1" SearchType="0" SearchString="[SystemFolder]file.dll" VerMin="1.0" Order="1" Property="PreReqSearch_1"/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.XmlAttributeComponent">
+    <ROW XmlAttribute="connectionString" XmlElement="add" Name="connectionString" Flags="14" Order="1" Value="Data Source=HXN\SQLEXPRESS;Initial Catalog=QuanLyBenhNhanF0;Integrated Security=True"/>
+    <ROW XmlAttribute="name" XmlElement="member" Name="name" Flags="15" Order="0" Value="T:ADGV.Localization.ADGVStrings"/>
+    <ROW XmlAttribute="name_1" XmlElement="member_1" Name="name" Flags="15" Order="0" Value="P:ADGV.Localization.ADGVStrings.ResourceManager"/>
+    <ROW XmlAttribute="name_10" XmlElement="member_10" Name="name" Flags="15" Order="0" Value="P:ADGV.Localization.ADGVStrings.filtersmenuitem_text_datetime"/>
+    <ROW XmlAttribute="name_11" XmlElement="member_11" Name="name" Flags="15" Order="0" Value="P:ADGV.Localization.ADGVStrings.filtersmenuitem_text_numeric"/>
+    <ROW XmlAttribute="name_12" XmlElement="member_12" Name="name" Flags="15" Order="0" Value="P:ADGV.Localization.ADGVStrings.filtersmenuitem_text_text"/>
+    <ROW XmlAttribute="name_13" XmlElement="member_13" Name="name" Flags="15" Order="0" Value="P:ADGV.Localization.ADGVStrings.month1"/>
+    <ROW XmlAttribute="name_14" XmlElement="member_14" Name="name" Flags="15" Order="0" Value="P:ADGV.Localization.ADGVStrings.month10"/>
+    <ROW XmlAttribute="name_15" XmlElement="member_15" Name="name" Flags="15" Order="0" Value="P:ADGV.Localization.ADGVStrings.month11"/>
+    <ROW XmlAttribute="name_16" XmlElement="member_16" Name="name" Flags="15" Order="0" Value="P:ADGV.Localization.ADGVStrings.month12"/>
+    <ROW XmlAttribute="name_17" XmlElement="member_17" Name="name" Flags="15" Order="0" Value="P:ADGV.Localization.ADGVStrings.month2"/>
+    <ROW XmlAttribute="name_18" XmlElement="member_18" Name="name" Flags="15" Order="0" Value="P:ADGV.Localization.ADGVStrings.month3"/>
+    <ROW XmlAttribute="name_19" XmlElement="member_19" Name="name" Flags="15" Order="0" Value="P:ADGV.Localization.ADGVStrings.month4"/>
+    <ROW XmlAttribute="name_2" XmlElement="member_2" Name="name" Flags="15" Order="0" Value="P:ADGV.Localization.ADGVStrings.Culture"/>
+    <ROW XmlAttribute="name_20" XmlElement="member_20" Name="name" Flags="15" Order="0" Value="P:ADGV.Localization.ADGVStrings.month5"/>
+    <ROW XmlAttribute="name_21" XmlElement="member_21" Name="name" Flags="15" Order="0" Value="P:ADGV.Localization.ADGVStrings.month6"/>
+    <ROW XmlAttribute="name_22" XmlElement="member_22" Name="name" Flags="15" Order="0" Value="P:ADGV.Localization.ADGVStrings.month7"/>
+    <ROW XmlAttribute="name_23" XmlElement="member_23" Name="name" Flags="15" Order="0" Value="P:ADGV.Localization.ADGVStrings.month8"/>
+    <ROW XmlAttribute="name_24" XmlElement="member_24" Name="name" Flags="15" Order="0" Value="P:ADGV.Localization.ADGVStrings.month9"/>
+    <ROW XmlAttribute="name_25" XmlElement="member_25" Name="name" Flags="15" Order="0" Value="P:ADGV.Localization.ADGVStrings.okbutton_text"/>
+    <ROW XmlAttribute="name_26" XmlElement="member_26" Name="name" Flags="15" Order="0" Value="P:ADGV.Localization.ADGVStrings.setfilterform_andlabel_text"/>
+    <ROW XmlAttribute="name_27" XmlElement="member_27" Name="name" Flags="15" Order="0" Value="P:ADGV.Localization.ADGVStrings.setfilterform_cancelbutton_text"/>
+    <ROW XmlAttribute="name_28" XmlElement="member_28" Name="name" Flags="15" Order="0" Value="P:ADGV.Localization.ADGVStrings.setfilterform_columnnamelabel_text"/>
+    <ROW XmlAttribute="name_29" XmlElement="member_29" Name="name" Flags="15" Order="0" Value="P:ADGV.Localization.ADGVStrings.setfilterform_errorprovider_value"/>
+    <ROW XmlAttribute="name_3" XmlElement="member_3" Name="name" Flags="15" Order="0" Value="P:ADGV.Localization.ADGVStrings.cancelbutton_text"/>
+    <ROW XmlAttribute="name_30" XmlElement="member_30" Name="name" Flags="15" Order="0" Value="P:ADGV.Localization.ADGVStrings.setfilterform_filtertypecombobox_after"/>
+    <ROW XmlAttribute="name_31" XmlElement="member_31" Name="name" Flags="15" Order="0" Value="P:ADGV.Localization.ADGVStrings.setfilterform_filtertypecombobox_before"/>
+    <ROW XmlAttribute="name_32" XmlElement="member_32" Name="name" Flags="15" Order="0" Value="P:ADGV.Localization.ADGVStrings.setfilterform_filtertypecombobox_begins"/>
+    <ROW XmlAttribute="name_33" XmlElement="member_33" Name="name" Flags="15" Order="0" Value="P:ADGV.Localization.ADGVStrings.setfilterform_filtertypecombobox_between"/>
+    <ROW XmlAttribute="name_34" XmlElement="member_34" Name="name" Flags="15" Order="0" Value="P:ADGV.Localization.ADGVStrings.setfilterform_filtertypecombobox_contain"/>
+    <ROW XmlAttribute="name_35" XmlElement="member_35" Name="name" Flags="15" Order="0" Value="P:ADGV.Localization.ADGVStrings.setfilterform_filtertypecombobox_ends"/>
+    <ROW XmlAttribute="name_36" XmlElement="member_36" Name="name" Flags="15" Order="0" Value="P:ADGV.Localization.ADGVStrings.setfilterform_filtertypecombobox_equal"/>
+    <ROW XmlAttribute="name_37" XmlElement="member_37" Name="name" Flags="15" Order="0" Value="P:ADGV.Localization.ADGVStrings.setfilterform_filtertypecombobox_lagerequals"/>
+    <ROW XmlAttribute="name_38" XmlElement="member_38" Name="name" Flags="15" Order="0" Value="P:ADGV.Localization.ADGVStrings.setfilterform_filtertypecombobox_larger"/>
+    <ROW XmlAttribute="name_39" XmlElement="member_39" Name="name" Flags="15" Order="0" Value="P:ADGV.Localization.ADGVStrings.setfilterform_filtertypecombobox_less"/>
+    <ROW XmlAttribute="name_4" XmlElement="member_4" Name="name" Flags="15" Order="0" Value="P:ADGV.Localization.ADGVStrings.cancelfiltermenuitem_text"/>
+    <ROW XmlAttribute="name_40" XmlElement="member_40" Name="name" Flags="15" Order="0" Value="P:ADGV.Localization.ADGVStrings.setfilterform_filtertypecombobox_lessequals"/>
+    <ROW XmlAttribute="name_41" XmlElement="member_41" Name="name" Flags="15" Order="0" Value="P:ADGV.Localization.ADGVStrings.setfilterform_filtertypecombobox_nobegins"/>
+    <ROW XmlAttribute="name_42" XmlElement="member_42" Name="name" Flags="15" Order="0" Value="P:ADGV.Localization.ADGVStrings.setfilterform_filtertypecombobox_nocontain"/>
+    <ROW XmlAttribute="name_43" XmlElement="member_43" Name="name" Flags="15" Order="0" Value="P:ADGV.Localization.ADGVStrings.setfilterform_filtertypecombobox_noends"/>
+    <ROW XmlAttribute="name_44" XmlElement="member_44" Name="name" Flags="15" Order="0" Value="P:ADGV.Localization.ADGVStrings.setfilterform_filtertypecombobox_notequal"/>
+    <ROW XmlAttribute="name_45" XmlElement="member_45" Name="name" Flags="15" Order="0" Value="P:ADGV.Localization.ADGVStrings.setfilterform_okbutton_text"/>
+    <ROW XmlAttribute="name_46" XmlElement="member_46" Name="name" Flags="15" Order="0" Value="P:ADGV.Localization.ADGVStrings.setfilterform_text"/>
+    <ROW XmlAttribute="name_47" XmlElement="member_47" Name="name" Flags="15" Order="0" Value="P:ADGV.Localization.ADGVStrings.setfilterform_viewfilterstring_and"/>
+    <ROW XmlAttribute="name_48" XmlElement="member_48" Name="name" Flags="15" Order="0" Value="P:ADGV.Localization.ADGVStrings.setfilterform_viewfilterstring_mustbe"/>
+    <ROW XmlAttribute="name_49" XmlElement="member_49" Name="name" Flags="15" Order="0" Value="P:ADGV.Localization.ADGVStrings.setupfiltermenuitem_text"/>
+    <ROW XmlAttribute="name_5" XmlElement="member_5" Name="name" Flags="15" Order="0" Value="P:ADGV.Localization.ADGVStrings.cancelsortmenuitem_text"/>
+    <ROW XmlAttribute="name_50" XmlElement="member_50" Name="name" Flags="15" Order="0" Value="P:ADGV.Localization.ADGVStrings.sortascmenuitem_text_boolean"/>
+    <ROW XmlAttribute="name_51" XmlElement="member_51" Name="name" Flags="15" Order="0" Value="P:ADGV.Localization.ADGVStrings.sortascmenuitem_text_datetime"/>
+    <ROW XmlAttribute="name_52" XmlElement="member_52" Name="name" Flags="15" Order="0" Value="P:ADGV.Localization.ADGVStrings.sortascmenuitem_text_numeric"/>
+    <ROW XmlAttribute="name_53" XmlElement="member_53" Name="name" Flags="15" Order="0" Value="P:ADGV.Localization.ADGVStrings.sortascmenuitem_text_text"/>
+    <ROW XmlAttribute="name_54" XmlElement="member_54" Name="name" Flags="15" Order="0" Value="P:ADGV.Localization.ADGVStrings.sortdescmenuitem_text"/>
+    <ROW XmlAttribute="name_55" XmlElement="member_55" Name="name" Flags="15" Order="0" Value="P:ADGV.Localization.ADGVStrings.sortdescmenuitem_text_boolean"/>
+    <ROW XmlAttribute="name_56" XmlElement="member_56" Name="name" Flags="15" Order="0" Value="P:ADGV.Localization.ADGVStrings.sortdescmenuitem_text_datetime"/>
+    <ROW XmlAttribute="name_57" XmlElement="member_57" Name="name" Flags="15" Order="0" Value="P:ADGV.Localization.ADGVStrings.sortdescmenuitem_text_numeric"/>
+    <ROW XmlAttribute="name_58" XmlElement="member_58" Name="name" Flags="15" Order="0" Value="P:ADGV.Localization.ADGVStrings.tripletreenode_allnode_text"/>
+    <ROW XmlAttribute="name_59" XmlElement="member_59" Name="name" Flags="15" Order="0" Value="P:ADGV.Localization.ADGVStrings.tripletreenode_boolean_false"/>
+    <ROW XmlAttribute="name_6" XmlElement="member_6" Name="name" Flags="15" Order="0" Value="P:ADGV.Localization.ADGVStrings.checknodetree_hour"/>
+    <ROW XmlAttribute="name_60" XmlElement="member_60" Name="name" Flags="15" Order="0" Value="P:ADGV.Localization.ADGVStrings.tripletreenode_boolean_true"/>
+    <ROW XmlAttribute="name_61" XmlElement="member_61" Name="name" Flags="15" Order="0" Value="P:ADGV.Localization.ADGVStrings.tripletreenode_nullnode_text"/>
+    <ROW XmlAttribute="name_62" XmlElement="member_62" Name="name" Flags="15" Order="0" Value="T:ADGV.Properties.Resources"/>
+    <ROW XmlAttribute="name_63" XmlElement="member_63" Name="name" Flags="15" Order="0" Value="P:ADGV.Properties.Resources.ResourceManager"/>
+    <ROW XmlAttribute="name_64" XmlElement="member_64" Name="name" Flags="15" Order="0" Value="P:ADGV.Properties.Resources.Culture"/>
+    <ROW XmlAttribute="name_65" XmlElement="member_65" Name="name" Flags="15" Order="0" Value="P:ADGV.Properties.Resources.AddFilter"/>
+    <ROW XmlAttribute="name_66" XmlElement="member_66" Name="name" Flags="15" Order="0" Value="P:ADGV.Properties.Resources.ASC"/>
+    <ROW XmlAttribute="name_67" XmlElement="member_67" Name="name" Flags="15" Order="0" Value="P:ADGV.Properties.Resources.ASCbool"/>
+    <ROW XmlAttribute="name_68" XmlElement="member_68" Name="name" Flags="15" Order="0" Value="P:ADGV.Properties.Resources.ASCnum"/>
+    <ROW XmlAttribute="name_69" XmlElement="member_69" Name="name" Flags="15" Order="0" Value="P:ADGV.Properties.Resources.ASCtxt"/>
+    <ROW XmlAttribute="name_7" XmlElement="member_7" Name="name" Flags="15" Order="0" Value="P:ADGV.Localization.ADGVStrings.checknodetree_millisecond"/>
+    <ROW XmlAttribute="name_70" XmlElement="member_70" Name="name" Flags="15" Order="0" Value="P:ADGV.Properties.Resources.DESC"/>
+    <ROW XmlAttribute="name_71" XmlElement="member_71" Name="name" Flags="15" Order="0" Value="P:ADGV.Properties.Resources.DESCbool"/>
+    <ROW XmlAttribute="name_72" XmlElement="member_72" Name="name" Flags="15" Order="0" Value="P:ADGV.Properties.Resources.DESCnum"/>
+    <ROW XmlAttribute="name_73" XmlElement="member_73" Name="name" Flags="15" Order="0" Value="P:ADGV.Properties.Resources.DESCtxt"/>
+    <ROW XmlAttribute="name_74" XmlElement="member_74" Name="name" Flags="15" Order="0" Value="P:ADGV.Properties.Resources.Filter"/>
+    <ROW XmlAttribute="name_75" XmlElement="member_75" Name="name" Flags="15" Order="0" Value="P:ADGV.Properties.Resources.FilterASC"/>
+    <ROW XmlAttribute="name_76" XmlElement="member_76" Name="name" Flags="15" Order="0" Value="P:ADGV.Properties.Resources.FilterDESC"/>
+    <ROW XmlAttribute="name_77" XmlElement="member_77" Name="name" Flags="15" Order="0" Value="P:ADGV.Properties.Resources.ResizeGrip"/>
+    <ROW XmlAttribute="name_78" XmlElement="member_78" Name="name" Flags="15" Order="0" Value="P:ADGV.Properties.Resources.SavedFilter"/>
+    <ROW XmlAttribute="name_79" XmlElement="member_79" Name="name" Flags="15" Order="0" Value="F:ADGV.SearchToolBar.components"/>
+    <ROW XmlAttribute="name_8" XmlElement="member_8" Name="name" Flags="15" Order="0" Value="P:ADGV.Localization.ADGVStrings.checknodetree_minute"/>
+    <ROW XmlAttribute="name_80" XmlElement="member_80" Name="name" Flags="15" Order="0" Value="M:ADGV.SearchToolBar.Dispose(System.Boolean)"/>
+    <ROW XmlAttribute="name_81" XmlElement="param" Name="name" Flags="15" Order="0" Value="disposing"/>
+    <ROW XmlAttribute="name_82" XmlElement="member_81" Name="name" Flags="15" Order="0" Value="M:ADGV.SearchToolBar.InitializeComponent"/>
+    <ROW XmlAttribute="name_83" XmlElement="member_82" Name="name" Flags="15" Order="0" Value="F:ADGV.SetFilterForm.components"/>
+    <ROW XmlAttribute="name_84" XmlElement="member_83" Name="name" Flags="15" Order="0" Value="M:ADGV.SetFilterForm.Dispose(System.Boolean)"/>
+    <ROW XmlAttribute="name_85" XmlElement="param_1" Name="name" Flags="15" Order="0" Value="disposing"/>
+    <ROW XmlAttribute="name_86" XmlElement="member_84" Name="name" Flags="15" Order="0" Value="M:ADGV.SetFilterForm.InitializeComponent"/>
+    <ROW XmlAttribute="name_87" XmlElement="add" Name="name" Flags="15" Order="0" Value="project_quan_ly_giuong_benh.Properties.Settings.QuanLyBenhNhanF0ConnectionString"/>
+    <ROW XmlAttribute="name_9" XmlElement="member_9" Name="name" Flags="15" Order="0" Value="P:ADGV.Localization.ADGVStrings.checknodetree_second"/>
+    <ROW XmlAttribute="providerName" XmlElement="add" Name="providerName" Flags="14" Order="2" Value="System.Data.SqlClient"/>
+    <ROW XmlAttribute="sku" XmlElement="supportedRuntime" Name="sku" Flags="14" Order="1" Value=".NETFramework,Version=v4.7.2"/>
+    <ROW XmlAttribute="version" XmlElement="supportedRuntime" Name="version" Flags="14" Order="0" Value="v4.0"/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.XmlElementComponent">
+    <ROW XmlElement="add" ParentElement="connectionStrings" Name="add" Condition="1" Order="0" Flags="14" UpdateIndexInParent="0"/>
+    <ROW XmlElement="assembly" ParentElement="doc" Name="assembly" Condition="1" Order="0" Flags="14" UpdateIndexInParent="0"/>
+    <ROW XmlElement="configSections" ParentElement="configuration" Name="configSections" Condition="1" Order="0" Flags="14" UpdateIndexInParent="0"/>
+    <ROW XmlElement="configuration" Name="configuration" Condition="1" Order="0" Flags="30" UpdateIndexInParent="0"/>
+    <ROW XmlElement="connectionStrings" ParentElement="configuration" Name="connectionStrings" Condition="1" Order="1" Flags="14" UpdateIndexInParent="0"/>
+    <ROW XmlElement="doc" Name="doc" Condition="1" Order="0" Flags="30" UpdateIndexInParent="0"/>
+    <ROW XmlElement="member" ParentElement="members" Name="member" Condition="1" Order="0" Flags="14" UpdateIndexInParent="0"/>
+    <ROW XmlElement="member_1" ParentElement="members" Name="member" Condition="1" Order="1" Flags="14" UpdateIndexInParent="0"/>
+    <ROW XmlElement="member_10" ParentElement="members" Name="member" Condition="1" Order="10" Flags="14" UpdateIndexInParent="0"/>
+    <ROW XmlElement="member_11" ParentElement="members" Name="member" Condition="1" Order="11" Flags="14" UpdateIndexInParent="0"/>
+    <ROW XmlElement="member_12" ParentElement="members" Name="member" Condition="1" Order="12" Flags="14" UpdateIndexInParent="0"/>
+    <ROW XmlElement="member_13" ParentElement="members" Name="member" Condition="1" Order="13" Flags="14" UpdateIndexInParent="0"/>
+    <ROW XmlElement="member_14" ParentElement="members" Name="member" Condition="1" Order="14" Flags="14" UpdateIndexInParent="0"/>
+    <ROW XmlElement="member_15" ParentElement="members" Name="member" Condition="1" Order="15" Flags="14" UpdateIndexInParent="0"/>
+    <ROW XmlElement="member_16" ParentElement="members" Name="member" Condition="1" Order="16" Flags="14" UpdateIndexInParent="0"/>
+    <ROW XmlElement="member_17" ParentElement="members" Name="member" Condition="1" Order="17" Flags="14" UpdateIndexInParent="0"/>
+    <ROW XmlElement="member_18" ParentElement="members" Name="member" Condition="1" Order="18" Flags="14" UpdateIndexInParent="0"/>
+    <ROW XmlElement="member_19" ParentElement="members" Name="member" Condition="1" Order="19" Flags="14" UpdateIndexInParent="0"/>
+    <ROW XmlElement="member_2" ParentElement="members" Name="member" Condition="1" Order="2" Flags="14" UpdateIndexInParent="0"/>
+    <ROW XmlElement="member_20" ParentElement="members" Name="member" Condition="1" Order="20" Flags="14" UpdateIndexInParent="0"/>
+    <ROW XmlElement="member_21" ParentElement="members" Name="member" Condition="1" Order="21" Flags="14" UpdateIndexInParent="0"/>
+    <ROW XmlElement="member_22" ParentElement="members" Name="member" Condition="1" Order="22" Flags="14" UpdateIndexInParent="0"/>
+    <ROW XmlElement="member_23" ParentElement="members" Name="member" Condition="1" Order="23" Flags="14" UpdateIndexInParent="0"/>
+    <ROW XmlElement="member_24" ParentElement="members" Name="member" Condition="1" Order="24" Flags="14" UpdateIndexInParent="0"/>
+    <ROW XmlElement="member_25" ParentElement="members" Name="member" Condition="1" Order="25" Flags="14" UpdateIndexInParent="0"/>
+    <ROW XmlElement="member_26" ParentElement="members" Name="member" Condition="1" Order="26" Flags="14" UpdateIndexInParent="0"/>
+    <ROW XmlElement="member_27" ParentElement="members" Name="member" Condition="1" Order="27" Flags="14" UpdateIndexInParent="0"/>
+    <ROW XmlElement="member_28" ParentElement="members" Name="member" Condition="1" Order="28" Flags="14" UpdateIndexInParent="0"/>
+    <ROW XmlElement="member_29" ParentElement="members" Name="member" Condition="1" Order="29" Flags="14" UpdateIndexInParent="0"/>
+    <ROW XmlElement="member_3" ParentElement="members" Name="member" Condition="1" Order="3" Flags="14" UpdateIndexInParent="0"/>
+    <ROW XmlElement="member_30" ParentElement="members" Name="member" Condition="1" Order="30" Flags="14" UpdateIndexInParent="0"/>
+    <ROW XmlElement="member_31" ParentElement="members" Name="member" Condition="1" Order="31" Flags="14" UpdateIndexInParent="0"/>
+    <ROW XmlElement="member_32" ParentElement="members" Name="member" Condition="1" Order="32" Flags="14" UpdateIndexInParent="0"/>
+    <ROW XmlElement="member_33" ParentElement="members" Name="member" Condition="1" Order="33" Flags="14" UpdateIndexInParent="0"/>
+    <ROW XmlElement="member_34" ParentElement="members" Name="member" Condition="1" Order="34" Flags="14" UpdateIndexInParent="0"/>
+    <ROW XmlElement="member_35" ParentElement="members" Name="member" Condition="1" Order="35" Flags="14" UpdateIndexInParent="0"/>
+    <ROW XmlElement="member_36" ParentElement="members" Name="member" Condition="1" Order="36" Flags="14" UpdateIndexInParent="0"/>
+    <ROW XmlElement="member_37" ParentElement="members" Name="member" Condition="1" Order="37" Flags="14" UpdateIndexInParent="0"/>
+    <ROW XmlElement="member_38" ParentElement="members" Name="member" Condition="1" Order="38" Flags="14" UpdateIndexInParent="0"/>
+    <ROW XmlElement="member_39" ParentElement="members" Name="member" Condition="1" Order="39" Flags="14" UpdateIndexInParent="0"/>
+    <ROW XmlElement="member_4" ParentElement="members" Name="member" Condition="1" Order="4" Flags="14" UpdateIndexInParent="0"/>
+    <ROW XmlElement="member_40" ParentElement="members" Name="member" Condition="1" Order="40" Flags="14" UpdateIndexInParent="0"/>
+    <ROW XmlElement="member_41" ParentElement="members" Name="member" Condition="1" Order="41" Flags="14" UpdateIndexInParent="0"/>
+    <ROW XmlElement="member_42" ParentElement="members" Name="member" Condition="1" Order="42" Flags="14" UpdateIndexInParent="0"/>
+    <ROW XmlElement="member_43" ParentElement="members" Name="member" Condition="1" Order="43" Flags="14" UpdateIndexInParent="0"/>
+    <ROW XmlElement="member_44" ParentElement="members" Name="member" Condition="1" Order="44" Flags="14" UpdateIndexInParent="0"/>
+    <ROW XmlElement="member_45" ParentElement="members" Name="member" Condition="1" Order="45" Flags="14" UpdateIndexInParent="0"/>
+    <ROW XmlElement="member_46" ParentElement="members" Name="member" Condition="1" Order="46" Flags="14" UpdateIndexInParent="0"/>
+    <ROW XmlElement="member_47" ParentElement="members" Name="member" Condition="1" Order="47" Flags="14" UpdateIndexInParent="0"/>
+    <ROW XmlElement="member_48" ParentElement="members" Name="member" Condition="1" Order="48" Flags="14" UpdateIndexInParent="0"/>
+    <ROW XmlElement="member_49" ParentElement="members" Name="member" Condition="1" Order="49" Flags="14" UpdateIndexInParent="0"/>
+    <ROW XmlElement="member_5" ParentElement="members" Name="member" Condition="1" Order="5" Flags="14" UpdateIndexInParent="0"/>
+    <ROW XmlElement="member_50" ParentElement="members" Name="member" Condition="1" Order="50" Flags="14" UpdateIndexInParent="0"/>
+    <ROW XmlElement="member_51" ParentElement="members" Name="member" Condition="1" Order="51" Flags="14" UpdateIndexInParent="0"/>
+    <ROW XmlElement="member_52" ParentElement="members" Name="member" Condition="1" Order="52" Flags="14" UpdateIndexInParent="0"/>
+    <ROW XmlElement="member_53" ParentElement="members" Name="member" Condition="1" Order="53" Flags="14" UpdateIndexInParent="0"/>
+    <ROW XmlElement="member_54" ParentElement="members" Name="member" Condition="1" Order="54" Flags="14" UpdateIndexInParent="0"/>
+    <ROW XmlElement="member_55" ParentElement="members" Name="member" Condition="1" Order="55" Flags="14" UpdateIndexInParent="0"/>
+    <ROW XmlElement="member_56" ParentElement="members" Name="member" Condition="1" Order="56" Flags="14" UpdateIndexInParent="0"/>
+    <ROW XmlElement="member_57" ParentElement="members" Name="member" Condition="1" Order="57" Flags="14" UpdateIndexInParent="0"/>
+    <ROW XmlElement="member_58" ParentElement="members" Name="member" Condition="1" Order="58" Flags="14" UpdateIndexInParent="0"/>
+    <ROW XmlElement="member_59" ParentElement="members" Name="member" Condition="1" Order="59" Flags="14" UpdateIndexInParent="0"/>
+    <ROW XmlElement="member_6" ParentElement="members" Name="member" Condition="1" Order="6" Flags="14" UpdateIndexInParent="0"/>
+    <ROW XmlElement="member_60" ParentElement="members" Name="member" Condition="1" Order="60" Flags="14" UpdateIndexInParent="0"/>
+    <ROW XmlElement="member_61" ParentElement="members" Name="member" Condition="1" Order="61" Flags="14" UpdateIndexInParent="0"/>
+    <ROW XmlElement="member_62" ParentElement="members" Name="member" Condition="1" Order="62" Flags="14" UpdateIndexInParent="0"/>
+    <ROW XmlElement="member_63" ParentElement="members" Name="member" Condition="1" Order="63" Flags="14" UpdateIndexInParent="0"/>
+    <ROW XmlElement="member_64" ParentElement="members" Name="member" Condition="1" Order="64" Flags="14" UpdateIndexInParent="0"/>
+    <ROW XmlElement="member_65" ParentElement="members" Name="member" Condition="1" Order="65" Flags="14" UpdateIndexInParent="0"/>
+    <ROW XmlElement="member_66" ParentElement="members" Name="member" Condition="1" Order="66" Flags="14" UpdateIndexInParent="0"/>
+    <ROW XmlElement="member_67" ParentElement="members" Name="member" Condition="1" Order="67" Flags="14" UpdateIndexInParent="0"/>
+    <ROW XmlElement="member_68" ParentElement="members" Name="member" Condition="1" Order="68" Flags="14" UpdateIndexInParent="0"/>
+    <ROW XmlElement="member_69" ParentElement="members" Name="member" Condition="1" Order="69" Flags="14" UpdateIndexInParent="0"/>
+    <ROW XmlElement="member_7" ParentElement="members" Name="member" Condition="1" Order="7" Flags="14" UpdateIndexInParent="0"/>
+    <ROW XmlElement="member_70" ParentElement="members" Name="member" Condition="1" Order="70" Flags="14" UpdateIndexInParent="0"/>
+    <ROW XmlElement="member_71" ParentElement="members" Name="member" Condition="1" Order="71" Flags="14" UpdateIndexInParent="0"/>
+    <ROW XmlElement="member_72" ParentElement="members" Name="member" Condition="1" Order="72" Flags="14" UpdateIndexInParent="0"/>
+    <ROW XmlElement="member_73" ParentElement="members" Name="member" Condition="1" Order="73" Flags="14" UpdateIndexInParent="0"/>
+    <ROW XmlElement="member_74" ParentElement="members" Name="member" Condition="1" Order="74" Flags="14" UpdateIndexInParent="0"/>
+    <ROW XmlElement="member_75" ParentElement="members" Name="member" Condition="1" Order="75" Flags="14" UpdateIndexInParent="0"/>
+    <ROW XmlElement="member_76" ParentElement="members" Name="member" Condition="1" Order="76" Flags="14" UpdateIndexInParent="0"/>
+    <ROW XmlElement="member_77" ParentElement="members" Name="member" Condition="1" Order="77" Flags="14" UpdateIndexInParent="0"/>
+    <ROW XmlElement="member_78" ParentElement="members" Name="member" Condition="1" Order="78" Flags="14" UpdateIndexInParent="0"/>
+    <ROW XmlElement="member_79" ParentElement="members" Name="member" Condition="1" Order="79" Flags="14" UpdateIndexInParent="0"/>
+    <ROW XmlElement="member_8" ParentElement="members" Name="member" Condition="1" Order="8" Flags="14" UpdateIndexInParent="0"/>
+    <ROW XmlElement="member_80" ParentElement="members" Name="member" Condition="1" Order="80" Flags="14" UpdateIndexInParent="0"/>
+    <ROW XmlElement="member_81" ParentElement="members" Name="member" Condition="1" Order="81" Flags="14" UpdateIndexInParent="0"/>
+    <ROW XmlElement="member_82" ParentElement="members" Name="member" Condition="1" Order="82" Flags="14" UpdateIndexInParent="0"/>
+    <ROW XmlElement="member_83" ParentElement="members" Name="member" Condition="1" Order="83" Flags="14" UpdateIndexInParent="0"/>
+    <ROW XmlElement="member_84" ParentElement="members" Name="member" Condition="1" Order="84" Flags="14" UpdateIndexInParent="0"/>
+    <ROW XmlElement="member_9" ParentElement="members" Name="member" Condition="1" Order="9" Flags="14" UpdateIndexInParent="0"/>
+    <ROW XmlElement="members" ParentElement="doc" Name="members" Condition="1" Order="1" Flags="14" UpdateIndexInParent="0"/>
+    <ROW XmlElement="name" ParentElement="assembly" Name="name" Condition="1" Order="0" Flags="14" Text="AdvancedDataGridView" UpdateIndexInParent="0"/>
+    <ROW XmlElement="param" ParentElement="member_80" Name="param" Condition="1" Order="1" Flags="14" Text="истинно, если управляемый ресурс должен быть удален; иначе ложно." UpdateIndexInParent="0"/>
+    <ROW XmlElement="param_1" ParentElement="member_83" Name="param" Condition="1" Order="1" Flags="14" Text="true if managed resources should be disposed; otherwise, false." UpdateIndexInParent="0"/>
+    <ROW XmlElement="startup" ParentElement="configuration" Name="startup" Condition="1" Order="2" Flags="14" UpdateIndexInParent="0"/>
+    <ROW XmlElement="summary" ParentElement="member" Name="summary" Condition="1" Order="0" Flags="14" Text="Класс ресурса со строгой типизацией для поиска локализованных строк и т.д." UpdateIndexInParent="0"/>
+    <ROW XmlElement="summary_1" ParentElement="member_1" Name="summary" Condition="1" Order="0" Flags="14" Text="Возвращает кэшированный экземпляр ResourceManager, использованный этим классом." UpdateIndexInParent="0"/>
+    <ROW XmlElement="summary_10" ParentElement="member_10" Name="summary" Condition="1" Order="0" Flags="14" Text="Ищет локализованную строку, похожую на Date filter." UpdateIndexInParent="0"/>
+    <ROW XmlElement="summary_11" ParentElement="member_11" Name="summary" Condition="1" Order="0" Flags="14" Text="Ищет локализованную строку, похожую на Number filter." UpdateIndexInParent="0"/>
+    <ROW XmlElement="summary_12" ParentElement="member_12" Name="summary" Condition="1" Order="0" Flags="14" Text="Ищет локализованную строку, похожую на Text Filter." UpdateIndexInParent="0"/>
+    <ROW XmlElement="summary_13" ParentElement="member_13" Name="summary" Condition="1" Order="0" Flags="14" Text="Ищет локализованную строку, похожую на January." UpdateIndexInParent="0"/>
+    <ROW XmlElement="summary_14" ParentElement="member_14" Name="summary" Condition="1" Order="0" Flags="14" Text="Ищет локализованную строку, похожую на October." UpdateIndexInParent="0"/>
+    <ROW XmlElement="summary_15" ParentElement="member_15" Name="summary" Condition="1" Order="0" Flags="14" Text="Ищет локализованную строку, похожую на November." UpdateIndexInParent="0"/>
+    <ROW XmlElement="summary_16" ParentElement="member_16" Name="summary" Condition="1" Order="0" Flags="14" Text="Ищет локализованную строку, похожую на December." UpdateIndexInParent="0"/>
+    <ROW XmlElement="summary_17" ParentElement="member_17" Name="summary" Condition="1" Order="0" Flags="14" Text="Ищет локализованную строку, похожую на February." UpdateIndexInParent="0"/>
+    <ROW XmlElement="summary_18" ParentElement="member_18" Name="summary" Condition="1" Order="0" Flags="14" Text="Ищет локализованную строку, похожую на March." UpdateIndexInParent="0"/>
+    <ROW XmlElement="summary_19" ParentElement="member_19" Name="summary" Condition="1" Order="0" Flags="14" Text="Ищет локализованную строку, похожую на April." UpdateIndexInParent="0"/>
+    <ROW XmlElement="summary_2" ParentElement="member_2" Name="summary" Condition="1" Order="0" Flags="14" Text="Перезаписывает свойство CurrentUICulture текущего потока для всех&#13;&#10;              обращений к ресурсу с помощью этого класса ресурса со строгой типизацией." UpdateIndexInParent="0"/>
+    <ROW XmlElement="summary_20" ParentElement="member_20" Name="summary" Condition="1" Order="0" Flags="14" Text="Ищет локализованную строку, похожую на May." UpdateIndexInParent="0"/>
+    <ROW XmlElement="summary_21" ParentElement="member_21" Name="summary" Condition="1" Order="0" Flags="14" Text="Ищет локализованную строку, похожую на June." UpdateIndexInParent="0"/>
+    <ROW XmlElement="summary_22" ParentElement="member_22" Name="summary" Condition="1" Order="0" Flags="14" Text="Ищет локализованную строку, похожую на July." UpdateIndexInParent="0"/>
+    <ROW XmlElement="summary_23" ParentElement="member_23" Name="summary" Condition="1" Order="0" Flags="14" Text="Ищет локализованную строку, похожую на August." UpdateIndexInParent="0"/>
+    <ROW XmlElement="summary_24" ParentElement="member_24" Name="summary" Condition="1" Order="0" Flags="14" Text="Ищет локализованную строку, похожую на September." UpdateIndexInParent="0"/>
+    <ROW XmlElement="summary_25" ParentElement="member_25" Name="summary" Condition="1" Order="0" Flags="14" Text="Ищет локализованную строку, похожую на OK." UpdateIndexInParent="0"/>
+    <ROW XmlElement="summary_26" ParentElement="member_26" Name="summary" Condition="1" Order="0" Flags="14" Text="Ищет локализованную строку, похожую на and." UpdateIndexInParent="0"/>
+    <ROW XmlElement="summary_27" ParentElement="member_27" Name="summary" Condition="1" Order="0" Flags="14" Text="Ищет локализованную строку, похожую на Cancel." UpdateIndexInParent="0"/>
+    <ROW XmlElement="summary_28" ParentElement="member_28" Name="summary" Condition="1" Order="0" Flags="14" Text="Ищет локализованную строку, похожую на Show rows where value." UpdateIndexInParent="0"/>
+    <ROW XmlElement="summary_29" ParentElement="member_29" Name="summary" Condition="1" Order="0" Flags="14" Text="Ищет локализованную строку, похожую на Invalid value." UpdateIndexInParent="0"/>
+    <ROW XmlElement="summary_3" ParentElement="member_3" Name="summary" Condition="1" Order="0" Flags="14" Text="Ищет локализованную строку, похожую на Cancel." UpdateIndexInParent="0"/>
+    <ROW XmlElement="summary_30" ParentElement="member_30" Name="summary" Condition="1" Order="0" Flags="14" Text="Ищет локализованную строку, похожую на later than." UpdateIndexInParent="0"/>
+    <ROW XmlElement="summary_31" ParentElement="member_31" Name="summary" Condition="1" Order="0" Flags="14" Text="Ищет локализованную строку, похожую на earlier than." UpdateIndexInParent="0"/>
+    <ROW XmlElement="summary_32" ParentElement="member_32" Name="summary" Condition="1" Order="0" Flags="14" Text="Ищет локализованную строку, похожую на begins with." UpdateIndexInParent="0"/>
+    <ROW XmlElement="summary_33" ParentElement="member_33" Name="summary" Condition="1" Order="0" Flags="14" Text="Ищет локализованную строку, похожую на between." UpdateIndexInParent="0"/>
+    <ROW XmlElement="summary_34" ParentElement="member_34" Name="summary" Condition="1" Order="0" Flags="14" Text="Ищет локализованную строку, похожую на contains." UpdateIndexInParent="0"/>
+    <ROW XmlElement="summary_35" ParentElement="member_35" Name="summary" Condition="1" Order="0" Flags="14" Text="Ищет локализованную строку, похожую на ends with." UpdateIndexInParent="0"/>
+    <ROW XmlElement="summary_36" ParentElement="member_36" Name="summary" Condition="1" Order="0" Flags="14" Text="Ищет локализованную строку, похожую на equals." UpdateIndexInParent="0"/>
+    <ROW XmlElement="summary_37" ParentElement="member_37" Name="summary" Condition="1" Order="0" Flags="14" Text="Ищет локализованную строку, похожую на greater than or equal to." UpdateIndexInParent="0"/>
+    <ROW XmlElement="summary_38" ParentElement="member_38" Name="summary" Condition="1" Order="0" Flags="14" Text="Ищет локализованную строку, похожую на greater than." UpdateIndexInParent="0"/>
+    <ROW XmlElement="summary_39" ParentElement="member_39" Name="summary" Condition="1" Order="0" Flags="14" Text="Ищет локализованную строку, похожую на less than." UpdateIndexInParent="0"/>
+    <ROW XmlElement="summary_4" ParentElement="member_4" Name="summary" Condition="1" Order="0" Flags="14" Text="Ищет локализованную строку, похожую на Clear filter." UpdateIndexInParent="0"/>
+    <ROW XmlElement="summary_40" ParentElement="member_40" Name="summary" Condition="1" Order="0" Flags="14" Text="Ищет локализованную строку, похожую на less than or equal to." UpdateIndexInParent="0"/>
+    <ROW XmlElement="summary_41" ParentElement="member_41" Name="summary" Condition="1" Order="0" Flags="14" Text="Ищет локализованную строку, похожую на does not begin with." UpdateIndexInParent="0"/>
+    <ROW XmlElement="summary_42" ParentElement="member_42" Name="summary" Condition="1" Order="0" Flags="14" Text="Ищет локализованную строку, похожую на does not contain." UpdateIndexInParent="0"/>
+    <ROW XmlElement="summary_43" ParentElement="member_43" Name="summary" Condition="1" Order="0" Flags="14" Text="Ищет локализованную строку, похожую на does not end with." UpdateIndexInParent="0"/>
+    <ROW XmlElement="summary_44" ParentElement="member_44" Name="summary" Condition="1" Order="0" Flags="14" Text="Ищет локализованную строку, похожую на does not equal." UpdateIndexInParent="0"/>
+    <ROW XmlElement="summary_45" ParentElement="member_45" Name="summary" Condition="1" Order="0" Flags="14" Text="Ищет локализованную строку, похожую на OK." UpdateIndexInParent="0"/>
+    <ROW XmlElement="summary_46" ParentElement="member_46" Name="summary" Condition="1" Order="0" Flags="14" Text="Ищет локализованную строку, похожую на Set filter." UpdateIndexInParent="0"/>
+    <ROW XmlElement="summary_47" ParentElement="member_47" Name="summary" Condition="1" Order="0" Flags="14" Text="Ищет локализованную строку, похожую на and." UpdateIndexInParent="0"/>
+    <ROW XmlElement="summary_48" ParentElement="member_48" Name="summary" Condition="1" Order="0" Flags="14" Text="Ищет локализованную строку, похожую на Show rows where value." UpdateIndexInParent="0"/>
+    <ROW XmlElement="summary_49" ParentElement="member_49" Name="summary" Condition="1" Order="0" Flags="14" Text="Ищет локализованную строку, похожую на Custom." UpdateIndexInParent="0"/>
+    <ROW XmlElement="summary_5" ParentElement="member_5" Name="summary" Condition="1" Order="0" Flags="14" Text="Ищет локализованную строку, похожую на Cancel sort." UpdateIndexInParent="0"/>
+    <ROW XmlElement="summary_50" ParentElement="member_50" Name="summary" Condition="1" Order="0" Flags="14" Text="Ищет локализованную строку, похожую на Sort by False/True." UpdateIndexInParent="0"/>
+    <ROW XmlElement="summary_51" ParentElement="member_51" Name="summary" Condition="1" Order="0" Flags="14" Text="Ищет локализованную строку, похожую на Sort oldest to newest." UpdateIndexInParent="0"/>
+    <ROW XmlElement="summary_52" ParentElement="member_52" Name="summary" Condition="1" Order="0" Flags="14" Text="Ищет локализованную строку, похожую на Sort smallest to largest." UpdateIndexInParent="0"/>
+    <ROW XmlElement="summary_53" ParentElement="member_53" Name="summary" Condition="1" Order="0" Flags="14" Text="Ищет локализованную строку, похожую на Sort А to Z." UpdateIndexInParent="0"/>
+    <ROW XmlElement="summary_54" ParentElement="member_54" Name="summary" Condition="1" Order="0" Flags="14" Text="Ищет локализованную строку, похожую на Sort Z to A." UpdateIndexInParent="0"/>
+    <ROW XmlElement="summary_55" ParentElement="member_55" Name="summary" Condition="1" Order="0" Flags="14" Text="Ищет локализованную строку, похожую на Sort by True/False." UpdateIndexInParent="0"/>
+    <ROW XmlElement="summary_56" ParentElement="member_56" Name="summary" Condition="1" Order="0" Flags="14" Text="Ищет локализованную строку, похожую на Sort newest to oldest." UpdateIndexInParent="0"/>
+    <ROW XmlElement="summary_57" ParentElement="member_57" Name="summary" Condition="1" Order="0" Flags="14" Text="Ищет локализованную строку, похожую на Sort largest to smallest." UpdateIndexInParent="0"/>
+    <ROW XmlElement="summary_58" ParentElement="member_58" Name="summary" Condition="1" Order="0" Flags="14" Text="Ищет локализованную строку, похожую на (Select All)." UpdateIndexInParent="0"/>
+    <ROW XmlElement="summary_59" ParentElement="member_59" Name="summary" Condition="1" Order="0" Flags="14" Text="Ищет локализованную строку, похожую на False." UpdateIndexInParent="0"/>
+    <ROW XmlElement="summary_6" ParentElement="member_6" Name="summary" Condition="1" Order="0" Flags="14" Text="Ищет локализованную строку, похожую на h." UpdateIndexInParent="0"/>
+    <ROW XmlElement="summary_60" ParentElement="member_60" Name="summary" Condition="1" Order="0" Flags="14" Text="Ищет локализованную строку, похожую на True." UpdateIndexInParent="0"/>
+    <ROW XmlElement="summary_61" ParentElement="member_61" Name="summary" Condition="1" Order="0" Flags="14" Text="Ищет локализованную строку, похожую на (Blanks)." UpdateIndexInParent="0"/>
+    <ROW XmlElement="summary_62" ParentElement="member_62" Name="summary" Condition="1" Order="0" Flags="14" Text="Класс ресурса со строгой типизацией для поиска локализованных строк и т.д." UpdateIndexInParent="0"/>
+    <ROW XmlElement="summary_63" ParentElement="member_63" Name="summary" Condition="1" Order="0" Flags="14" Text="Возвращает кэшированный экземпляр ResourceManager, использованный этим классом." UpdateIndexInParent="0"/>
+    <ROW XmlElement="summary_64" ParentElement="member_64" Name="summary" Condition="1" Order="0" Flags="14" Text="Перезаписывает свойство CurrentUICulture текущего потока для всех&#13;&#10;              обращений к ресурсу с помощью этого класса ресурса со строгой типизацией." UpdateIndexInParent="0"/>
+    <ROW XmlElement="summary_65" ParentElement="member_65" Name="summary" Condition="1" Order="0" Flags="14" Text="Поиск локализованного ресурса типа System.Drawing.Bitmap." UpdateIndexInParent="0"/>
+    <ROW XmlElement="summary_66" ParentElement="member_66" Name="summary" Condition="1" Order="0" Flags="14" Text="Поиск локализованного ресурса типа System.Drawing.Bitmap." UpdateIndexInParent="0"/>
+    <ROW XmlElement="summary_67" ParentElement="member_67" Name="summary" Condition="1" Order="0" Flags="14" Text="Поиск локализованного ресурса типа System.Drawing.Bitmap." UpdateIndexInParent="0"/>
+    <ROW XmlElement="summary_68" ParentElement="member_68" Name="summary" Condition="1" Order="0" Flags="14" Text="Поиск локализованного ресурса типа System.Drawing.Bitmap." UpdateIndexInParent="0"/>
+    <ROW XmlElement="summary_69" ParentElement="member_69" Name="summary" Condition="1" Order="0" Flags="14" Text="Поиск локализованного ресурса типа System.Drawing.Bitmap." UpdateIndexInParent="0"/>
+    <ROW XmlElement="summary_7" ParentElement="member_7" Name="summary" Condition="1" Order="0" Flags="14" Text="Ищет локализованную строку, похожую на ms." UpdateIndexInParent="0"/>
+    <ROW XmlElement="summary_70" ParentElement="member_70" Name="summary" Condition="1" Order="0" Flags="14" Text="Поиск локализованного ресурса типа System.Drawing.Bitmap." UpdateIndexInParent="0"/>
+    <ROW XmlElement="summary_71" ParentElement="member_71" Name="summary" Condition="1" Order="0" Flags="14" Text="Поиск локализованного ресурса типа System.Drawing.Bitmap." UpdateIndexInParent="0"/>
+    <ROW XmlElement="summary_72" ParentElement="member_72" Name="summary" Condition="1" Order="0" Flags="14" Text="Поиск локализованного ресурса типа System.Drawing.Bitmap." UpdateIndexInParent="0"/>
+    <ROW XmlElement="summary_73" ParentElement="member_73" Name="summary" Condition="1" Order="0" Flags="14" Text="Поиск локализованного ресурса типа System.Drawing.Bitmap." UpdateIndexInParent="0"/>
+    <ROW XmlElement="summary_74" ParentElement="member_74" Name="summary" Condition="1" Order="0" Flags="14" Text="Поиск локализованного ресурса типа System.Drawing.Bitmap." UpdateIndexInParent="0"/>
+    <ROW XmlElement="summary_75" ParentElement="member_75" Name="summary" Condition="1" Order="0" Flags="14" Text="Поиск локализованного ресурса типа System.Drawing.Bitmap." UpdateIndexInParent="0"/>
+    <ROW XmlElement="summary_76" ParentElement="member_76" Name="summary" Condition="1" Order="0" Flags="14" Text="Поиск локализованного ресурса типа System.Drawing.Bitmap." UpdateIndexInParent="0"/>
+    <ROW XmlElement="summary_77" ParentElement="member_77" Name="summary" Condition="1" Order="0" Flags="14" Text="Поиск локализованного ресурса типа System.Drawing.Bitmap." UpdateIndexInParent="0"/>
+    <ROW XmlElement="summary_78" ParentElement="member_78" Name="summary" Condition="1" Order="0" Flags="14" Text="Поиск локализованного ресурса типа System.Drawing.Bitmap." UpdateIndexInParent="0"/>
+    <ROW XmlElement="summary_79" ParentElement="member_79" Name="summary" Condition="1" Order="0" Flags="14" Text="Требуется переменная конструктора." UpdateIndexInParent="0"/>
+    <ROW XmlElement="summary_8" ParentElement="member_8" Name="summary" Condition="1" Order="0" Flags="14" Text="Ищет локализованную строку, похожую на m." UpdateIndexInParent="0"/>
+    <ROW XmlElement="summary_80" ParentElement="member_80" Name="summary" Condition="1" Order="0" Flags="14" Text="Освободить все используемые ресурсы." UpdateIndexInParent="0"/>
+    <ROW XmlElement="summary_81" ParentElement="member_81" Name="summary" Condition="1" Order="0" Flags="14" Text="Обязательный метод для поддержки конструктора - не изменяйте &#13;&#10;            содержимое данного метода при помощи редактора кода." UpdateIndexInParent="0"/>
+    <ROW XmlElement="summary_82" ParentElement="member_82" Name="summary" Condition="1" Order="0" Flags="14" Text="Required designer variable." UpdateIndexInParent="0"/>
+    <ROW XmlElement="summary_83" ParentElement="member_83" Name="summary" Condition="1" Order="0" Flags="14" Text="Clean up any resources being used." UpdateIndexInParent="0"/>
+    <ROW XmlElement="summary_84" ParentElement="member_84" Name="summary" Condition="1" Order="0" Flags="14" Text="Required method for Designer support - do not modify&#13;&#10;            the contents of this method with the code editor." UpdateIndexInParent="0"/>
+    <ROW XmlElement="summary_9" ParentElement="member_9" Name="summary" Condition="1" Order="0" Flags="14" Text="Ищет локализованную строку, похожую на s." UpdateIndexInParent="0"/>
+    <ROW XmlElement="supportedRuntime" ParentElement="startup" Name="supportedRuntime" Condition="1" Order="0" Flags="14" UpdateIndexInParent="0"/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.XmlFileComponent">
+    <ROW XmlFile="AdvancedDataGridView.xml" FileName="ADVANC~1.XML|AdvancedDataGridView.xml" DirProperty="APPDIR" Component="AI_ExePath" RootElement="doc" Flags="89" Version="1.0" Encoding="UTF-8" IndentUnits="2"/>
+    <ROW XmlFile="projectquanlygiuongbenh.exe.config" FileName="PATIEN~1.CON|Patient management.config" DirProperty="APPDIR" Component="AI_ExePath" RootElement="configuration" Flags="89" Version="1.0" Encoding="utf-8" IndentUnits="2"/>
+  </COMPONENT>
+</DOCUMENT>

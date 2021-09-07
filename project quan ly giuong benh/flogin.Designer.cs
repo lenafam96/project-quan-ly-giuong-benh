@@ -29,7 +29,9 @@ namespace project_quan_ly_giuong_benh
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(flogin));
             this.panel1 = new System.Windows.Forms.Panel();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.btnExit = new System.Windows.Forms.Button();
             this.btnLogin = new System.Windows.Forms.Button();
             this.panel3 = new System.Windows.Forms.Panel();
@@ -39,12 +41,14 @@ namespace project_quan_ly_giuong_benh
             this.txbPassWord = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel3.SuspendLayout();
             this.panel2.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.pictureBox1);
             this.panel1.Controls.Add(this.btnExit);
             this.panel1.Controls.Add(this.btnLogin);
             this.panel1.Controls.Add(this.panel3);
@@ -53,6 +57,16 @@ namespace project_quan_ly_giuong_benh
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(452, 219);
             this.panel1.TabIndex = 0;
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
+            this.pictureBox1.Location = new System.Drawing.Point(153, 3);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(133, 95);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox1.TabIndex = 5;
+            this.pictureBox1.TabStop = false;
             // 
             // btnExit
             // 
@@ -96,7 +110,6 @@ namespace project_quan_ly_giuong_benh
             this.txbUserName.Name = "txbUserName";
             this.txbUserName.Size = new System.Drawing.Size(258, 29);
             this.txbUserName.TabIndex = 1;
-            this.txbUserName.Text = "admin";
             // 
             // label3
             // 
@@ -129,7 +142,6 @@ namespace project_quan_ly_giuong_benh
             this.txbPassWord.Name = "txbPassWord";
             this.txbPassWord.Size = new System.Drawing.Size(258, 29);
             this.txbPassWord.TabIndex = 2;
-            this.txbPassWord.Text = "1";
             this.txbPassWord.UseSystemPasswordChar = true;
             // 
             // label2
@@ -154,17 +166,18 @@ namespace project_quan_ly_giuong_benh
             this.CancelButton = this.btnExit;
             this.ClientSize = new System.Drawing.Size(476, 243);
             this.Controls.Add(this.panel1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.MaximumSize = new System.Drawing.Size(492, 282);
             this.MinimizeBox = false;
             this.MinimumSize = new System.Drawing.Size(492, 282);
             this.Name = "flogin";
             this.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.ShowIcon = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Đăng nhập";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.flogin_FormClosing);
             this.panel1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
             this.panel2.ResumeLayout(false);
@@ -184,6 +197,7 @@ namespace project_quan_ly_giuong_benh
         private System.Windows.Forms.TextBox txbPassWord;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox txbUserName;
+        private System.Windows.Forms.PictureBox pictureBox1;
     }
 }
 

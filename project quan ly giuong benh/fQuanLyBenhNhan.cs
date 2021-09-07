@@ -802,52 +802,58 @@ namespace project_quan_ly_giuong_benh
 
         private void btnAdd_Click(object sender, EventArgs e)
         {
-            if (dtgvInput.SelectedRows.Count > 0)
+            Room room = cboPhong.SelectedItem as Room;
+            if (room != null && room.Name != "NaN")
             {
-                string[] name = openFileDialog1.FileName.Split('\\');
-                string[] name1 = name[3].Split('(');
-                Room room = cboPhong.SelectedItem as Room;
-                int count = dtgvInput.SelectedRows.Count;
-                if ((room.Member + count)<=room.Maximum)
+                if (dtgvInput.SelectedRows.Count > 0)
                 {
-                    foreach (DataGridViewRow item in dtgvInput.SelectedRows)
+                    string[] name = openFileDialog1.FileName.Split('\\');
+                    string[] name1 = name[3].Split('(');
+                    int count = dtgvInput.SelectedRows.Count;
+                    if ((room.Member + count) <= room.Maximum)
                     {
-                        int idPhong = room.ID;
-                        string maBN = "";
-                        string ht = item.Cells[1].Value.ToString();
-                        int gt = item.Cells[2].Value.ToString().ToUpper() == "Nam".ToUpper() ? 0 : 1;
-                        int ns = int.Parse(item.Cells[3].Value.ToString());
-                        string dc = item.Cells[4].Value.ToString();
-                        string tiTh = item.Cells[5].Value.ToString();
-                        string qHuyen = item.Cells[6].Value.ToString();
-                        string phuongXa = item.Cells[7].Value.ToString();
-                        string sdt = item.Cells[8].Value.ToString();
-                        string cccd = item.Cells[9].Value.ToString();
-                        string tenNT = item.Cells[10].Value.ToString();
-                        string mqh = item.Cells[11].Value.ToString();
-                        string sdtNT = item.Cells[12].Value.ToString();
-                        string noiChuyen = name1[0];
-                        DateTime nnv = DateTime.Now;
-                        DateTime nxn;
-                        CultureInfo culture = CultureInfo.CreateSpecificCulture("vi-VN");
-                        DateTimeStyles styles = DateTimeStyles.None;
-                        string ngayXN = item.Cells[14].Value.ToString() + "/" + DateTime.Now.Year.ToString();
-                        if (!DateTime.TryParse(ngayXN, culture, styles, out nxn))
+                        foreach (DataGridViewRow item in dtgvInput.SelectedRows)
                         {
-                            MemberDAO.Instance.InsertMemberChuaXetNghiem(idPhong, maBN, ht, ns, gt, "Kinh", dc, phuongXa, qHuyen, tiTh, sdt, cccd, noiChuyen.Trim(' ', ',', '-'), "E", nnv, tenNT, mqh, sdtNT, 0);
-                        }
-                        else
-                        {
-                            MemberDAO.Instance.InsertMember(idPhong, maBN, ht, ns, gt, "Kinh", dc, phuongXa, qHuyen, tiTh, sdt, cccd, noiChuyen.Trim(' ', ',', '-'), "E", nnv, nxn, tenNT, mqh, sdtNT, 0);
+                            int idPhong = room.ID;
+                            string maBN = "";
+                            string ht = item.Cells[1].Value.ToString();
+                            int gt = item.Cells[2].Value.ToString().ToUpper() == "Nam".ToUpper() ? 0 : 1;
+                            int ns = int.Parse(item.Cells[3].Value.ToString());
+                            string dc = item.Cells[4].Value.ToString();
+                            string tiTh = item.Cells[5].Value.ToString();
+                            string qHuyen = item.Cells[6].Value.ToString();
+                            string phuongXa = item.Cells[7].Value.ToString();
+                            string sdt = item.Cells[8].Value.ToString();
+                            string cccd = item.Cells[9].Value.ToString();
+                            string tenNT = item.Cells[10].Value.ToString();
+                            string mqh = item.Cells[11].Value.ToString();
+                            string sdtNT = item.Cells[12].Value.ToString();
+                            string noiChuyen = name1[0];
+                            DateTime nnv = DateTime.Now;
+                            DateTime nxn;
+                            CultureInfo culture = CultureInfo.CreateSpecificCulture("vi-VN");
+                            DateTimeStyles styles = DateTimeStyles.None;
+                            string ngayXN = item.Cells[14].Value.ToString() + "/" + DateTime.Now.Year.ToString();
+                            if (!DateTime.TryParse(ngayXN, culture, styles, out nxn))
+                            {
+                                MemberDAO.Instance.InsertMemberChuaXetNghiem(idPhong, maBN, ht, ns, gt, "Kinh", dc, phuongXa, qHuyen, tiTh, sdt, cccd, noiChuyen.Trim(' ', ',', '-'), "E", nnv, tenNT, mqh, sdtNT, 0);
+                            }
+                            else
+                            {
+                                MemberDAO.Instance.InsertMember(idPhong, maBN, ht, ns, gt, "Kinh", dc, phuongXa, qHuyen, tiTh, sdt, cccd, noiChuyen.Trim(' ', ',', '-'), "E", nnv, nxn, tenNT, mqh, sdtNT, 0);
 
+                            }
+                            dtgvInput.Rows.RemoveAt(item.Index);
                         }
-                        dtgvInput.Rows.RemoveAt(item.Index);
+                        room.Member += count;
+                        MessageBox.Show("Thêm thành công " + count + " người vào phòng " + room.Name + " !", "Thông báo", MessageBoxButtons.OK);
                     }
-                    MessageBox.Show("Thêm thành công " + count + " người vào phòng " + room.Name + " !", "Thông báo", MessageBoxButtons.OK);
+                    else
+                        MessageBox.Show("Phòng " + room.Name + " không còn đủ chỗ trống!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
-                else
-                    MessageBox.Show("Phòng " + room.Name + " không còn đủ chỗ trống!", "Thông báo", MessageBoxButtons.OK,MessageBoxIcon.Warning);
             }
+            else
+                MessageBox.Show("Chưa có phòng. Hãy tạo thêm phòng!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
         }
         #endregion
 

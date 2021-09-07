@@ -29,6 +29,7 @@ namespace project_quan_ly_giuong_benh
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(fXuatVien));
             this.dtpNgayXuatVien = new System.Windows.Forms.DateTimePicker();
             this.dtpNgayXetNghiem = new System.Windows.Forms.DateTimePicker();
             this.txbSoLT = new System.Windows.Forms.TextBox();
@@ -299,6 +300,7 @@ namespace project_quan_ly_giuong_benh
             this.Controls.Add(this.lbCanhBao);
             this.Controls.Add(this.tableLayoutPanel1);
             this.Controls.Add(this.btnXacNhan);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximumSize = new System.Drawing.Size(500, 385);
             this.MinimumSize = new System.Drawing.Size(500, 385);
             this.Name = "fXuatVien";

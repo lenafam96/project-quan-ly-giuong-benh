@@ -29,6 +29,7 @@ namespace project_quan_ly_giuong_benh
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(fQuanLyBenhNhan));
             this.TabControl = new System.Windows.Forms.TabControl();
             this.tpDangDieuTri = new System.Windows.Forms.TabPage();
             this.dtgvMember = new ADGV.AdvancedDataGridView();
@@ -42,6 +43,9 @@ namespace project_quan_ly_giuong_benh
             this.dtgvInput = new ADGV.AdvancedDataGridView();
             this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
             this.panel3 = new System.Windows.Forms.Panel();
+            this.cboPhong = new System.Windows.Forms.ComboBox();
+            this.cboTang = new System.Windows.Forms.ComboBox();
+            this.btnAdd = new System.Windows.Forms.Button();
             this.dtpStop = new System.Windows.Forms.DateTimePicker();
             this.dtpStart = new System.Windows.Forms.DateTimePicker();
             this.txbFindMember = new System.Windows.Forms.TextBox();
@@ -61,9 +65,6 @@ namespace project_quan_ly_giuong_benh
             this.lbTotalPage = new System.Windows.Forms.Label();
             this.nUDPageRows = new System.Windows.Forms.NumericUpDown();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
-            this.cboPhong = new System.Windows.Forms.ComboBox();
-            this.cboTang = new System.Windows.Forms.ComboBox();
-            this.btnAdd = new System.Windows.Forms.Button();
             this.TabControl.SuspendLayout();
             this.tpDangDieuTri.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dtgvMember)).BeginInit();
@@ -248,6 +249,43 @@ namespace project_quan_ly_giuong_benh
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(1511, 42);
             this.panel3.TabIndex = 22;
+            // 
+            // cboPhong
+            // 
+            this.cboPhong.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.cboPhong.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cboPhong.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cboPhong.FormattingEnabled = true;
+            this.cboPhong.Location = new System.Drawing.Point(840, 21);
+            this.cboPhong.Name = "cboPhong";
+            this.cboPhong.Size = new System.Drawing.Size(94, 21);
+            this.cboPhong.TabIndex = 5;
+            this.cboPhong.SelectedIndexChanged += new System.EventHandler(this.cboPhong_SelectedIndexChanged);
+            // 
+            // cboTang
+            // 
+            this.cboTang.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.cboTang.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cboTang.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cboTang.FormattingEnabled = true;
+            this.cboTang.Location = new System.Drawing.Point(840, 0);
+            this.cboTang.Name = "cboTang";
+            this.cboTang.Size = new System.Drawing.Size(94, 21);
+            this.cboTang.TabIndex = 4;
+            this.cboTang.SelectedIndexChanged += new System.EventHandler(this.cboTang_SelectedIndexChanged);
+            // 
+            // btnAdd
+            // 
+            this.btnAdd.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnAdd.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
+            this.btnAdd.Location = new System.Drawing.Point(938, 2);
+            this.btnAdd.Margin = new System.Windows.Forms.Padding(1);
+            this.btnAdd.Name = "btnAdd";
+            this.btnAdd.Size = new System.Drawing.Size(56, 36);
+            this.btnAdd.TabIndex = 3;
+            this.btnAdd.Text = "Thêm BN";
+            this.btnAdd.UseVisualStyleBackColor = true;
+            this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
             // 
             // dtpStop
             // 
@@ -454,43 +492,6 @@ namespace project_quan_ly_giuong_benh
             this.openFileDialog1.FileName = "openFileDialog1";
             this.openFileDialog1.Filter = "Excel Document| *.xls;*.xlsx";
             // 
-            // cboPhong
-            // 
-            this.cboPhong.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.cboPhong.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cboPhong.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cboPhong.FormattingEnabled = true;
-            this.cboPhong.Location = new System.Drawing.Point(840, 21);
-            this.cboPhong.Name = "cboPhong";
-            this.cboPhong.Size = new System.Drawing.Size(94, 21);
-            this.cboPhong.TabIndex = 5;
-            this.cboPhong.SelectedIndexChanged += new System.EventHandler(this.cboPhong_SelectedIndexChanged);
-            // 
-            // cboTang
-            // 
-            this.cboTang.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.cboTang.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cboTang.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cboTang.FormattingEnabled = true;
-            this.cboTang.Location = new System.Drawing.Point(840, 0);
-            this.cboTang.Name = "cboTang";
-            this.cboTang.Size = new System.Drawing.Size(94, 21);
-            this.cboTang.TabIndex = 4;
-            this.cboTang.SelectedIndexChanged += new System.EventHandler(this.cboTang_SelectedIndexChanged);
-            // 
-            // btnAdd
-            // 
-            this.btnAdd.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnAdd.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
-            this.btnAdd.Location = new System.Drawing.Point(938, 2);
-            this.btnAdd.Margin = new System.Windows.Forms.Padding(1);
-            this.btnAdd.Name = "btnAdd";
-            this.btnAdd.Size = new System.Drawing.Size(56, 36);
-            this.btnAdd.TabIndex = 3;
-            this.btnAdd.Text = "Thêm BN";
-            this.btnAdd.UseVisualStyleBackColor = true;
-            this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
-            // 
             // fQuanLyBenhNhan
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -506,6 +507,7 @@ namespace project_quan_ly_giuong_benh
             this.Controls.Add(this.btnPrevious);
             this.Controls.Add(this.txbPage);
             this.Controls.Add(this.label5);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.MaximumSize = new System.Drawing.Size(1534, 712);
             this.MinimizeBox = false;

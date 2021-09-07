@@ -29,6 +29,7 @@ namespace project_quan_ly_giuong_benh
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(fFloorManager));
             this.flpFloor = new System.Windows.Forms.FlowLayoutPanel();
             this.flpRoom = new System.Windows.Forms.FlowLayoutPanel();
             this.adminToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -60,6 +61,7 @@ namespace project_quan_ly_giuong_benh
             this.ngayNhapVien = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.ngayXetNghiemL1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.ngayXetNghiemL2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.panel1.SuspendLayout();
             this.panel4.SuspendLayout();
@@ -147,6 +149,8 @@ namespace project_quan_ly_giuong_benh
             // 
             // trợGiúpToolStripMenuItem
             // 
+            this.trợGiúpToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.aboutToolStripMenuItem});
             this.trợGiúpToolStripMenuItem.Name = "trợGiúpToolStripMenuItem";
             this.trợGiúpToolStripMenuItem.Size = new System.Drawing.Size(62, 20);
             this.trợGiúpToolStripMenuItem.Text = "Trợ giúp";
@@ -286,6 +290,7 @@ namespace project_quan_ly_giuong_benh
             this.btnStatistic.TabIndex = 1;
             this.btnStatistic.Text = "Thống kê";
             this.btnStatistic.UseVisualStyleBackColor = true;
+            this.btnStatistic.Click += new System.EventHandler(this.btnStatistic_Click);
             // 
             // btnMap
             // 
@@ -380,6 +385,13 @@ namespace project_quan_ly_giuong_benh
             this.ngayXetNghiemL2.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.ngayXetNghiemL2.Width = 70;
             // 
+            // aboutToolStripMenuItem
+            // 
+            this.aboutToolStripMenuItem.Name = "aboutToolStripMenuItem";
+            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.aboutToolStripMenuItem.Text = "About";
+            this.aboutToolStripMenuItem.Click += new System.EventHandler(this.aboutToolStripMenuItem_Click);
+            // 
             // fFloorManager
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -391,6 +403,7 @@ namespace project_quan_ly_giuong_benh
             this.Controls.Add(this.flpRoom);
             this.Controls.Add(this.flpFloor);
             this.Controls.Add(this.menuStrip1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MainMenuStrip = this.menuStrip1;
             this.MinimumSize = new System.Drawing.Size(1011, 617);
             this.Name = "fFloorManager";
@@ -439,5 +452,6 @@ namespace project_quan_ly_giuong_benh
         private System.Windows.Forms.ColumnHeader ngayXetNghiemL1;
         private System.Windows.Forms.ColumnHeader ngayXetNghiemL2;
         private System.Windows.Forms.Button btnMap;
+        private System.Windows.Forms.ToolStripMenuItem aboutToolStripMenuItem;
     }
 }

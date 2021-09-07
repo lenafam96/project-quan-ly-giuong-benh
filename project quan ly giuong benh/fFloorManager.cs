@@ -38,6 +38,7 @@ namespace project_quan_ly_giuong_benh
         #region Methods
         void LoadFloor()
         {
+            flpFloor.Controls.Clear();
             List<Floor> floorList = FloorDAO.Instance.LoadFloorList();
             cboTang.DataSource = floorList;
             cboTang.DisplayMember = "Name";
@@ -261,9 +262,9 @@ namespace project_quan_ly_giuong_benh
         private void btnAdd_Click(object sender, EventArgs e)
         {
             Room room = lsvChiaPhong.Tag as Room;
-            if (room != null)
+            if (room != null && room.Name != "NaN")
             {
-                if(room.Status == "Bận" || room.Status == "Sắp khỏi hết")
+                if (room.Status == "Bận" || room.Status == "Sắp khỏi hết")
                 {
                     if (MessageBox.Show("Xác nhận thêm người vào phòng " + room.Status + " không?", "Cảnh báo", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == System.Windows.Forms.DialogResult.No)
                         return;
@@ -273,6 +274,8 @@ namespace project_quan_ly_giuong_benh
                 ChoseRoomForLoad(room);
                 showMember(room.ID);
             }
+            else
+                MessageBox.Show("Chưa có phòng. Hãy tạo thêm phòng", "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
         }
 
         private void btnMap_click(object sender, EventArgs e)
@@ -424,6 +427,8 @@ namespace project_quan_ly_giuong_benh
             f.ShowDialog();
             Room room = lsvChiaPhong.Tag as Room;
             ChoseRoomForLoad(room);
+            LoadFloor();
+            LoadRoomComboBox(room.IDTang);
             showMember(room.ID);
         }
 
@@ -438,11 +443,24 @@ namespace project_quan_ly_giuong_benh
 
         private void quảnLýTàiKhoảnToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            fQuanLyTaiKhoan f = new fQuanLyTaiKhoan();
+            fQuanLyTaiKhoan f = new fQuanLyTaiKhoan(LoginAccount);
+            f.ShowDialog();
+        }
+
+
+        private void btnStatistic_Click(object sender, EventArgs e)
+        {
+            fReportThongKe f = new fReportThongKe();
+            f.ShowDialog();
+        }
+
+        private void aboutToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            AboutBox f = new AboutBox();
             f.ShowDialog();
         }
         #endregion
 
-        
+
     }
 }
