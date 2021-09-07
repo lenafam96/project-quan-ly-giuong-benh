@@ -29,6 +29,7 @@ namespace project_quan_ly_giuong_benh
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(fQuanLyPhong));
             this.panel2 = new System.Windows.Forms.Panel();
             this.dtgvRoom = new System.Windows.Forms.DataGridView();
             this.panel1 = new System.Windows.Forms.Panel();
@@ -282,6 +283,7 @@ namespace project_quan_ly_giuong_benh
             0,
             0});
             this.maxMember.Name = "maxMember";
+            this.maxMember.ReadOnly = true;
             this.maxMember.Size = new System.Drawing.Size(130, 31);
             this.maxMember.TabIndex = 9;
             this.maxMember.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
@@ -349,6 +351,7 @@ namespace project_quan_ly_giuong_benh
             // 
             // cboTang
             // 
+            this.cboTang.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboTang.Font = new System.Drawing.Font("Arial", 14.25F);
             this.cboTang.FormattingEnabled = true;
             this.cboTang.Location = new System.Drawing.Point(131, 43);
@@ -378,6 +381,7 @@ namespace project_quan_ly_giuong_benh
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.panel1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.MaximumSize = new System.Drawing.Size(1000, 450);
             this.MinimizeBox = false;

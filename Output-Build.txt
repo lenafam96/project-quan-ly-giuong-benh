@@ -1,0 +1,11 @@
+﻿Build started...
+1>------ Build started: Project: project quan ly giuong benh, Configuration: Release Any CPU ------
+2>------ Skipped Build: Project: QuanhLyBenhNhan, Configuration: DefaultBuild ------
+2>Project not selected to build for this solution configuration 
+1>E:\uneti\project quan ly f0 bvdc thu dung 11\project quan ly giuong benh\project quan ly giuong benh\EditMember.cs(107,21,107,22): warning CS0642: Possible mistaken empty statement
+1>E:\uneti\project quan ly f0 bvdc thu dung 11\project quan ly giuong benh\project quan ly giuong benh\fEditMemberChuyenTuyen.cs(96,21,96,22): warning CS0642: Possible mistaken empty statement
+1>E:\uneti\project quan ly f0 bvdc thu dung 11\project quan ly giuong benh\project quan ly giuong benh\fEditMemberXuatVien.cs(108,21,108,22): warning CS0642: Possible mistaken empty statement
+1>E:\uneti\project quan ly f0 bvdc thu dung 11\project quan ly giuong benh\project quan ly giuong benh\InsertMember.cs(77,21,77,22): warning CS0642: Possible mistaken empty statement
+1>E:\uneti\project quan ly f0 bvdc thu dung 11\project quan ly giuong benh\project quan ly giuong benh\fFloorManager.cs(315,33,315,34): warning CS0642: Possible mistaken empty statement
+1>  project quan ly giuong benh -> E:\uneti\project quan ly f0 bvdc thu dung 11\project quan ly giuong benh\project quan ly giuong benh\bin\Release\project quan ly giuong benh.exe
+========== Build: 1 succeeded, 0 failed, 0 up-to-date, 1 skipped ==========

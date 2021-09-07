@@ -12,10 +12,11 @@ using System.Windows.Forms;
 
 namespace project_quan_ly_giuong_benh
 {
-    public partial class fAdminEditMember : Form
+    public partial class fEditMemberChuyenTuyen : Form
     {
         private Member member;
-        public fAdminEditMember(Member member)
+
+        public fEditMemberChuyenTuyen(Member member)
         {
             InitializeComponent();
             this.Member = member;
@@ -29,7 +30,7 @@ namespace project_quan_ly_giuong_benh
             txbPhuongXa.Text = this.Member.PX;
             txbQuanHuyen.Text = this.Member.QH;
             txbTiTh.Text = this.Member.TiTh;
-            cboKhoa.Text = this.Member.Khoa;
+            cboKhoa.SelectedItem = this.Member.Khoa;
             txbCccd.Text = this.Member.Cccd;
             txbNoiChuyen.Text = this.Member.NC;
             dtpNgayNhapVien.Value = (DateTime)this.Member.NNV;
@@ -39,13 +40,11 @@ namespace project_quan_ly_giuong_benh
             txbMqh.Text = this.Member.Mqh;
             txbSdtNguoiThan.Text = this.Member.SdtNT;
             chkF0.Checked = this.Member.PL == "f0" ? true : false;
-            chkF0.Checked = this.Member.PL == "f1" ? true : false;
+            chkF1.Checked = this.Member.PL == "f1" ? true : false;
             txbMaBN.Text = this.Member.MaBN == null ? "" : this.Member.MaBN;
-            txbSoLT.Text = this.Member.SoLT == null ? "" : this.Member.SoLT;
-            cboKTXN.Text = this.Member.Ktxn;
-            cboKq.Text = this.Member.Kq;
-            txbCTValue.Text = this.Member.CtValue == 0 ? "" : this.Member.CtValue.ToString();
-            nUDslxn.Value = this.Member.Slxn;
+            txbNoiDen.Text = this.Member.NoiDen == "" ? "" : this.Member.NoiDen;
+            dtpNgayNhapVien.MaxDate = dtpNgayXetNghiem.MaxDate = dtpNgayXuatVien.MaxDate = DateTime.Now;
+
         }
 
         public Member Member { get => member; set => member = value; }
@@ -60,16 +59,7 @@ namespace project_quan_ly_giuong_benh
             check = txbNamSinh.Text == null ? true : false;
             check = txbSdt.Text == null ? true : false;
             check = txbDiaChi.Text == null ? true : false;
-            check = chkNam.Checked == false && chkNu.Checked == false ? true : false;
             check = int.TryParse(txbNamSinh.Text, out ns) ? false : true;
-            double ctValue = 0;
-            string kq = cboKq.Text;
-            if (kq == "Dương tính")
-            {
-                check = txbCTValue.Text == null ? true : false;
-                check = double.TryParse(txbCTValue.Text, out ctValue);
-                check = ctValue < 30 ? true : false;
-            }
             string dantoc = txbDanToc.Text == null || txbDanToc.Text == "" ? "Kinh" : txbDanToc.Text;
             string tp = txbTiTh.Text == null || txbTiTh.Text == "null" || txbTiTh.Text == "" ? "Hồ Chí Minh" : txbTiTh.Text;
             string khoa = cboKhoa.Text == null ? "E" : cboKhoa.Text;
@@ -113,7 +103,7 @@ namespace project_quan_ly_giuong_benh
             {
                 int gt = chkNam.Checked ? 0 : 1;
                 int pl = chkF1.Checked ? 1 : 0;
-                MemberDAO.Instance.EditMember(this.Member.ID, txbMaBN.Text.Trim(' ', ',', '-'), txbSoLT.Text.Trim(' ', ',', '-'), txbHoTen.Text.Trim(' ', ',', '-'), ns, gt, dantoc.Trim(' ', ',', '-'), txbDiaChi.Text, px, qh, tp, txbSdt.Text.Trim(' ', ',', '-'), txbCccd.Text.Trim(' ', ',', '-'), txbNoiChuyen.Text.Trim(' ', ',', '-'), khoa, dtpNgayNhapVien.Value, dtpNgayXuatVien.Value, dtpNgayXetNghiem.Value, cboKTXN.Text, kq, ctValue, txbTenNguoiThan.Text.Trim(' ', ',', '-'), txbMqh.Text.Trim(' ', ',', '-'), txbSdtNguoiThan.Text.Trim(' ', ',', '-'), pl, this.member.TT, (int)nUDslxn.Value);
+                MemberDAO.Instance.EditMemberChuyenTuyen(this.Member.ID, txbMaBN.Text.Trim(' ', ',', '-'), txbHoTen.Text.Trim(' ', ',', '-'), ns, gt, dantoc.Trim(' ', ',', '-'), txbDiaChi.Text, px, qh, tp, txbSdt.Text.Trim(' ', ',', '-'), txbCccd.Text.Trim(' ', ',', '-'), txbNoiChuyen.Text.Trim(' ', ',', '-'), khoa, dtpNgayNhapVien.Value, dtpNgayXuatVien.Value, dtpNgayXetNghiem.Value, txbNoiDen.Text.Trim(' ', ',', '-'), txbTenNguoiThan.Text.Trim(' ', ',', '-'), txbMqh.Text.Trim(' ', ',', '-'), txbSdtNguoiThan.Text.Trim(' ', ',', '-'), pl);
                 this.Close();
 
             }

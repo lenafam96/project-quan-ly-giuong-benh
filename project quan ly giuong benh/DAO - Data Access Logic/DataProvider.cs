@@ -23,7 +23,7 @@ namespace project_quan_ly_giuong_benh.DAO___Data_Access_Logic
 
         }
 
-        private string connectionSTR = @"Data Source=HXN\SQLEXPRESS;Initial Catalog=QuanLyBenhNhanF0;Integrated Security=True";
+        private string connectionSTR = @"Data Source=.\SQLEXPRESS;Initial Catalog=QuanLyBenhNhanF0;Integrated Security=True";
 
         public DataTable ExecuteQuery(string query, object[] parameter = null)
         {

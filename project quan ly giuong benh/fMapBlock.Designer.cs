@@ -33,6 +33,7 @@ namespace project_quan_ly_giuong_benh
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(fMapBlock));
             this.pnlTable = new System.Windows.Forms.Panel();
             this.dtgvMap = new System.Windows.Forms.DataGridView();
             this.lblTitle = new System.Windows.Forms.Label();
@@ -136,7 +137,7 @@ namespace project_quan_ly_giuong_benh
             this.dtgvChuThich.Location = new System.Drawing.Point(48, 560);
             this.dtgvChuThich.Name = "dtgvChuThich";
             this.dtgvChuThich.ReadOnly = true;
-            this.dtgvChuThich.Size = new System.Drawing.Size(472, 55);
+            this.dtgvChuThich.Size = new System.Drawing.Size(472, 44);
             this.dtgvChuThich.TabIndex = 6;
             // 
             // Column1
@@ -184,6 +185,7 @@ namespace project_quan_ly_giuong_benh
             this.Controls.Add(this.pnlTable);
             this.Controls.Add(this.lblTitle);
             this.Controls.Add(this.lbDateNow);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximumSize = new System.Drawing.Size(1072, 671);
             this.MinimumSize = new System.Drawing.Size(1072, 661);
             this.Name = "fMapBlock";

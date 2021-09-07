@@ -14,10 +14,15 @@ namespace project_quan_ly_giuong_benh
 {
     public partial class fQuanLyTaiKhoan : Form
     {
+        private Account loginAccount;
         BindingSource listAccount = new BindingSource();
-        public fQuanLyTaiKhoan()
+
+        public Account LoginAccount { get => loginAccount; set => loginAccount = value; }
+
+        public fQuanLyTaiKhoan(Account account)
         {
             InitializeComponent();
+            this.LoginAccount = account;
             dtgvUser.DataSource = listAccount;
             LoadAccountList();
             AddUserBinding();
@@ -129,7 +134,10 @@ namespace project_quan_ly_giuong_benh
             if (MessageBox.Show("Xác nhận xoá tài khoản?", "Thông báo", MessageBoxButtons.OKCancel, MessageBoxIcon.Question) == System.Windows.Forms.DialogResult.OK && list.Count > 0)
                 foreach (string item in list)
                 {
-                    AccountDAO.Instance.DeleteAccountByUserName(item);        
+                    if (item != this.LoginAccount.DisplayName)
+                        AccountDAO.Instance.DeleteAccountByUserName(item);
+                    else
+                        MessageBox.Show("Không thể xoá tài khoản đang đăng nhập!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
             LoadAccountList();
         }

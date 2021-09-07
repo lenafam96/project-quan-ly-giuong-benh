@@ -22,17 +22,18 @@ namespace project_quan_ly_giuong_benh
         {
             this.Member = member;
             InitializeComponent();
+            txbMaBN.Text = this.Member.MaBN == null || this.Member.MaBN == "null" ? "" : this.Member.MaBN;
             txbHoTen.Text = this.Member.HT;
             chkNam.Checked = this.Member.GT == "Nam" ? true : false;
             chkNu.Checked = this.Member.GT == "Nữ" ? true : false;
             txbNamSinh.Text = this.Member.NS.ToString();
-            txbDanToc.Text = this.Member.DanToc;
+            txbDanToc.Text = this.Member.DanToc == "" || this.Member.DanToc == "null"?"Kinh": this.Member.DanToc;
             txbSdt.Text = this.Member.Sdt;
             txbDiaChi.Text = this.Member.DC;
             txbPhuongXa.Text = this.Member.PX;
             txbQuanHuyen.Text = this.Member.QH;
             txbTiTh.Text = this.Member.TiTh;
-            cboKhoa.Text = this.Member.Khoa;
+            cboKhoa.SelectedItem = this.Member.Khoa;
             txbCccd.Text = this.Member.Cccd;
             txbNoiChuyen.Text = this.Member.NC;
             dtpNgayNhapVien.Value = (DateTime)this.Member.NNV;
@@ -40,7 +41,7 @@ namespace project_quan_ly_giuong_benh
             txbMqh.Text = this.Member.Mqh;
             txbSdtNguoiThan.Text = this.Member.SdtNT;
             chkF0.Checked = this.Member.PL == "f0" ? true : false;
-            chkF0.Checked = this.Member.PL == "f1" ? true : false;
+            chkF1.Checked = this.Member.PL == "f1" ? true : false;
             if(this.Member.NXN == null)
             {
                 cboXN.Text = "Chưa xét nghiệm";
@@ -54,6 +55,7 @@ namespace project_quan_ly_giuong_benh
 
             }
             lbTenPhong.Text += this.Member.Phong;
+            dtpNgayNhapVien.MaxDate = dtpNgayXetNghiem.MaxDate = DateTime.Now;
         }
 
         private void btnXacNhan_Click(object sender, EventArgs e)
@@ -112,30 +114,37 @@ namespace project_quan_ly_giuong_benh
             {
                 int gt = chkNam.Checked ? 0 : 1;
                 int pl = chkF1.Checked ? 1 : 0;
-                DateTime ngayXNnext = this.Member.Slxn > 1 ? this.Member.NXN.Value.AddDays(2) : this.Member.NXN.Value.AddDays(7);
+                DateTime ngayXNnext = (DateTime)this.Member.NNV;
+                if (this.Member.NXN != null)
+                {
+                    ngayXNnext = this.Member.Slxn > 1 ? this.Member.NXN.Value.AddDays(2) : this.Member.NXN.Value.AddDays(7);
+                }
                 if (cboXN.Text == "Đã xét nghiệm")
-                    if(this.Member.Slxn == 0 || dtpNgayXetNghiem.Value < ngayXNnext)
-                        MemberDAO.Instance.EditMemberBasic(this.Member.ID, txbHoTen.Text.Trim(' ', ',', '-'), ns, gt, dantoc.Trim(' ', ',', '-'), txbDiaChi.Text, px, qh, tp, txbSdt.Text.Trim(' ', ',', '-'), txbCccd.Text.Trim(' ', ',', '-'), txbNoiChuyen.Text.Trim(' ', ',', '-'), khoa, dtpNgayNhapVien.Value, dtpNgayXetNghiem.Value, txbTenNguoiThan.Text.Trim(' ', ',', '-'), txbMqh.Text.Trim(' ', ',', '-'), txbSdtNguoiThan.Text.Trim(' ', ',', '-'), pl, this.member.TT,1);
+                    if(this.Member.Slxn == 0 || (dtpNgayXetNghiem.Value < ngayXNnext && dtpNgayXetNghiem.Value > this.Member.NXN))
+                        MemberDAO.Instance.EditMemberBasic(this.Member.ID, txbMaBN.Text.Trim(' ', ',', '-'), txbHoTen.Text.Trim(' ', ',', '-'), ns, gt, dantoc.Trim(' ', ',', '-'), txbDiaChi.Text, px, qh, tp, txbSdt.Text.Trim(' ', ',', '-'), txbCccd.Text.Trim(' ', ',', '-'), txbNoiChuyen.Text.Trim(' ', ',', '-'), khoa, dtpNgayNhapVien.Value, dtpNgayXetNghiem.Value, txbTenNguoiThan.Text.Trim(' ', ',', '-'), txbMqh.Text.Trim(' ', ',', '-'), txbSdtNguoiThan.Text.Trim(' ', ',', '-'), pl, this.member.TT,1);
                     else
-                        MemberDAO.Instance.EditMemberBasic(this.Member.ID, txbHoTen.Text.Trim(' ', ',', '-'), ns, gt, dantoc.Trim(' ', ',', '-'), txbDiaChi.Text, px, qh, tp, txbSdt.Text.Trim(' ', ',', '-'), txbCccd.Text.Trim(' ', ',', '-'), txbNoiChuyen.Text.Trim(' ', ',', '-'), khoa, dtpNgayNhapVien.Value, dtpNgayXetNghiem.Value, txbTenNguoiThan.Text.Trim(' ', ',', '-'), txbMqh.Text.Trim(' ', ',', '-'), txbSdtNguoiThan.Text.Trim(' ', ',', '-'), pl, this.member.TT, 0);
+                        MemberDAO.Instance.EditMemberBasic(this.Member.ID, txbMaBN.Text.Trim(' ', ',', '-'), txbHoTen.Text.Trim(' ', ',', '-'), ns, gt, dantoc.Trim(' ', ',', '-'), txbDiaChi.Text, px, qh, tp, txbSdt.Text.Trim(' ', ',', '-'), txbCccd.Text.Trim(' ', ',', '-'), txbNoiChuyen.Text.Trim(' ', ',', '-'), khoa, dtpNgayNhapVien.Value, dtpNgayXetNghiem.Value, txbTenNguoiThan.Text.Trim(' ', ',', '-'), txbMqh.Text.Trim(' ', ',', '-'), txbSdtNguoiThan.Text.Trim(' ', ',', '-'), pl, this.member.TT, 0);
                 else
-                    MemberDAO.Instance.EditMemberBasicChuaXetNghiem(this.Member.ID, txbHoTen.Text.Trim(' ', ',', '-'), ns, gt, dantoc.Trim(' ', ',', '-'), txbDiaChi.Text, px, qh, tp, txbSdt.Text.Trim(' ', ',', '-'), txbCccd.Text.Trim(' ', ',', '-'), txbNoiChuyen.Text.Trim(' ', ',', '-'), khoa, dtpNgayNhapVien.Value, txbTenNguoiThan.Text.Trim(' ', ',', '-'), txbMqh.Text.Trim(' ', ',', '-'), txbSdtNguoiThan.Text.Trim(' ', ',', '-'), pl, this.member.TT);
+                    MemberDAO.Instance.EditMemberBasicChuaXetNghiem(this.Member.ID, txbMaBN.Text.Trim(' ', ',', '-'), txbHoTen.Text.Trim(' ', ',', '-'), ns, gt, dantoc.Trim(' ', ',', '-'), txbDiaChi.Text, px, qh, tp, txbSdt.Text.Trim(' ', ',', '-'), txbCccd.Text.Trim(' ', ',', '-'), txbNoiChuyen.Text.Trim(' ', ',', '-'), khoa, dtpNgayNhapVien.Value, txbTenNguoiThan.Text.Trim(' ', ',', '-'), txbMqh.Text.Trim(' ', ',', '-'), txbSdtNguoiThan.Text.Trim(' ', ',', '-'), pl, this.member.TT);
 
                 this.Close();
 
             }
         }
 
+        private void cboXN_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            dtpNgayXetNghiem.Enabled = cboXN.Text == "Đã xét nghiệm" ? true : false;
+        }
+
         private void chkNam_CheckedChanged(object sender, EventArgs e)
         {
             chkNu.Checked = chkNam.Checked ? false : true;
-
         }
 
         private void chkNu_CheckedChanged(object sender, EventArgs e)
         {
             chkNam.Checked = chkNu.Checked ? false : true;
-
         }
 
         private void chkF0_CheckedChanged(object sender, EventArgs e)
@@ -146,12 +155,6 @@ namespace project_quan_ly_giuong_benh
         private void chkF1_CheckedChanged(object sender, EventArgs e)
         {
             chkF0.Checked = chkF1.Checked ? false : true;
-        }
-
-        private void cboXN_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            dtpNgayXetNghiem.Enabled = cboXN.Text == "Đã xét nghiệm" ? true : false;
-
         }
     }
 }

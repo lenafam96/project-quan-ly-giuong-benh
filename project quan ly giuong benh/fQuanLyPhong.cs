@@ -155,6 +155,7 @@ namespace project_quan_ly_giuong_benh
 
         private void btnAddRoom_Click(object sender, EventArgs e)
         {
+            int soPhong;
             string ten = txbTenPhong.Text;
             int status = 0;
             int max = (int)maxMember.Value;
@@ -162,7 +163,7 @@ namespace project_quan_ly_giuong_benh
             else if (chkSuaChua.Checked) status = 4;
             else if (chkBusy.Checked) status = 5;
             Floor floor = cboTang.Tag as Floor;
-            if (ten != "" && !checkName(ten))
+            if (ten != "" && !checkName(ten) && int.TryParse(ten,out soPhong))
                 if(RoomDAO.Instance.InsertRoom(ten, floor.ID, max, status))
                     MessageBox.Show("Tạo phòng thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 else
@@ -170,7 +171,7 @@ namespace project_quan_ly_giuong_benh
 
             else
                 {
-                MessageBox.Show("Bạn chưa nhập tên phòng!!!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Bạn chưa nhập tên phòng hoặc thông tin không đúng!!!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 txbTenPhong.Focus();
             }
             LoadRoomList();
@@ -190,6 +191,7 @@ namespace project_quan_ly_giuong_benh
         {
 
             //Load date cũ
+            int soPhong;
             int id = (int)dtgvRoom.SelectedCells[0].OwningRow.Cells["ID"].Value;
             int member = (int)dtgvRoom.SelectedCells[0].OwningRow.Cells["Member"].Value;
             string statusText = dtgvRoom.SelectedCells[0].OwningRow.Cells["Status"].Value.ToString();
@@ -205,7 +207,7 @@ namespace project_quan_ly_giuong_benh
             if (chkBusy.Checked == true)
                 status = 5;
             //push to database
-            if (txbTenPhong.Text != "")
+            if (txbTenPhong.Text != "" && int.TryParse(txbTenPhong.Text,out soPhong))
                 if (status == 4 && member > 0)
                     MessageBox.Show("Chưa chuyển hết bệnh nhân đi!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 else
@@ -215,7 +217,7 @@ namespace project_quan_ly_giuong_benh
                         MessageBox.Show("Cập nhật thông tin thất bại!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             else
                 {
-                    MessageBox.Show("Bạn chưa nhập tên phòng!!!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    MessageBox.Show("Bạn chưa nhập tên phòng hoặc thông tin không đúng!!!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     txbTenPhong.Focus();
                 }
             LoadRoomList();
@@ -270,5 +272,6 @@ namespace project_quan_ly_giuong_benh
             listRoom.DataSource = status == -1 ? RoomDAO.Instance.GetRoomList(columnName, sort) : listRoom.DataSource = RoomDAO.Instance.GetRoomListByStatus(status, columnName, sort);
             dtgvRoom.Columns[0].Tag = !(bool)dtgvRoom.Columns[0].Tag;
         }
+
     }
 }

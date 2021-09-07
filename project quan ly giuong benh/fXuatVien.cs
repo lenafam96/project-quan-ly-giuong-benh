@@ -20,10 +20,21 @@ namespace project_quan_ly_giuong_benh
             InitializeComponent();
             this.Member = member;
             txbHoTen.Text = this.Member.HT;
+            txbMaBN.Text = this.Member.MaBN;
+            dtpNgayXetNghiem.MaxDate = DateTime.Now;
+            dtpNgayXuatVien.MaxDate = DateTime.Now;
             dtpNgayXetNghiem.Value = (DateTime)this.Member.NXN;
         }
 
         public Member Member { get => member; set => member = value; }
+
+        private void CheckNgayOLai()
+        {
+            if (this.Member.NXV != null && this.Member.NXV > DateTime.Now.AddDays(-3))
+                lbCanhBao.Text = "*Bệnh nhân đã ở lại viện thêm " + DateTime.Now.Subtract((DateTime)this.Member.NXV).Days + " ngày!";
+            else
+                lbCanhBao.Text = "";
+        }
 
         private void btnXacNhan_Click(object sender, EventArgs e)
         {
@@ -36,6 +47,7 @@ namespace project_quan_ly_giuong_benh
                 check = double.TryParse(txbCTValue.Text, out ctValue);
                 check = ctValue < 30 ? true : false;
             }
+            check = this.Member.Slxn == 2 && cboKTXN.Text != "PCR" ? true : false;
             if (check)
                 MessageBox.Show("Bạn chưa nhập đủ thông tin!!!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             else
