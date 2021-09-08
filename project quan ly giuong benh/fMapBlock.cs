@@ -46,7 +46,7 @@ namespace project_quan_ly_giuong_benh
 
         void LoadDataGridView()
         {
-            for (int i = 1; i <= 16; i++)
+            for (int i = 1; i < 17; i++)
             {
                 if (i < 10)
                     dtgvMap.Columns.Add("Column" + i.ToString(), ".0" + i.ToString());
@@ -98,11 +98,11 @@ namespace project_quan_ly_giuong_benh
                     sum += room.Member;
                     j++;
                 }
-                dtgvMap.Rows[i].Cells[15].Value = sum;
+                dtgvMap.Rows[i].Cells[16].Value = sum;
                 bigSum += sum;
                 i++;
             }
-            dtgvMap.Rows[i].Cells[15].Value = bigSum;
+            dtgvMap.Rows[i].Cells[16].Value = bigSum;
         }
 
         void LoadChuThich()
