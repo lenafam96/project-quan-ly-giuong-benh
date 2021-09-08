@@ -314,7 +314,7 @@ namespace project_quan_ly_giuong_benh
             this.txbFindMember.Name = "txbFindMember";
             this.txbFindMember.Size = new System.Drawing.Size(263, 26);
             this.txbFindMember.TabIndex = 1;
-            this.txbFindMember.TextChanged += new System.EventHandler(this.btnFindPerson_Click);
+            this.txbFindMember.PreviewKeyDown += new System.Windows.Forms.PreviewKeyDownEventHandler(this.txbFindMember_PreviewKeyDown);
             // 
             // btnFindPerson
             // 

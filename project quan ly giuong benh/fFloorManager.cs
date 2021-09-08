@@ -34,6 +34,7 @@ namespace project_quan_ly_giuong_benh
             Room room = RoomDAO.Instance.GetRoomById(58);
             cboTang.Tag = room;
             lsvChiaPhong.Tag = room;
+            DataProvider.Instance.ExecuteQuery("EXECUTE USP_AutoUpdateNgayXetNghiem");
         }
         #region Methods
         void LoadFloor()

@@ -99,7 +99,7 @@ namespace project_quan_ly_giuong_benh
             this.labelVersion.Name = "labelVersion";
             this.labelVersion.Size = new System.Drawing.Size(271, 17);
             this.labelVersion.TabIndex = 0;
-            this.labelVersion.Text = "Version 1.0.1 Alpha";
+            this.labelVersion.Text = "Version 1.0.2 Alpha";
             this.labelVersion.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // labelCopyright

@@ -1221,5 +1221,13 @@ namespace project_quan_ly_giuong_benh
                 dtgvInput.SelectAll();
             }
         }
+
+        private void txbFindMember_PreviewKeyDown(object sender, PreviewKeyDownEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+                btnFindPerson_Click(sender,e);
+            if (txbFindMember.Text == "")
+                LoadMemberListDangDieuTri();
+        }
     }
 }

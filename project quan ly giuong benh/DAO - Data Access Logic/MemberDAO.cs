@@ -28,12 +28,12 @@ namespace project_quan_ly_giuong_benh.DAO___Data_Access_Logic
             foreach (DataRow item in data.Rows)
             {
                 Member member = new Member(item);
-                member = AutoUpdateNgayXetNghiem(member);
+                //member = AutoUpdateNgayXetNghiem(member);
                 listMember.Add(member);
             }
             return listMember;
         }
-
+        /* Chuyển cho Sever làm
         private Member AutoUpdateNgayXetNghiem(Member member)
         {
             DateTime date = DateTime.Now;
@@ -56,7 +56,7 @@ namespace project_quan_ly_giuong_benh.DAO___Data_Access_Logic
             }
             return member;
         }
-
+        */
         public bool InsertMember(int idPhong, string maBenhNhan, string hoTen, int namSinh, int gioiTinh, string danToc, string diaChi, string phuongXa, string quanHuyen, string tinhThanh, string sdt, string cccd, string noiChuyen, string khoa, DateTime ngayNhapVien, DateTime ngayXetNghiem, string tenNguoiThan, string mqh, string sdtNguoiThan, int phanLoai)
         {
             int count = DataProvider.Instance.ExecuteNonQuery("EXEC dbo.USP_InsertBenhNhan @idPhong , @maBenhNhan , @hoTen , @namSinh , @gioiTinh , @danToc , @diaChi , @phuongXa , @quanHuyen , @tinhThanh , @sdt , @cccd , @noiChuyen , @khoa , @ngayNhapVien , @ngayXetNghiem , @tenNguoiThan , @mqh , @sdtNguoiThan , @phanLoai , @slxn ", new object[] { idPhong , maBenhNhan, hoTen , namSinh , gioiTinh , danToc , diaChi , phuongXa ,
@@ -126,7 +126,7 @@ quanHuyen , tinhThanh , sdt , cccd , noiChuyen , khoa , ngayNhapVien , tenNguoiT
             foreach (DataRow item in data.Rows)
             {
                 Member member = new Member(item);
-                if(status == 0) member = AutoUpdateNgayXetNghiem(member);
+                //if(status == 0) member = AutoUpdateNgayXetNghiem(member);
                 listMember.Add(member);
             }
             return listMember;
@@ -144,7 +144,7 @@ quanHuyen , tinhThanh , sdt , cccd , noiChuyen , khoa , ngayNhapVien , tenNguoiT
             foreach (DataRow item in data.Rows)
             {
                 Member member = new Member(item);
-                if (status == 0) member = AutoUpdateNgayXetNghiem(member);
+                //if (status == 0) member = AutoUpdateNgayXetNghiem(member);
                 listMember.Add(member);
             }
             return listMember;
