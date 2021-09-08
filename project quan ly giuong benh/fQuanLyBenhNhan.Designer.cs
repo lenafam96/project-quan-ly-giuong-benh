@@ -43,8 +43,6 @@ namespace project_quan_ly_giuong_benh
             this.dtgvInput = new ADGV.AdvancedDataGridView();
             this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
             this.panel3 = new System.Windows.Forms.Panel();
-            this.cboPhong = new System.Windows.Forms.ComboBox();
-            this.cboTang = new System.Windows.Forms.ComboBox();
             this.btnAdd = new System.Windows.Forms.Button();
             this.dtpStop = new System.Windows.Forms.DateTimePicker();
             this.dtpStart = new System.Windows.Forms.DateTimePicker();
@@ -65,6 +63,8 @@ namespace project_quan_ly_giuong_benh
             this.lbTotalPage = new System.Windows.Forms.Label();
             this.nUDPageRows = new System.Windows.Forms.NumericUpDown();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
+            this.tpDSXN = new System.Windows.Forms.TabPage();
+            this.dtgvXN = new ADGV.AdvancedDataGridView();
             this.TabControl.SuspendLayout();
             this.tpDangDieuTri.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dtgvMember)).BeginInit();
@@ -78,6 +78,8 @@ namespace project_quan_ly_giuong_benh
             ((System.ComponentModel.ISupportInitialize)(this.dtgvInput)).BeginInit();
             this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nUDPageRows)).BeginInit();
+            this.tpDSXN.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dtgvXN)).BeginInit();
             this.SuspendLayout();
             // 
             // TabControl
@@ -87,6 +89,7 @@ namespace project_quan_ly_giuong_benh
             this.TabControl.Controls.Add(this.tpDaChuyenTuyen);
             this.TabControl.Controls.Add(this.tpDanhSachBack);
             this.TabControl.Controls.Add(this.tpNhapBenhNhanTuFile);
+            this.TabControl.Controls.Add(this.tpDSXN);
             this.TabControl.Location = new System.Drawing.Point(1, 45);
             this.TabControl.Name = "TabControl";
             this.TabControl.SelectedIndex = 0;
@@ -213,13 +216,11 @@ namespace project_quan_ly_giuong_benh
             // dtgvInput
             // 
             this.dtgvInput.AllowUserToAddRows = false;
-            this.dtgvInput.AllowUserToDeleteRows = false;
             this.dtgvInput.AutoGenerateContextFilters = true;
             this.dtgvInput.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dtgvInput.DateWithTime = false;
             this.dtgvInput.Location = new System.Drawing.Point(0, 0);
             this.dtgvInput.Name = "dtgvInput";
-            this.dtgvInput.ReadOnly = true;
             this.dtgvInput.Size = new System.Drawing.Size(1507, 565);
             this.dtgvInput.TabIndex = 24;
             this.dtgvInput.TimeFilter = false;
@@ -232,8 +233,6 @@ namespace project_quan_ly_giuong_benh
             // 
             this.panel3.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.panel3.Controls.Add(this.cboPhong);
-            this.panel3.Controls.Add(this.cboTang);
             this.panel3.Controls.Add(this.btnAdd);
             this.panel3.Controls.Add(this.dtpStop);
             this.panel3.Controls.Add(this.dtpStart);
@@ -249,30 +248,6 @@ namespace project_quan_ly_giuong_benh
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(1511, 42);
             this.panel3.TabIndex = 22;
-            // 
-            // cboPhong
-            // 
-            this.cboPhong.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.cboPhong.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cboPhong.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cboPhong.FormattingEnabled = true;
-            this.cboPhong.Location = new System.Drawing.Point(840, 21);
-            this.cboPhong.Name = "cboPhong";
-            this.cboPhong.Size = new System.Drawing.Size(94, 21);
-            this.cboPhong.TabIndex = 5;
-            this.cboPhong.SelectedIndexChanged += new System.EventHandler(this.cboPhong_SelectedIndexChanged);
-            // 
-            // cboTang
-            // 
-            this.cboTang.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.cboTang.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cboTang.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cboTang.FormattingEnabled = true;
-            this.cboTang.Location = new System.Drawing.Point(840, 0);
-            this.cboTang.Name = "cboTang";
-            this.cboTang.Size = new System.Drawing.Size(94, 21);
-            this.cboTang.TabIndex = 4;
-            this.cboTang.SelectedIndexChanged += new System.EventHandler(this.cboTang_SelectedIndexChanged);
             // 
             // btnAdd
             // 
@@ -466,7 +441,7 @@ namespace project_quan_ly_giuong_benh
             0});
             this.nUDPageRows.Location = new System.Drawing.Point(149, 642);
             this.nUDPageRows.Maximum = new decimal(new int[] {
-            500,
+            1500,
             0,
             0,
             0});
@@ -491,6 +466,33 @@ namespace project_quan_ly_giuong_benh
             // 
             this.openFileDialog1.FileName = "openFileDialog1";
             this.openFileDialog1.Filter = "Excel Document| *.xls;*.xlsx";
+            // 
+            // tpDSXN
+            // 
+            this.tpDSXN.Controls.Add(this.dtgvXN);
+            this.tpDSXN.Location = new System.Drawing.Point(4, 22);
+            this.tpDSXN.Name = "tpDSXN";
+            this.tpDSXN.Padding = new System.Windows.Forms.Padding(3);
+            this.tpDSXN.Size = new System.Drawing.Size(1509, 565);
+            this.tpDSXN.TabIndex = 5;
+            this.tpDSXN.Text = "Danh sách xét nghiệm";
+            this.tpDSXN.UseVisualStyleBackColor = true;
+            // 
+            // dtgvXN
+            // 
+            this.dtgvXN.AllowUserToAddRows = false;
+            this.dtgvXN.AllowUserToDeleteRows = false;
+            this.dtgvXN.AutoGenerateContextFilters = true;
+            this.dtgvXN.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dtgvXN.DateWithTime = false;
+            this.dtgvXN.Location = new System.Drawing.Point(0, 0);
+            this.dtgvXN.Name = "dtgvXN";
+            this.dtgvXN.ReadOnly = true;
+            this.dtgvXN.Size = new System.Drawing.Size(1507, 565);
+            this.dtgvXN.TabIndex = 25;
+            this.dtgvXN.TimeFilter = false;
+            this.dtgvXN.SortStringChanged += new System.EventHandler(this.dtgvXN_SortStringChanged);
+            this.dtgvXN.FilterStringChanged += new System.EventHandler(this.dtgvXN_FilterStringChanged);
             // 
             // fQuanLyBenhNhan
             // 
@@ -529,6 +531,8 @@ namespace project_quan_ly_giuong_benh
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nUDPageRows)).EndInit();
+            this.tpDSXN.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dtgvXN)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -568,8 +572,8 @@ namespace project_quan_ly_giuong_benh
         private System.Windows.Forms.TabPage tpNhapBenhNhanTuFile;
         private ADGV.AdvancedDataGridView dtgvInput;
         private System.Windows.Forms.OpenFileDialog openFileDialog1;
-        private System.Windows.Forms.ComboBox cboPhong;
-        private System.Windows.Forms.ComboBox cboTang;
         private System.Windows.Forms.Button btnAdd;
+        private System.Windows.Forms.TabPage tpDSXN;
+        private ADGV.AdvancedDataGridView dtgvXN;
     }
 }

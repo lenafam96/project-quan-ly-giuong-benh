@@ -41,13 +41,13 @@ namespace project_quan_ly_giuong_benh.DAO___Data_Access_Logic
             DateTime date2 = date.AddDays(-2);
             if(member.NXN != null)
             {
-                if (date1 >= member.NXN.Value && member.Slxn == 1)
+                if (date1 > member.NXN.Value && member.Slxn == 1)
                 {
                     member.NXN = member.NXN.Value.AddDays(7);
                     member.Slxn++;
                     UpdateNgayXetNghiem(member.ID, 7, 1);
                 }
-                if (date2 >= member.NXN.Value && member.Slxn > 1)
+                if (date2 > member.NXN.Value && member.Slxn > 1)
                 {
                     member.NXN = member.NXN.Value.AddDays(2);
                     member.Slxn++;

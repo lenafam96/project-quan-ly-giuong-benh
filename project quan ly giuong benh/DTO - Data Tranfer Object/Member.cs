@@ -56,7 +56,7 @@ namespace project_quan_ly_giuong_benh.DTO___Data_Tranfer_Object
                 this.GT = "Nam";
             else
                 this.GT = "Nữ";
-            this.DanToc = row["danToc"].ToString();
+            this.DanToc = row["danToc"]==null || row["danToc"]== ""?"Kinh":row["danToc"].ToString();
             this.DC = row["diaChi"].ToString();
             this.PX = row["phuongXa"].ToString();
             this.QH = row["quanHuyen"].ToString();
