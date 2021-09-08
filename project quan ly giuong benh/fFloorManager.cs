@@ -31,7 +31,7 @@ namespace project_quan_ly_giuong_benh
             LoadRoomCapCuu();
             showMember(45);
             //btnChangeRoom.Enabled = false;
-            Room room = RoomDAO.Instance.GetRoomById(45);
+            Room room = RoomDAO.Instance.GetRoomById(58);
             cboTang.Tag = room;
             lsvChiaPhong.Tag = room;
         }
