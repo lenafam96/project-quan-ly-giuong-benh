@@ -1177,7 +1177,7 @@ namespace project_quan_ly_giuong_benh
                         string ht = item.Cells[2].Value.ToString();
                         int gt = item.Cells[3].Value.ToString().ToUpper() == "Nam".ToUpper() ? 0 : 1;
                         int ns = int.Parse(item.Cells[4].Value.ToString());
-                        string danToc = item.Cells[5].Value==null || item.Cells[5].Value==""?"Kinh":item.Cells[5].Value.ToString();
+                        string danToc = item.Cells[5].Value==null || item.Cells[5].Value.ToString()==""?"Kinh":item.Cells[5].Value.ToString();
                         string dc = item.Cells[6].Value.ToString();
                         string tiTh = item.Cells[7].Value.ToString()=="HCM"?"Hồ Chí Minh":item.Cells[7].Value.ToString();
                         string qHuyen = item.Cells[8].Value.ToString();
@@ -1203,7 +1203,7 @@ namespace project_quan_ly_giuong_benh
                         }
                         count++;
                         room.Member++;
-                        for(int i = 0; i < 20; i++)
+                        for(int i = 0; i < 18; i++)
                         {
                             item.Cells[i].Style.BackColor = Color.Yellow;
                         }
@@ -1214,5 +1214,12 @@ namespace project_quan_ly_giuong_benh
         }
         #endregion
 
+        private void dtgvInput_PreviewKeyDown(object sender, PreviewKeyDownEventArgs e)
+        {
+            if(e.Control == true && e.KeyCode == Keys.A)
+            {
+                dtgvInput.SelectAll();
+            }
+        }
     }
 }

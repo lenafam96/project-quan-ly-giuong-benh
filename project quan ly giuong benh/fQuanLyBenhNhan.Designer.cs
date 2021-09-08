@@ -41,6 +41,8 @@ namespace project_quan_ly_giuong_benh
             this.dtgvBack = new ADGV.AdvancedDataGridView();
             this.tpNhapBenhNhanTuFile = new System.Windows.Forms.TabPage();
             this.dtgvInput = new ADGV.AdvancedDataGridView();
+            this.tpDSXN = new System.Windows.Forms.TabPage();
+            this.dtgvXN = new ADGV.AdvancedDataGridView();
             this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
             this.panel3 = new System.Windows.Forms.Panel();
             this.btnAdd = new System.Windows.Forms.Button();
@@ -63,8 +65,6 @@ namespace project_quan_ly_giuong_benh
             this.lbTotalPage = new System.Windows.Forms.Label();
             this.nUDPageRows = new System.Windows.Forms.NumericUpDown();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
-            this.tpDSXN = new System.Windows.Forms.TabPage();
-            this.dtgvXN = new ADGV.AdvancedDataGridView();
             this.TabControl.SuspendLayout();
             this.tpDangDieuTri.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dtgvMember)).BeginInit();
@@ -76,10 +76,10 @@ namespace project_quan_ly_giuong_benh
             ((System.ComponentModel.ISupportInitialize)(this.dtgvBack)).BeginInit();
             this.tpNhapBenhNhanTuFile.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dtgvInput)).BeginInit();
-            this.panel3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.nUDPageRows)).BeginInit();
             this.tpDSXN.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dtgvXN)).BeginInit();
+            this.panel3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.nUDPageRows)).BeginInit();
             this.SuspendLayout();
             // 
             // TabControl
@@ -224,6 +224,34 @@ namespace project_quan_ly_giuong_benh
             this.dtgvInput.Size = new System.Drawing.Size(1507, 565);
             this.dtgvInput.TabIndex = 24;
             this.dtgvInput.TimeFilter = false;
+            this.dtgvInput.PreviewKeyDown += new System.Windows.Forms.PreviewKeyDownEventHandler(this.dtgvInput_PreviewKeyDown);
+            // 
+            // tpDSXN
+            // 
+            this.tpDSXN.Controls.Add(this.dtgvXN);
+            this.tpDSXN.Location = new System.Drawing.Point(4, 22);
+            this.tpDSXN.Name = "tpDSXN";
+            this.tpDSXN.Padding = new System.Windows.Forms.Padding(3);
+            this.tpDSXN.Size = new System.Drawing.Size(1509, 565);
+            this.tpDSXN.TabIndex = 5;
+            this.tpDSXN.Text = "Danh sách xét nghiệm";
+            this.tpDSXN.UseVisualStyleBackColor = true;
+            // 
+            // dtgvXN
+            // 
+            this.dtgvXN.AllowUserToAddRows = false;
+            this.dtgvXN.AllowUserToDeleteRows = false;
+            this.dtgvXN.AutoGenerateContextFilters = true;
+            this.dtgvXN.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dtgvXN.DateWithTime = false;
+            this.dtgvXN.Location = new System.Drawing.Point(0, 0);
+            this.dtgvXN.Name = "dtgvXN";
+            this.dtgvXN.ReadOnly = true;
+            this.dtgvXN.Size = new System.Drawing.Size(1507, 565);
+            this.dtgvXN.TabIndex = 25;
+            this.dtgvXN.TimeFilter = false;
+            this.dtgvXN.SortStringChanged += new System.EventHandler(this.dtgvXN_SortStringChanged);
+            this.dtgvXN.FilterStringChanged += new System.EventHandler(this.dtgvXN_FilterStringChanged);
             // 
             // saveFileDialog1
             // 
@@ -467,33 +495,6 @@ namespace project_quan_ly_giuong_benh
             this.openFileDialog1.FileName = "openFileDialog1";
             this.openFileDialog1.Filter = "Excel Document| *.xls;*.xlsx";
             // 
-            // tpDSXN
-            // 
-            this.tpDSXN.Controls.Add(this.dtgvXN);
-            this.tpDSXN.Location = new System.Drawing.Point(4, 22);
-            this.tpDSXN.Name = "tpDSXN";
-            this.tpDSXN.Padding = new System.Windows.Forms.Padding(3);
-            this.tpDSXN.Size = new System.Drawing.Size(1509, 565);
-            this.tpDSXN.TabIndex = 5;
-            this.tpDSXN.Text = "Danh sách xét nghiệm";
-            this.tpDSXN.UseVisualStyleBackColor = true;
-            // 
-            // dtgvXN
-            // 
-            this.dtgvXN.AllowUserToAddRows = false;
-            this.dtgvXN.AllowUserToDeleteRows = false;
-            this.dtgvXN.AutoGenerateContextFilters = true;
-            this.dtgvXN.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dtgvXN.DateWithTime = false;
-            this.dtgvXN.Location = new System.Drawing.Point(0, 0);
-            this.dtgvXN.Name = "dtgvXN";
-            this.dtgvXN.ReadOnly = true;
-            this.dtgvXN.Size = new System.Drawing.Size(1507, 565);
-            this.dtgvXN.TabIndex = 25;
-            this.dtgvXN.TimeFilter = false;
-            this.dtgvXN.SortStringChanged += new System.EventHandler(this.dtgvXN_SortStringChanged);
-            this.dtgvXN.FilterStringChanged += new System.EventHandler(this.dtgvXN_FilterStringChanged);
-            // 
             // fQuanLyBenhNhan
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -528,11 +529,11 @@ namespace project_quan_ly_giuong_benh
             ((System.ComponentModel.ISupportInitialize)(this.dtgvBack)).EndInit();
             this.tpNhapBenhNhanTuFile.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dtgvInput)).EndInit();
+            this.tpDSXN.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dtgvXN)).EndInit();
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nUDPageRows)).EndInit();
-            this.tpDSXN.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dtgvXN)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

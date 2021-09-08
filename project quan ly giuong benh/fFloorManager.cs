@@ -428,7 +428,7 @@ namespace project_quan_ly_giuong_benh
             Room room = lsvChiaPhong.Tag as Room;
             ChoseRoomForLoad(room);
             LoadFloor();
-            LoadRoomComboBox(room.IDTang);
+            LoadRoomComboBox(1);
             showMember(room.ID);
         }
 
