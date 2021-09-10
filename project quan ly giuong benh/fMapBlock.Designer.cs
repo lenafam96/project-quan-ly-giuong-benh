@@ -40,11 +40,10 @@ namespace project_quan_ly_giuong_benh
             this.lbDateNow = new System.Windows.Forms.Label();
             this.dtgvChuThich = new System.Windows.Forms.DataGridView();
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ksudung = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.pnlTable.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dtgvMap)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtgvChuThich)).BeginInit();
@@ -121,11 +120,10 @@ namespace project_quan_ly_giuong_benh
             this.dtgvChuThich.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dtgvChuThich.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Column1,
-            this.Column2,
-            this.Column3,
             this.Column4,
             this.Column5,
-            this.Column6});
+            this.Column6,
+            this.ksudung});
             dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Window;
             dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -146,18 +144,6 @@ namespace project_quan_ly_giuong_benh
             this.Column1.Name = "Column1";
             this.Column1.ReadOnly = true;
             // 
-            // Column2
-            // 
-            this.Column2.HeaderText = "Sắp khỏi";
-            this.Column2.Name = "Column2";
-            this.Column2.ReadOnly = true;
-            // 
-            // Column3
-            // 
-            this.Column3.HeaderText = "Đầy";
-            this.Column3.Name = "Column3";
-            this.Column3.ReadOnly = true;
-            // 
             // Column4
             // 
             this.Column4.HeaderText = "Cấp cứu";
@@ -175,6 +161,12 @@ namespace project_quan_ly_giuong_benh
             this.Column6.HeaderText = "Bận";
             this.Column6.Name = "Column6";
             this.Column6.ReadOnly = true;
+            // 
+            // ksudung
+            // 
+            this.ksudung.HeaderText = "Không sử dụng";
+            this.ksudung.Name = "ksudung";
+            this.ksudung.ReadOnly = true;
             // 
             // fMapBlock
             // 
@@ -206,10 +198,9 @@ namespace project_quan_ly_giuong_benh
         private System.Windows.Forms.DataGridView dtgvMap;
         private System.Windows.Forms.DataGridView dtgvChuThich;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column5;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column6;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ksudung;
     }
 }

@@ -24,6 +24,8 @@ namespace project_quan_ly_giuong_benh
         BindingSource listChuyenTuyen = new BindingSource();
         BindingSource listBack = new BindingSource();
         BindingSource listXetNghiem = new BindingSource();
+        private List<Member> ListMemberEdit = new List<Member>();
+
         private int status;
 
         public int Status { get => status; set => status = value; }
@@ -41,8 +43,8 @@ namespace project_quan_ly_giuong_benh
             dtpStart.CustomFormat = "dd/MM/yyyy";
             dtpStop.Format = DateTimePickerFormat.Custom;
             dtpStop.CustomFormat = "dd/MM/yyyy";
-            dtpStart.Value = new DateTime(today.Year, today.Month, 1);
-            dtpStop.Value = dtpStart.Value.AddMonths(1).AddDays(-1);
+            dtpStart.Value = new DateTime(today.Year, today.AddMonths(-3).Month, 1);
+            dtpStop.Value = dtpStart.Value.AddMonths(4).AddDays(-1);
             txbPage.Text = "1";
             LoadMemberListDangDieuTri();
         }
@@ -89,24 +91,52 @@ namespace project_quan_ly_giuong_benh
 
         private void EnableEIButton()
         {
-            if (this.Status == 1 || this.Status == 0 || this.Status == 5)
-                btnExport.Enabled = true;
-            else
-                btnExport.Enabled = false;
-            if (this.Status == 4)
+            switch (this.Status)
             {
-                btnImport.Enabled = btnAdd.Enabled = true;
-                btnDelPerson.Enabled = btnEditPerson.Enabled = false;
-            }    
-            else
-            {
-                btnImport.Enabled = btnAdd.Enabled = false;
-                btnDelPerson.Enabled = btnEditPerson.Enabled = true;
+                case 0:
+                    btnExport.Enabled = xoáBệnhNhânToolStripMenuItem.Enabled = sửaThôngTinToolStripMenuItem.Enabled = xuấtViệnToolStripMenuItem.Enabled = chuyểnTuyếnToolStripMenuItem.Enabled = true;
+                    btnImport.Enabled = quayLạiViệnToolStripMenuItem.Enabled = thêmBệnhNhânToolStripMenuItem.Enabled = false;
+                    break;
+                case 1:
+                    btnExport.Enabled = xoáBệnhNhânToolStripMenuItem.Enabled = sửaThôngTinToolStripMenuItem.Enabled = quayLạiViệnToolStripMenuItem.Enabled = true;
+                    btnImport.Enabled = xuấtViệnToolStripMenuItem.Enabled = chuyểnTuyếnToolStripMenuItem.Enabled = thêmBệnhNhânToolStripMenuItem.Enabled = false;
+                    break;
+                case 2:
+                    xoáBệnhNhânToolStripMenuItem.Enabled = sửaThôngTinToolStripMenuItem.Enabled = quayLạiViệnToolStripMenuItem.Enabled = true;
+                    btnExport.Enabled = btnImport.Enabled = xuấtViệnToolStripMenuItem.Enabled = chuyểnTuyếnToolStripMenuItem.Enabled = thêmBệnhNhânToolStripMenuItem.Enabled = false;
+                    break;
+                case 3:
+                    xoáBệnhNhânToolStripMenuItem.Enabled = sửaThôngTinToolStripMenuItem.Enabled = xuấtViệnToolStripMenuItem.Enabled = chuyểnTuyếnToolStripMenuItem.Enabled = true;
+                    btnExport.Enabled = btnImport.Enabled = quayLạiViệnToolStripMenuItem.Enabled = thêmBệnhNhânToolStripMenuItem.Enabled = false;
+                    break;
+                case 4:
+                    btnImport.Enabled = xuấtViệnToolStripMenuItem.Enabled = chuyểnTuyếnToolStripMenuItem.Enabled = thêmBệnhNhânToolStripMenuItem.Enabled = true;
+                    btnExport.Enabled = xoáBệnhNhânToolStripMenuItem.Enabled = sửaThôngTinToolStripMenuItem.Enabled = quayLạiViệnToolStripMenuItem.Enabled = false;
+                    break;
+                case 5:
+                    btnExport.Enabled = xoáBệnhNhânToolStripMenuItem.Enabled = sửaThôngTinToolStripMenuItem.Enabled = xuấtViệnToolStripMenuItem.Enabled = chuyểnTuyếnToolStripMenuItem.Enabled = true;
+                    btnImport.Enabled = quayLạiViệnToolStripMenuItem.Enabled = thêmBệnhNhânToolStripMenuItem.Enabled = false;
+                    break;
             }
-            if (this.Status == 2 || this.Status == 1)
-                btnBack.Enabled = true;
-            else
-                btnBack.Enabled = false;
+        }
+
+
+        void EditMember(int index)
+        {
+            double ctValue;
+            DateTime ngayXN;
+            Member member = MemberDAO.Instance.GetMemberById((int)SwitchDtgv().Rows[index].Cells[0].Value);
+            if(this.Status == 1)
+            {
+                member.SoLT = dtgvXuatVien.Rows[index].Cells[3].Value.ToString();
+                member.NXN = DateTime.TryParse(dtgvXuatVien.Rows[index].Cells[15].Value.ToString(), out ngayXN) ? ngayXN : member.NXN;
+                member.Ktxn = dtgvXuatVien.Rows[index].Cells[16].Value.ToString();
+                member.Kq = dtgvXuatVien.Rows[index].Cells[17].Value.ToString();
+                member.CtValue = double.TryParse(dtgvXuatVien.Rows[index].Cells[18].Value.ToString(), out ctValue) ? ctValue : 0;
+            }    
+            if(this.Status == 2)
+                member.NoiDen = dtgvChuyenTuyen.Rows[index].Cells[16].Value.ToString();
+            ListMemberEdit.Add(member);
         }
 
         private int LastPage()
@@ -140,7 +170,8 @@ namespace project_quan_ly_giuong_benh
 
         private void FormatColumnDangDieuTri()
         {
-            dtgvMember.Columns[0].Visible = false;
+            dtgvMember.Columns[0].HeaderText = "STT";
+            dtgvMember.Columns[0].Width = 30;
             dtgvMember.Columns[1].HeaderText = "Phòng";
             dtgvMember.Columns[1].Width = 40;
             dtgvMember.Columns[2].HeaderText = "Mã BN\n(nếu có)";
@@ -177,7 +208,7 @@ namespace project_quan_ly_giuong_benh
             dtgvMember.Columns[16].Width = 80;
             dtgvMember.Columns[17].HeaderText = "Phân loại";
             dtgvMember.Columns[17].Width = 40;
-            int[] arr = { 1, 2, 4, 5, 6, 7, 11, 12, 13, 16, 17 };
+            int[] arr = { 0, 1, 2, 4, 5, 6, 7, 11, 12, 13, 16, 17 };
             foreach (int i in arr)
             {
                 dtgvMember.Columns[i].CellTemplate.Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
@@ -185,7 +216,8 @@ namespace project_quan_ly_giuong_benh
         }
         private void FormatColumnXuatVien()
         {
-            dtgvXuatVien.Columns[0].Visible = false;
+            dtgvXuatVien.Columns[0].HeaderText = "STT";
+            dtgvXuatVien.Columns[0].Width = 30;
             dtgvXuatVien.Columns[1].HeaderText = "PHÒNG";
             dtgvXuatVien.Columns[1].Width = 40;
             dtgvXuatVien.Columns[2].HeaderText = "Mã BN\n(nếu có)";
@@ -225,7 +257,7 @@ namespace project_quan_ly_giuong_benh
             dtgvXuatVien.Columns[17].Width = 80;
             dtgvXuatVien.Columns[18].HeaderText = "CT\nVALUE\n≥30";
             dtgvXuatVien.Columns[18].Width = 80;
-            int[] arr = { 1, 2, 3, 5, 6, 7, 10, 11, 12, 13, 14, 15, 16, 17, 18 };
+            int[] arr = { 0, 1, 2, 3, 5, 6, 7, 10, 11, 12, 13, 14, 15, 16, 17, 18 };
             foreach (int i in arr)
             {
                 dtgvXuatVien.Columns[i].CellTemplate.Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
@@ -233,7 +265,8 @@ namespace project_quan_ly_giuong_benh
         }
         private void FormatColumnChuyenTuyen()
         {
-            dtgvChuyenTuyen.Columns[0].Visible = false;
+            dtgvChuyenTuyen.Columns[0].HeaderText = "STT";
+            dtgvChuyenTuyen.Columns[0].Width = 30;
             dtgvChuyenTuyen.Columns[1].HeaderText = "Phòng";
             dtgvChuyenTuyen.Columns[1].Width = 40;
             dtgvChuyenTuyen.Columns[2].HeaderText = "Mã BN\n(nếu có)";
@@ -269,7 +302,7 @@ namespace project_quan_ly_giuong_benh
             dtgvChuyenTuyen.Columns[15].Width = 40;
             dtgvChuyenTuyen.Columns[16].HeaderText = "Chuyển đến";
             dtgvChuyenTuyen.Columns[16].Width = 100;
-            int[] arr = { 1, 2, 4, 5, 6, 7, 11, 12, 13, 14, 15 };
+            int[] arr = { 0, 1, 2, 4, 5, 6, 7, 11, 12, 13, 14, 15 };
             foreach (int i in arr)
             {
                 dtgvChuyenTuyen.Columns[i].CellTemplate.Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
@@ -277,7 +310,8 @@ namespace project_quan_ly_giuong_benh
         }
         private void FormatColumnQuayLai()
         {
-            dtgvBack.Columns[0].Visible = false;
+            dtgvBack.Columns[0].HeaderText = "STT";
+            dtgvBack.Columns[0].Width = 30;
             dtgvBack.Columns[1].HeaderText = "Phòng";
             dtgvBack.Columns[1].Width = 40;
             dtgvBack.Columns[2].HeaderText = "Mã BN\n(nếu có)";
@@ -307,7 +341,7 @@ namespace project_quan_ly_giuong_benh
             dtgvBack.Columns[13].Width = 40;
             dtgvBack.Columns[14].HeaderText = "Phân loại";
             dtgvBack.Columns[14].Width = 40;
-            int[] arr = { 1, 2, 4, 5, 6, 7, 11, 12, 13, 14 };
+            int[] arr = { 0, 1, 2, 4, 5, 6, 7, 11, 12, 13, 14 };
             foreach (int i in arr)
             {
                 dtgvBack.Columns[i].CellTemplate.Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
@@ -315,7 +349,8 @@ namespace project_quan_ly_giuong_benh
         }
         private void FormatColumnXetNghiem()
         {
-            dtgvXN.Columns[0].Visible = false;
+            dtgvXN.Columns[0].HeaderText = "STT";
+            dtgvXN.Columns[0].Width = 30;
             dtgvXN.Columns[1].HeaderText = "Phòng";
             dtgvXN.Columns[1].Width = 40;
             dtgvXN.Columns[2].HeaderText = "Mã BN\n(nếu có)";
@@ -346,7 +381,7 @@ namespace project_quan_ly_giuong_benh
             dtgvXN.Columns[13].Width = 80;
             dtgvXN.Columns[14].HeaderText = "Loại xét nghiệm";
             dtgvXN.Columns[14].Width = 80;
-            int[] arr = { 1, 2, 4, 5, 6, 7, 11, 12, 13, 14 };
+            int[] arr = { 0, 1, 2, 4, 5, 6, 7, 11, 12, 13, 14 };
             foreach (int i in arr)
             {
                 dtgvXN.Columns[i].CellTemplate.Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
@@ -391,8 +426,28 @@ namespace project_quan_ly_giuong_benh
             }
         }
 
+        private void LoadTotalMember()
+        {
+            if (this.Status == 0 || this.Status == 1 || this.Status == 2)
+                lbTongSoBN.Text = "Tổng số: " + DataProvider.Instance.ExecuteQuery("SELECT id FROM dbo.BenhNhan WHERE trangThai = " + this.Status).Rows.Count.ToString();
+            if(this.Status == 3)
+                lbTongSoBN.Text = "Tổng số: " + DataProvider.Instance.ExecuteQuery("SELECT id FROM dbo.BenhNhan WHERE trangThai = 0 AND ngayXuatVien IS NOT NULL").Rows.Count.ToString();
+            if (this.Status == 4)
+                lbTongSoBN.Text = "Tổng số: " + dtgvInput.Rows.Count.ToString();
+            if (this.Status == 5)
+                lbTongSoBN.Text = "Tổng số: " + DataProvider.Instance.ExecuteQuery("SELECT id FROM dbo.BenhNhan WHERE trangThai = 0").Rows.Count.ToString();
+        }
+
+        void LoadSTT()
+        {
+            for (int i = 0; i < SwitchDtgv().RowCount; i++)
+                SwitchDtgv().Rows[i].Cells[0].Value = i + 1;
+        }
+
         private void LoadMemberListDangDieuTri()
         {
+            if(ListMemberEdit.Count > 0)
+                ListMemberEdit.Clear();
             int page = 1;
             int pageRow = (int)nUDPageRows.Value;
             if (this.Status == 4)
@@ -420,8 +475,10 @@ namespace project_quan_ly_giuong_benh
                         break;
                 }
             }
+            LoadSTT();
             FormatColumn();
             EnableEIButton();
+            LoadTotalMember();
         }
         private void SetWidthColumn(Microsoft.Office.Interop.Excel.Worksheet worksheet)
         {
@@ -550,9 +607,6 @@ namespace project_quan_ly_giuong_benh
             if(this.Status == 1)
             {
                 worksheet.Columns[11].NumberFormat = "@";
-                worksheet.Columns[13].NumberFormat = "DD/MM/YYYY";
-                worksheet.Columns[14].NumberFormat = "DD/MM/YYYY";
-                worksheet.Columns[16].NumberFormat = "DD/MM/YYYY";
                 worksheet.Rows[5].WrapText = true;
                 worksheet.Rows[6].WrapText = true;
                 worksheet.Columns.VerticalAlignment = Excel.XlVAlign.xlVAlignCenter;
@@ -569,8 +623,6 @@ namespace project_quan_ly_giuong_benh
                 worksheet.Columns[8].NumberFormat = "@";
                 worksheet.Columns[10].NumberFormat = "@";
                 worksheet.Columns[17].NumberFormat = "@";
-                worksheet.Columns[13].NumberFormat = "DD/MM/YYYY";
-                worksheet.Columns[14].NumberFormat = "DD/MM/YYYY";
                 worksheet.Rows[5].WrapText = true;
                 worksheet.Rows[6].WrapText = true;
                 worksheet.Columns.VerticalAlignment = Excel.XlVAlign.xlVAlignCenter;
@@ -588,8 +640,6 @@ namespace project_quan_ly_giuong_benh
             {
                 worksheet.Columns[8].NumberFormat = "@";
                 worksheet.Columns[10].NumberFormat = "@";
-                worksheet.Columns[13].NumberFormat = "DD/MM/YYYY";
-                worksheet.Columns[14].NumberFormat = "DD/MM/YYYY";
                 worksheet.Rows[5].WrapText = true;
                 worksheet.Rows[6].WrapText = true;
                 worksheet.Columns.VerticalAlignment = Excel.XlVAlign.xlVAlignCenter;
@@ -821,7 +871,44 @@ namespace project_quan_ly_giuong_benh
         }
         private void ExportCell(Microsoft.Office.Interop.Excel.Worksheet worksheet, DataGridView dataGridView1)
         {
-            if(this.Status == 1)
+            DateTime date;
+            if (this.Status == 1)
+            {
+                for (int i = 0; i < dataGridView1.RowCount; i++)
+                {
+                    int count = dataGridView1.ColumnCount;
+                    int index = 0;
+                    worksheet.Cells[i + 7, 1] = i + 1;
+                    worksheet.Cells[i + 7, 1].Borders.LineStyle = Excel.XlLineStyle.xlContinuous;
+                    worksheet.Cells[i + 7, 1].Borders.Weight = 2d;
+                    worksheet.Cells[i + 7, 20].Borders.LineStyle = Excel.XlLineStyle.xlContinuous;
+                    worksheet.Cells[i + 7, 20].Borders.Weight = 2d;
+                    for (int j = 1; j < count; j++)
+                    {
+                        index++;
+                        if (index > 1 && dataGridView1.Columns[index].Visible == false)
+                        {
+                            count--;
+                            j--;
+                            continue;
+                        }
+                        if (j == 18 && dataGridView1.Rows[i].Cells[index].Value.ToString() == "0")
+                            worksheet.Cells[i + 7, j + 1] = "";
+                        else
+                            if (j == 12 || j == 13 || j == 15)
+                            {
+                                date = (DateTime)dataGridView1.Rows[i].Cells[index].Value;
+                                worksheet.Cells[i + 7, j + 1] = date.ToString("dd/MM/yyyy");
+                            }        
+                            else
+                                worksheet.Cells[i + 7, j + 1] = dataGridView1.Rows[i].Cells[index].Value == null ? "" : dataGridView1.Rows[i].Cells[index].Value.ToString().ToUpper();
+                        worksheet.Cells[i + 7, j + 1].Borders.LineStyle = Excel.XlLineStyle.xlContinuous;
+                        worksheet.Cells[i + 7, j + 1].Borders.Weight = 2d;
+                    }
+
+                }
+            }
+            if (this.Status == 0)
             {
                 for (int i = 0; i < dataGridView1.RowCount; i++)
                 {
@@ -841,36 +928,12 @@ namespace project_quan_ly_giuong_benh
                             j--;
                             continue;
                         }
-                        if (j == 18 && dataGridView1.Rows[i].Cells[index].Value.ToString() == "0")
-                            worksheet.Cells[i + 7, j + 1] = "";
-                        else worksheet.Cells[i + 7, j + 1] = dataGridView1.Rows[i].Cells[index].Value == null ? "" : dataGridView1.Rows[i].Cells[index].Value.ToString().ToUpper();
-                        worksheet.Cells[i + 7, j + 1].Borders.LineStyle = Excel.XlLineStyle.xlContinuous;
-                        worksheet.Cells[i + 7, j + 1].Borders.Weight = 2d;
-                    }
-
-                }
-            }
-            if (this.Status == 0)
-            {
-                for (int i = 0; i < dataGridView1.RowCount; i++)
-                {
-                    int count = dataGridView1.ColumnCount;
-                    int index = 0;
-                    worksheet.Cells[i + 7, 1] = i + 1;
-                    worksheet.Cells[i + 7, 1].Borders.LineStyle = Excel.XlLineStyle.xlContinuous;
-                    worksheet.Cells[i + 7, 1].Borders.Weight = 2d;
-                    worksheet.Cells[i + 7, 19].Borders.LineStyle = Excel.XlLineStyle.xlContinuous;
-                    worksheet.Cells[i + 7, 19].Borders.Weight = 2d;
-                    for (int j = 1; j < count; j++)
-                    {
-                        index++;
-                        if (index > 1 && dataGridView1.Columns[index].Visible == false)
+                        if ((j == 12 || j == 13) && DateTime.TryParse(dataGridView1.Rows[i].Cells[index].Value.ToString(),out date))
                         {
-                            count--;
-                            j--;
-                            continue;
+                            worksheet.Cells[i + 7, j + 1] = date.ToString("dd/MM/yyyy");
                         }
-                        worksheet.Cells[i + 7, j + 1] = dataGridView1.Rows[i].Cells[index].Value == null ? "" : dataGridView1.Rows[i].Cells[index].Value.ToString().ToUpper();
+                        else
+                            worksheet.Cells[i + 7, j + 1] = dataGridView1.Rows[i].Cells[index].Value == null ? "" : dataGridView1.Rows[i].Cells[index].Value.ToString().ToUpper();
                         worksheet.Cells[i + 7, j + 1].Borders.LineStyle = Excel.XlLineStyle.xlContinuous;
                         worksheet.Cells[i + 7, j + 1].Borders.Weight = 2d;
                     }
@@ -897,7 +960,12 @@ namespace project_quan_ly_giuong_benh
                             j--;
                             continue;
                         }
-                        worksheet.Cells[i + 7, j + 1] = dataGridView1.Rows[i].Cells[index].Value == null ? "" : dataGridView1.Rows[i].Cells[index].Value.ToString().ToUpper();
+                        if ((j == 12 || j == 13) && DateTime.TryParse(dataGridView1.Rows[i].Cells[index].Value.ToString(), out date))
+                        {
+                            worksheet.Cells[i + 7, j + 1] = date.ToString("dd/MM/yyyy");
+                        }
+                        else
+                            worksheet.Cells[i + 7, j + 1] = dataGridView1.Rows[i].Cells[index].Value == null ? "" : dataGridView1.Rows[i].Cells[index].Value.ToString().ToUpper();
                         worksheet.Cells[i + 7, j + 1].Borders.LineStyle = Excel.XlLineStyle.xlContinuous;
                         worksheet.Cells[i + 7, j + 1].Borders.Weight = 2d;
                     }
@@ -1051,6 +1119,18 @@ namespace project_quan_ly_giuong_benh
         {
             listXetNghiem.Filter = SwitchDtgv().FilterString;
         }
+
+
+        private void dtgvBack_SortStringChanged(object sender, EventArgs e)
+        {
+            listBack.Sort = SwitchDtgv().SortString;
+        }
+
+        private void dtgvBack_FilterStringChanged(object sender, EventArgs e)
+        {
+            listBack.Filter = SwitchDtgv().FilterString;
+        }
+
         private void btnThongKe_Click(object sender, EventArgs e)
         {
             LoadMemberListDangDieuTri();
@@ -1059,6 +1139,23 @@ namespace project_quan_ly_giuong_benh
         private void btnFirst_Click(object sender, EventArgs e)
         {
             txbPage.Text = "1";
+        }
+
+
+        private void dtgvInput_PreviewKeyDown(object sender, PreviewKeyDownEventArgs e)
+        {
+            if (e.Control == true && e.KeyCode == Keys.A)
+            {
+                dtgvInput.SelectAll();
+            }
+        }
+
+        private void txbFindMember_PreviewKeyDown(object sender, PreviewKeyDownEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+                btnFindPerson_Click(sender, e);
+            if (txbFindMember.Text == "")
+                LoadMemberListDangDieuTri();
         }
 
         private void btnLast_Click(object sender, EventArgs e)
@@ -1116,7 +1213,6 @@ namespace project_quan_ly_giuong_benh
                 {
                     ToExcel(dtgvXuatVien, saveFileDialog1.FileName);
                 }
-                LoadMemberListDangDieuTri();
             }
             if(this.Status == 0)
             {
@@ -1125,7 +1221,6 @@ namespace project_quan_ly_giuong_benh
                 {
                     ToExcel(dtgvMember, saveFileDialog1.FileName);
                 }
-                LoadMemberListDangDieuTri();
             }
             if (this.Status == 5)
             {
@@ -1134,8 +1229,9 @@ namespace project_quan_ly_giuong_benh
                 {
                     ToExcel(dtgvXN, saveFileDialog1.FileName);
                 }
-                LoadMemberListDangDieuTri();
             }
+
+            LoadMemberListDangDieuTri();
         }
 
         private void btnImport_Click(object sender, EventArgs e)
@@ -1156,7 +1252,7 @@ namespace project_quan_ly_giuong_benh
                 {
                     MessageBox.Show(ex.Message);
                 }
-                
+                lbTongSoBN.Text = "Tổng số: " + dtgvInput.Rows.Count.ToString();
             }
         }
 
@@ -1166,32 +1262,32 @@ namespace project_quan_ly_giuong_benh
             if (dtgvInput.SelectedRows.Count > 0)
             {
                 int count = 0;
-                foreach (DataGridViewRow item in dtgvInput.SelectedRows)
+                for(int i = dtgvInput.SelectedRows.Count-1;i>=0;i--)
                 {
-                    string roomName = item.Cells[1].Value.ToString();
+                    string roomName = dtgvInput.SelectedRows[i].Cells[1].Value.ToString();
                     Room room = RoomDAO.Instance.GetRoomByName(roomName);
                     if (room != null && room.Member < room.Maximum)
                     {
                         int idPhong = room.ID;
                         string maBN = "";
-                        string ht = item.Cells[2].Value.ToString();
-                        int gt = item.Cells[3].Value.ToString().ToUpper() == "Nam".ToUpper() ? 0 : 1;
-                        int ns = int.Parse(item.Cells[4].Value.ToString());
-                        string danToc = item.Cells[5].Value==null || item.Cells[5].Value.ToString()==""?"Kinh":item.Cells[5].Value.ToString();
-                        string dc = item.Cells[6].Value.ToString();
-                        string tiTh = item.Cells[7].Value.ToString()=="HCM"?"Hồ Chí Minh":item.Cells[7].Value.ToString();
-                        string qHuyen = item.Cells[8].Value.ToString();
-                        string phuongXa = item.Cells[9].Value.ToString();
-                        string sdt = item.Cells[10].Value.ToString();
-                        string cccd = item.Cells[11].Value.ToString();
-                        string tenNT = item.Cells[12].Value.ToString();
-                        string mqh = item.Cells[13].Value.ToString();
-                        string sdtNT = item.Cells[14].Value.ToString();
-                        string noiChuyen = item.Cells[15].Value.ToString();
-                        string ngayNV = item.Cells[16].Value.ToString();
+                        string ht = dtgvInput.SelectedRows[i].Cells[2].Value.ToString();
+                        int gt = dtgvInput.SelectedRows[i].Cells[3].Value.ToString().ToUpper() == "Nam".ToUpper() ? 0 : 1;
+                        int ns = int.Parse(dtgvInput.SelectedRows[i].Cells[4].Value.ToString());
+                        string danToc = dtgvInput.SelectedRows[i].Cells[5].Value == null || dtgvInput.SelectedRows[i].Cells[5].Value.ToString() == "" ? "Kinh" : dtgvInput.SelectedRows[i].Cells[5].Value.ToString();
+                        string dc = dtgvInput.SelectedRows[i].Cells[6].Value.ToString();
+                        string tiTh = dtgvInput.SelectedRows[i].Cells[7].Value.ToString() == "HCM" ? "Hồ Chí Minh" : dtgvInput.SelectedRows[i].Cells[7].Value.ToString();
+                        string qHuyen = dtgvInput.SelectedRows[i].Cells[8].Value.ToString();
+                        string phuongXa = dtgvInput.SelectedRows[i].Cells[9].Value.ToString();
+                        string sdt = dtgvInput.SelectedRows[i].Cells[10].Value.ToString();
+                        string cccd = dtgvInput.SelectedRows[i].Cells[11].Value.ToString();
+                        string tenNT = dtgvInput.SelectedRows[i].Cells[12].Value.ToString();
+                        string mqh = dtgvInput.SelectedRows[i].Cells[13].Value.ToString();
+                        string sdtNT = dtgvInput.SelectedRows[i].Cells[14].Value.ToString();
+                        string noiChuyen = dtgvInput.SelectedRows[i].Cells[15].Value.ToString();
+                        string ngayNV = dtgvInput.SelectedRows[i].Cells[16].Value.ToString();
                         DateTime nnv = DateTime.Parse(ngayNV);
                         DateTime nxn;
-                        string ngayXN = item.Cells[17].Value.ToString();
+                        string ngayXN = dtgvInput.SelectedRows[i].Cells[17].Value.ToString();
                         if (!DateTime.TryParse(ngayXN, out nxn))
                         {
                             MemberDAO.Instance.InsertMemberChuaXetNghiem(idPhong, maBN, ht, ns, gt, danToc, dc, phuongXa, qHuyen, tiTh, sdt, cccd, noiChuyen.Trim(' ', ',', '-'), "E", nnv, tenNT, mqh, sdtNT, 0);
@@ -1203,31 +1299,83 @@ namespace project_quan_ly_giuong_benh
                         }
                         count++;
                         room.Member++;
-                        for(int i = 0; i < 18; i++)
+                        for(int j = 0; j < 18; j++)
                         {
-                            item.Cells[i].Style.BackColor = Color.Yellow;
+                            dtgvInput.SelectedRows[i].Cells[j].Style.BackColor = Color.Yellow;
                         }
                     }
                 }
                 MessageBox.Show("Thêm thành công " + count + " người vào cơ sở dữ liệu!", "Thông báo", MessageBoxButtons.OK);
             }
         }
-        #endregion
 
-        private void dtgvInput_PreviewKeyDown(object sender, PreviewKeyDownEventArgs e)
+
+
+        private void chuyểnTuyếnToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            if(e.Control == true && e.KeyCode == Keys.A)
+            HashSet<Member> listMember = GetSelectedMember();
+            if (listMember.Count > 0)
+                foreach (Member item in listMember)
+                {
+                    MemberDAO.Instance.UpdateStatus(item.ID, 2);
+                }    
+            MessageBox.Show("Chuyển tuyến thành công!", "Thông báo", MessageBoxButtons.OK);
+            LoadMemberListDangDieuTri();
+        }
+
+        private void xuấtViệnToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            HashSet<Member> listMember = GetSelectedMember();
+            if (listMember.Count > 0)
+                foreach (Member item in listMember)
+                {
+                    MemberDAO.Instance.UpdateStatus(item.ID, 1);
+                }
+            MessageBox.Show("Xuất viện thành công!", "Thông báo", MessageBoxButtons.OK);
+            LoadMemberListDangDieuTri();
+        }
+
+
+        private void dtgvXuatVien_CellEndEdit(object sender, DataGridViewCellEventArgs e)
+        {
+            EditMember(e.RowIndex);
+        }
+
+        private void dtgvChuyenTuyen_CellEndEdit(object sender, DataGridViewCellEventArgs e)
+        {
+            EditMember(e.RowIndex);
+        }
+
+        private void cậpNhậtBảngTínhToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if(ListMemberEdit.Count > 0)
             {
-                dtgvInput.SelectAll();
+                if(this.Status == 1)
+                    foreach (Member item in ListMemberEdit)
+                        MemberDAO.Instance.UpdateXuatVien(item.ID, item.MaBN, item.SoLT, (DateTime)item.NXV, (DateTime)item.NXN, item.Ktxn, item.Kq, item.CtValue);
+                if (this.Status == 2)
+                    foreach (Member item in ListMemberEdit)
+                        MemberDAO.Instance.UpdateChuyenTuyen(item.ID, item.MaBN, (DateTime)item.NXV, item.NoiDen);
+                ListMemberEdit.Clear();
+            }
+        }
+        
+        private void pasteToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            string s = Clipboard.GetText();
+            foreach (DataGridViewCell item in SwitchDtgv().SelectedCells)
+            {
+                item.Value = s;
+                EditMember(item.RowIndex);
             }
         }
 
-        private void txbFindMember_PreviewKeyDown(object sender, PreviewKeyDownEventArgs e)
+        private void copyToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            if (e.KeyCode == Keys.Enter)
-                btnFindPerson_Click(sender,e);
-            if (txbFindMember.Text == "")
-                LoadMemberListDangDieuTri();
+            Clipboard.SetText(SwitchDtgv().SelectedCells[0].Value.ToString() != ""?SwitchDtgv().SelectedCells[0].Value.ToString():" ");
         }
+        #endregion
+
+
     }
 }

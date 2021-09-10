@@ -29,14 +29,26 @@ namespace project_quan_ly_giuong_benh
             LoadFloor();
             //LoadRoom(1);
             LoadRoomCapCuu();
-            showMember(45);
             //btnChangeRoom.Enabled = false;
             Room room = RoomDAO.Instance.GetRoomById(58);
+            showMember(room.ID);
             cboTang.Tag = room;
             lsvChiaPhong.Tag = room;
             DataProvider.Instance.ExecuteQuery("EXECUTE USP_AutoUpdateNgayXetNghiem");
+            btnAdd.Enabled = room.Member < room.Maximum;
         }
         #region Methods
+        private List<Member> GetSelectedMember()
+        {
+            List<Member> listMember = new List<Member>();
+            foreach (int item in lsvChiaPhong.SelectedIndices)
+            {
+                Member member = lsvChiaPhong.Items[item].Tag as Member;
+                listMember.Add(member);
+            }
+            return listMember;
+        }
+
         void LoadFloor()
         {
             flpFloor.Controls.Clear();
@@ -124,9 +136,9 @@ namespace project_quan_ly_giuong_benh
                 #endregion
 
 
-                if (item.Status == "Hỏng")
+                if (item.Status == "Hỏng" || item.Status == "Khoá")
                 {
-                    btn.Text = item.Name + Environment.NewLine + Environment.NewLine + item.Status;
+                    btn.Text = item.Name + Environment.NewLine + Environment.NewLine + item.Status.ToUpper();
                     btn.Enabled = false;
                 }
                 else
@@ -135,16 +147,16 @@ namespace project_quan_ly_giuong_benh
                 btn.Tag = item;
                 if (item.Status == "Trống")
                     btn.BackColor = ColorTranslator.FromHtml("#FFFFFF");
-                if(item.Status == "Đầy")
-                    btn.BackColor = ColorTranslator.FromHtml("#FF0000");
                 if (item.Status == "Cấp cứu")
                     btn.BackColor = ColorTranslator.FromHtml("#A9D08E");
                 if (item.Status == "Hỏng")
-                    btn.BackColor = ColorTranslator.FromHtml("#FFFF00");
+                    btn.BackColor = ColorTranslator.FromHtml("#FF0000");
                 if (item.Status == "Sắp khỏi hết")
                     btn.BackColor = ColorTranslator.FromHtml("#CC66FF");
                 if (item.Status == "Bận")
                     btn.BackColor = ColorTranslator.FromHtml("#00B0F0");
+                if (item.Status == "Khoá")
+                    btn.BackColor = ColorTranslator.FromHtml("#FFFF00");
                 flpRoom.Controls.Add(btn);
             }
             
@@ -291,14 +303,8 @@ namespace project_quan_ly_giuong_benh
             {
                 if (MessageBox.Show("Xác nhận chuyển phòng?", "Thông báo", MessageBoxButtons.OKCancel, MessageBoxIcon.Question) == System.Windows.Forms.DialogResult.OK)
                 {
-                    List<Member> listMember = new List<Member>();
-                    int count = 0;
-                    foreach (int item in lsvChiaPhong.SelectedIndices)
-                    {
-                        Member member = lsvChiaPhong.Items[item].Tag as Member;
-                        listMember.Add(member);
-                        count++;
-                    }
+                    List<Member> listMember = GetSelectedMember();
+                    int count = listMember.Count();
                     Room room = cboTang.Tag as Room;
                     Room roomDich = cboPhong.Tag as Room;
                     if (roomDich.Member + count > roomDich.Maximum)
@@ -366,45 +372,26 @@ namespace project_quan_ly_giuong_benh
 
         private void btnXuatVien_Click(object sender, EventArgs e)
         {
-            if (lsvChiaPhong.SelectedIndices.Count == 1)
+            if (lsvChiaPhong.SelectedIndices.Count > 0)
             {
-                Member member = lsvChiaPhong.Items[lsvChiaPhong.SelectedIndices[0]].Tag as Member;
-                if (member.Slxn > 1)
-                {
-                    if (MessageBox.Show("Xác nhận bệnh nhân xuất viện?", "Thông báo", MessageBoxButtons.OKCancel, MessageBoxIcon.Question) == System.Windows.Forms.DialogResult.OK)
-                    {
-                        fXuatVien f = new fXuatVien(member);
-                        f.ShowDialog();
-                        Room room = lsvChiaPhong.Tag as Room;
-                        showMember(room.ID);
-                        ChoseRoomForLoad(room);
-
-                    }
-                }
-                else
-                    MessageBox.Show("Bệnh nhân chưa đủ số lần xét nghiệm chưa thể xuất viện!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                List<Member> listMember = GetSelectedMember();
+                if (listMember.Count > 0)
+                    if (MessageBox.Show("Xác nhận cho những bệnh nhân này xuất viện?", "Thông báo", MessageBoxButtons.OKCancel, MessageBoxIcon.Question) == System.Windows.Forms.DialogResult.OK)
+                        foreach (Member item in listMember)
+                            MemberDAO.Instance.UpdateStatus(item.ID, 1);
             }
         }
 
         private void btnChuyenTuyen_Click(object sender, EventArgs e)
         {
 
-            if (lsvChiaPhong.SelectedIndices.Count == 1)
+            if (lsvChiaPhong.SelectedIndices.Count > 0)
             {
-                if (MessageBox.Show("Xác nhận bệnh nhân chuyển tuyến?", "Thông báo", MessageBoxButtons.OKCancel, MessageBoxIcon.Question) == System.Windows.Forms.DialogResult.OK)
-                {
-                    Member member = lsvChiaPhong.Items[lsvChiaPhong.SelectedIndices[0]].Tag as Member;
-                    if (member.NXN != null)
-                    {
-                        fChuyenTuyen f = new fChuyenTuyen(member);
-                        f.ShowDialog();
-                        Room room = lsvChiaPhong.Tag as Room;
-                        showMember(room.ID);
-                        ChoseRoomForLoad(room);
-                    }
-                    else
-                        MessageBox.Show("Bệnh nhân chưa xét nghiệm!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                }
+                List<Member> listMember = GetSelectedMember();
+                if (listMember.Count > 0)
+                    if (MessageBox.Show("Xác nhận cho những bệnh nhân này xuất viện?", "Thông báo", MessageBoxButtons.OKCancel, MessageBoxIcon.Question) == System.Windows.Forms.DialogResult.OK)
+                        foreach (Member item in listMember)
+                            MemberDAO.Instance.UpdateStatus(item.ID, 2);
             }
         }
 

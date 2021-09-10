@@ -37,7 +37,7 @@ namespace project_quan_ly_giuong_benh
             this.btnEditRoom = new System.Windows.Forms.Button();
             this.btnAddRoom = new System.Windows.Forms.Button();
             this.panel3 = new System.Windows.Forms.Panel();
-            this.btnPhongSapKhoi = new System.Windows.Forms.Button();
+            this.btnKhoa = new System.Windows.Forms.Button();
             this.btnBan = new System.Windows.Forms.Button();
             this.btnPhongDangSua = new System.Windows.Forms.Button();
             this.btnPhongCapCuu = new System.Windows.Forms.Button();
@@ -56,6 +56,7 @@ namespace project_quan_ly_giuong_benh
             this.label4 = new System.Windows.Forms.Label();
             this.cboTang = new System.Windows.Forms.ComboBox();
             this.chkBusy = new System.Windows.Forms.CheckBox();
+            this.chkKhoa = new System.Windows.Forms.CheckBox();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dtgvRoom)).BeginInit();
             this.panel1.SuspendLayout();
@@ -125,7 +126,7 @@ namespace project_quan_ly_giuong_benh
             // 
             // panel3
             // 
-            this.panel3.Controls.Add(this.btnPhongSapKhoi);
+            this.panel3.Controls.Add(this.btnKhoa);
             this.panel3.Controls.Add(this.btnBan);
             this.panel3.Controls.Add(this.btnPhongDangSua);
             this.panel3.Controls.Add(this.btnPhongCapCuu);
@@ -137,19 +138,19 @@ namespace project_quan_ly_giuong_benh
             this.panel3.Size = new System.Drawing.Size(480, 42);
             this.panel3.TabIndex = 0;
             // 
-            // btnPhongSapKhoi
+            // btnKhoa
             // 
-            this.btnPhongSapKhoi.Location = new System.Drawing.Point(136, 3);
-            this.btnPhongSapKhoi.Name = "btnPhongSapKhoi";
-            this.btnPhongSapKhoi.Size = new System.Drawing.Size(67, 36);
-            this.btnPhongSapKhoi.TabIndex = 2;
-            this.btnPhongSapKhoi.Text = "Sắp khỏi hết";
-            this.btnPhongSapKhoi.UseVisualStyleBackColor = true;
-            this.btnPhongSapKhoi.Click += new System.EventHandler(this.btnPhongSapKhoi_Click);
+            this.btnKhoa.Location = new System.Drawing.Point(413, 3);
+            this.btnKhoa.Name = "btnKhoa";
+            this.btnKhoa.Size = new System.Drawing.Size(67, 36);
+            this.btnKhoa.TabIndex = 2;
+            this.btnKhoa.Text = "Khoá";
+            this.btnKhoa.UseVisualStyleBackColor = true;
+            this.btnKhoa.Click += new System.EventHandler(this.btnKhoa_Click);
             // 
             // btnBan
             // 
-            this.btnBan.Location = new System.Drawing.Point(410, 3);
+            this.btnBan.Location = new System.Drawing.Point(344, 3);
             this.btnBan.Name = "btnBan";
             this.btnBan.Size = new System.Drawing.Size(67, 36);
             this.btnBan.TabIndex = 6;
@@ -159,7 +160,7 @@ namespace project_quan_ly_giuong_benh
             // 
             // btnPhongDangSua
             // 
-            this.btnPhongDangSua.Location = new System.Drawing.Point(340, 3);
+            this.btnPhongDangSua.Location = new System.Drawing.Point(275, 3);
             this.btnPhongDangSua.Name = "btnPhongDangSua";
             this.btnPhongDangSua.Size = new System.Drawing.Size(67, 36);
             this.btnPhongDangSua.TabIndex = 5;
@@ -169,7 +170,7 @@ namespace project_quan_ly_giuong_benh
             // 
             // btnPhongCapCuu
             // 
-            this.btnPhongCapCuu.Location = new System.Drawing.Point(272, 3);
+            this.btnPhongCapCuu.Location = new System.Drawing.Point(207, 3);
             this.btnPhongCapCuu.Name = "btnPhongCapCuu";
             this.btnPhongCapCuu.Size = new System.Drawing.Size(67, 36);
             this.btnPhongCapCuu.TabIndex = 4;
@@ -179,7 +180,7 @@ namespace project_quan_ly_giuong_benh
             // 
             // btnPhongDay
             // 
-            this.btnPhongDay.Location = new System.Drawing.Point(204, 3);
+            this.btnPhongDay.Location = new System.Drawing.Point(138, 3);
             this.btnPhongDay.Name = "btnPhongDay";
             this.btnPhongDay.Size = new System.Drawing.Size(67, 36);
             this.btnPhongDay.TabIndex = 3;
@@ -189,7 +190,7 @@ namespace project_quan_ly_giuong_benh
             // 
             // btnPhongTrong
             // 
-            this.btnPhongTrong.Location = new System.Drawing.Point(68, 3);
+            this.btnPhongTrong.Location = new System.Drawing.Point(69, 3);
             this.btnPhongTrong.Name = "btnPhongTrong";
             this.btnPhongTrong.Size = new System.Drawing.Size(67, 36);
             this.btnPhongTrong.TabIndex = 1;
@@ -223,16 +224,18 @@ namespace project_quan_ly_giuong_benh
             this.tableLayoutPanel1.Controls.Add(this.label4, 0, 1);
             this.tableLayoutPanel1.Controls.Add(this.cboTang, 1, 1);
             this.tableLayoutPanel1.Controls.Add(this.chkBusy, 1, 6);
+            this.tableLayoutPanel1.Controls.Add(this.chkKhoa, 1, 7);
             this.tableLayoutPanel1.Location = new System.Drawing.Point(508, 60);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
-            this.tableLayoutPanel1.RowCount = 7;
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 15.2207F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 15.2207F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 15.2207F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 13.58447F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 13.58447F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 13.58447F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 13.58447F));
+            this.tableLayoutPanel1.RowCount = 8;
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 13.75421F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 13.75421F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 13.75421F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 11.74747F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 11.74747F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 11.74747F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 11.74747F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 11.74747F));
             this.tableLayoutPanel1.Size = new System.Drawing.Size(264, 263);
             this.tableLayoutPanel1.TabIndex = 1;
             // 
@@ -240,9 +243,9 @@ namespace project_quan_ly_giuong_benh
             // 
             this.chkThuong.AutoSize = true;
             this.chkThuong.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.chkThuong.Location = new System.Drawing.Point(131, 123);
+            this.chkThuong.Location = new System.Drawing.Point(131, 111);
             this.chkThuong.Name = "chkThuong";
-            this.chkThuong.Size = new System.Drawing.Size(97, 26);
+            this.chkThuong.Size = new System.Drawing.Size(97, 24);
             this.chkThuong.TabIndex = 10;
             this.chkThuong.Text = "Thường";
             this.chkThuong.UseVisualStyleBackColor = true;
@@ -252,7 +255,7 @@ namespace project_quan_ly_giuong_benh
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(3, 80);
+            this.label2.Location = new System.Drawing.Point(3, 72);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(85, 22);
             this.label2.TabIndex = 2;
@@ -262,7 +265,7 @@ namespace project_quan_ly_giuong_benh
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(3, 120);
+            this.label3.Location = new System.Drawing.Point(3, 108);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(109, 22);
             this.label3.TabIndex = 3;
@@ -271,7 +274,7 @@ namespace project_quan_ly_giuong_benh
             // maxMember
             // 
             this.maxMember.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.maxMember.Location = new System.Drawing.Point(131, 83);
+            this.maxMember.Location = new System.Drawing.Point(131, 75);
             this.maxMember.Maximum = new decimal(new int[] {
             10,
             0,
@@ -297,9 +300,9 @@ namespace project_quan_ly_giuong_benh
             // 
             this.chkCapCuu.AutoSize = true;
             this.chkCapCuu.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.chkCapCuu.Location = new System.Drawing.Point(131, 158);
+            this.chkCapCuu.Location = new System.Drawing.Point(131, 141);
             this.chkCapCuu.Name = "chkCapCuu";
-            this.chkCapCuu.Size = new System.Drawing.Size(102, 26);
+            this.chkCapCuu.Size = new System.Drawing.Size(102, 24);
             this.chkCapCuu.TabIndex = 11;
             this.chkCapCuu.Text = "Cấp cứu";
             this.chkCapCuu.UseVisualStyleBackColor = true;
@@ -309,9 +312,9 @@ namespace project_quan_ly_giuong_benh
             // 
             this.chkSuaChua.AutoSize = true;
             this.chkSuaChua.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.chkSuaChua.Location = new System.Drawing.Point(131, 193);
+            this.chkSuaChua.Location = new System.Drawing.Point(131, 171);
             this.chkSuaChua.Name = "chkSuaChua";
-            this.chkSuaChua.Size = new System.Drawing.Size(113, 26);
+            this.chkSuaChua.Size = new System.Drawing.Size(113, 24);
             this.chkSuaChua.TabIndex = 12;
             this.chkSuaChua.Text = "Sửa chữa";
             this.chkSuaChua.UseVisualStyleBackColor = true;
@@ -343,7 +346,7 @@ namespace project_quan_ly_giuong_benh
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(3, 40);
+            this.label4.Location = new System.Drawing.Point(3, 36);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(58, 22);
             this.label4.TabIndex = 1;
@@ -354,7 +357,7 @@ namespace project_quan_ly_giuong_benh
             this.cboTang.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboTang.Font = new System.Drawing.Font("Arial", 14.25F);
             this.cboTang.FormattingEnabled = true;
-            this.cboTang.Location = new System.Drawing.Point(131, 43);
+            this.cboTang.Location = new System.Drawing.Point(131, 39);
             this.cboTang.Name = "cboTang";
             this.cboTang.Size = new System.Drawing.Size(130, 30);
             this.cboTang.TabIndex = 7;
@@ -364,13 +367,25 @@ namespace project_quan_ly_giuong_benh
             // 
             this.chkBusy.AutoSize = true;
             this.chkBusy.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.chkBusy.Location = new System.Drawing.Point(131, 228);
+            this.chkBusy.Location = new System.Drawing.Point(131, 201);
             this.chkBusy.Name = "chkBusy";
-            this.chkBusy.Size = new System.Drawing.Size(62, 26);
+            this.chkBusy.Size = new System.Drawing.Size(62, 24);
             this.chkBusy.TabIndex = 13;
             this.chkBusy.Text = "Bận";
             this.chkBusy.UseVisualStyleBackColor = true;
             this.chkBusy.CheckedChanged += new System.EventHandler(this.chkBusy_CheckedChanged);
+            // 
+            // chkKhoa
+            // 
+            this.chkKhoa.AutoSize = true;
+            this.chkKhoa.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.chkKhoa.Location = new System.Drawing.Point(131, 231);
+            this.chkKhoa.Name = "chkKhoa";
+            this.chkKhoa.Size = new System.Drawing.Size(73, 26);
+            this.chkKhoa.TabIndex = 13;
+            this.chkKhoa.Text = "Khoá";
+            this.chkKhoa.UseVisualStyleBackColor = true;
+            this.chkKhoa.CheckedChanged += new System.EventHandler(this.chkKhoa_CheckedChanged);
             // 
             // fQuanLyPhong
             // 
@@ -409,7 +424,7 @@ namespace project_quan_ly_giuong_benh
         private System.Windows.Forms.Button btnEditRoom;
         private System.Windows.Forms.Button btnAddRoom;
         private System.Windows.Forms.Panel panel3;
-        private System.Windows.Forms.Button btnPhongSapKhoi;
+        private System.Windows.Forms.Button btnKhoa;
         private System.Windows.Forms.Button btnPhongCapCuu;
         private System.Windows.Forms.Button btnPhongDay;
         private System.Windows.Forms.Button btnPhongTrong;
@@ -428,5 +443,6 @@ namespace project_quan_ly_giuong_benh
         private System.Windows.Forms.ComboBox cboTang;
         private System.Windows.Forms.CheckBox chkBusy;
         private System.Windows.Forms.Button btnBan;
+        private System.Windows.Forms.CheckBox chkKhoa;
     }
 }

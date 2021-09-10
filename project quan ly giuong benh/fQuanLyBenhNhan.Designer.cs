@@ -29,8 +29,22 @@ namespace project_quan_ly_giuong_benh
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(fQuanLyBenhNhan));
             this.TabControl = new System.Windows.Forms.TabControl();
+            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.xuấtViệnToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.chuyểnTuyếnToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.quayLạiViệnToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripSeparator();
+            this.thêmBệnhNhânToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.sửaThôngTinToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem2 = new System.Windows.Forms.ToolStripSeparator();
+            this.xoáBệnhNhânToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem3 = new System.Windows.Forms.ToolStripSeparator();
+            this.cậpNhậtBảngTínhToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.copyToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.pasteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tpDangDieuTri = new System.Windows.Forms.TabPage();
             this.dtgvMember = new ADGV.AdvancedDataGridView();
             this.tpDaXuatVien = new System.Windows.Forms.TabPage();
@@ -45,17 +59,14 @@ namespace project_quan_ly_giuong_benh
             this.dtgvXN = new ADGV.AdvancedDataGridView();
             this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
             this.panel3 = new System.Windows.Forms.Panel();
-            this.btnAdd = new System.Windows.Forms.Button();
             this.dtpStop = new System.Windows.Forms.DateTimePicker();
             this.dtpStart = new System.Windows.Forms.DateTimePicker();
             this.txbFindMember = new System.Windows.Forms.TextBox();
             this.btnFindPerson = new System.Windows.Forms.Button();
             this.btnImport = new System.Windows.Forms.Button();
             this.btnExport = new System.Windows.Forms.Button();
-            this.btnDelPerson = new System.Windows.Forms.Button();
-            this.btnBack = new System.Windows.Forms.Button();
-            this.btnEditPerson = new System.Windows.Forms.Button();
             this.btnThongKe = new System.Windows.Forms.Button();
+            this.lbTongSoBN = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.txbPage = new System.Windows.Forms.TextBox();
             this.btnPrevious = new System.Windows.Forms.Button();
@@ -66,6 +77,7 @@ namespace project_quan_ly_giuong_benh
             this.nUDPageRows = new System.Windows.Forms.NumericUpDown();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.TabControl.SuspendLayout();
+            this.contextMenuStrip1.SuspendLayout();
             this.tpDangDieuTri.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dtgvMember)).BeginInit();
             this.tpDaXuatVien.SuspendLayout();
@@ -84,6 +96,7 @@ namespace project_quan_ly_giuong_benh
             // 
             // TabControl
             // 
+            this.TabControl.ContextMenuStrip = this.contextMenuStrip1;
             this.TabControl.Controls.Add(this.tpDangDieuTri);
             this.TabControl.Controls.Add(this.tpDaXuatVien);
             this.TabControl.Controls.Add(this.tpDaChuyenTuyen);
@@ -96,6 +109,106 @@ namespace project_quan_ly_giuong_benh
             this.TabControl.Size = new System.Drawing.Size(1517, 591);
             this.TabControl.TabIndex = 0;
             this.TabControl.SelectedIndexChanged += new System.EventHandler(this.tabControl1_SelectedIndexChanged);
+            // 
+            // contextMenuStrip1
+            // 
+            this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.xuấtViệnToolStripMenuItem,
+            this.chuyểnTuyếnToolStripMenuItem,
+            this.quayLạiViệnToolStripMenuItem,
+            this.toolStripMenuItem1,
+            this.thêmBệnhNhânToolStripMenuItem,
+            this.sửaThôngTinToolStripMenuItem,
+            this.toolStripMenuItem2,
+            this.xoáBệnhNhânToolStripMenuItem,
+            this.toolStripMenuItem3,
+            this.cậpNhậtBảngTínhToolStripMenuItem,
+            this.copyToolStripMenuItem,
+            this.pasteToolStripMenuItem});
+            this.contextMenuStrip1.Name = "contextMenuStrip1";
+            this.contextMenuStrip1.Size = new System.Drawing.Size(217, 220);
+            // 
+            // xuấtViệnToolStripMenuItem
+            // 
+            this.xuấtViệnToolStripMenuItem.Name = "xuấtViệnToolStripMenuItem";
+            this.xuấtViệnToolStripMenuItem.Size = new System.Drawing.Size(216, 22);
+            this.xuấtViệnToolStripMenuItem.Text = "Xuất viện";
+            this.xuấtViệnToolStripMenuItem.Click += new System.EventHandler(this.xuấtViệnToolStripMenuItem_Click);
+            // 
+            // chuyểnTuyếnToolStripMenuItem
+            // 
+            this.chuyểnTuyếnToolStripMenuItem.Name = "chuyểnTuyếnToolStripMenuItem";
+            this.chuyểnTuyếnToolStripMenuItem.Size = new System.Drawing.Size(216, 22);
+            this.chuyểnTuyếnToolStripMenuItem.Text = "Chuyển tuyến";
+            this.chuyểnTuyếnToolStripMenuItem.Click += new System.EventHandler(this.chuyểnTuyếnToolStripMenuItem_Click);
+            // 
+            // quayLạiViệnToolStripMenuItem
+            // 
+            this.quayLạiViệnToolStripMenuItem.Name = "quayLạiViệnToolStripMenuItem";
+            this.quayLạiViệnToolStripMenuItem.Size = new System.Drawing.Size(216, 22);
+            this.quayLạiViệnToolStripMenuItem.Text = "Quay lại viện";
+            this.quayLạiViệnToolStripMenuItem.Click += new System.EventHandler(this.btnBack_Click);
+            // 
+            // toolStripMenuItem1
+            // 
+            this.toolStripMenuItem1.Name = "toolStripMenuItem1";
+            this.toolStripMenuItem1.Size = new System.Drawing.Size(213, 6);
+            // 
+            // thêmBệnhNhânToolStripMenuItem
+            // 
+            this.thêmBệnhNhânToolStripMenuItem.Name = "thêmBệnhNhânToolStripMenuItem";
+            this.thêmBệnhNhânToolStripMenuItem.Size = new System.Drawing.Size(216, 22);
+            this.thêmBệnhNhânToolStripMenuItem.Text = "Thêm bệnh nhân";
+            this.thêmBệnhNhânToolStripMenuItem.Click += new System.EventHandler(this.btnAdd_Click);
+            // 
+            // sửaThôngTinToolStripMenuItem
+            // 
+            this.sửaThôngTinToolStripMenuItem.Name = "sửaThôngTinToolStripMenuItem";
+            this.sửaThôngTinToolStripMenuItem.Size = new System.Drawing.Size(216, 22);
+            this.sửaThôngTinToolStripMenuItem.Text = "Sửa thông tin";
+            this.sửaThôngTinToolStripMenuItem.Click += new System.EventHandler(this.btnEditPerson_Click);
+            // 
+            // toolStripMenuItem2
+            // 
+            this.toolStripMenuItem2.Name = "toolStripMenuItem2";
+            this.toolStripMenuItem2.Size = new System.Drawing.Size(213, 6);
+            // 
+            // xoáBệnhNhânToolStripMenuItem
+            // 
+            this.xoáBệnhNhânToolStripMenuItem.Name = "xoáBệnhNhânToolStripMenuItem";
+            this.xoáBệnhNhânToolStripMenuItem.ShortcutKeys = System.Windows.Forms.Keys.Delete;
+            this.xoáBệnhNhânToolStripMenuItem.Size = new System.Drawing.Size(216, 22);
+            this.xoáBệnhNhânToolStripMenuItem.Text = "Xoá bệnh nhân";
+            this.xoáBệnhNhânToolStripMenuItem.Click += new System.EventHandler(this.btnDelPerson_Click);
+            // 
+            // toolStripMenuItem3
+            // 
+            this.toolStripMenuItem3.Name = "toolStripMenuItem3";
+            this.toolStripMenuItem3.Size = new System.Drawing.Size(213, 6);
+            // 
+            // cậpNhậtBảngTínhToolStripMenuItem
+            // 
+            this.cậpNhậtBảngTínhToolStripMenuItem.Name = "cậpNhậtBảngTínhToolStripMenuItem";
+            this.cậpNhậtBảngTínhToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.S)));
+            this.cậpNhậtBảngTínhToolStripMenuItem.Size = new System.Drawing.Size(216, 22);
+            this.cậpNhậtBảngTínhToolStripMenuItem.Text = "Cập nhật bảng tính";
+            this.cậpNhậtBảngTínhToolStripMenuItem.Click += new System.EventHandler(this.cậpNhậtBảngTínhToolStripMenuItem_Click);
+            // 
+            // copyToolStripMenuItem
+            // 
+            this.copyToolStripMenuItem.Name = "copyToolStripMenuItem";
+            this.copyToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.C)));
+            this.copyToolStripMenuItem.Size = new System.Drawing.Size(216, 22);
+            this.copyToolStripMenuItem.Text = "Copy";
+            this.copyToolStripMenuItem.Click += new System.EventHandler(this.copyToolStripMenuItem_Click);
+            // 
+            // pasteToolStripMenuItem
+            // 
+            this.pasteToolStripMenuItem.Name = "pasteToolStripMenuItem";
+            this.pasteToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.V)));
+            this.pasteToolStripMenuItem.Size = new System.Drawing.Size(216, 22);
+            this.pasteToolStripMenuItem.Text = "Paste";
+            this.pasteToolStripMenuItem.Click += new System.EventHandler(this.pasteToolStripMenuItem_Click);
             // 
             // tpDangDieuTri
             // 
@@ -114,6 +227,7 @@ namespace project_quan_ly_giuong_benh
             this.dtgvMember.AllowUserToDeleteRows = false;
             this.dtgvMember.AutoGenerateContextFilters = true;
             this.dtgvMember.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dtgvMember.ContextMenuStrip = this.contextMenuStrip1;
             this.dtgvMember.DateWithTime = false;
             this.dtgvMember.Location = new System.Drawing.Point(0, 0);
             this.dtgvMember.Name = "dtgvMember";
@@ -122,6 +236,8 @@ namespace project_quan_ly_giuong_benh
             this.dtgvMember.Size = new System.Drawing.Size(1507, 565);
             this.dtgvMember.TabIndex = 23;
             this.dtgvMember.TimeFilter = false;
+            this.dtgvMember.SortStringChanged += new System.EventHandler(this.dtgvMember_SortStringChanged);
+            this.dtgvMember.FilterStringChanged += new System.EventHandler(this.dtgvMember_FilterStringChanged);
             // 
             // tpDaXuatVien
             // 
@@ -143,12 +259,12 @@ namespace project_quan_ly_giuong_benh
             this.dtgvXuatVien.DateWithTime = false;
             this.dtgvXuatVien.Location = new System.Drawing.Point(0, 0);
             this.dtgvXuatVien.Name = "dtgvXuatVien";
-            this.dtgvXuatVien.ReadOnly = true;
             this.dtgvXuatVien.Size = new System.Drawing.Size(1516, 565);
             this.dtgvXuatVien.TabIndex = 23;
             this.dtgvXuatVien.TimeFilter = false;
             this.dtgvXuatVien.SortStringChanged += new System.EventHandler(this.dtgvXuatVien_SortStringChanged);
             this.dtgvXuatVien.FilterStringChanged += new System.EventHandler(this.dtgvXuatVien_FilterStringChanged);
+            this.dtgvXuatVien.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtgvXuatVien_CellEndEdit);
             // 
             // tpDaChuyenTuyen
             // 
@@ -167,15 +283,16 @@ namespace project_quan_ly_giuong_benh
             this.dtgvChuyenTuyen.AllowUserToDeleteRows = false;
             this.dtgvChuyenTuyen.AutoGenerateContextFilters = true;
             this.dtgvChuyenTuyen.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dtgvChuyenTuyen.ContextMenuStrip = this.contextMenuStrip1;
             this.dtgvChuyenTuyen.DateWithTime = false;
             this.dtgvChuyenTuyen.Location = new System.Drawing.Point(0, 0);
             this.dtgvChuyenTuyen.Name = "dtgvChuyenTuyen";
-            this.dtgvChuyenTuyen.ReadOnly = true;
             this.dtgvChuyenTuyen.Size = new System.Drawing.Size(1507, 565);
             this.dtgvChuyenTuyen.TabIndex = 23;
             this.dtgvChuyenTuyen.TimeFilter = false;
             this.dtgvChuyenTuyen.SortStringChanged += new System.EventHandler(this.dtgvChuyenTuyen_SortStringChanged);
             this.dtgvChuyenTuyen.FilterStringChanged += new System.EventHandler(this.dtgvChuyenTuyen_FilterStringChanged);
+            this.dtgvChuyenTuyen.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtgvChuyenTuyen_CellEndEdit);
             // 
             // tpDanhSachBack
             // 
@@ -194,6 +311,7 @@ namespace project_quan_ly_giuong_benh
             this.dtgvBack.AllowUserToDeleteRows = false;
             this.dtgvBack.AutoGenerateContextFilters = true;
             this.dtgvBack.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dtgvBack.ContextMenuStrip = this.contextMenuStrip1;
             this.dtgvBack.DateWithTime = false;
             this.dtgvBack.Location = new System.Drawing.Point(0, 0);
             this.dtgvBack.Name = "dtgvBack";
@@ -201,6 +319,8 @@ namespace project_quan_ly_giuong_benh
             this.dtgvBack.Size = new System.Drawing.Size(1507, 565);
             this.dtgvBack.TabIndex = 24;
             this.dtgvBack.TimeFilter = false;
+            this.dtgvBack.SortStringChanged += new System.EventHandler(this.dtgvBack_SortStringChanged);
+            this.dtgvBack.FilterStringChanged += new System.EventHandler(this.dtgvBack_FilterStringChanged);
             // 
             // tpNhapBenhNhanTuFile
             // 
@@ -218,6 +338,7 @@ namespace project_quan_ly_giuong_benh
             this.dtgvInput.AllowUserToAddRows = false;
             this.dtgvInput.AutoGenerateContextFilters = true;
             this.dtgvInput.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dtgvInput.ContextMenuStrip = this.contextMenuStrip1;
             this.dtgvInput.DateWithTime = false;
             this.dtgvInput.Location = new System.Drawing.Point(0, 0);
             this.dtgvInput.Name = "dtgvInput";
@@ -243,6 +364,7 @@ namespace project_quan_ly_giuong_benh
             this.dtgvXN.AllowUserToDeleteRows = false;
             this.dtgvXN.AutoGenerateContextFilters = true;
             this.dtgvXN.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dtgvXN.ContextMenuStrip = this.contextMenuStrip1;
             this.dtgvXN.DateWithTime = false;
             this.dtgvXN.Location = new System.Drawing.Point(0, 0);
             this.dtgvXN.Name = "dtgvXN";
@@ -261,34 +383,17 @@ namespace project_quan_ly_giuong_benh
             // 
             this.panel3.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.panel3.Controls.Add(this.btnAdd);
             this.panel3.Controls.Add(this.dtpStop);
             this.panel3.Controls.Add(this.dtpStart);
             this.panel3.Controls.Add(this.txbFindMember);
             this.panel3.Controls.Add(this.btnFindPerson);
             this.panel3.Controls.Add(this.btnImport);
             this.panel3.Controls.Add(this.btnExport);
-            this.panel3.Controls.Add(this.btnDelPerson);
-            this.panel3.Controls.Add(this.btnBack);
-            this.panel3.Controls.Add(this.btnEditPerson);
             this.panel3.Controls.Add(this.btnThongKe);
             this.panel3.Location = new System.Drawing.Point(1, 2);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(1511, 42);
             this.panel3.TabIndex = 22;
-            // 
-            // btnAdd
-            // 
-            this.btnAdd.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnAdd.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
-            this.btnAdd.Location = new System.Drawing.Point(938, 2);
-            this.btnAdd.Margin = new System.Windows.Forms.Padding(1);
-            this.btnAdd.Name = "btnAdd";
-            this.btnAdd.Size = new System.Drawing.Size(56, 36);
-            this.btnAdd.TabIndex = 3;
-            this.btnAdd.Text = "Thêm BN";
-            this.btnAdd.UseVisualStyleBackColor = true;
-            this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
             // 
             // dtpStop
             // 
@@ -329,7 +434,7 @@ namespace project_quan_ly_giuong_benh
             // 
             // btnImport
             // 
-            this.btnImport.Location = new System.Drawing.Point(999, 2);
+            this.btnImport.Location = new System.Drawing.Point(998, 3);
             this.btnImport.Name = "btnImport";
             this.btnImport.Size = new System.Drawing.Size(56, 36);
             this.btnImport.TabIndex = 0;
@@ -347,36 +452,6 @@ namespace project_quan_ly_giuong_benh
             this.btnExport.UseVisualStyleBackColor = true;
             this.btnExport.Click += new System.EventHandler(this.btnExport_Click);
             // 
-            // btnDelPerson
-            // 
-            this.btnDelPerson.Location = new System.Drawing.Point(686, 3);
-            this.btnDelPerson.Name = "btnDelPerson";
-            this.btnDelPerson.Size = new System.Drawing.Size(97, 36);
-            this.btnDelPerson.TabIndex = 0;
-            this.btnDelPerson.Text = "Xoá bệnh nhân";
-            this.btnDelPerson.UseVisualStyleBackColor = true;
-            this.btnDelPerson.Click += new System.EventHandler(this.btnDelPerson_Click);
-            // 
-            // btnBack
-            // 
-            this.btnBack.Location = new System.Drawing.Point(583, 3);
-            this.btnBack.Name = "btnBack";
-            this.btnBack.Size = new System.Drawing.Size(97, 36);
-            this.btnBack.TabIndex = 0;
-            this.btnBack.Text = "Quay lại viện";
-            this.btnBack.UseVisualStyleBackColor = true;
-            this.btnBack.Click += new System.EventHandler(this.btnBack_Click);
-            // 
-            // btnEditPerson
-            // 
-            this.btnEditPerson.Location = new System.Drawing.Point(480, 3);
-            this.btnEditPerson.Name = "btnEditPerson";
-            this.btnEditPerson.Size = new System.Drawing.Size(97, 36);
-            this.btnEditPerson.TabIndex = 0;
-            this.btnEditPerson.Text = "Sửa thông tin";
-            this.btnEditPerson.UseVisualStyleBackColor = true;
-            this.btnEditPerson.Click += new System.EventHandler(this.btnEditPerson_Click);
-            // 
             // btnThongKe
             // 
             this.btnThongKe.Location = new System.Drawing.Point(125, 3);
@@ -386,6 +461,16 @@ namespace project_quan_ly_giuong_benh
             this.btnThongKe.Text = "Thống kê";
             this.btnThongKe.UseVisualStyleBackColor = true;
             this.btnThongKe.Click += new System.EventHandler(this.btnThongKe_Click);
+            // 
+            // lbTongSoBN
+            // 
+            this.lbTongSoBN.AutoSize = true;
+            this.lbTongSoBN.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.25F);
+            this.lbTongSoBN.Location = new System.Drawing.Point(225, 644);
+            this.lbTongSoBN.Name = "lbTongSoBN";
+            this.lbTongSoBN.Size = new System.Drawing.Size(79, 20);
+            this.lbTongSoBN.TabIndex = 4;
+            this.lbTongSoBN.Text = "Tổng số: ";
             // 
             // label5
             // 
@@ -463,7 +548,7 @@ namespace project_quan_ly_giuong_benh
             // 
             this.nUDPageRows.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.25F);
             this.nUDPageRows.Increment = new decimal(new int[] {
-            25,
+            250,
             0,
             0,
             0});
@@ -474,7 +559,7 @@ namespace project_quan_ly_giuong_benh
             0,
             0});
             this.nUDPageRows.Minimum = new decimal(new int[] {
-            25,
+            500,
             0,
             0,
             0});
@@ -484,7 +569,7 @@ namespace project_quan_ly_giuong_benh
             this.nUDPageRows.TabIndex = 31;
             this.nUDPageRows.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.nUDPageRows.Value = new decimal(new int[] {
-            25,
+            1000,
             0,
             0,
             0});
@@ -500,6 +585,7 @@ namespace project_quan_ly_giuong_benh
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1518, 673);
+            this.Controls.Add(this.lbTongSoBN);
             this.Controls.Add(this.nUDPageRows);
             this.Controls.Add(this.lbTotalPage);
             this.Controls.Add(this.TabControl);
@@ -519,6 +605,7 @@ namespace project_quan_ly_giuong_benh
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Quản lý bệnh nhân";
             this.TabControl.ResumeLayout(false);
+            this.contextMenuStrip1.ResumeLayout(false);
             this.tpDangDieuTri.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dtgvMember)).EndInit();
             this.tpDaXuatVien.ResumeLayout(false);
@@ -551,9 +638,6 @@ namespace project_quan_ly_giuong_benh
         private System.Windows.Forms.DateTimePicker dtpStart;
         private System.Windows.Forms.TextBox txbFindMember;
         private System.Windows.Forms.Button btnFindPerson;
-        private System.Windows.Forms.Button btnDelPerson;
-        private System.Windows.Forms.Button btnBack;
-        private System.Windows.Forms.Button btnEditPerson;
         private System.Windows.Forms.Button btnThongKe;
         private ADGV.AdvancedDataGridView dtgvXuatVien;
         private System.Windows.Forms.TabPage tpDaChuyenTuyen;
@@ -573,8 +657,21 @@ namespace project_quan_ly_giuong_benh
         private System.Windows.Forms.TabPage tpNhapBenhNhanTuFile;
         private ADGV.AdvancedDataGridView dtgvInput;
         private System.Windows.Forms.OpenFileDialog openFileDialog1;
-        private System.Windows.Forms.Button btnAdd;
         private System.Windows.Forms.TabPage tpDSXN;
         private ADGV.AdvancedDataGridView dtgvXN;
+        private System.Windows.Forms.Label lbTongSoBN;
+        private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
+        private System.Windows.Forms.ToolStripMenuItem xuấtViệnToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem chuyểnTuyếnToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem quayLạiViệnToolStripMenuItem;
+        private System.Windows.Forms.ToolStripSeparator toolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem sửaThôngTinToolStripMenuItem;
+        private System.Windows.Forms.ToolStripSeparator toolStripMenuItem2;
+        private System.Windows.Forms.ToolStripMenuItem xoáBệnhNhânToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem thêmBệnhNhânToolStripMenuItem;
+        private System.Windows.Forms.ToolStripSeparator toolStripMenuItem3;
+        private System.Windows.Forms.ToolStripMenuItem cậpNhậtBảngTínhToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem copyToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem pasteToolStripMenuItem;
     }
 }

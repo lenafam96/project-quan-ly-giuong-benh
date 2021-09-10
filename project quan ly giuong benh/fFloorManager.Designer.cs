@@ -29,6 +29,7 @@ namespace project_quan_ly_giuong_benh
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(fFloorManager));
             this.flpFloor = new System.Windows.Forms.FlowLayoutPanel();
             this.flpRoom = new System.Windows.Forms.FlowLayoutPanel();
@@ -40,13 +41,9 @@ namespace project_quan_ly_giuong_benh
             this.mnsThongTinCN = new System.Windows.Forms.ToolStripMenuItem();
             this.đăngXuấtToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.trợGiúpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.panel4 = new System.Windows.Forms.Panel();
-            this.BtnChuyenTuyen = new System.Windows.Forms.Button();
-            this.btnXuatVien = new System.Windows.Forms.Button();
-            this.btnEdit = new System.Windows.Forms.Button();
-            this.btnAdd = new System.Windows.Forms.Button();
             this.panel3 = new System.Windows.Forms.Panel();
             this.cboPhong = new System.Windows.Forms.ComboBox();
             this.cboTang = new System.Windows.Forms.ComboBox();
@@ -61,12 +58,17 @@ namespace project_quan_ly_giuong_benh
             this.ngayNhapVien = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.ngayXetNghiemL1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.ngayXetNghiemL2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.btnAdd = new System.Windows.Forms.ToolStripMenuItem();
+            this.btnEdit = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripSeparator();
+            this.btnXuatVien = new System.Windows.Forms.ToolStripMenuItem();
+            this.btnChuyenTuyen = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.panel1.SuspendLayout();
-            this.panel4.SuspendLayout();
             this.panel3.SuspendLayout();
             this.panel2.SuspendLayout();
+            this.contextMenuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // flpFloor
@@ -155,6 +157,13 @@ namespace project_quan_ly_giuong_benh
             this.trợGiúpToolStripMenuItem.Size = new System.Drawing.Size(62, 20);
             this.trợGiúpToolStripMenuItem.Text = "Trợ giúp";
             // 
+            // aboutToolStripMenuItem
+            // 
+            this.aboutToolStripMenuItem.Name = "aboutToolStripMenuItem";
+            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(107, 22);
+            this.aboutToolStripMenuItem.Text = "About";
+            this.aboutToolStripMenuItem.Click += new System.EventHandler(this.aboutToolStripMenuItem_Click);
+            // 
             // menuStrip1
             // 
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -171,76 +180,12 @@ namespace project_quan_ly_giuong_benh
             // 
             this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.panel1.Controls.Add(this.panel4);
             this.panel1.Controls.Add(this.panel3);
             this.panel1.Controls.Add(this.panel2);
             this.panel1.Location = new System.Drawing.Point(534, 27);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(449, 539);
             this.panel1.TabIndex = 6;
-            // 
-            // panel4
-            // 
-            this.panel4.Controls.Add(this.BtnChuyenTuyen);
-            this.panel4.Controls.Add(this.btnXuatVien);
-            this.panel4.Controls.Add(this.btnEdit);
-            this.panel4.Controls.Add(this.btnAdd);
-            this.panel4.Location = new System.Drawing.Point(0, 0);
-            this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(449, 68);
-            this.panel4.TabIndex = 7;
-            // 
-            // BtnChuyenTuyen
-            // 
-            this.BtnChuyenTuyen.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.BtnChuyenTuyen.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BtnChuyenTuyen.Location = new System.Drawing.Point(327, 3);
-            this.BtnChuyenTuyen.Margin = new System.Windows.Forms.Padding(1);
-            this.BtnChuyenTuyen.Name = "BtnChuyenTuyen";
-            this.BtnChuyenTuyen.Size = new System.Drawing.Size(121, 62);
-            this.BtnChuyenTuyen.TabIndex = 0;
-            this.BtnChuyenTuyen.Text = "Chuyển tuyến";
-            this.BtnChuyenTuyen.UseVisualStyleBackColor = true;
-            this.BtnChuyenTuyen.Click += new System.EventHandler(this.btnChuyenTuyen_Click);
-            // 
-            // btnXuatVien
-            // 
-            this.btnXuatVien.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnXuatVien.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnXuatVien.Location = new System.Drawing.Point(208, 3);
-            this.btnXuatVien.Margin = new System.Windows.Forms.Padding(1);
-            this.btnXuatVien.Name = "btnXuatVien";
-            this.btnXuatVien.Size = new System.Drawing.Size(117, 62);
-            this.btnXuatVien.TabIndex = 0;
-            this.btnXuatVien.Text = "Xuất viện";
-            this.btnXuatVien.UseVisualStyleBackColor = true;
-            this.btnXuatVien.Click += new System.EventHandler(this.btnXuatVien_Click);
-            // 
-            // btnEdit
-            // 
-            this.btnEdit.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnEdit.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnEdit.Location = new System.Drawing.Point(99, 3);
-            this.btnEdit.Margin = new System.Windows.Forms.Padding(1);
-            this.btnEdit.Name = "btnEdit";
-            this.btnEdit.Size = new System.Drawing.Size(107, 62);
-            this.btnEdit.TabIndex = 0;
-            this.btnEdit.Text = "Sửa\r\nthông tin";
-            this.btnEdit.UseVisualStyleBackColor = true;
-            this.btnEdit.Click += new System.EventHandler(this.btnEdit_Click);
-            // 
-            // btnAdd
-            // 
-            this.btnAdd.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnAdd.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAdd.Location = new System.Drawing.Point(3, 3);
-            this.btnAdd.Margin = new System.Windows.Forms.Padding(1);
-            this.btnAdd.Name = "btnAdd";
-            this.btnAdd.Size = new System.Drawing.Size(94, 62);
-            this.btnAdd.TabIndex = 0;
-            this.btnAdd.Text = "Thêm người";
-            this.btnAdd.UseVisualStyleBackColor = true;
-            this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
             // 
             // panel3
             // 
@@ -323,9 +268,9 @@ namespace project_quan_ly_giuong_benh
             this.panel2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panel2.Controls.Add(this.lsvChiaPhong);
-            this.panel2.Location = new System.Drawing.Point(0, 74);
+            this.panel2.Location = new System.Drawing.Point(0, 0);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(449, 389);
+            this.panel2.Size = new System.Drawing.Size(449, 463);
             this.panel2.TabIndex = 5;
             // 
             // lsvChiaPhong
@@ -340,12 +285,13 @@ namespace project_quan_ly_giuong_benh
             this.ngayNhapVien,
             this.ngayXetNghiemL1,
             this.ngayXetNghiemL2});
+            this.lsvChiaPhong.ContextMenuStrip = this.contextMenuStrip1;
             this.lsvChiaPhong.FullRowSelect = true;
             this.lsvChiaPhong.GridLines = true;
             this.lsvChiaPhong.HideSelection = false;
             this.lsvChiaPhong.Location = new System.Drawing.Point(2, 0);
             this.lsvChiaPhong.Name = "lsvChiaPhong";
-            this.lsvChiaPhong.Size = new System.Drawing.Size(446, 396);
+            this.lsvChiaPhong.Size = new System.Drawing.Size(446, 470);
             this.lsvChiaPhong.TabIndex = 0;
             this.lsvChiaPhong.UseCompatibleStateImageBehavior = false;
             this.lsvChiaPhong.View = System.Windows.Forms.View.Details;
@@ -385,12 +331,49 @@ namespace project_quan_ly_giuong_benh
             this.ngayXetNghiemL2.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.ngayXetNghiemL2.Width = 70;
             // 
-            // aboutToolStripMenuItem
+            // contextMenuStrip1
             // 
-            this.aboutToolStripMenuItem.Name = "aboutToolStripMenuItem";
-            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.aboutToolStripMenuItem.Text = "About";
-            this.aboutToolStripMenuItem.Click += new System.EventHandler(this.aboutToolStripMenuItem_Click);
+            this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.btnAdd,
+            this.btnEdit,
+            this.toolStripMenuItem1,
+            this.btnXuatVien,
+            this.btnChuyenTuyen});
+            this.contextMenuStrip1.Name = "contextMenuStrip1";
+            this.contextMenuStrip1.Size = new System.Drawing.Size(149, 98);
+            // 
+            // btnAdd
+            // 
+            this.btnAdd.Name = "btnAdd";
+            this.btnAdd.Size = new System.Drawing.Size(148, 22);
+            this.btnAdd.Text = "Thêm người";
+            this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
+            // 
+            // btnEdit
+            // 
+            this.btnEdit.Name = "btnEdit";
+            this.btnEdit.Size = new System.Drawing.Size(148, 22);
+            this.btnEdit.Text = "Sửa thông tin";
+            this.btnEdit.Click += new System.EventHandler(this.btnEdit_Click);
+            // 
+            // toolStripMenuItem1
+            // 
+            this.toolStripMenuItem1.Name = "toolStripMenuItem1";
+            this.toolStripMenuItem1.Size = new System.Drawing.Size(145, 6);
+            // 
+            // btnXuatVien
+            // 
+            this.btnXuatVien.Name = "btnXuatVien";
+            this.btnXuatVien.Size = new System.Drawing.Size(148, 22);
+            this.btnXuatVien.Text = "Xuất viện";
+            this.btnXuatVien.Click += new System.EventHandler(this.btnXuatVien_Click);
+            // 
+            // btnChuyenTuyen
+            // 
+            this.btnChuyenTuyen.Name = "btnChuyenTuyen";
+            this.btnChuyenTuyen.Size = new System.Drawing.Size(148, 22);
+            this.btnChuyenTuyen.Text = "Chuyển tuyến";
+            this.btnChuyenTuyen.Click += new System.EventHandler(this.btnChuyenTuyen_Click);
             // 
             // fFloorManager
             // 
@@ -412,9 +395,9 @@ namespace project_quan_ly_giuong_benh
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.panel1.ResumeLayout(false);
-            this.panel4.ResumeLayout(false);
             this.panel3.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
+            this.contextMenuStrip1.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -433,11 +416,6 @@ namespace project_quan_ly_giuong_benh
         private System.Windows.Forms.ToolStripMenuItem trợGiúpToolStripMenuItem;
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Panel panel4;
-        private System.Windows.Forms.Button BtnChuyenTuyen;
-        private System.Windows.Forms.Button btnXuatVien;
-        private System.Windows.Forms.Button btnEdit;
-        private System.Windows.Forms.Button btnAdd;
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.ComboBox cboPhong;
         private System.Windows.Forms.ComboBox cboTang;
@@ -453,5 +431,11 @@ namespace project_quan_ly_giuong_benh
         private System.Windows.Forms.ColumnHeader ngayXetNghiemL2;
         private System.Windows.Forms.Button btnMap;
         private System.Windows.Forms.ToolStripMenuItem aboutToolStripMenuItem;
+        private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
+        private System.Windows.Forms.ToolStripMenuItem btnAdd;
+        private System.Windows.Forms.ToolStripMenuItem btnEdit;
+        private System.Windows.Forms.ToolStripSeparator toolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem btnXuatVien;
+        private System.Windows.Forms.ToolStripMenuItem btnChuyenTuyen;
     }
 }

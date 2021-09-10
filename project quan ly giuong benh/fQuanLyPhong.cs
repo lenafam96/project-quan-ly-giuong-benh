@@ -90,25 +90,32 @@ namespace project_quan_ly_giuong_benh
         private void chkThuong_CheckedChanged(object sender, EventArgs e)
         {
             if (chkThuong.Checked)
-                chkCapCuu.Checked = chkSuaChua.Checked = chkBusy.Checked = false;
+                chkCapCuu.Checked = chkSuaChua.Checked = chkBusy.Checked = chkKhoa.Checked = false;
         }
 
         private void chkCapCuu_CheckedChanged(object sender, EventArgs e)
         {
             if (chkCapCuu.Checked)
-                chkThuong.Checked = chkSuaChua.Checked = chkBusy.Checked = false;
+                chkThuong.Checked = chkSuaChua.Checked = chkBusy.Checked = chkKhoa.Checked = false;
         }
 
         private void chkSuaChua_CheckedChanged(object sender, EventArgs e)
         {
             if (chkSuaChua.Checked)
-                chkCapCuu.Checked = chkThuong.Checked = chkBusy.Checked = false;
+                chkCapCuu.Checked = chkThuong.Checked = chkBusy.Checked = chkKhoa.Checked = false;
         }
 
         private void chkBusy_CheckedChanged(object sender, EventArgs e)
         {
             if (chkBusy.Checked)
-                chkSuaChua.Checked = chkCapCuu.Checked = chkThuong.Checked = false;
+                chkSuaChua.Checked = chkCapCuu.Checked = chkThuong.Checked = chkKhoa.Checked = false;
+        }
+
+
+        private void chkKhoa_CheckedChanged(object sender, EventArgs e)
+        {
+            if (chkKhoa.Checked)
+                chkSuaChua.Checked = chkCapCuu.Checked = chkThuong.Checked = chkBusy.Checked = false;
         }
 
         private void btnTatCa_Click(object sender, EventArgs e)
@@ -135,10 +142,10 @@ namespace project_quan_ly_giuong_benh
             dtgvRoom.Columns[5].Tag = 3;
         }
 
-        private void btnPhongSapKhoi_Click(object sender, EventArgs e)
+        private void btnKhoa_Click(object sender, EventArgs e)
         {
-            LoadRoomByStatus(2);
-            dtgvRoom.Columns[5].Tag = 2;
+            LoadRoomByStatus(6);
+            dtgvRoom.Columns[6].Tag = 5;
         }
 
         private void btnDangSua_Click(object sender, EventArgs e)
@@ -162,6 +169,7 @@ namespace project_quan_ly_giuong_benh
             if (chkCapCuu.Checked) status = 3;
             else if (chkSuaChua.Checked) status = 4;
             else if (chkBusy.Checked) status = 5;
+            else if (chkKhoa.Checked) status = 6;
             Floor floor = cboTang.Tag as Floor;
             if (ten != "" && !checkName(ten) && int.TryParse(ten,out soPhong))
                 if(RoomDAO.Instance.InsertRoom(ten, floor.ID, max, status))
@@ -206,9 +214,11 @@ namespace project_quan_ly_giuong_benh
                 status = 4;
             if (chkBusy.Checked == true)
                 status = 5;
+            if (chkKhoa.Checked == true)
+                status = 6;
             //push to database
             if (txbTenPhong.Text != "" && int.TryParse(txbTenPhong.Text,out soPhong))
-                if (status == 4 && member > 0)
+                if ((status == 4 || status == 6) && member > 0)
                     MessageBox.Show("Chưa chuyển hết bệnh nhân đi!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 else
                     if (RoomDAO.Instance.UpdateRoomInfo(id, txbTenPhong.Text, floorNew.ID, (int)maxMember.Value, status))
@@ -260,6 +270,8 @@ namespace project_quan_ly_giuong_benh
                 chkSuaChua.Checked = true;
             else if (status == "Bận")
                 chkBusy.Checked = true;
+            else if (status == "Khoá")
+                chkKhoa.Checked = true;
             else 
                 chkThuong.Checked = true;
         }
