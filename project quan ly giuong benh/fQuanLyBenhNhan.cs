@@ -414,11 +414,18 @@ namespace project_quan_ly_giuong_benh
                     return dtgvChuyenTuyen;
                 case 3:
                     return dtgvBack;
+                case 4:
+                    return dtgvInput;
                 case 5:
                     return dtgvXN;
                 default:
                     return dtgvMember;
             }
+        }
+        private void LoadRowsSelected()
+        {
+            int count = SwitchDtgv().SelectedCells.Cast<DataGridViewCell>().Select(c => c.RowIndex).Distinct().Count();
+            lbSelected.Text = "|   Đã chọn " + count + " bệnh nhân";
         }
 
         private void LoadTotalMember()
@@ -1068,9 +1075,10 @@ namespace project_quan_ly_giuong_benh
 
         private void btnDelPerson_Click(object sender, EventArgs e)
         {
+            int count = SwitchDtgv().SelectedCells.Cast<DataGridViewCell>().Select(c => c.RowIndex).Distinct().Count();
             HashSet<Member> listMember = GetSelectedMember();
             if (listMember.Count > 0)
-                if(MessageBox.Show("Xác nhận xoá những bệnh nhân này?", "Thông báo", MessageBoxButtons.OKCancel, MessageBoxIcon.Question) == System.Windows.Forms.DialogResult.OK)
+                if(MessageBox.Show("Xác nhận xoá " + count + " bệnh nhân?", "Thông báo", MessageBoxButtons.OKCancel, MessageBoxIcon.Question) == System.Windows.Forms.DialogResult.OK)
                     foreach (Member item in listMember)
                         MemberDAO.Instance.UpdateStatus(item.ID, -1);
             LoadMemberListDangDieuTri();
@@ -1186,9 +1194,10 @@ namespace project_quan_ly_giuong_benh
 
         private void btnBack_Click(object sender, EventArgs e)
         {
+            int count = SwitchDtgv().SelectedCells.Cast<DataGridViewCell>().Select(c => c.RowIndex).Distinct().Count();
             HashSet<Member> listMember = GetSelectedMember();
             if (listMember.Count > 0)
-                if (MessageBox.Show("Xác nhận chuyển những bệnh nhân này trở lại viện?", "Thông báo", MessageBoxButtons.OKCancel, MessageBoxIcon.Question) == System.Windows.Forms.DialogResult.OK)
+                if (MessageBox.Show("Xác nhận chuyển " + count + " bệnh nhân trở lại viện?", "Thông báo", MessageBoxButtons.OKCancel, MessageBoxIcon.Question) == System.Windows.Forms.DialogResult.OK)
                     foreach (Member item in listMember)
                         MemberDAO.Instance.UpdateStatus(item.ID, 0);
             LoadMemberListDangDieuTri();
@@ -1310,25 +1319,27 @@ namespace project_quan_ly_giuong_benh
 
         private void chuyểnTuyếnToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            int count = SwitchDtgv().SelectedCells.Cast<DataGridViewCell>().Select(c => c.RowIndex).Distinct().Count();
             HashSet<Member> listMember = GetSelectedMember();
             if (listMember.Count > 0)
                 foreach (Member item in listMember)
                 {
                     MemberDAO.Instance.UpdateStatus(item.ID, 2);
                 }    
-            MessageBox.Show("Chuyển tuyến thành công!", "Thông báo", MessageBoxButtons.OK);
+            MessageBox.Show("Đã cho " + count + " bệnh nhân chuyển tuyến thành công!", "Thông báo", MessageBoxButtons.OK);
             LoadMemberListDangDieuTri();
         }
 
         private void xuấtViệnToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            int count = SwitchDtgv().SelectedCells.Cast<DataGridViewCell>().Select(c => c.RowIndex).Distinct().Count();
             HashSet<Member> listMember = GetSelectedMember();
             if (listMember.Count > 0)
                 foreach (Member item in listMember)
                 {
                     MemberDAO.Instance.UpdateStatus(item.ID, 1);
                 }
-            MessageBox.Show("Xuất viện thành công!", "Thông báo", MessageBoxButtons.OK);
+            MessageBox.Show("Đã cho " + count + " bệnh nhân xuất viện thành công!", "Thông báo", MessageBoxButtons.OK);
             LoadMemberListDangDieuTri();
         }
 
@@ -1388,6 +1399,11 @@ namespace project_quan_ly_giuong_benh
             var headerBounds = new Rectangle(e.RowBounds.Left, e.RowBounds.Top, grid.RowHeadersWidth, e.RowBounds.Height);
             e.Graphics.DrawString(rowIdx, this.Font, SystemBrushes.ControlText, headerBounds, centerFormat);
 
+        }
+
+        private void dtgvMember_SelectionChanged(object sender, EventArgs e)
+        {
+            LoadRowsSelected();
         }
 
 

@@ -76,6 +76,7 @@ namespace project_quan_ly_giuong_benh
             this.lbTotalPage = new System.Windows.Forms.Label();
             this.nUDPageRows = new System.Windows.Forms.NumericUpDown();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
+            this.lbSelected = new System.Windows.Forms.Label();
             this.TabControl.SuspendLayout();
             this.contextMenuStrip1.SuspendLayout();
             this.tpDangDieuTri.SuspendLayout();
@@ -239,6 +240,7 @@ namespace project_quan_ly_giuong_benh
             this.dtgvMember.SortStringChanged += new System.EventHandler(this.dtgvMember_SortStringChanged);
             this.dtgvMember.FilterStringChanged += new System.EventHandler(this.dtgvMember_FilterStringChanged);
             this.dtgvMember.RowPostPaint += new System.Windows.Forms.DataGridViewRowPostPaintEventHandler(this.dtgvMember_RowPostPaint);
+            this.dtgvMember.SelectionChanged += new System.EventHandler(this.dtgvMember_SelectionChanged);
             // 
             // tpDaXuatVien
             // 
@@ -267,6 +269,7 @@ namespace project_quan_ly_giuong_benh
             this.dtgvXuatVien.FilterStringChanged += new System.EventHandler(this.dtgvXuatVien_FilterStringChanged);
             this.dtgvXuatVien.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtgvXuatVien_CellEndEdit);
             this.dtgvXuatVien.RowPostPaint += new System.Windows.Forms.DataGridViewRowPostPaintEventHandler(this.dtgvMember_RowPostPaint);
+            this.dtgvXuatVien.SelectionChanged += new System.EventHandler(this.dtgvMember_SelectionChanged);
             // 
             // tpDaChuyenTuyen
             // 
@@ -296,6 +299,7 @@ namespace project_quan_ly_giuong_benh
             this.dtgvChuyenTuyen.FilterStringChanged += new System.EventHandler(this.dtgvChuyenTuyen_FilterStringChanged);
             this.dtgvChuyenTuyen.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtgvChuyenTuyen_CellEndEdit);
             this.dtgvChuyenTuyen.RowPostPaint += new System.Windows.Forms.DataGridViewRowPostPaintEventHandler(this.dtgvMember_RowPostPaint);
+            this.dtgvChuyenTuyen.SelectionChanged += new System.EventHandler(this.dtgvMember_SelectionChanged);
             // 
             // tpDanhSachBack
             // 
@@ -325,6 +329,7 @@ namespace project_quan_ly_giuong_benh
             this.dtgvBack.SortStringChanged += new System.EventHandler(this.dtgvBack_SortStringChanged);
             this.dtgvBack.FilterStringChanged += new System.EventHandler(this.dtgvBack_FilterStringChanged);
             this.dtgvBack.RowPostPaint += new System.Windows.Forms.DataGridViewRowPostPaintEventHandler(this.dtgvMember_RowPostPaint);
+            this.dtgvBack.SelectionChanged += new System.EventHandler(this.dtgvMember_SelectionChanged);
             // 
             // tpNhapBenhNhanTuFile
             // 
@@ -350,6 +355,7 @@ namespace project_quan_ly_giuong_benh
             this.dtgvInput.TabIndex = 24;
             this.dtgvInput.TimeFilter = false;
             this.dtgvInput.RowPostPaint += new System.Windows.Forms.DataGridViewRowPostPaintEventHandler(this.dtgvMember_RowPostPaint);
+            this.dtgvInput.SelectionChanged += new System.EventHandler(this.dtgvMember_SelectionChanged);
             this.dtgvInput.PreviewKeyDown += new System.Windows.Forms.PreviewKeyDownEventHandler(this.dtgvInput_PreviewKeyDown);
             // 
             // tpDSXN
@@ -380,6 +386,7 @@ namespace project_quan_ly_giuong_benh
             this.dtgvXN.SortStringChanged += new System.EventHandler(this.dtgvXN_SortStringChanged);
             this.dtgvXN.FilterStringChanged += new System.EventHandler(this.dtgvXN_FilterStringChanged);
             this.dtgvXN.RowPostPaint += new System.Windows.Forms.DataGridViewRowPostPaintEventHandler(this.dtgvMember_RowPostPaint);
+            this.dtgvXN.SelectionChanged += new System.EventHandler(this.dtgvMember_SelectionChanged);
             // 
             // saveFileDialog1
             // 
@@ -472,7 +479,7 @@ namespace project_quan_ly_giuong_benh
             // 
             this.lbTongSoBN.AutoSize = true;
             this.lbTongSoBN.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.25F);
-            this.lbTongSoBN.Location = new System.Drawing.Point(225, 644);
+            this.lbTongSoBN.Location = new System.Drawing.Point(223, 645);
             this.lbTongSoBN.Name = "lbTongSoBN";
             this.lbTongSoBN.Size = new System.Drawing.Size(79, 20);
             this.lbTongSoBN.TabIndex = 4;
@@ -558,7 +565,7 @@ namespace project_quan_ly_giuong_benh
             0,
             0,
             0});
-            this.nUDPageRows.Location = new System.Drawing.Point(149, 642);
+            this.nUDPageRows.Location = new System.Drawing.Point(150, 644);
             this.nUDPageRows.Maximum = new decimal(new int[] {
             1500,
             0,
@@ -586,11 +593,21 @@ namespace project_quan_ly_giuong_benh
             this.openFileDialog1.FileName = "openFileDialog1";
             this.openFileDialog1.Filter = "Excel Document| *.xls;*.xlsx";
             // 
+            // lbSelected
+            // 
+            this.lbSelected.AutoSize = true;
+            this.lbSelected.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.25F);
+            this.lbSelected.Location = new System.Drawing.Point(338, 645);
+            this.lbSelected.Name = "lbSelected";
+            this.lbSelected.Size = new System.Drawing.Size(0, 20);
+            this.lbSelected.TabIndex = 4;
+            // 
             // fQuanLyBenhNhan
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1518, 673);
+            this.Controls.Add(this.lbSelected);
             this.Controls.Add(this.lbTongSoBN);
             this.Controls.Add(this.nUDPageRows);
             this.Controls.Add(this.lbTotalPage);
@@ -679,5 +696,6 @@ namespace project_quan_ly_giuong_benh
         private System.Windows.Forms.ToolStripMenuItem cậpNhậtBảngTínhToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem copyToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem pasteToolStripMenuItem;
+        private System.Windows.Forms.Label lbSelected;
     }
 }
