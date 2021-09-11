@@ -238,6 +238,7 @@ namespace project_quan_ly_giuong_benh
             this.dtgvMember.TimeFilter = false;
             this.dtgvMember.SortStringChanged += new System.EventHandler(this.dtgvMember_SortStringChanged);
             this.dtgvMember.FilterStringChanged += new System.EventHandler(this.dtgvMember_FilterStringChanged);
+            this.dtgvMember.RowPostPaint += new System.Windows.Forms.DataGridViewRowPostPaintEventHandler(this.dtgvMember_RowPostPaint);
             // 
             // tpDaXuatVien
             // 
@@ -265,6 +266,7 @@ namespace project_quan_ly_giuong_benh
             this.dtgvXuatVien.SortStringChanged += new System.EventHandler(this.dtgvXuatVien_SortStringChanged);
             this.dtgvXuatVien.FilterStringChanged += new System.EventHandler(this.dtgvXuatVien_FilterStringChanged);
             this.dtgvXuatVien.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtgvXuatVien_CellEndEdit);
+            this.dtgvXuatVien.RowPostPaint += new System.Windows.Forms.DataGridViewRowPostPaintEventHandler(this.dtgvMember_RowPostPaint);
             // 
             // tpDaChuyenTuyen
             // 
@@ -293,6 +295,7 @@ namespace project_quan_ly_giuong_benh
             this.dtgvChuyenTuyen.SortStringChanged += new System.EventHandler(this.dtgvChuyenTuyen_SortStringChanged);
             this.dtgvChuyenTuyen.FilterStringChanged += new System.EventHandler(this.dtgvChuyenTuyen_FilterStringChanged);
             this.dtgvChuyenTuyen.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtgvChuyenTuyen_CellEndEdit);
+            this.dtgvChuyenTuyen.RowPostPaint += new System.Windows.Forms.DataGridViewRowPostPaintEventHandler(this.dtgvMember_RowPostPaint);
             // 
             // tpDanhSachBack
             // 
@@ -321,6 +324,7 @@ namespace project_quan_ly_giuong_benh
             this.dtgvBack.TimeFilter = false;
             this.dtgvBack.SortStringChanged += new System.EventHandler(this.dtgvBack_SortStringChanged);
             this.dtgvBack.FilterStringChanged += new System.EventHandler(this.dtgvBack_FilterStringChanged);
+            this.dtgvBack.RowPostPaint += new System.Windows.Forms.DataGridViewRowPostPaintEventHandler(this.dtgvMember_RowPostPaint);
             // 
             // tpNhapBenhNhanTuFile
             // 
@@ -345,6 +349,7 @@ namespace project_quan_ly_giuong_benh
             this.dtgvInput.Size = new System.Drawing.Size(1507, 565);
             this.dtgvInput.TabIndex = 24;
             this.dtgvInput.TimeFilter = false;
+            this.dtgvInput.RowPostPaint += new System.Windows.Forms.DataGridViewRowPostPaintEventHandler(this.dtgvMember_RowPostPaint);
             this.dtgvInput.PreviewKeyDown += new System.Windows.Forms.PreviewKeyDownEventHandler(this.dtgvInput_PreviewKeyDown);
             // 
             // tpDSXN
@@ -374,6 +379,7 @@ namespace project_quan_ly_giuong_benh
             this.dtgvXN.TimeFilter = false;
             this.dtgvXN.SortStringChanged += new System.EventHandler(this.dtgvXN_SortStringChanged);
             this.dtgvXN.FilterStringChanged += new System.EventHandler(this.dtgvXN_FilterStringChanged);
+            this.dtgvXN.RowPostPaint += new System.Windows.Forms.DataGridViewRowPostPaintEventHandler(this.dtgvMember_RowPostPaint);
             // 
             // saveFileDialog1
             // 

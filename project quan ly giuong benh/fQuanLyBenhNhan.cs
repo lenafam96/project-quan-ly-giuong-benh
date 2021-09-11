@@ -170,8 +170,7 @@ namespace project_quan_ly_giuong_benh
 
         private void FormatColumnDangDieuTri()
         {
-            dtgvMember.Columns[0].HeaderText = "STT";
-            dtgvMember.Columns[0].Width = 30;
+            dtgvMember.Columns[0].Visible = false;
             dtgvMember.Columns[1].HeaderText = "Phòng";
             dtgvMember.Columns[1].Width = 40;
             dtgvMember.Columns[2].HeaderText = "Mã BN\n(nếu có)";
@@ -208,7 +207,7 @@ namespace project_quan_ly_giuong_benh
             dtgvMember.Columns[16].Width = 80;
             dtgvMember.Columns[17].HeaderText = "Phân loại";
             dtgvMember.Columns[17].Width = 40;
-            int[] arr = { 0, 1, 2, 4, 5, 6, 7, 11, 12, 13, 16, 17 };
+            int[] arr = { 1, 2, 4, 5, 6, 7, 11, 12, 13, 16, 17 };
             foreach (int i in arr)
             {
                 dtgvMember.Columns[i].CellTemplate.Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
@@ -216,8 +215,7 @@ namespace project_quan_ly_giuong_benh
         }
         private void FormatColumnXuatVien()
         {
-            dtgvXuatVien.Columns[0].HeaderText = "STT";
-            dtgvXuatVien.Columns[0].Width = 30;
+            dtgvXuatVien.Columns[0].Visible = false;
             dtgvXuatVien.Columns[1].HeaderText = "PHÒNG";
             dtgvXuatVien.Columns[1].Width = 40;
             dtgvXuatVien.Columns[2].HeaderText = "Mã BN\n(nếu có)";
@@ -257,7 +255,7 @@ namespace project_quan_ly_giuong_benh
             dtgvXuatVien.Columns[17].Width = 80;
             dtgvXuatVien.Columns[18].HeaderText = "CT\nVALUE\n≥30";
             dtgvXuatVien.Columns[18].Width = 80;
-            int[] arr = { 0, 1, 2, 3, 5, 6, 7, 10, 11, 12, 13, 14, 15, 16, 17, 18 };
+            int[] arr = { 1, 2, 3, 5, 6, 7, 10, 11, 12, 13, 14, 15, 16, 17, 18 };
             foreach (int i in arr)
             {
                 dtgvXuatVien.Columns[i].CellTemplate.Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
@@ -265,8 +263,7 @@ namespace project_quan_ly_giuong_benh
         }
         private void FormatColumnChuyenTuyen()
         {
-            dtgvChuyenTuyen.Columns[0].HeaderText = "STT";
-            dtgvChuyenTuyen.Columns[0].Width = 30;
+            dtgvChuyenTuyen.Columns[0].Visible = false;
             dtgvChuyenTuyen.Columns[1].HeaderText = "Phòng";
             dtgvChuyenTuyen.Columns[1].Width = 40;
             dtgvChuyenTuyen.Columns[2].HeaderText = "Mã BN\n(nếu có)";
@@ -302,7 +299,7 @@ namespace project_quan_ly_giuong_benh
             dtgvChuyenTuyen.Columns[15].Width = 40;
             dtgvChuyenTuyen.Columns[16].HeaderText = "Chuyển đến";
             dtgvChuyenTuyen.Columns[16].Width = 100;
-            int[] arr = { 0, 1, 2, 4, 5, 6, 7, 11, 12, 13, 14, 15 };
+            int[] arr = { 1, 2, 4, 5, 6, 7, 11, 12, 13, 14, 15 };
             foreach (int i in arr)
             {
                 dtgvChuyenTuyen.Columns[i].CellTemplate.Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
@@ -310,8 +307,7 @@ namespace project_quan_ly_giuong_benh
         }
         private void FormatColumnQuayLai()
         {
-            dtgvBack.Columns[0].HeaderText = "STT";
-            dtgvBack.Columns[0].Width = 30;
+            dtgvBack.Columns[0].Visible = false;
             dtgvBack.Columns[1].HeaderText = "Phòng";
             dtgvBack.Columns[1].Width = 40;
             dtgvBack.Columns[2].HeaderText = "Mã BN\n(nếu có)";
@@ -341,7 +337,7 @@ namespace project_quan_ly_giuong_benh
             dtgvBack.Columns[13].Width = 40;
             dtgvBack.Columns[14].HeaderText = "Phân loại";
             dtgvBack.Columns[14].Width = 40;
-            int[] arr = { 0, 1, 2, 4, 5, 6, 7, 11, 12, 13, 14 };
+            int[] arr = { 1, 2, 4, 5, 6, 7, 11, 12, 13, 14 };
             foreach (int i in arr)
             {
                 dtgvBack.Columns[i].CellTemplate.Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
@@ -349,8 +345,7 @@ namespace project_quan_ly_giuong_benh
         }
         private void FormatColumnXetNghiem()
         {
-            dtgvXN.Columns[0].HeaderText = "STT";
-            dtgvXN.Columns[0].Width = 30;
+            dtgvXN.Columns[0].Visible = false;
             dtgvXN.Columns[1].HeaderText = "Phòng";
             dtgvXN.Columns[1].Width = 40;
             dtgvXN.Columns[2].HeaderText = "Mã BN\n(nếu có)";
@@ -381,7 +376,7 @@ namespace project_quan_ly_giuong_benh
             dtgvXN.Columns[13].Width = 80;
             dtgvXN.Columns[14].HeaderText = "Loại xét nghiệm";
             dtgvXN.Columns[14].Width = 80;
-            int[] arr = { 0, 1, 2, 4, 5, 6, 7, 11, 12, 13, 14 };
+            int[] arr = { 1, 2, 4, 5, 6, 7, 11, 12, 13, 14 };
             foreach (int i in arr)
             {
                 dtgvXN.Columns[i].CellTemplate.Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
@@ -440,8 +435,10 @@ namespace project_quan_ly_giuong_benh
 
         void LoadSTT()
         {
+            /*
             for (int i = 0; i < SwitchDtgv().RowCount; i++)
                 SwitchDtgv().Rows[i].Cells[0].Value = i + 1;
+            */
         }
 
         private void LoadMemberListDangDieuTri()
@@ -1374,6 +1371,27 @@ namespace project_quan_ly_giuong_benh
         {
             Clipboard.SetText(SwitchDtgv().SelectedCells[0].Value.ToString() != ""?SwitchDtgv().SelectedCells[0].Value.ToString():" ");
         }
+
+
+        private void dtgvMember_RowPostPaint(object sender, DataGridViewRowPostPaintEventArgs e)
+        {
+            var grid = sender as DataGridView;
+            var rowIdx = (e.RowIndex + 1).ToString();
+
+            var centerFormat = new StringFormat()
+            {
+                // right alignment might actually make more sense for numbers
+                Alignment = StringAlignment.Center,
+                LineAlignment = StringAlignment.Center
+            };
+
+            var headerBounds = new Rectangle(e.RowBounds.Left, e.RowBounds.Top, grid.RowHeadersWidth, e.RowBounds.Height);
+            e.Graphics.DrawString(rowIdx, this.Font, SystemBrushes.ControlText, headerBounds, centerFormat);
+
+        }
+
+
+
         #endregion
 
 

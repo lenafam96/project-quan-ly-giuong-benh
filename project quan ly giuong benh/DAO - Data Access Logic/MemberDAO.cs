@@ -86,7 +86,7 @@ quanHuyen , tinhThanh , sdt , cccd , noiChuyen , khoa , ngayNhapVien , tenNguoiT
 
         public bool UpdateStatus(int id, int status)
         {
-            int count = DataProvider.Instance.ExecuteNonQuery("EXEC dbo.USP_UpdateStatusMember @id , @trangThai", new object[] { id, status });
+            int count = DataProvider.Instance.ExecuteNonQuery("EXEC dbo.USP_UpdateStatusMember @id , @trangThai ", new object[] { id, status });
             return count > 0;
         }
 
