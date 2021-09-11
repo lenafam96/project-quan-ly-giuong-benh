@@ -15,7 +15,10 @@ namespace project_quan_ly_giuong_benh
     public partial class fFloorManager : Form
     {
         private Account loginAccount;
-
+        private fMapBlock FMapBlock;
+        private fQuanLyPhong FQuanLyPhong;
+        private fQuanLyBenhNhan FQuanLyBenhNhan;
+        private fReportThongKe FReportThongKe;
         public Account LoginAccount 
         { 
             get => loginAccount; 
@@ -293,8 +296,10 @@ namespace project_quan_ly_giuong_benh
 
         private void btnMap_click(object sender, EventArgs e)
         {
-            fMapBlock f = new fMapBlock();
-            f.ShowDialog();
+            if(FMapBlock == null)
+                FMapBlock = new fMapBlock();
+            FMapBlock.Show();
+            FMapBlock.Activate();
         }
 
         private void btnChangeRoom_Click(object sender, EventArgs e)
@@ -411,8 +416,10 @@ namespace project_quan_ly_giuong_benh
 
         private void quảnLýPhòngToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            fQuanLyPhong f = new fQuanLyPhong();
-            f.ShowDialog();
+            if (FQuanLyPhong == null)
+                FQuanLyPhong = new fQuanLyPhong();
+            FQuanLyPhong.Show();
+            FQuanLyPhong.Activate();
             Room room = lsvChiaPhong.Tag as Room;
             ChoseRoomForLoad(room);
             LoadFloor();
@@ -422,8 +429,10 @@ namespace project_quan_ly_giuong_benh
 
         private void quảnLýBệnhNhânToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            fQuanLyBenhNhan f = new fQuanLyBenhNhan();
-            f.ShowDialog();
+            if (FQuanLyBenhNhan == null)
+                FQuanLyBenhNhan = new fQuanLyBenhNhan();
+            FQuanLyBenhNhan.Show();
+            FQuanLyBenhNhan.Activate();
             Room room = lsvChiaPhong.Tag as Room;
             ChoseRoomForLoad(room);
             showMember(room.ID);
@@ -438,8 +447,10 @@ namespace project_quan_ly_giuong_benh
 
         private void btnStatistic_Click(object sender, EventArgs e)
         {
-            fReportThongKe f = new fReportThongKe();
-            f.ShowDialog();
+            if(FReportThongKe == null)
+                FReportThongKe = new fReportThongKe();
+            FReportThongKe.Show();
+            FReportThongKe.Activate();
         }
 
         private void aboutToolStripMenuItem_Click(object sender, EventArgs e)
