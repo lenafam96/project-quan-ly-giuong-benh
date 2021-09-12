@@ -168,6 +168,109 @@ namespace project_quan_ly_giuong_benh
             }
         }
 
+        private void UpdateRow(DataGridViewRow row)
+        {
+            Member member = MemberDAO.Instance.GetMemberById((int)row.Cells[0].Value);
+            if(this.Status == 0)
+            {
+                row.Cells[1].Value = Convert.ToInt32(member.Phong);
+                row.Cells[2].Value = member.MaBN==null?"":member.MaBN;
+                row.Cells[3].Value = member.HT;
+                row.Cells[4].Value = Convert.ToInt32(member.NS);
+                row.Cells[5].Value = member.GT;
+                row.Cells[6].Value = member.DanToc;
+                row.Cells[7].Value = member.Sdt;
+                row.Cells[8].Value = member.DC+", Phường "+member.PX+", Quận "+member.QH;
+                row.Cells[9].Value = member.Cccd;
+                row.Cells[10].Value = member.NC;
+                row.Cells[11].Value = member.Khoa;
+                row.Cells[12].Value = Convert.ToDateTime(member.NNV);
+                if(member.NXN != null)
+                    row.Cells[13].Value = Convert.ToDateTime(member.NXN);
+                row.Cells[14].Value = member.HtNT;
+                row.Cells[15].Value = member.Mqh;
+                row.Cells[16].Value = member.SdtNT;
+                row.Cells[17].Value = member.PL;
+            }
+            if (this.Status == 1)
+            {
+                row.Cells[1].Value = Convert.ToInt32(member.Phong);
+                row.Cells[2].Value = member.MaBN == null ? "" : member.MaBN;
+                row.Cells[3].Value = member.SoLT == null || member.SoLT == "null" ? "" : member.SoLT;
+                row.Cells[4].Value = member.HT;
+                row.Cells[5].Value = Convert.ToInt32(member.NS);
+                row.Cells[6].Value = member.GT;
+                row.Cells[7].Value = member.DanToc;
+                row.Cells[8].Value = member.DC + ", Phường " + member.PX;
+                row.Cells[9].Value = "Quận " + member.QH;
+                row.Cells[10].Value = member.Sdt;
+                row.Cells[11].Value = member.Khoa;
+                row.Cells[12].Value = Convert.ToDateTime(member.NNV);
+                row.Cells[13].Value = Convert.ToDateTime(member.NXV);
+                row.Cells[14].Value = Convert.ToDateTime(member.NXV).Subtract(Convert.ToDateTime(member.NNV)).Days;
+                if (member.NXN != null)
+                    row.Cells[15].Value = Convert.ToDateTime(member.NXN);
+                row.Cells[16].Value = member.Ktxn==null?"": member.Ktxn;
+                row.Cells[17].Value = member.Kq==null?"": member.Kq;
+                row.Cells[18].Value = Convert.ToDouble(member.CtValue);
+            }
+            if(this.Status == 2)
+            {
+                row.Cells[1].Value = Convert.ToInt32(member.Phong);
+                row.Cells[2].Value = member.MaBN == null ? "" : member.MaBN;
+                row.Cells[3].Value = member.HT;
+                row.Cells[4].Value = Convert.ToInt32(member.NS);
+                row.Cells[5].Value = member.GT;
+                row.Cells[6].Value = member.DanToc;
+                row.Cells[7].Value = member.Sdt;
+                row.Cells[8].Value = member.DC + ", Phường " + member.PX + ", Quận " + member.QH;
+                row.Cells[9].Value = member.Cccd;
+                row.Cells[10].Value = member.NC;
+                row.Cells[11].Value = member.Khoa;
+                row.Cells[12].Value = Convert.ToDateTime(member.NNV);
+                row.Cells[13].Value = Convert.ToDateTime(member.NXV);
+                if (member.NXN != null)
+                    row.Cells[14].Value = Convert.ToDateTime(member.NXN);
+                row.Cells[15].Value = member.PL;
+                row.Cells[16].Value = member.NoiDen == null || member.NoiDen == "null" ? "" : member.NoiDen;
+            }
+            if(this.Status == 3)
+            {
+                row.Cells[1].Value = Convert.ToInt32(member.Phong);
+                row.Cells[2].Value = member.MaBN == null ? "" : member.MaBN;
+                row.Cells[3].Value = member.HT;
+                row.Cells[4].Value = Convert.ToInt32(member.NS);
+                row.Cells[5].Value = member.GT;
+                row.Cells[6].Value = member.DanToc;
+                row.Cells[7].Value = member.Sdt;
+                row.Cells[8].Value = member.DC + ", Phường " + member.PX + ", Quận " + member.QH;
+                row.Cells[9].Value = member.Cccd;
+                row.Cells[10].Value = member.NC;
+                row.Cells[11].Value = member.Khoa;
+                row.Cells[12].Value = Convert.ToDateTime(member.NXV);
+                row.Cells[14].Value = DateTime.Now.Subtract(Convert.ToDateTime(member.NXV)).Days;
+                row.Cells[14].Value = member.PL;
+            }
+            if(this.Status == 5)
+            {
+                row.Cells[1].Value = Convert.ToInt32(member.Phong);
+                row.Cells[2].Value = member.MaBN == null ? "" : member.MaBN;
+                row.Cells[3].Value = member.HT;
+                row.Cells[4].Value = Convert.ToInt32(member.NS);
+                row.Cells[5].Value = member.GT;
+                row.Cells[6].Value = member.DanToc;
+                row.Cells[7].Value = member.Sdt;
+                row.Cells[8].Value = member.DC + ", Phường " + member.PX + ", Quận " + member.QH;
+                row.Cells[9].Value = member.Cccd;
+                row.Cells[10].Value = member.NC;
+                row.Cells[11].Value = member.Khoa;
+                row.Cells[12].Value = Convert.ToDateTime(member.NNV);
+                if (member.NXN != null)
+                    row.Cells[13].Value = Convert.ToDateTime(member.NXN);
+            }
+        }
+
+
         private void FormatColumnDangDieuTri()
         {
             dtgvMember.Columns[0].Visible = false;
@@ -425,7 +528,10 @@ namespace project_quan_ly_giuong_benh
         private void LoadRowsSelected()
         {
             int count = SwitchDtgv().SelectedCells.Cast<DataGridViewCell>().Select(c => c.RowIndex).Distinct().Count();
-            lbSelected.Text = "|   Đã chọn " + count + " bệnh nhân";
+            if(count == 0)
+                lbSelected.Text = "";
+            else
+                lbSelected.Text = "|   Đã chọn " + count + " bệnh nhân";
         }
 
         private void LoadTotalMember()
@@ -440,17 +546,9 @@ namespace project_quan_ly_giuong_benh
                 lbTongSoBN.Text = "Tổng số: " + SwitchDtgv().RowCount + "/" + DataProvider.Instance.ExecuteQuery("SELECT id FROM dbo.BenhNhan WHERE trangThai = 0").Rows.Count.ToString();
         }
 
-        void LoadSTT()
-        {
-            /*
-            for (int i = 0; i < SwitchDtgv().RowCount; i++)
-                SwitchDtgv().Rows[i].Cells[0].Value = i + 1;
-            */
-        }
-
         private void LoadMemberListDangDieuTri()
         {
-            if(ListMemberEdit.Count > 0)
+            if (ListMemberEdit.Count > 0)
                 ListMemberEdit.Clear();
             int page = 1;
             int pageRow = (int)nUDPageRows.Value;
@@ -479,7 +577,7 @@ namespace project_quan_ly_giuong_benh
                         break;
                 }
             }
-            LoadSTT();
+            SwitchDtgv().ClearSelection();
             FormatColumn();
             EnableEIButton();
             LoadTotalMember();
@@ -1030,6 +1128,16 @@ namespace project_quan_ly_giuong_benh
             }
         }
 
+        private void RemoveRows(IEnumerable<int> listIndex)
+        {
+            List<int> listIndex1 = listIndex.ToList();
+            foreach (var item in listIndex1)
+            {
+                SwitchDtgv().Rows.RemoveAt(item);
+            }
+        }
+
+
         #endregion
 
 
@@ -1061,27 +1169,33 @@ namespace project_quan_ly_giuong_benh
                         break;
                     }
                 }
+                UpdateRow(SwitchDtgv().CurrentRow);
             }
-            LoadMemberListDangDieuTri();
         }
 
         private void btnFindPerson_Click(object sender, EventArgs e)
         {
             if (txbFindMember.Text != "")
+            {
                 SreachMemberByName(txbFindMember.Text);
+                LoadTotalMember();
+            }    
             else
                 LoadMemberListDangDieuTri();
         }
 
         private void btnDelPerson_Click(object sender, EventArgs e)
         {
-            int count = SwitchDtgv().SelectedCells.Cast<DataGridViewCell>().Select(c => c.RowIndex).Distinct().Count();
+            IEnumerable<int> listIndex = SwitchDtgv().SelectedCells.Cast<DataGridViewCell>().Select(c => c.RowIndex).Distinct();
             HashSet<Member> listMember = GetSelectedMember();
             if (listMember.Count > 0)
-                if(MessageBox.Show("Xác nhận xoá " + count + " bệnh nhân?", "Thông báo", MessageBoxButtons.OKCancel, MessageBoxIcon.Question) == System.Windows.Forms.DialogResult.OK)
+                if(MessageBox.Show("Xác nhận xoá " + listIndex.Count() + " bệnh nhân?", "Thông báo", MessageBoxButtons.OKCancel, MessageBoxIcon.Question) == System.Windows.Forms.DialogResult.OK)
+                {
                     foreach (Member item in listMember)
                         MemberDAO.Instance.UpdateStatus(item.ID, -1);
-            LoadMemberListDangDieuTri();
+                    RemoveRows(listIndex);
+
+                }
         }
 
         private void dtgvMember_FilterStringChanged(object sender, EventArgs e)
@@ -1199,13 +1313,15 @@ namespace project_quan_ly_giuong_benh
 
         private void btnBack_Click(object sender, EventArgs e)
         {
-            int count = SwitchDtgv().SelectedCells.Cast<DataGridViewCell>().Select(c => c.RowIndex).Distinct().Count();
+            IEnumerable<int> listIndex = SwitchDtgv().SelectedCells.Cast<DataGridViewCell>().Select(c => c.RowIndex).Distinct();
             HashSet<Member> listMember = GetSelectedMember();
             if (listMember.Count > 0)
-                if (MessageBox.Show("Xác nhận chuyển " + count + " bệnh nhân trở lại viện?", "Thông báo", MessageBoxButtons.OKCancel, MessageBoxIcon.Question) == System.Windows.Forms.DialogResult.OK)
+                if (MessageBox.Show("Xác nhận chuyển " + listIndex.Count() + " bệnh nhân trở lại viện?", "Thông báo", MessageBoxButtons.OKCancel, MessageBoxIcon.Question) == System.Windows.Forms.DialogResult.OK)
+                {
                     foreach (Member item in listMember)
                         MemberDAO.Instance.UpdateStatus(item.ID, 0);
-            LoadMemberListDangDieuTri();
+                    RemoveRows(listIndex);
+                }    
         }
 
         private void tabControl1_SelectedIndexChanged(object sender, EventArgs e)
@@ -1324,28 +1440,28 @@ namespace project_quan_ly_giuong_benh
 
         private void chuyểnTuyếnToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            int count = SwitchDtgv().SelectedCells.Cast<DataGridViewCell>().Select(c => c.RowIndex).Distinct().Count();
+            IEnumerable<int> listIndex = SwitchDtgv().SelectedCells.Cast<DataGridViewCell>().Select(c => c.RowIndex).Distinct();
             HashSet<Member> listMember = GetSelectedMember();
             if (listMember.Count > 0)
                 foreach (Member item in listMember)
                 {
                     MemberDAO.Instance.UpdateStatus(item.ID, 2);
                 }    
-            MessageBox.Show("Đã cho " + count + " bệnh nhân chuyển tuyến thành công!", "Thông báo", MessageBoxButtons.OK);
-            LoadMemberListDangDieuTri();
+            MessageBox.Show("Đã cho " + listIndex.Count() + " bệnh nhân chuyển tuyến thành công!", "Thông báo", MessageBoxButtons.OK);
+            RemoveRows(listIndex);
         }
 
         private void xuấtViệnToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            int count = SwitchDtgv().SelectedCells.Cast<DataGridViewCell>().Select(c => c.RowIndex).Distinct().Count();
+            IEnumerable<int> listIndex = SwitchDtgv().SelectedCells.Cast<DataGridViewCell>().Select(c => c.RowIndex).Distinct();
             HashSet<Member> listMember = GetSelectedMember();
             if (listMember.Count > 0)
                 foreach (Member item in listMember)
                 {
                     MemberDAO.Instance.UpdateStatus(item.ID, 1);
                 }
-            MessageBox.Show("Đã cho " + count + " bệnh nhân xuất viện thành công!", "Thông báo", MessageBoxButtons.OK);
-            LoadMemberListDangDieuTri();
+            MessageBox.Show("Đã cho " + listIndex.Count() + " bệnh nhân xuất viện thành công!", "Thông báo", MessageBoxButtons.OK);
+            RemoveRows(listIndex);
         }
 
 
@@ -1413,8 +1529,7 @@ namespace project_quan_ly_giuong_benh
 
 
 
+
         #endregion
-
-
     }
 }

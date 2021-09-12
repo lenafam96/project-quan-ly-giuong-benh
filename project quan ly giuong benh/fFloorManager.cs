@@ -29,14 +29,14 @@ namespace project_quan_ly_giuong_benh
         {
             InitializeComponent();
             this.LoginAccount = account;
+            Room room = RoomDAO.Instance.GetRoomById(58);
+            lsvChiaPhong.Tag = room;
             LoadFloor();
             //LoadRoom(1);
             LoadRoomCapCuu();
             //btnChangeRoom.Enabled = false;
-            Room room = RoomDAO.Instance.GetRoomById(58);
             showMember(room.ID);
             cboTang.Tag = room;
-            lsvChiaPhong.Tag = room;
             DataProvider.Instance.ExecuteQuery("EXECUTE USP_AutoUpdateNgayXetNghiem");
             btnAdd.Enabled = room.Member < room.Maximum;
         }
@@ -97,6 +97,7 @@ namespace project_quan_ly_giuong_benh
         {
             flpRoom.Controls.Clear();
             List<Room> roomList = RoomDAO.Instance.GetRoomListByStatus(3);
+            Room roomSelected = lsvChiaPhong.Tag as Room;
             foreach (Room item in roomList)
             {
                 Button btn = new Button() { Width = RoomDAO.RoomWidth, Height = RoomDAO.RoomHeight };
@@ -105,6 +106,12 @@ namespace project_quan_ly_giuong_benh
                 btn.Click += btnRoom_Click;
                 btn.Tag = item;
                 btn.BackColor = ColorTranslator.FromHtml("#A9D08E");
+                if(item.ID == roomSelected.ID)
+                {
+                    btn.FlatStyle = FlatStyle.Flat;
+                    btn.FlatAppearance.BorderColor = Color.Red;
+                    btn.FlatAppearance.BorderSize = 5;
+                }
                 flpRoom.Controls.Add(btn);
             }
         }
@@ -113,6 +120,7 @@ namespace project_quan_ly_giuong_benh
         {
             flpRoom.Controls.Clear();
             List<Room> roomList = RoomDAO.Instance.GetListRoomByIdFloor(id);
+            Room roomSelected = lsvChiaPhong.Tag as Room;
             foreach (Room item in roomList)
             {
                 if (item.Status == "Cấp cứu")
@@ -160,6 +168,12 @@ namespace project_quan_ly_giuong_benh
                     btn.BackColor = ColorTranslator.FromHtml("#00B0F0");
                 if (item.Status == "Khoá")
                     btn.BackColor = ColorTranslator.FromHtml("#FFFF00");
+                if (item.ID == roomSelected.ID)
+                {
+                    btn.FlatStyle = FlatStyle.Flat;
+                    btn.FlatAppearance.BorderColor = Color.Red;
+                    btn.FlatAppearance.BorderSize = 5;
+                }
                 flpRoom.Controls.Add(btn);
             }
             
@@ -256,6 +270,8 @@ namespace project_quan_ly_giuong_benh
             {
                 btnChangeRoom.Enabled = room.ID != roomNew.ID;
             }
+            Button btn = sender as Button;
+            
         }
 
         private void đăngXuấtToolStripMenuItem_Click(object sender, EventArgs e)
@@ -377,6 +393,7 @@ namespace project_quan_ly_giuong_benh
 
         private void btnXuatVien_Click(object sender, EventArgs e)
         {
+            Room room = lsvChiaPhong.Tag as Room;
             if (lsvChiaPhong.SelectedIndices.Count > 0)
             {
                 List<Member> listMember = GetSelectedMember();
@@ -384,12 +401,14 @@ namespace project_quan_ly_giuong_benh
                     if (MessageBox.Show("Xác nhận cho những bệnh nhân này xuất viện?", "Thông báo", MessageBoxButtons.OKCancel, MessageBoxIcon.Question) == System.Windows.Forms.DialogResult.OK)
                         foreach (Member item in listMember)
                             MemberDAO.Instance.UpdateStatus(item.ID, 1);
+                ChoseRoomForLoad(room);
+                showMember(room.ID);
             }
         }
 
         private void btnChuyenTuyen_Click(object sender, EventArgs e)
         {
-
+            Room room = lsvChiaPhong.Tag as Room;
             if (lsvChiaPhong.SelectedIndices.Count > 0)
             {
                 List<Member> listMember = GetSelectedMember();
@@ -397,6 +416,8 @@ namespace project_quan_ly_giuong_benh
                     if (MessageBox.Show("Xác nhận cho những bệnh nhân này xuất viện?", "Thông báo", MessageBoxButtons.OKCancel, MessageBoxIcon.Question) == System.Windows.Forms.DialogResult.OK)
                         foreach (Member item in listMember)
                             MemberDAO.Instance.UpdateStatus(item.ID, 2);
+                ChoseRoomForLoad(room);
+                showMember(room.ID);
             }
         }
 
