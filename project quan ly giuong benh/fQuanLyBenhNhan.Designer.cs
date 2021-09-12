@@ -597,7 +597,7 @@ namespace project_quan_ly_giuong_benh
             // 
             this.lbSelected.AutoSize = true;
             this.lbSelected.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.25F);
-            this.lbSelected.Location = new System.Drawing.Point(338, 645);
+            this.lbSelected.Location = new System.Drawing.Point(364, 645);
             this.lbSelected.Name = "lbSelected";
             this.lbSelected.Size = new System.Drawing.Size(0, 20);
             this.lbSelected.TabIndex = 4;

@@ -431,13 +431,13 @@ namespace project_quan_ly_giuong_benh
         private void LoadTotalMember()
         {
             if (this.Status == 0 || this.Status == 1 || this.Status == 2)
-                lbTongSoBN.Text = "Tổng số: " + DataProvider.Instance.ExecuteQuery("SELECT id FROM dbo.BenhNhan WHERE trangThai = " + this.Status).Rows.Count.ToString();
+                lbTongSoBN.Text = "Tổng số: " + SwitchDtgv().RowCount + "/" +DataProvider.Instance.ExecuteQuery("SELECT id FROM dbo.BenhNhan WHERE trangThai = " + this.Status).Rows.Count.ToString();
             if(this.Status == 3)
-                lbTongSoBN.Text = "Tổng số: " + DataProvider.Instance.ExecuteQuery("SELECT id FROM dbo.BenhNhan WHERE trangThai = 0 AND ngayXuatVien IS NOT NULL").Rows.Count.ToString();
+                lbTongSoBN.Text = "Tổng số: " + SwitchDtgv().RowCount + "/" + DataProvider.Instance.ExecuteQuery("SELECT id FROM dbo.BenhNhan WHERE trangThai = 0 AND ngayXuatVien IS NOT NULL").Rows.Count.ToString();
             if (this.Status == 4)
                 lbTongSoBN.Text = "Tổng số: " + dtgvInput.Rows.Count.ToString();
             if (this.Status == 5)
-                lbTongSoBN.Text = "Tổng số: " + DataProvider.Instance.ExecuteQuery("SELECT id FROM dbo.BenhNhan WHERE trangThai = 0").Rows.Count.ToString();
+                lbTongSoBN.Text = "Tổng số: " + SwitchDtgv().RowCount + "/" + DataProvider.Instance.ExecuteQuery("SELECT id FROM dbo.BenhNhan WHERE trangThai = 0").Rows.Count.ToString();
         }
 
         void LoadSTT()
@@ -1087,6 +1087,7 @@ namespace project_quan_ly_giuong_benh
         private void dtgvMember_FilterStringChanged(object sender, EventArgs e)
         {
             listDangDieuTri.Filter = SwitchDtgv().FilterString;
+            LoadTotalMember();
         }
 
         private void dtgvMember_SortStringChanged(object sender, EventArgs e)
@@ -1098,6 +1099,7 @@ namespace project_quan_ly_giuong_benh
         private void dtgvXuatVien_FilterStringChanged(object sender, EventArgs e)
         {
             listXuatVien.Filter = SwitchDtgv().FilterString;
+            LoadTotalMember();
         }
 
         private void dtgvXuatVien_SortStringChanged(object sender, EventArgs e)
@@ -1113,6 +1115,7 @@ namespace project_quan_ly_giuong_benh
         private void dtgvChuyenTuyen_FilterStringChanged(object sender, EventArgs e)
         {
             listChuyenTuyen.Filter = SwitchDtgv().FilterString;
+            LoadTotalMember();
         }
 
         private void dtgvXN_SortStringChanged(object sender, EventArgs e)
@@ -1123,6 +1126,7 @@ namespace project_quan_ly_giuong_benh
         private void dtgvXN_FilterStringChanged(object sender, EventArgs e)
         {
             listXetNghiem.Filter = SwitchDtgv().FilterString;
+            LoadTotalMember();
         }
 
 
@@ -1134,6 +1138,7 @@ namespace project_quan_ly_giuong_benh
         private void dtgvBack_FilterStringChanged(object sender, EventArgs e)
         {
             listBack.Filter = SwitchDtgv().FilterString;
+            LoadTotalMember();
         }
 
         private void btnThongKe_Click(object sender, EventArgs e)

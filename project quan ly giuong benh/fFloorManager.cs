@@ -296,7 +296,7 @@ namespace project_quan_ly_giuong_benh
 
         private void btnMap_click(object sender, EventArgs e)
         {
-            if(FMapBlock == null)
+            if(FMapBlock == null || FMapBlock.IsDisposed)
                 FMapBlock = new fMapBlock();
             FMapBlock.Show();
             FMapBlock.Activate();
@@ -416,10 +416,15 @@ namespace project_quan_ly_giuong_benh
 
         private void quảnLýPhòngToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            if (FQuanLyPhong == null)
+            if (FQuanLyPhong == null || FQuanLyPhong.IsDisposed)
                 FQuanLyPhong = new fQuanLyPhong();
             FQuanLyPhong.Show();
             FQuanLyPhong.Activate();
+            FQuanLyPhong.FormClosed += FQuanLyPhong_FormClosed;
+        }
+
+        private void FQuanLyPhong_FormClosed(object sender, FormClosedEventArgs e)
+        {
             Room room = lsvChiaPhong.Tag as Room;
             ChoseRoomForLoad(room);
             LoadFloor();
@@ -429,10 +434,16 @@ namespace project_quan_ly_giuong_benh
 
         private void quảnLýBệnhNhânToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            if (FQuanLyBenhNhan == null)
+            if (FQuanLyBenhNhan == null || FQuanLyBenhNhan.IsDisposed)
                 FQuanLyBenhNhan = new fQuanLyBenhNhan();
             FQuanLyBenhNhan.Show();
             FQuanLyBenhNhan.Activate();
+            FQuanLyBenhNhan.FormClosed += FQuanLyBenhNhan_FormClosed;
+            
+        }
+
+        private void FQuanLyBenhNhan_FormClosed(object sender, FormClosedEventArgs e)
+        {
             Room room = lsvChiaPhong.Tag as Room;
             ChoseRoomForLoad(room);
             showMember(room.ID);
@@ -447,7 +458,7 @@ namespace project_quan_ly_giuong_benh
 
         private void btnStatistic_Click(object sender, EventArgs e)
         {
-            if(FReportThongKe == null)
+            if(FReportThongKe == null || FReportThongKe.IsDisposed)
                 FReportThongKe = new fReportThongKe();
             FReportThongKe.Show();
             FReportThongKe.Activate();
