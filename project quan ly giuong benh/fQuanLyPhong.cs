@@ -145,7 +145,7 @@ namespace project_quan_ly_giuong_benh
         private void btnKhoa_Click(object sender, EventArgs e)
         {
             LoadRoomByStatus(6);
-            dtgvRoom.Columns[6].Tag = 5;
+            dtgvRoom.Columns[5].Tag = 6;
         }
 
         private void btnDangSua_Click(object sender, EventArgs e)

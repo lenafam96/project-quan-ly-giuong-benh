@@ -19,7 +19,7 @@ namespace project_quan_ly_giuong_benh
             string header ="Khoa E xin báo cáo ngày " + DateTime.Now.Day.ToString("d2") + "/" + DateTime.Now.Month.ToString("d2") + " lúc " + DateTime.Now.Hour.ToString() + "h" + DateTime.Now.Minute.ToString() + ":";
             int TongF0 = DataProvider.Instance.ExecuteQuery("SELECT id FROM dbo.BenhNhan WHERE trangThai = 0").Rows.Count;
             int TongNhapVien = DataProvider.Instance.ExecuteQuery("SELECT id FROM dbo.BenhNhan WHERE trangThai = 0 AND ngayNhapVien = GETDATE()").Rows.Count;
-            int TongCC = DataProvider.Instance.ExecuteQuery("SELECT id FROM dbo.BenhNhan WHERE trangThai = 0 AND idPhong IN (45,46,47)").Rows.Count;
+            int TongCC = DataProvider.Instance.ExecuteQuery("SELECT id FROM dbo.BenhNhan WHERE trangThai = 0 AND idPhong IN (58,59,60)").Rows.Count;
             int TongChuyenVien = DataProvider.Instance.ExecuteQuery("SELECT id FROM dbo.BenhNhan WHERE trangThai = 2 AND ngayXuatVien = GETDATE()").Rows.Count;
             txbReport.Text = header;
             txbReport.AppendText("\r\nTổng F0 hiện tại: " + TongF0);

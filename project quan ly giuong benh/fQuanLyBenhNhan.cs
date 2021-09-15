@@ -1421,7 +1421,7 @@ namespace project_quan_ly_giuong_benh
                         }
                         else
                         {
-                            MemberDAO.Instance.InsertMember(idPhong, maBN, ht, ns, gt, danToc, dc, phuongXa, qHuyen, tiTh, sdt, cccd, noiChuyen.Trim(' ', ',', '-'), "E", nnv, nxn, tenNT, mqh, sdtNT, 0);
+                            MemberDAO.Instance.InsertMember(idPhong, maBN, ht, ns, gt, danToc, dc, phuongXa, qHuyen, tiTh, sdt, cccd, noiChuyen.Trim(' ', ',', '-'), "E", nnv, nxn, tenNT, mqh, sdtNT, 1);
 
                         }
                         count++;
